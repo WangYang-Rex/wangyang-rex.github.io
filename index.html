@@ -166,7 +166,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -176,7 +176,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -229,6 +229,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/30/移动端适配方案/" itemprop="url">
+                  移动端适配方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-05-30T10:22:08+08:00" content="2016-05-30">
+              2016-05-30
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>目前很多流行的，html5要适应各种分辨率的移动设备，应该使用rem尺寸单位，各个分辨率范围在html上设置font-size.</p>
+<p>这里介绍我们项目组在用的适配方案：<br>页面加载的时候通过js计算出html的font-size。</p>
+<h3 id="计算和设计稿有关"><a href="#计算和设计稿有关" class="headerlink" title="计算和设计稿有关"></a>计算和设计稿有关</h3><p>拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deviceWidth = 320，font-size = 320 / 6.4 = 50px</span><br><span class="line">deviceWidth = 375，font-size = 375 / 6.4 = 58.59375px</span><br><span class="line">deviceWidth = 414，font-size = 414 / 6.4 = 64.6875px</span><br><span class="line">deviceWidth = 500，font-size = 500 / 6.4 = 78.125px</span><br></pre></td></tr></table></figure></p>
+<p>事实上网易就是这么干的，你看它的代码就知道，body元素的宽是：<br><img src="/images/page/adapter/1.png"></p>
+<p>根据这个可以肯定它的设计稿竖着时的横向分辨率为640。然后你再看看网易在分辨率为320<em>680，375</em>680，414<em>680，500</em>680时，html的font-size是不是与上面计算的一致：</p>
+<p><img src="/images/page/adapter/2.png"><br><img src="/images/page/adapter/3.png"><br><img src="/images/page/adapter/4.png"><br><img src="/images/page/adapter/5.png"></p>
+<p>贴上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(function (doc, win) &#123;</span><br><span class="line">    var docEl = doc.documentElement,</span><br><span class="line">            isIOS = navigator.userAgent.match(/iphone|ipod|ipad/gi),</span><br><span class="line">            dpr = isIOS? Math.min(win.devicePixelRatio, 3) : 1,</span><br><span class="line">            dpr = window.top === window.self? dpr : 1, //被iframe引用时，禁止缩放</span><br><span class="line">            dpr = 1, // 首页引用IFRAME，强制为1</span><br><span class="line">            scale = 1 / dpr,</span><br><span class="line">            resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;;</span><br><span class="line">    docEl.dataset.dpr = win.devicePixelRatio;</span><br><span class="line">    if(navigator.userAgent.match(/iphone/gi) &amp;&amp; screen.width == 375 &amp;&amp; win.devicePixelRatio == 2)&#123;</span><br><span class="line">        docEl.classList.add(&apos;iphone6&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    if(navigator.userAgent.match(/iphone/gi) &amp;&amp; screen.width == 414 &amp;&amp; win.devicePixelRatio == 3)&#123;</span><br><span class="line">        docEl.classList.add(&apos;iphone6p&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    var metaEl = doc.createElement(&apos;meta&apos;);</span><br><span class="line">    metaEl.name = &apos;viewport&apos;;</span><br><span class="line">    metaEl.content = &apos;initial-scale=&apos; + scale + &apos;,maximum-scale=&apos; + scale + &apos;, minimum-scale=&apos; + scale;</span><br><span class="line">    docEl.firstElementChild.appendChild(metaEl);</span><br><span class="line">    var recalc = function () &#123;</span><br><span class="line">        var width = docEl.clientWidth;</span><br><span class="line">        if (width / dpr &gt; 640) &#123;</span><br><span class="line">            //width = 640 * dpr;</span><br><span class="line">        &#125;</span><br><span class="line">        docEl.style.cssText  = &quot;font-size:&quot;+(40 * (width / 640)) + &apos;px!important&apos;;</span><br><span class="line">        //docEl.style.fontSize = 40 * (width / 640) + &apos;px&apos;;</span><br><span class="line">        //document.body.style.width = 16rem;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    recalc()</span><br><span class="line">    if (!doc.addEventListener) return;</span><br><span class="line">    // win.addEventListener(resizeEvt, recalc, false);</span><br><span class="line">&#125;)(document, window);</span><br></pre></td></tr></table></figure></p>
+<p>还有，如果采用网易的这种做法，视口要如下设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1, minimum-scale=1&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/20/排序算法/" itemprop="url">
                   排序算法
                 </a>
@@ -242,7 +343,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-20T10:59:52+08:00" content="2016-05-20">
               2016-05-20
             </time>
@@ -381,7 +482,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-10T17:31:17+08:00" content="2016-05-10">
               2016-05-10
             </time>
@@ -514,7 +615,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-10T17:15:03+08:00" content="2016-05-10">
               2016-05-10
             </time>
@@ -607,7 +708,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-05T19:02:45+08:00" content="2016-05-05">
               2016-05-05
             </time>
@@ -730,7 +831,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-05T18:12:53+08:00" content="2016-05-05">
               2016-05-05
             </time>
@@ -824,7 +925,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-05T14:27:13+08:00" content="2016-05-05">
               2016-05-05
             </time>
@@ -933,8 +1034,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -944,7 +1045,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -988,7 +1089,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
