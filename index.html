@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,64 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mobile-reset-css" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/08/mobile-reset-css/" class="article-date">
+  	<time datetime="2016-06-08T07:15:32.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/08/mobile-reset-css/">mobile reset.css</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>手机端页面开发有很多未知的问题，android和ios又有所不同，所以有个reset.css会避免掉很多的问题、bug</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/* css reset author wangyang */</span><br><span class="line">*&#123;</span><br><span class="line">	cursor: pointer; //为所有dom添加手势，解决IOS下不能点击的对象上绑定点击事件失效的问题</span><br><span class="line">&#125;</span><br><span class="line">html &#123;</span><br><span class="line">  font-family: &quot;Helvetica Neue&quot;, Helvetica, STHeiTi, sans-serif;//设置通用字体</span><br><span class="line">  -webkit-text-size-adjust: 100%;//chrome字体禁止缩放</span><br><span class="line">  font-size: 20px;//设置初始rem基准值</span><br><span class="line">  overflow-y: scroll;</span><br><span class="line">&#125;</span><br><span class="line">body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td &#123; margin:0; padding:0; &#125;</span><br><span class="line">body &#123; background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; &#125;</span><br><span class="line">td,th,caption &#123; font-size:14px; &#125;</span><br><span class="line">h1, h2, h3, h4, h5, h6 &#123; font-weight:normal; font-size:100%; &#125;</span><br><span class="line">address, caption, cite, code, dfn, em, strong, th, var &#123; font-style:normal; font-weight:normal;&#125;</span><br><span class="line">a,input,textarea,select,button&#123;</span><br><span class="line">  outline: 0;//去除外框</span><br><span class="line">  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);//去除聚焦时的阴影</span><br><span class="line">  -webkit-tap-highlight-color: transparent;</span><br><span class="line">&#125;</span><br><span class="line">a &#123;text-decoration:none;&#125; //去除下划线</span><br><span class="line">a:hover &#123; text-decoration:underline; &#125;</span><br><span class="line">a:active&#123;</span><br><span class="line">	outline: 0;</span><br><span class="line">    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);</span><br><span class="line">    -webkit-tap-highlight-color: transparent;</span><br><span class="line">&#125;</span><br><span class="line">img, input, button &#123; border:none; &#125;//去除边框</span><br><span class="line">ol,ul,li &#123; list-style:none; &#125; //去除默认圆点</span><br><span class="line">input, textarea, select, button &#123; font:14px Verdana,Helvetica,Arial,sans-serif;border-radius: 0; &#125;</span><br><span class="line">table &#123; </span><br><span class="line">	border-collapse:collapse;  //把表格边框显示为一条单独的边框</span><br><span class="line">	border-spacing: 0; //设置相邻单元格的边框间的距离为0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reset-css/">reset.css</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-GitHub-GitLab-代码结构浏览插件-Octotree" class="article article-type-post" itemscope itemprop="blogPost">
   
