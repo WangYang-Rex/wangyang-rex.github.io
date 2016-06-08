@@ -10,17 +10,17 @@
 为什么用webpackCommonJs与AMD在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack前端模块加载工具">
-<meta property="og:url" content="http://yoursite.com/2016/05/30/webpack前端模块加载工具/index.html">
+<meta property="og:url" content="http://html-js.site/2016/05/30/webpack前端模块加载工具/index.html">
 <meta property="og:site_name" content="学无止境">
 <meta property="og:description" content="最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。
 为什么用webpackCommonJs与AMD在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端">
-<meta property="og:image" content="http://yoursite.com/images/page/webpack/1.jpg">
-<meta property="og:updated_time" content="2016-05-30T11:57:45.232Z">
+<meta property="og:image" content="http://html-js.site/images/page/webpack/1.jpg">
+<meta property="og:updated_time" content="2016-06-08T06:13:46.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack前端模块加载工具">
 <meta name="twitter:description" content="最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。
 为什么用webpackCommonJs与AMD在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端">
-<meta name="twitter:image" content="http://yoursite.com/images/page/webpack/1.jpg">
+<meta name="twitter:image" content="http://html-js.site/images/page/webpack/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="学无止境" type="application/atom+xml">
   
@@ -38,7 +38,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="null" class="js-avatar">
+			<img lazy-src="/default_avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -47,7 +47,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">专注于前端 前端-洋洋</p>
+		<p class="header-subtitle">专注于前端 洋洋</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/javascript-attrbute-property/" style="font-size: 10px;">javascript, attrbute, property</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -129,17 +129,9 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://http://moshui.site/">moxhuis</a>
 			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://indexof.site/">indexof</a>
 			        
 			        </div>
 				</section>
@@ -168,14 +160,14 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="null" class="js-avatar">
+				<img lazy-src="/default_avatar.jpg" class="js-avatar">
 			
 			</div>
 			<hgroup>
 			  <h1 class="header-author">wangyang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">专注于前端 前端-洋洋</p>
+			<p class="header-subtitle">专注于前端 洋洋</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -228,7 +220,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/打包工具/">打包工具</a></li></ul>
 	</div>
 
         
@@ -348,7 +340,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="webpack前端模块加载工具" data-title="webpack前端模块加载工具" data-url="http://yoursite.com/2016/05/30/webpack前端模块加载工具/"></div>
+	<div class="ds-thread" data-thread-key="webpack前端模块加载工具" data-title="webpack前端模块加载工具" data-url="http://html-js.site/2016/05/30/webpack前端模块加载工具/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
