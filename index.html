@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,79 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-window-location-href和search-掐架" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/17/window-location-href和search-掐架/" class="article-date">
+  	<time datetime="2016-06-17T03:01:03.000Z" itemprop="datePublished">2016-06-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/17/window-location-href和search-掐架/">window.location href和search 掐架</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="发现问题的由来"><a href="#发现问题的由来" class="headerlink" title="发现问题的由来"></a>发现问题的由来</h3><p>首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function GetQueryString(name)</span><br><span class="line">&#123;</span><br><span class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">     var r = window.location.search.substr(1).match(reg);</span><br><span class="line">     if(r!=null)return  unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// 调用方法</span><br><span class="line">alert(GetQueryString(&quot;参数名1&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>设置了一个全局方法，成功了，立马各个项目用起来~</p>
+<p>这次有个需求，在页面加载时去获取参数时发现怎么都获取不到，于是去看代码，发现用到了window.location.search，调试发现window.location.search是空字符串。</p>
+<h3 id="科普window-location"><a href="#科普window-location" class="headerlink" title="科普window.location"></a>科普window.location</h3><p>这段内容是W3C上找的，高手请跳过~<br><img src="/images/page/location/2.jpg"></p>
+<h4 id="Location-对象"><a href="#Location-对象" class="headerlink" title="Location 对象"></a>Location 对象</h4><p>Location 对象包含有关当前 URL 的信息。</p>
+<p>Location 对象是 Window 对象的一个部分，可通过 window.location 属性来访问。<br><img src="/images/page/location/1.jpg"></p>
+<h3 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h3><p>search:设置或返回从问号 (?) 开始的 URL（查询部分）。<br>感觉没问题啊，可是为什么window.location.search是空字符串？</p>
+<p>请看下图调试结果：<br><img src="/images/page/location/3.jpg"></p>
+<p><b>?id=1出现在了hash中，而没有出现在search中</b>，汗！！！</p>
+<h3 id="找到答案"><a href="#找到答案" class="headerlink" title="找到答案"></a>找到答案</h3><p>继续google，在<a href="http://stackoverflow.com/questions/23789587/why-is-window-location-search-empty" target="_blick">stackoverflow</a>找到了解答：<br><img src="/images/page/location/4.jpg"></p>
+<p>window.location在解析url时，#后面的全都识别成了hash；</p>
+<p>个人猜测url解析时,即使遇到?，后面也会去解析#;</p>
+<p>相反，如解析时遇到#，后面却不会再去解析? 得找个相关的资料看下了~</p>
+<p>一句话，慎用#,慎用#,慎用#，重要的话说三遍！</p>
+<p>最后修改了获取浏览器参数的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function GetQueryString(name)</span><br><span class="line">&#123;</span><br><span class="line">     var search = window.location.search;</span><br><span class="line">     if(!search)&#123;</span><br><span class="line">        var hash = location.hash;</span><br><span class="line">        search = hash?hash.substring(hash.indexOf(&apos;?&apos;)):&apos;&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">     var r = search.substr(1).match(reg);</span><br><span class="line">     if(r!=null)return  unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，根据我们的项目特征，可以把参数设置放在#之前<br>比如：<br><img src="/images/page/location/5.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://taeyxbak1.superboss.cc/index.html?id=18511#/zx/zdy/</span><br></pre></td></tr></table></figure></p>
+<p>当然这个场景设定在我们的框架初始化之前就要拿url参数，如果是框架初始化之后，那么可以用我们框架的方法，相应方法可以在pages里面找到~</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/search/">search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/window-location/">window.location</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-mobile-reset-css" class="article article-type-post" itemscope itemprop="blogPost">
   
