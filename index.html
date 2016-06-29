@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lazyload/" style="font-size: 10px;">lazyload</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-自己实现lazyload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/28/自己实现lazyload/" class="article-date">
+  	<time datetime="2016-06-28T01:31:12.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/自己实现lazyload/">自己实现lazyload</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>心血来潮，自己花了一个小时实现了一个简易版的lazyload插件。</p>
+<p><a href="/file/lazyload/index.html" target="_blank">例子</a>，<br><a href="https://github.com/WangYang-Rex/lazyload" target="_blank">源代码</a></p>
+<h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><p>插件初始化时对匹配的img元素进行遍历，如果在可是区域之内，那么就赋值src，然后监听scroll事件，直到匹配的img数组为空。</p>
+<p>主要用到了getBoundingClientRect()函数，兼容ie，作用是获取元素距离视窗上下左右的距离<br><img src="/images/page/lazyload/1.jpg"></p>
+<p><a href="/file/lazyload/index.html" target="_blank">例子</a>，<br><a href="https://github.com/WangYang-Rex/lazyload" target="_blank">源代码</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lazyload/">lazyload</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-window-location-hash和search-掐架" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -896,67 +957,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/05/05/hello-world/" class="article-date">
-  	<time datetime="2016-05-05T06:27:13.625Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
