@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lazyload/" style="font-size: 10px;">lazyload</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lazyload/" style="font-size: 10px;">lazyload</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,92 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-attribute-vs-property" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/attribute-vs-property/" class="article-date">
+  	<time datetime="2016-05-05T11:02:45.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/attribute-vs-property/">JavaScript中的property和attribute的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p><b>Property</b>：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任何的数据类型，对大小写敏感，自定义的property不会出现在html代码中，只存在js中。</p>
+<p><b>Attribute</b>：特性，区别于property，attribute只能是<b>字符串</b>，大小写不敏感，出现在innerHTML中，通过类数组attributes可以罗列所有的attribute。</p>
+<h2 id="2-相同之处"><a href="#2-相同之处" class="headerlink" title="2. 相同之处"></a>2. 相同之处</h2><p>标准的 DOM properties 与 attributes 是同步的。公认的（非自定义的）特性会被以属性的形式添加到DOM对象中。如，id，align，style等，这时候操作property或者使用操作特性的DOM方法如getAttribute()都可以操作属性。不过传递给getAttribute()的特性名与实际的特性名相同。因此对于class的特性值获取的时候要传入“class”。</p>
+<h2 id="3-不同之处"><a href="#3-不同之处" class="headerlink" title="3. 不同之处"></a>3. 不同之处</h2><ul>
+<li>对于有些标准的特性的操作，getAttribute与点号(.)获取的值存在差异性。如href，src，value，        style，onclick等事件处理程序。</li>
+<li>href：getAttribute获取的是href的实际值，而点号获取的是完整的url，存在浏览器差异。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"#"</span>&gt;&lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> a  = <span class="built_in">document</span>.body.children[<span class="number">0</span>]</span><br><span class="line">    a.href = <span class="string">'/'</span></span><br><span class="line">    alert( <span class="string">'attribute:'</span> + a.getAttribute(<span class="string">'href'</span>) ) <span class="comment">// '/'</span></span><br><span class="line">    alert( <span class="string">'property:'</span> + a.href )  <span class="comment">// IE: '/', others: full URL</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>src的值的获取类似href，不过IE也会返回full URL；</p>
+<p>value值同样存在一些 ‘one-way’（单向）同步的内置属性。</p>
+<p>例如，input.value 从 attribute 中同步（即 property 从 attribute 中获得同步）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">       var input = document.body.children[0];</span><br><span class="line">       input.setAttribute('value', 'new');</span><br><span class="line">       alert( input.value ); // 'new', input.value changed</span><br><span class="line">       alert( input.getAtrribute(value) ); // 'new'</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>但是 attribute 不能从 property 中获得同步：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">      var input = document.body.children[0];</span><br><span class="line">      input.value = 'new';</span><br><span class="line">      alert(input.getAttribute('value'));  // 'markup', not changed!</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>getAttribute获取的是初始值，而点号获取的是初始值或者.value修改后的值,例如当访问者输入了某些字符后，’value’ attribute 在 property 更新后维持了原始值。原始值可以用来检验 input 是否变化，或者重置它。</p>
+<p>对于style和onclick等事件处理程序，getAttribute方法访问时会返回字符串，而点号返回的是相应的对象和事件处理函数。</p>
+<p>对于input中的checked属性，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"checkbox"</span> checked&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var input  = document.body.children[0]</span><br><span class="line">    alert( input.checked ) // true</span><br><span class="line">    alert( input.getAttribute('checked') ) // empty string</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>getAttribute获取的是你是实际设置的值。而点号返回的是布尔值。</p>
+<h3 id="浏览器兼容性上的差别"><a href="#浏览器兼容性上的差别" class="headerlink" title="浏览器兼容性上的差别"></a>浏览器兼容性上的差别</h3><ul>
+<li>在IE&lt;9的浏览器中，可以用点号和getAttribute在相互之间访问自定义属性。</li>
+<li>IE&lt;8（包括IE8种的IE7兼容模式），property和attribute相同。因为attribute对大小写不敏感，在这种情况下，用getAttribute访问特性的时候，浏览器会选择第一次出现的值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.abba = <span class="number">1</span> <span class="comment">// assign property (now can read it by getAttribute)</span></span><br><span class="line"><span class="built_in">document</span>.body.ABBA = <span class="number">5</span> <span class="comment">// assign property with another case</span></span><br><span class="line"><span class="comment">// must get a property named 'ABba' in case-insensitive way.</span></span><br><span class="line">alert( <span class="built_in">document</span>.body.getAttribute(<span class="string">'ABba'</span>) ) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="优先选择property"><a href="#优先选择property" class="headerlink" title="优先选择property"></a>优先选择property</h3><p>在实际应用中，98%的 DOM 操作都是使用 properties。</p>
+<p><b>只有两种情形需要使用attributes</b></p>
+<ul>
+<li>自定义 HTML attributes，因为它并不同步到DOM property。</li>
+<li>访问内置的 HTML attributes，这些 attribute 不能从 property 同步过来。例如 INPUT标签的value值。</li>
+</ul>
+<blockquote><br>参考资料：<br><a href="http://javascript.info/tutorial/attributes-and-custom-properties" target="_blank" rel="nofollow">http://javascript.info/tutorial/attributes-and-custom-properties</a><br></blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/attrbute/">attrbute</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/property/">property</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
