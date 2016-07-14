@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lazyload/" style="font-size: 10px;">lazyload</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
+						<a href="/tags/Octotree/" style="font-size: 10px;">Octotree</a> <a href="/tags/attrbute/" style="font-size: 10px;">attrbute</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css布局/" style="font-size: 10px;">css布局</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lazyload/" style="font-size: 10px;">lazyload</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/reset-css/" style="font-size: 10px;">reset.css</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/window-location/" style="font-size: 10px;">window.location</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/打包工具/" style="font-size: 10px;">打包工具</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/资料/" style="font-size: 10px;">资料</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,84 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-一些jquery小技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/一些jquery小技巧/" class="article-date">
+  	<time datetime="2016-07-14T08:27:08.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/一些jquery小技巧/">一些jquery小技巧</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章总结了一些个人的jquery小知识</p>
+<h2 id="回到顶部的按钮"><a href="#回到顶部的按钮" class="headerlink" title="回到顶部的按钮"></a>回到顶部的按钮</h2><p>通过使用jQuery中的<code>animate</code> 与 <code>scrollTop</code> 方法可以创建一个非常简易的带有平滑滚动的回到顶部的按钮：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Back to top</span><br><span class="line">$(&apos;a.top&apos;).click(function (e) &#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  $(document.body).animate(&#123;scrollTop: 0&#125;, 800);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;!-- Create an anchor tag --&gt;</span><br><span class="line">&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通过修改 <code>scrollTop</code>的值可以设置滚动最终停止的位置，最终的效果就是在800毫秒的时间内文档会被滚动到指定的地方。</p>
+<h2 id="checkbox和radio的相关操作"><a href="#checkbox和radio的相关操作" class="headerlink" title="checkbox和radio的相关操作"></a>checkbox和radio的相关操作</h2><p>判断是否选中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;input.class&apos;).is(&apos;:checked&apos;);// true/false</span><br></pre></td></tr></table></figure></p>
+<p>让某个选中,使用 <code>prop</code> 而不是 <code>attr</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;input.class&apos;).prop(&apos;checked&apos;,true/false);</span><br></pre></td></tr></table></figure></p>
+<p>取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;input[name=name]:checked&apos;).val();</span><br></pre></td></tr></table></figure></p>
+<h2 id="检查图片是否加载完成"><a href="#检查图片是否加载完成" class="headerlink" title="检查图片是否加载完成"></a>检查图片是否加载完成</h2><p>有时候需要检查某个图片是否加载完成从而继续下面的操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;img&apos;).load(function () &#123;</span><br><span class="line">  console.log(&apos;image load successful&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>同样的，可以使用ID或者类选择器来判断某个特定的图片是否加载完成。</p>
+<h2 id="图片加载失败的处理"><a href="#图片加载失败的处理" class="headerlink" title="图片加载失败的处理"></a>图片加载失败的处理</h2><p>在页面上如果发生某些图片加载失败是一个非常常见并且恶心的事情，如下的一小段代码可以在某种程度上解决这个问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;img&apos;).on(&apos;error&apos;, function () &#123;</span><br><span class="line">  $(this).prop(&apos;src&apos;, &apos;img/broken.png&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>即使没有发现任何的坏链的情况，也是建议将这段代码添加到页面中。</p>
+<h2 id="使用Toggle"><a href="#使用Toggle" class="headerlink" title="使用Toggle"></a>使用Toggle</h2><p>很多时候需要的响应是在用户悬浮在某个元素上时改变其的可见性或者状态，换言之，即是在用户将鼠标悬浮在某个元素上时修改其的类属性，而在用户停止悬浮时移除该类:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.btn&apos;).hover(function () &#123;</span><br><span class="line">  $(this).addClass(&apos;hover&apos;);</span><br><span class="line">  &#125;, function () &#123;</span><br><span class="line">    $(this).removeClass(&apos;hover&apos;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当然，更简单的就是利用 <code>toggleClass</code> 方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.btn&apos;).hover(function () &#123;</span><br><span class="line">  $(this).toggleClass(&apos;hover&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><b>Note</b>: CSS的hover伪类可能是更方便的做法，不过知晓这种用法也是值得的。</p>
+<h2 id="禁用输入框"><a href="#禁用输入框" class="headerlink" title="禁用输入框"></a>禁用输入框</h2><p>很多情况下我们希望提交按钮能够在部分文本框未填入的情况下处于禁用状态直到用户执行了某个动作，此时我们就需要为这个按钮添加disabled属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, true);</span><br></pre></td></tr></table></figure></p>
+<p>如果需要回复输入框的状态，那么就要再次使用 <code>prop</code>方法, 不过将 <code>disabled</code> 的值设置为<code>false</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;input[type=&quot;submit&quot;]&apos;).prop(&apos;disabled&apos;, false);</span><br></pre></td></tr></table></figure></p>
+<h2 id="阻止链接的加载"><a href="#阻止链接的加载" class="headerlink" title="阻止链接的加载"></a>阻止链接的加载</h2><p>有时候你不希望用户在点击了某个链接之后跳转到新的页面或者重载当前页面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;a.no-link&apos;).click(function (e) &#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:;&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="触发渐隐-滑动"><a href="#触发渐隐-滑动" class="headerlink" title="触发渐隐/滑动"></a>触发渐隐/滑动</h2><p>滑动与渐隐是jQuery种最常见的动画之一，很多时候我们希望能在用户点击某个元素之后将其渐隐渐出或者滑动出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Fade</span><br><span class="line">$(&apos;.btn&apos;).click(function () &#123;</span><br><span class="line">  $(&apos;.element&apos;).fadeToggle(&apos;slow&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">// Toggle</span><br><span class="line">$(&apos;.btn&apos;).click(function () &#123;</span><br><span class="line">  $(&apos;.element&apos;).slideToggle(&apos;slow&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="将两个DIV设置为统一高度"><a href="#将两个DIV设置为统一高度" class="headerlink" title="将两个DIV设置为统一高度"></a>将两个DIV设置为统一高度</h2><p>有时候希望无论两个DIV种包含怎样的内容都能保持统一高度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.div&apos;).css(&apos;min-height&apos;, $(&apos;.main-div&apos;).height());</span><br></pre></td></tr></table></figure></p>
+<h2 id="根据文本选择元素"><a href="#根据文本选择元素" class="headerlink" title="根据文本选择元素"></a>根据文本选择元素</h2><p>通过使用 <code>contains()</code> 选择器可以根据内容搜索对应的元素，下述代码的作用就是在文本不存在的时候隐藏元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var search = $(&apos;#search&apos;).val();</span><br><span class="line">$(&apos;div:not(:contains(&quot;&apos;+search+&apos;&quot;))&apos;).hide();</span><br></pre></td></tr></table></figure></p>
+<h2 id="可见性变化时候的触发"><a href="#可见性变化时候的触发" class="headerlink" title="可见性变化时候的触发"></a>可见性变化时候的触发</h2><p>在某个Tab获得焦点或者失去焦点的时候：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(document).on(&apos;visibilitychange&apos;, function(e)&#123;</span><br><span class="line">  if (e.target.visibilityState === &quot;visible&quot;) &#123;</span><br><span class="line">    console.log(&apos;Tab is now in view!&apos;);</span><br><span class="line">  &#125; else if (e.target.visibilityState === &quot;hidden&quot;) &#123;</span><br><span class="line">    console.log(&apos;Tab is now hidden!&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-JavaScript中创建对象的模式汇总" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -900,62 +978,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css布局/">css布局</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端资料汇总" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/10/前端资料汇总/" class="article-date">
-  	<time datetime="2016-05-10T09:15:03.000Z" itemprop="datePublished">2016-05-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/10/前端资料汇总/">前端资料汇总</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资料/">资料</a></li></ul>
 	</div>
 
       
