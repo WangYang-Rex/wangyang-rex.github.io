@@ -260,238 +260,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/20/排序算法/" itemprop="url">
-                  排序算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-20T10:59:52+08:00" content="2016-05-20">
-              2016-05-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/20/排序算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/排序算法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的排序方法(使用内存)。
-1.插入排序-直接插入排序基本思想:将一个记录插入到已排序好的有序表中，从而得到一个新，记录数增1的有序表。即：先将序列的第1个记录看成是一个有序的子序列，然后从第2个记录逐个进行插入，直至整个序列有序为止。
-要点：设立哨兵，作为临时存储和判断数组边界之用。
-直接插入排序示例：
-如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。
-原理演示：点击查看
-算法实现：12345678910111213141516171819202122function insertSortArray(sort_Array,x)&#123;         //一趟排序的算法for(var i=0;i&lt;sort_Array.length;i++)&#123;   if(sort_array[i]&gt;=x)&#123;                    //找到插入点    for (var j=sort_array.length; j&gt;i; j--)&#123;   //后挪空出位置      sort_array[j]=sort_array[j-1]             &#125;    sort_array[i]=x;                             //插入    break;                                      //任务结束，退出循环   &#125;&#125;return sort_array;
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/20/排序算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/10/Flex布局/" itemprop="url">
-                  Flex布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-10T17:31:17+08:00" content="2016-05-10">
-              2016-05-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/10/Flex布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/Flex布局/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          flex测试工具
-前言之前分享过Flex布局，一段时间没有用，忘得差不多了，恰逢我们的前端博客的诞生，在此记录并再次学习下；
-布局方式首先,我们有表格布局。当不考虑语义并且利用一些适当的嵌套和其他技巧,我们可以用table建立具有一定功能的布局。
-然后是现在大多数人都在使用的浮动布局。我们可以使用任何我们想用的元素,但浮动并不适用于初学者。表面上它看起来很基础,但背后复杂的功能可以使经验丰富的开发者看着自己的屏幕不知所措。另外,浮动布局有一个缺点就是需要通过额外的元素清除浮动,或者更好一点,可以清除CSS浮动而不添加额外的标签。
-这些缺点使得浮动布局不是很容易掌握，因为没有一个默认的方法可以建立起浮动与元素之间的关系，所以我们还需要更多的方法来实现多栏等高布局
-然后有些人开始使用display: table，display: table-cell等,但由于直到IE8 Internet Explorer浏览器才支持,人们似乎放弃了而只是接受float作为实际解决方案。
-弹性布局（Flex）的优势
-独立的高度控制与对齐
-独立的元素顺序。
-指定元素之间的关系。
-灵活的尺寸和对齐方式。
-
-Flex布局概念采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
-容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
-属性12345display:flex | i
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/10/Flex布局/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/05/10/前端资料汇总/" itemprop="url">
                   前端资料汇总
                 </a>
@@ -649,133 +417,28 @@ Flex布局概念采用Flex布局的元素，称为Flex容器（flex container）
       
         
           
-          1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任何的数据类型，对大小写敏感，自定义的property不会出现在html代码中，只存在js中。
-Attribute：特性，区别于property，attribute只能是字符串，大小写不敏感，出现在innerHTML中，通过类数组attributes可以罗列所有的attribute。
-2. 相同之处标准的 DOM properties 与 attributes 是同步的。公认的（非自定义的）特性会被以属性的形式添加到DOM对象中。如，id，align，style等，这时候操作property或者使用操作特性的DOM方法如getAttribute()都可以操作属性。不过传递给getAttribute()的特性名与实际的特性名相同。因此对于class的特性值获取的时候要传入“class”。
+          1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自
+Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，
+title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自
+定义的属性以及方法。property的值可以是任何的数据类型，对大小写敏感，自定义的property不会出现
+在html代码中，只存在js中。
+Attribute：特性，区别于property，attribute只能是字符串，大小写不敏感，出现在
+innerHTML中，通过类数组attributes可以罗列所有的attribute。
+2. 相同之处标准的 DOM properties 与 attributes 是同步的。公认的（非自定义的）特性会被以属性的形式添加到
+DOM对象中。如，id，align，style等，这时候操作property或者使用操作特性的DOM方法如getAttribute
+()都可以操作属性。不过传递给getAttribute()的特性名与实际的特性名相同。因此对于class的特性值获
+取的时候要传入“class”。
 3. 不同之处
-对于有些标准的特性的操作，getAttribute与点号(.)获取的值存在差异性。如href，src，value，        style，onclick等事件处理程序。
+对于有些标准的特性的操作，getAttribute与点号(.)获取的值存在差异性。如href，src，value，     
+ style，onclick等事件处理程序。
+
 href：getAttribute获取的是href的实际值，而点号获取的是完整的url，存在浏览器差异。
 
-1234567&lt;a href="#"&gt;&lt;/a&gt;&lt;script&gt;    var a  = document.body.children[0]    a.href = '/'
+1234567&lt;a href="#"&gt;&lt;/a&gt;&lt;script&gt;    var a  = document.body.children[0]    a.hr
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/05/attribute-vs-property/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T14:27:13+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/05/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More info: Server
-Generate static files1$ hexo generate
-More info: Generating
-Deploy to remote sites1$ hexo deploy
-More info: Deployment
-
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/05/hello-world/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -850,7 +513,7 @@ More info: Deployment
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -486,119 +486,6 @@ Sublime Terminal这个插件可以让你在Sublime中直接使用终端打开你
             
               
                 
-                <a class="post-title-link" href="/2016/07/14/一些jquery小技巧/" itemprop="url">
-                  一些jquery小技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-14T16:27:08+08:00" content="2016-07-14">
-              2016-07-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/14/一些jquery小技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/一些jquery小技巧/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          这篇文章总结了一些个人的jquery小知识
-回到顶部的按钮通过使用jQuery中的animate 与 scrollTop 方法可以创建一个非常简易的带有平滑滚动的回到顶部的按钮：1234567// Back to top$(&apos;a.top&apos;).click(function (e) &#123;  e.preventDefault();  $(document.body).animate(&#123;scrollTop: 0&#125;, 800);&#125;);&lt;!-- Create an anchor tag --&gt;&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
-通过修改 scrollTop的值可以设置滚动最终停止的位置，最终的效果就是在800毫秒的时间内文档会被滚动到指定的地方。
-checkbox和radio的相关操作判断是否选中1$(&apos;input.class&apos;).is(&apos;:checked&apos;);// true/false
-让某个选中,使用 prop 而不是 attr1$(&apos;input.class&apos;).prop(&apos;checked&apos;,true/false);
-取值1$(&apos;input[name=name]:checked&apos;).val();
-js replaceAll实现js 没有 java 的 replaceAll 方法，这边有个方便的实现方法，利用正则123var aa = &apos;1212121212&apos;aa.replace(/1/g,&apos;2&apos;)//&quot;2222222222&quot;
-检查图片是否加载完成有时
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/14/一些jquery小技巧/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/07/05/JavaScript中创建对象的模式汇总/" itemprop="url">
                   JavaScript中创建对象的模式汇总
                 </a>
@@ -1358,6 +1245,126 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/10/Flex布局/" itemprop="url">
+                  Flex布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-10T17:31:17+08:00" content="2016-05-10">
+              2016-05-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/10/Flex布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/Flex布局/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          flex测试工具
+前言之前分享过Flex布局，一段时间没有用，忘得差不多了，恰逢我们的前端博客的诞生，在此记录并再次学习下；
+布局方式首先,我们有表格布局。当不考虑语义并且利用一些适当的嵌套和其他技巧,我们可以用table建立具有一定功能的布局。
+然后是现在大多数人都在使用的浮动布局。我们可以使用任何我们想用的元素,但浮动并不适用于初学者。表面上它看起来很基础,但背后复杂的功能可以使经验丰富的开发者看着自己的屏幕不知所措。另外,浮动布局有一个缺点就是需要通过额外的元素清除浮动,或者更好一点,可以清除CSS浮动而不添加额外的标签。
+这些缺点使得浮动布局不是很容易掌握，因为没有一个默认的方法可以建立起浮动与元素之间的关系，所以我们还需要更多的方法来实现多栏等高布局
+然后有些人开始使用display: table，display: table-cell等,但由于直到IE8 Internet Explorer浏览器才支持,人们似乎放弃了而只是接受float作为实际解决方案。
+弹性布局（Flex）的优势
+独立的高度控制与对齐
+独立的元素顺序。
+指定元素之间的关系。
+灵活的尺寸和对齐方式。
+
+Flex布局概念采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+属性12345display:flex | i
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/10/Flex布局/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1403,7 +1410,7 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
