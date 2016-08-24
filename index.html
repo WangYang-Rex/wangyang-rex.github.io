@@ -260,6 +260,139 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/24/JavaScript核心-转/" itemprop="url">
+                  JavaScript核心(转)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T15:00:13+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/JavaScript核心-转/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/JavaScript核心-转/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+
+对象
+构造函数
+执行上下文堆栈
+执行上下文
+变量对象
+活动对象
+作用域链
+闭包
+this
+
+
+这篇文章是“深入理解ECMA-262-3”的一个总览和概要，每个章节都有对应的详细的链接。
+对象ECMAScript作为一个高度抽象的面向对象语言，是通过对象来做数据传递的。当然也有一些基本数据类型，但通常也会被转换为对象来处理。
+
+一个对象就是一组属性的集合，并拥有一个独立的prototype对象，这个prototype可以是个对象也可以是个null
+
+举个简单例子，对象的 prototype 是以内部的[[Prototype]]属性来引用的。但是我们在图表中使用 __&lt;internal-property&gt;__下划线标记来代替双括号，尤其是prototype对象：__proto__
+代码如下：1234var foo = &#123;  x: 10,  y: 20&#125;;
+于是就有这个结构：两个显式的自身属性和一个隐式属性proto,这个隐式属性就是对 foo 原型对象的引用
+为什么需要这些prototype？那我们就以原型链 (prototype chain) 的概念来回答这个问题。
+##　原型链原型对象也是简单对象，并且也有自己的原型。如果一个原型对象的原型有一个非空(not null)的引用，那么以此类推，这就叫做原型链。
+
+原型链是一个可以实现继承和对象共享的有限对象链
+
+假设我们有两个对象，其中只有一小部分不同，其他绝大部分相同。很明显，对于一个有良好设计的系统，我们会复用相似的函数和代码。在基于类的系统中，代码复用风格叫做类继承class-based inheritance —— 把一组相似的功能放入Class A，然后Class B和C继承Class A，并又有独自的小改动。
+ECMAScript中没有类的概念。但是代码复用的风格并没有多大的不同
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/24/JavaScript核心-转/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/19/九个Console命令，让js调试更简单/" itemprop="url">
                   九个Console命令，让js调试更简单
                 </a>
@@ -1245,126 +1378,6 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/10/Flex布局/" itemprop="url">
-                  Flex布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-10T17:31:17+08:00" content="2016-05-10">
-              2016-05-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/10/Flex布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/Flex布局/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          flex测试工具
-前言之前分享过Flex布局，一段时间没有用，忘得差不多了，恰逢我们的前端博客的诞生，在此记录并再次学习下；
-布局方式首先,我们有表格布局。当不考虑语义并且利用一些适当的嵌套和其他技巧,我们可以用table建立具有一定功能的布局。
-然后是现在大多数人都在使用的浮动布局。我们可以使用任何我们想用的元素,但浮动并不适用于初学者。表面上它看起来很基础,但背后复杂的功能可以使经验丰富的开发者看着自己的屏幕不知所措。另外,浮动布局有一个缺点就是需要通过额外的元素清除浮动,或者更好一点,可以清除CSS浮动而不添加额外的标签。
-这些缺点使得浮动布局不是很容易掌握，因为没有一个默认的方法可以建立起浮动与元素之间的关系，所以我们还需要更多的方法来实现多栏等高布局
-然后有些人开始使用display: table，display: table-cell等,但由于直到IE8 Internet Explorer浏览器才支持,人们似乎放弃了而只是接受float作为实际解决方案。
-弹性布局（Flex）的优势
-独立的高度控制与对齐
-独立的元素顺序。
-指定元素之间的关系。
-灵活的尺寸和对齐方式。
-
-Flex布局概念采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
-容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
-属性12345display:flex | i
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/10/Flex布局/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1410,7 +1423,7 @@ Flex布局概念采用Flex布局的元素，称为Flex容器（flex container）
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1420,7 +1433,7 @@ Flex布局概念采用Flex布局的元素，称为Flex容器（flex container）
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
