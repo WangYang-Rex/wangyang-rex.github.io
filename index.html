@@ -619,6 +619,119 @@ Sublime Terminal这个插件可以让你在Sublime中直接使用终端打开你
             
               
                 
+                <a class="post-title-link" href="/2016/07/14/一些jquery小技巧/" itemprop="url">
+                  一些jquery小技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T16:27:08+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/一些jquery小技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/一些jquery小技巧/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          这篇文章总结了一些个人的jquery小知识
+回到顶部的按钮通过使用jQuery中的animate 与 scrollTop 方法可以创建一个非常简易的带有平滑滚动的回到顶部的按钮：1234567// Back to top$(&apos;a.top&apos;).click(function (e) &#123;  e.preventDefault();  $(document.body).animate(&#123;scrollTop: 0&#125;, 800);&#125;);&lt;!-- Create an anchor tag --&gt;&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;
+通过修改 scrollTop的值可以设置滚动最终停止的位置，最终的效果就是在800毫秒的时间内文档会被滚动到指定的地方。
+checkbox和radio的相关操作判断是否选中1$(&apos;input.class&apos;).is(&apos;:checked&apos;);// true/false
+让某个选中,使用 prop 而不是 attr1$(&apos;input.class&apos;).prop(&apos;checked&apos;,true/false);
+取值1$(&apos;input[name=name]:checked&apos;).val();
+js replaceAll实现js 没有 java 的 replaceAll 方法，这边有个方便的实现方法，利用正则123var aa = &apos;1212121212&apos;aa.replace(/1/g,&apos;2&apos;)//&quot;2222222222&quot;
+检查图片是否加载完成有时
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/14/一些jquery小技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/05/JavaScript中创建对象的模式汇总/" itemprop="url">
                   JavaScript中创建对象的模式汇总
                 </a>
@@ -1265,119 +1378,6 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/30/移动端适配方案/" itemprop="url">
-                  移动端适配方案
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-30T10:22:08+08:00" content="2016-05-30">
-              2016-05-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/30/移动端适配方案/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/移动端适配方案/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原文地址：http://www.cnblogs.com/lyzg/p/4877277.html
-目前很多流行的，html5要适应各种分辨率的移动设备，应该使用rem尺寸单位，各个分辨率范围在html上设置font-size.
-这里介绍我们项目组在用的适配方案：页面加载的时候通过js计算出html的font-size。
-计算和设计稿有关拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。1234deviceWidth = 320，font-size = 320 / 6.4 = 50pxdeviceWidth = 375，font-size = 375 / 6.4 = 58.59375pxdeviceWidth = 414，font-size = 414 / 6.4 = 64.6875pxdeviceWidth = 500，font-size = 500 / 6.4 = 78.125px
-事实上网易就是这么干的，你看它的代码就知道，body元素的宽是：
-根据这个可以肯定它的设计稿竖着时的横向分辨率为640。然后你再看看网易在分辨率为320680，375680，414680，500680时，html的font-size是不是与上面计算的一致：
-
-贴上代码：123456789101112131415161718192021222324252627282930313233(function (doc, win) &#123;    var docEl 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/30/移动端适配方案/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1423,7 +1423,7 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1433,7 +1433,7 @@ AMD的应用场景则是浏览器，异步加载的模块机制。require.js的�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

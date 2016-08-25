@@ -260,6 +260,231 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/30/移动端适配方案/" itemprop="url">
+                  移动端适配方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-30T10:22:08+08:00" content="2016-05-30">
+              2016-05-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/30/移动端适配方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/移动端适配方案/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原文地址：http://www.cnblogs.com/lyzg/p/4877277.html
+目前很多流行的，html5要适应各种分辨率的移动设备，应该使用rem尺寸单位，各个分辨率范围在html上设置font-size.
+这里介绍我们项目组在用的适配方案：页面加载的时候通过js计算出html的font-size。
+计算和设计稿有关拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。1234deviceWidth = 320，font-size = 320 / 6.4 = 50pxdeviceWidth = 375，font-size = 375 / 6.4 = 58.59375pxdeviceWidth = 414，font-size = 414 / 6.4 = 64.6875pxdeviceWidth = 500，font-size = 500 / 6.4 = 78.125px
+事实上网易就是这么干的，你看它的代码就知道，body元素的宽是：
+根据这个可以肯定它的设计稿竖着时的横向分辨率为640。然后你再看看网易在分辨率为320680，375680，414680，500680时，html的font-size是不是与上面计算的一致：
+
+贴上代码：123456789101112131415161718192021222324252627282930313233(function (doc, win) &#123;    var docEl 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/30/移动端适配方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/20/排序算法/" itemprop="url">
+                  排序算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-20T10:59:52+08:00" content="2016-05-20">
+              2016-05-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/20/排序算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/排序算法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的排序方法(使用内存)。
+插入排序-直接插入排序基本思想:将一个记录插入到已排序好的有序表中，从而得到一个新，记录数增1的有序表。即：先将序列的第1个记录看成是一个有序的子序列，然后从第2个记录逐个进行插入，直至整个序列有序为止。
+要点：设立哨兵，作为临时存储和判断数组边界之用。
+直接插入排序示例：
+如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。
+原理演示：点击查看
+算法实现：12345678910111213141516171819202122function insertSortArray(sort_Array,x)&#123;         //一趟排序的算法for(var i=0;i&lt;sort_Array.length;i++)&#123;   if(sort_array[i]&gt;=x)&#123;                    //找到插入点    for (var j=sort_array.length; j&gt;i; j--)&#123;   //后挪空出位置      sort_array[j]=sort_array[j-1]             &#125;    sort_array[i]=x;                             //插入    break;                                      //任务结束，退出循环   &#125;&#125;return sort_array;  
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/20/排序算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/10/Flex布局/" itemprop="url">
                   Flex布局
                 </a>
@@ -633,7 +858,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -643,7 +868,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
