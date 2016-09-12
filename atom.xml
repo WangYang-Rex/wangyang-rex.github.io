@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2016-08-24T07:48:55.157Z</updated>
+  <updated>2016-09-12T12:00:02.689Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fiddler之https抓包（windows）</title>
+    <link href="http://html-js.site/2016/09/12/fiddler%E4%B9%8Bhttps%E6%8A%93%E5%8C%85%EF%BC%88windows%EF%BC%89/"/>
+    <id>http://html-js.site/2016/09/12/fiddler之https抓包（windows）/</id>
+    <published>2016-09-12T11:13:36.000Z</published>
+    <updated>2016-09-12T12:00:02.689Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>最近因为fiddler升级，引发的一系列血案，花了整整2个小时才解决，必须记录一下</p>
+</blockquote>
+<h2 id="安装并设置"><a href="#安装并设置" class="headerlink" title="安装并设置"></a>安装并设置</h2><p>下载fiddler最新版本，官网地址：<a href="http://www.telerik.com/fiddler" target="_blank" rel="external">http://www.telerik.com/fiddler</a></p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>1.打开Fiddler，然后点击菜单栏的Tools &gt; Fiddler Options，打开“Fiddler Options”对话框。<br><img src="/images/page/fiddler/1.jpg" alt=""></p>
+<p>2.在打开的对话框中切换到“HTTPS”选项卡<br><img src="/images/page/fiddler/2.jpg" alt=""></p>
+<p>3.在打开的“HTTPS”选项卡中，勾选“Capture HTTPS  CONNECTs”和“Decrypt HTTPS traffic”前面的复选框，然后点击“OK”。<br><img src="/images/page/fiddler/3.jpg" alt=""></p>
+<p>4.现在Fiddler就是在监听https的请求和响应了。</p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><h3 id="证书问题，需要重新安装"><a href="#证书问题，需要重新安装" class="headerlink" title="证书问题，需要重新安装"></a>证书问题，需要重新安装</h3><ol>
+<li>导出证书：fiddler-&gt;tools-&gt;fiddler options-&gt;https tab-&gt;action-&gt;Export Root Certificate to Desktop</li>
+<li>安装证书：</li>
+</ol>
+<ul>
+<li>IE：Internet选项-&gt;内容 tab-&gt;证书-&gt;删除所有颁发者为DO_NOT_TRUST_FiddlerRoot-&gt;导入证书</li>
+<li>Chrome:设置-&gt;高级设置-&gt;管理证书-&gt;删除所有颁发者为DO_NOT_TRUST_FiddlerRoot-&gt;导入证书<br><img src="/images/page/fiddler/4.jpg" alt=""></li>
+</ul>
+<h3 id="证书、设置都正确了发现还是有问题，请重启FIDDLER和浏览器，fiddler请用管理员权限运行，还不行就重启电脑"><a href="#证书、设置都正确了发现还是有问题，请重启FIDDLER和浏览器，fiddler请用管理员权限运行，还不行就重启电脑" class="headerlink" title="证书、设置都正确了发现还是有问题，请重启FIDDLER和浏览器，fiddler请用管理员权限运行，还不行就重启电脑"></a>证书、设置都正确了发现还是有问题，请重启FIDDLER和浏览器，fiddler请用管理员权限运行，还不行就重启电脑</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近因为fiddler升级，引发的一系列血案，花了整整2个小时才解决，必须记录一下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;安装并设置&quot;&gt;&lt;a href=&quot;#安装并设置&quot; class=&quot;headerlink&quot; title=&quot;安装并设置&quot;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://html-js.site/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue学习-用vue-cli快速开发单页应用</title>
+    <link href="http://html-js.site/2016/09/09/vue%E5%AD%A6%E4%B9%A0-%E7%94%A8vue-cli%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8/"/>
+    <id>http://html-js.site/2016/09/09/vue学习-用vue-cli快速开发单页应用/</id>
+    <published>2016-09-09T03:55:56.000Z</published>
+    <updated>2016-09-09T03:55:56.086Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>JavaScript核心(转)</title>

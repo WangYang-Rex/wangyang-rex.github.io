@@ -260,6 +260,227 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="url">
+                  GitHub/GitLab 代码结构浏览插件-Octotree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T10:50:46+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Octotree 是一个浏览器扩展（Chrome，Firefox，Opera和Safari），用以显示GitHub/GitLab 代码结构(代码树)。可以非常方便的浏览项目源代码，这样不必把每个项目拉取到你的机器。浏览器浏览时就像使用IDE目录结构，也不必来回的前进后退。
+项目地址：https://github.com/buunguyen/octotree
+
+
+
+          
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/30/webpack前端模块加载工具/" itemprop="url">
+                  webpack前端模块加载工具
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-30T19:34:21+08:00" content="2016-05-30">
+              2016-05-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/30/webpack前端模块加载工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/webpack前端模块加载工具/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。
+为什么用webpackCommonJs与AMD在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端圈开始制定规范，最耳熟能详的是CommonJs和AMD。
+CommonJs是应用在NodeJs，是一种同步的模块机制。它的写法大致如下：12345var firstModule = require(&quot;firstModule&quot;);//your code...module.export = anotherModule
+AMD的应用场景则是浏览器，异步加载的模块机制。require.js的写法大致如下：12345define([&apos;firstModule&apos;], function(module)&#123;    //your code...  return anotherModule&#125;)
+其实我们单比较写法，就知道CommonJs是更为优秀的。它是一种同步的写法，对Human友好，而且代码也不会繁琐臃肿。但更重要的原因是， 随着npm成为主流的JavaScript组件发布平台，越来越多的前端项目也依赖于npm上的项目，或者自身就会发布到npm平台。 所以我们对如何可以使用npm包中的模块是我们的一大需求。所以browserify工具就出现了，它支持我们直接使用 require() 的同步语法去加载npm模块。
+当然我们这里不得不说的是，ES2015（ES6）里也有了自己的模块机制，也就是说ES6的模块机制是官方规定的，我们通过 babel 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/30/webpack前端模块加载工具/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/30/移动端适配方案/" itemprop="url">
                   移动端适配方案
                 </a>
@@ -858,7 +1079,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -868,7 +1089,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
