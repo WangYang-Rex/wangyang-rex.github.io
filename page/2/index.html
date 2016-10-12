@@ -260,6 +260,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/17/window-location-hash和search-掐架/" itemprop="url">
+                  window.location hash和search 掐架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-17T11:01:03+08:00" content="2016-06-17">
+              2016-06-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/window-location-hash和search-掐架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/17/window-location-hash和search-掐架/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          发现问题的由来首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：123456789function GetQueryString(name)&#123;     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);     var r = window.location.search.substr(1).match(reg);     if(r!=null)return  unescape(r[2]); return null;&#125; // 调用方法alert(GetQueryString(&quot;参数名1&quot;));
+设置了一个全局方法，成功了，立马各个项目用起来~
+这次有个需求，在页面加载时去获取参数时发现怎么都获取不到，于是去看代码，发现用到了window.location.search，调试发现window.location.search是空字符串。
+科普window.location这段内容是W3C上找的，高手请跳过~
+Location 对象Location 对象包含有关当前 URL 的信息。
+Location 对象是 Window 对象的一个部分，可通过 window.location 属性来访问。
+定位问题search:设置或返回从问号 (?) 开始的 URL（查询部分）。感觉没问题啊，可是为什么window.location.search是空字符串？
+请看下图调试结果：
+?id=1出现在了hash中，而没有出现在search中，汗！！！
+找到答案继续google，在stackoverflow找到了解答：
+window.loca
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/17/window-location-hash和search-掐架/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/08/mobile-reset-css/" itemprop="url">
                   mobile reset.css
                 </a>
@@ -1186,7 +1302,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1196,7 +1312,7 @@ href：getAttribute获取的是href的实际值，而点号获取的是完整的
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
