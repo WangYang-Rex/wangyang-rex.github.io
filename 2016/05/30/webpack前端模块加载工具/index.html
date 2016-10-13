@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -95,7 +95,7 @@
 <meta property="og:description" content="最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。
 为什么用webpackCommonJs与AMD在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端">
 <meta property="og:image" content="http://html-js.site/images/page/webpack/1.jpg">
-<meta property="og:updated_time" content="2016-06-08T06:13:46.252Z">
+<meta property="og:updated_time" content="2016-10-13T06:35:28.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack前端模块加载工具">
 <meta name="twitter:description" content="最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。
@@ -107,7 +107,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -313,7 +313,8 @@
         <p>最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。</p>
 <h3 id="为什么用webpack"><a href="#为什么用webpack" class="headerlink" title="为什么用webpack"></a>为什么用webpack</h3><h3 id="CommonJs与AMD"><a href="#CommonJs与AMD" class="headerlink" title="CommonJs与AMD"></a>CommonJs与AMD</h3><p>在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端圈开始制定规范，最耳熟能详的是CommonJs和AMD。</p>
 <p>CommonJs是应用在NodeJs，是一种同步的模块机制。它的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var firstModule = require(&quot;firstModule&quot;);</span><br><span class="line"></span><br><span class="line">//your code...</span><br><span class="line"></span><br><span class="line">module.export = anotherModule</span><br></pre></td></tr></table></figure></p>
-<p>AMD的应用场景则是浏览器，异步加载的模块机制。require.js的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([&apos;firstModule&apos;], function(module)&#123;</span><br><span class="line">  </span><br><span class="line">  //your code...</span><br><span class="line">  return anotherModule</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>AMD的应用场景则是浏览器，异步加载的模块机制。require.js的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([&apos;firstModule&apos;], function(module)&#123;</span><br><span class="line"></span><br><span class="line">  //your code...</span><br><span class="line">  return anotherModule</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>其实我们单比较写法，就知道CommonJs是更为优秀的。它是一种同步的写法，对Human友好，而且代码也不会繁琐臃肿。但更重要的原因是， 随着npm成为主流的JavaScript组件发布平台，越来越多的前端项目也依赖于npm上的项目，或者自身就会发布到npm平台。 所以我们对如何可以使用npm包中的模块是我们的一大需求。所以browserify工具就出现了，它支持我们直接使用 require() 的同步语法去加载npm模块。</p>
 <p>当然我们这里不得不说的是，ES2015（ES6）里也有了自己的模块机制，也就是说ES6的模块机制是官方规定的，我们通过 <a href="https://babeljs.io/" rel="external" target="_blank">babel</a> （一种6to5的编译器）可以使用比较多的新特性了，包括我们提到的模块机制，而它的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123;someModule&#125; from &quot;someModule&quot;;</span><br><span class="line"></span><br><span class="line">// your codes...</span><br><span class="line"></span><br><span class="line">export anotherModule;</span><br></pre></td></tr></table></figure></p>
 <p>当然上面的写法只是最基本的，还有其他的不同加载模块的写法，可以看一下阮一峰老师的 <a href="http://es6.ruanyifeng.com/#docs/class" rel="external" target="_blank">ECMAScript 6 入门</a> 或者babel的相关文档 <a href="https://babeljs.io/docs/learn-es2015/#modules" rel="external" target="_blank">Learn ES2015</a> 。</p>
@@ -639,7 +640,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -704,13 +705,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>

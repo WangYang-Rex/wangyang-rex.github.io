@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -86,32 +86,23 @@
 
 
 
-<meta name="description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自
-Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，
-title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自
-定义的属性以及方法。property的值">
+<meta name="description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的property和attribute的区别">
 <meta property="og:url" content="http://html-js.site/2016/05/05/attribute-vs-property/index.html">
 <meta property="og:site_name" content="前端-洋洋">
-<meta property="og:description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自
-Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，
-title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自
-定义的属性以及方法。property的值">
-<meta property="og:updated_time" content="2016-08-23T09:50:50.227Z">
+<meta property="og:description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任">
+<meta property="og:updated_time" content="2016-10-13T06:39:43.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的property和attribute的区别">
-<meta name="twitter:description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自
-Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，
-title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自
-定义的属性以及方法。property的值">
+<meta name="twitter:description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -314,19 +305,11 @@ title，lang，dir，className。DOM节点是一个对象，因此，他可以�
       
 
       
-        <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p><b>Property</b>：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自</p>
-<p>Element并添加了一些属性，添加的这些属性分别对应于每个HTML元素都有下面的这5个标准特性：id，</p>
-<p>title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自</p>
-<p>定义的属性以及方法。property的值可以是任何的数据类型，对大小写敏感，自定义的property不会出现</p>
-<p>在html代码中，只存在js中。</p>
-<p><b>Attribute</b>：特性，区别于property，attribute只能是<b>字符串</b>，大小写不敏感，出现在</p>
-<p>innerHTML中，通过类数组attributes可以罗列所有的attribute。</p>
-<h2 id="2-相同之处"><a href="#2-相同之处" class="headerlink" title="2. 相同之处"></a>2. 相同之处</h2><p>标准的 DOM properties 与 attributes 是同步的。公认的（非自定义的）特性会被以属性的形式添加到</p>
-<p>DOM对象中。如，id，align，style等，这时候操作property或者使用操作特性的DOM方法如getAttribute</p>
-<p>()都可以操作属性。不过传递给getAttribute()的特性名与实际的特性名相同。因此对于class的特性值获</p>
-<p>取的时候要传入“class”。</p>
+        <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p><b>Property</b>：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任何的数据类型，对大小写敏感，自定义的property不会出现<br>在html代码中，只存在js中。</p>
+<p><b>Attribute</b>：特性，区别于property，attribute只能是<b>字符串</b>，大小写不敏感，出现在<br>innerHTML中，通过类数组attributes可以罗列所有的attribute。</p>
+<h2 id="2-相同之处"><a href="#2-相同之处" class="headerlink" title="2. 相同之处"></a>2. 相同之处</h2><p>标准的 DOM properties 与 attributes 是同步的。公认的（非自定义的）特性会被以属性的形式添加到DOM对象中。如，id，align，style等，这时候操作property或者使用操作特性的DOM方法如getAttribute()都可以操作属性。不过传递给getAttribute()的特性名与实际的特性名相同。因此对于class的特性值获取的时候要传入“class”。<br><a id="more"></a></p>
 <h2 id="3-不同之处"><a href="#3-不同之处" class="headerlink" title="3. 不同之处"></a>3. 不同之处</h2><ul>
-<li><p>对于有些标准的特性的操作，getAttribute与点号(.)获取的值存在差异性。如href，src，value，     </p>
+<li><p>对于有些标准的特性的操作，getAttribute与点号(.)获取的值存在差异性。如href，src，value，</p>
 <p> style，onclick等事件处理程序。</p>
 </li>
 <li>href：getAttribute获取的是href的实际值，而点号获取的是完整的url，存在浏览器差异。</li>
@@ -632,7 +615,7 @@ title，lang，dir，className。DOM节点是一个对象，因此，他可以�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -697,13 +680,6 @@ title，lang，dir，className。DOM节点是一个对象，因此，他可以�
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>

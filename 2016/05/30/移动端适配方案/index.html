@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://html-js.site/images/page/adapter/3.png">
 <meta property="og:image" content="http://html-js.site/images/page/adapter/4.png">
 <meta property="og:image" content="http://html-js.site/images/page/adapter/5.png">
-<meta property="og:updated_time" content="2016-06-08T06:14:35.183Z">
+<meta property="og:updated_time" content="2016-10-13T06:36:04.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配方案">
 <meta name="twitter:description" content="原文地址：http://www.cnblogs.com/lyzg/p/4877277.html
@@ -117,7 +117,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -324,6 +324,7 @@
 <p>目前很多流行的，html5要适应各种分辨率的移动设备，应该使用rem尺寸单位，各个分辨率范围在html上设置font-size.</p>
 <p>这里介绍我们项目组在用的适配方案：<br>页面加载的时候通过js计算出html的font-size。</p>
 <h3 id="计算和设计稿有关"><a href="#计算和设计稿有关" class="headerlink" title="计算和设计稿有关"></a>计算和设计稿有关</h3><p>拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deviceWidth = 320，font-size = 320 / 6.4 = 50px</span><br><span class="line">deviceWidth = 375，font-size = 375 / 6.4 = 58.59375px</span><br><span class="line">deviceWidth = 414，font-size = 414 / 6.4 = 64.6875px</span><br><span class="line">deviceWidth = 500，font-size = 500 / 6.4 = 78.125px</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>事实上网易就是这么干的，你看它的代码就知道，body元素的宽是：<br><img src="/images/page/adapter/1.png"></p>
 <p>根据这个可以肯定它的设计稿竖着时的横向分辨率为640。然后你再看看网易在分辨率为320<em>680，375</em>680，414<em>680，500</em>680时，html的font-size是不是与上面计算的一致：</p>
 <p><img src="/images/page/adapter/2.png"><br><img src="/images/page/adapter/3.png"><br><img src="/images/page/adapter/4.png"><br><img src="/images/page/adapter/5.png"></p>
@@ -604,7 +605,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -669,13 +670,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
