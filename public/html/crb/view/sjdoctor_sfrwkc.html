@@ -1,0 +1,177 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生-随访任务考察</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/sxdoctor.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul">
+			<div class="navli active"><a href="sjdoctor.html" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="sjdoctor_rwfp.html" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="sjdoctor_Announce.html" onclick="showmenu(0)">公告管理</a></div> 
+		
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">日记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">月记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">周记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">乙肝</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">艾滋病</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">结核病</a></div> 
+		</ul>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active">
+				<div class="sidebar_div_text">随访任务考察</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<div class="content-header">
+					
+				</div>
+				<div class="content-content">
+					<div class="search_bar">
+						<select class="search_select">
+						  <option value ="volvo">姓名</option>
+						  <option value ="saab">身份证</option>
+						  <option value="opel">关键字</option>
+						  <option value="audi">工号</option>
+						</select>
+						<div class="s-search">
+							<input id="" type="text" autocomplete="off"  class="search-broad">
+							<span class="search-btn"></span>
+						</div>
+					</div>
+					<table class="search_res">
+						<tr class="tb-th tb-tr">
+							<td>工号</td>
+							<td>姓名</td>
+							<td>未完成随访量</td>
+							<td>今日需要随访量</td>
+							<td>今日实际随访量</td>
+							<td>服务机构</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+						<tr class="tb-tr">
+							<td>1111</td>
+							<td>张医生</td>
+							<td class="red">2</td>
+							<td>20</td>
+							<td>18</td>
+							<td>新风社区卫生服务中心</td>
+						</tr>
+					</table>
+					<div class="pagediv">
+						<div class="pagediv-left">
+							<a class="" href=""><上一页</a>
+							<span class="pageindex">4/15</span>
+							<a class="" href="">下一页></a>
+						</div>
+						<div class="pagediv-right">
+							<input id="" type="text" autocomplete="off"  class="pageto">
+							<a class="" href="">跳转></a>
+						</div>
+					</div>
+		
+				</div>
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+</body>
+</html>

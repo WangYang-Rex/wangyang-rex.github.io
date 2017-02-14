@@ -1,0 +1,778 @@
+.header-title-left{
+	width:410px;
+	float:left;
+}
+.header-title-mid{
+	width:240px;
+	float:left;
+	text-align: center;
+	color:#65ADDF;
+}
+.header-title-right{
+	margin-left:20px;
+	padding-left: 20px;
+	/* background: url(../img/icon_person.png) center left no-repeat; */
+	width:410px;
+	float:left;
+}
+.gk{
+	background: url(../img/icon_person.png) center left no-repeat;
+	padding-left: 20px;
+}
+.bgsf{
+	background: url(../img/icon_bgsf.png) center left no-repeat;
+	padding-left: 20px;
+	float:left;
+	width:110px;
+}
+.bgsf-save{
+	color:#4190C8;
+	background: url(../img/icon_bgsf_save.png) center left no-repeat;
+	padding-left: 20px;
+	float:left;
+	width:150px;
+}
+.header-sfjl{
+	background: url(../img/icon_sfjl.png) center left no-repeat;
+	padding-left: 20px;
+}
+.djk{
+	background: url(../img/icon_djk.png) center left no-repeat;
+	padding-left: 30px;
+	float:left;
+	width:80px;
+}
+.djk-edit{
+	color:#4190C8;
+	background: url(../img/icon_djk_edit.png) center left no-repeat;
+	padding-left: 30px;
+	float:left;
+	width:150px;
+}
+.rwfp{
+	background: url(../img/icon_rwfp.png) center left no-repeat;
+	padding-left: 20px;
+	float:left;
+
+}
+.rwtj{
+	background: url(../img/icon_rwtj.png) center left no-repeat;
+	padding-left: 20px;
+	float:left;
+	margin-left:20px;
+	color:#0092D6;
+	cursor:pointer;
+}
+/* sxdoctor_selectpatient content-left start */
+.content-left{
+	margin-left:20px;
+	float:left; 
+	width:380px;
+	height:562px;
+	border-right: 4px solid #4190c8;
+}
+.search_bar{
+	padding-top:20px;
+	height:32px;
+	width: 380px;
+}
+.search_select{
+	height:32px;
+	line-height:30px;
+	width:80px;
+	float:left;
+	font-size: 14px;
+	vertical-align:middle;
+}
+.s-search{
+	float:left;
+	height:30px;
+	width: 216px;
+	/* margin-left:50px; */
+	left: 50px;
+	position: relative;
+	border: 1px solid #cacaca;
+}
+.search-broad{
+	float:left;
+	height:30px;
+	line-height:30px;
+	width:186px;
+	font-size: 14px; 
+}
+.search-btn{
+	float:right;
+	width:30px;
+	height:30px;
+	background: #4591c6 url(../img/icon_search.png) center no-repeat;
+}
+.tb-container{
+	width: 375px;
+	height:410px;
+	overflow-x:scroll;
+	margin: 20px 0px 30px 0px;
+}
+.search_res{
+	
+	/* height: 300px; */
+	width: 800px;
+	border:1px solid #d7e0e9;
+	/* border-top: 1px solid #d7e0e9; */
+}
+.search_res th{
+	background-color: #eff4f9;
+	color:#eff4f9;
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+}
+.search_res tr{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+}
+.search_res td{
+	border-right: 1px solid #d7e0e9;
+	min-width: 75px;
+}
+.tb-th{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #eff4f9;
+	color:#6F8F9E;
+}
+.tb-tr{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+} 
+.content-left .tb-tr:hover{
+	background-color:#1793d3;
+	color:#fff;
+}
+.tb-tr td{
+	border: 1px solid #d7e0e9;
+}
+.pagediv{
+	margin:0 20px;
+	padding-bottom:20px;
+	height:30px;
+	line-height:30px;
+}
+.pagediv a{
+	color:#0092D6;
+}
+.pagediv a:hover,.pagediv-left a:visited{
+	color:#0092D6;
+}
+.pagediv-left{
+	float:left;
+}
+.pagediv-left a,.pagediv-left span{
+	float:left;
+}
+.pagediv-left .pageindex{
+	margin: 0 15px;
+}
+.pagediv-right{
+	margin-left:20px;
+	float:left;
+}
+.pagediv-right .pageto{
+	width:50px;
+	height:20px;
+	margin-right:10px;
+	border: 1px solid #CACACA;
+	text-align: center;
+}
+/* sxdoctor_selectpatient content-left end */
+/* sxdoctor_selectpatient content-mid start */
+.content-mid{
+	float:left; 
+	width:240px;
+	border-right: 4px solid #4190c8;
+	height:562px;
+}
+.content-mid .content-mid-top{
+	width: 120px;
+	margin:40px auto;
+}
+.content-mid .content-mid-top .registerCard{
+	width:120px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	background-color:#4dabde;
+	cursor: pointer;
+}
+.registerCard .icon_registerCard{
+	background: url(../img/icon_registerCard.png) center no-repeat;
+	width:40px;
+	height:30px;
+	float: left;
+}
+.registerCard .text_registerCard{
+	padding:0px 5px;
+	height:30px;
+	line-height:30px;
+}
+.content-mid .content-mid-top .followRecord{
+	width:120px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	background-color:#4dabde;
+	margin-top:10px;
+	cursor: pointer;
+}
+.content-mid .content-mid-top .btn_active{
+	background: url(../img/sjys_btn_active.png) center no-repeat;
+}
+.followRecord .icon_record{
+	background: url(../img/icon_record.png) center no-repeat;
+	width:40px;
+	height:30px;
+	float: left;
+}
+.followRecord .text_record{
+	padding:0px 5px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+}
+.content-mid-doctor{
+	height: 30px;
+	padding: 34px 0px;
+	border-top: 2px solid #D6E0E9;
+	border-bottom: 2px solid #D6E0E9;
+}
+.content-mid-doctor .text{
+	float:left;
+	padding-left: 30px;
+	padding-right:20px;
+	height:30px;
+	line-height: 30px;
+}
+.content-mid-doctor .btn_change{
+	float: left;
+	background-color: #4dabde;
+	border: 1px solid #bbe7ff;
+	padding: 4px 10px;
+	color: #fff;
+}
+.content-mid-doctor .btn_change_active{
+	background: url(../img/sjys_btn_change_active.png) center no-repeat;
+	border:none;
+}
+.content-mid-date{
+	padding-top:35px;
+	margin:0 30px;
+}
+.content-mid-lastdate{
+	height:30px;
+	line-height: 30px;
+	margin-bottom:10px;
+}
+.content-mid-date .blue{
+	color:#0091D5;
+	float:right;
+}
+/* sxdoctor_selectpatient content-mid end */
+/* sxdoctor_selectpatient content-right start */
+.content-right{
+	width: 472px;
+	padding-top:20px;
+	margin:0 20px;
+	float:left;
+}
+.content-right-info{
+	width:470px;
+	height:136px;
+	background-color:#EFF4F9;
+	border:1px solid #D7E0E9;
+}
+.infoline{
+	height:44px;
+	line-height:44px;
+	margin:0 20px;
+}
+.infoline .text{
+	height:44px;
+	float:left;
+	width:100px;
+	overflow: hidden;
+}
+.infoline .text .blue{
+	color:#0092D6;
+}
+/* 标签页 start */
+.chart_tab{
+	width:470px;
+	height:360px;
+	margin-top:20px;
+}
+.chart_tab .nav-tabs {
+	border-bottom: 1px solid #ddd;
+}
+.chart_tab .nav {
+	background:none;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	height: 33px;
+}
+.chart_tab .nav-tabs>li {
+	float: left;
+	margin-bottom: -1px;
+}
+.chart_tab .nav>li>a {
+	position: relative;
+	display: block;
+	padding: 6px 15px;
+}
+.chart_tab .nav-tabs>li>a {
+	margin-right: 2px;
+	line-height: 1.42857143;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
+	color:#323232;
+}
+.chart_tab .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #0092D6 !important;
+	cursor: default;
+	background-color: #F0F5FA;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+.chart_tab .tab-content{
+	height: 330px;
+	border: 1px solid #ddd;
+	border-top-color: #F0F5FA;
+}
+.chart_tab .tab-content>.tab-pane {
+	display: none;
+	visibility: hidden;
+}
+.chart_tab .tab-content>.active {
+	display: block;
+	visibility: visible;
+}
+.tab-pane .tab-pane-header{
+	height:30px;
+	background-color: #F0F5FA;
+}
+.tab-pane .tab-pane-content{
+	height:300px;
+}
+.date_div{
+	width:200px;
+	height:34px;
+	float:left;
+	overflow: hidden;
+}
+.date_div .date_text{
+	float:left;
+	height:30px;
+	line-height:30px;
+	padding:0 5px 0px 15px;
+}
+.date_div .startdate_div,.date_div .enddate_div{
+	float: left;
+	height: 22px;
+	line-height: 26px;
+	width: 120px;
+	background-color: #fff;
+	margin-top: 2px;
+	border: 1px solid #D7E0E9;
+}
+.date_div  input{
+	float: left;
+	width: 96px;
+	height: 22px;
+}
+.icon_date{
+	background: url(../img/icon_date.png) center no-repeat;
+	width:22px;
+	height:22px;
+	float: right;
+}
+/* 标签页 end */
+/* sxdoctor_selectpatient content-right end */
+
+/* 随访记录 start */
+.sfjl{
+	width: 100%;
+	/* height: 410px; */
+	/* overflow-x: scroll; */
+}
+.sfjl-div{
+	width: 100%;
+	/* height: 410px; */
+	/* overflow-x: scroll;  */
+	margin-bottom: 20px;
+}
+.sfjl_res{
+	
+	/* height: 300px; */
+	 width: 100%; 
+	/* border-top: 1px solid #d7e0e9; */
+}
+.sfjl_res th{
+	background-color: #eff4f9;
+	color:#eff4f9;
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+}
+.sfjl_res tr{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+}
+.sfjl_res td{
+	border-right: 1px solid #d7e0e9;
+	/* min-width: 75px; */
+}
+.sfjl-th{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #eff4f9;
+	color:#6F8F9E;
+}
+.sfjl-tr{
+	height:40px;
+	border: 1px solid #d7e0e9;
+	width:100%;
+	margin-top:-1px;
+	line-height: 40px;
+	text-align: center;
+} 
+/* .sfjl-tr:hover{
+	background-color:#1793d3;
+	color:#fff;
+}
+.sfjl-tr:hover a{
+	color:#fff !important;
+} */
+.sfjl-tr td{
+	border: 1px solid #d7e0e9;
+	font-size:12px;
+}
+.sfjl-tr td a{
+	color:#0092D6;
+}
+.sfjl-tr td a:hover,.sfjl-tr td a:visited,.sfjl-tr td a:focus{
+	color:#0092D6;
+}
+/* 随访记录 end */
+/* 变更随访医生 start */
+.bgsfys .search_bar{
+	padding-top:0px;
+	width: 100%;
+}
+.bgsfys .tb-container{
+	padding-top:0px;
+	width: 100%;
+	overflow:auto;
+	margin-bottom:0px;
+}
+.bgsfys .pagediv{
+	padding-top:0px;
+	width: 100%;
+}
+
+.bgsfys .search_res{
+	width:100%;
+	border:1px solid #d7e0e9;
+}
+.bgsfys .tb-tr .bgsfys_td_check{
+	cursor:pointer;
+}
+.bgsfys .tb-tr .bgsfys_td_nocheck{
+	background: url(../img/bgsfys_bg_nocheck.png) center no-repeat;
+}
+.bgsfys .tb-tr .bgsfys_td_ischeck{
+	background: url(../img/bgsfys_bg_ischeck.png) center no-repeat;
+}
+/* 变更随访医生 end */
+/* 任务分配 start */
+.rwfp_one{
+	min-height:30px;
+	margin-bottom:20px;
+}
+.rwfp_one .rwfp_one_text{
+	height:30px;
+	line-height: 30px;
+	float:left;
+}
+.rwfp_input{
+	height:30px;
+	line-height: 30px;
+	float:left;
+	margin:0 20px;
+}
+.rwfp_input select{
+	height: 28px;
+	line-height: 28px;
+	width: 120px;
+	float: left;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.rwfp_input input{
+	width:120px;
+	height: 28px;
+	border:1px solid #E6EBF1;
+}
+.rwfp_input_date{
+	float:left;
+	height: 30px;
+	line-height: 30px;
+	width: 120px;
+	background-color: #fff;
+	/* margin-top: 2px; */
+	border: 1px solid #D7E0E9;
+	margin-right:20px;
+}
+.rwfp_date_input{
+	width: 90px;
+	height: 30px;
+	line-height:30px;
+	float:left;
+}
+.rwfp_input_date .icon_date{
+	height:30px;
+}
+.rwfp_checkboxline{
+	height:30px;
+	line-height:30px;
+	margin: 15px 0;
+}
+.rwfp_checkboxline .rwfp_select_res{
+	min-height: 50px;
+	line-height: 40px;
+	width: 460px;
+	border: 1px solid #d7e0e9;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.rwfp_checkboxline .rwfp_select_res span{
+	padding: 8px 10px;
+	line-height: 30px;
+	height: 30px;
+	border: 1px solid #d7e0e9;
+	margin: 5px 3px;
+	cursor: pointer;
+}
+.rwfp_select_res_show{
+	display:block;
+}
+.rwfp_select_res_hide{
+	display:none;
+}
+.rwfp_checkboxline .rwfp_select_res .rwfp_select_res_active{
+	border: 1px solid #FF9719;
+	color:#FF9719;
+	background: url(../img/icon_rwfp_select_res_active.png) right bottom no-repeat;
+}
+.rwfp_checkboxline_zxzz{
+	height:105px;
+}
+.rwfp_checkboxline_jczb{
+	height:105px;
+}
+.rwfp_btn_blue{
+	height:30px;
+	line-height: 30px;
+	background-color: #48AAE0;
+	color:#fff;
+	cursor:pointer;
+}
+.ywjl{
+	/* border:1px solid #d7e0e9; */
+	border-left:1px solid #d7e0e9; 
+}
+.ywjl_tr{
+	height:42px;
+}
+.ywjl_td  input,.ywjl_td  input:focus{
+	border:none;
+}
+.ywjl_th{
+	border-top:1px solid #d7e0e9;
+	background-color:#EFF4F9;
+	color:#7F98A5;
+}
+.ywjl_td{
+	float:left;
+	width:160px;
+	height:40px;
+	line-height: 40px;
+	text-align: center;
+	border-right:1px solid #d7e0e9;
+	border-bottom:1px solid #d7e0e9;
+	/* border-left:1px solid #d7e0e9; */
+}
+/* 任务分配 end */
+/* 随访医生 start */
+.job_sf_task{
+	height: 30px;
+	margin: 10px 0px 10px 120px;
+}
+.job_sf_task_title{
+	float:left;
+	width:90px;
+}
+.job .job_btn .icon_hzzx {
+	background: url(../img/icon_hzzx.png)center no-repeat;
+	float: left;
+	height: 30px;
+	width: 30px;
+}
+.header-title-left .header-title-left-text{
+	margin:0 10px;
+	cursor:pointer;
+}
+.header-title-left .header-title-left-text-active{
+	color:#0092D6;
+}
+.content-mid-line{
+	border-top: 2px solid #D6E0E9;
+}
+/* 随访医生 end */
+/* 随访医生 公告列表 start*/
+.content-right-gg{
+	padding-top: 10px;
+	padding-right: 10px;
+	margin: 0 20px;
+	margin-left: 420px;
+	height: 530px;
+	overflow-y: scroll;
+}
+.ggheader{
+	border-bottom: 1px solid #cacaca;
+}
+.ggtitle{
+	line-height: 40px;
+	text-align: center;
+	font-size: 24px;
+}
+.gginfo{
+	text-align: right;
+	font-size: 14;
+	line-height: 24px;
+}
+.ggcontainer{
+	margin:20px;
+	line-height:24px;
+}
+/* 随访医生 公告列表 end*/
+/* 随访医生 随访记录 start*/
+.sfys_sfjl_add{
+	width: 110px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background-color: #4dabde;
+	cursor: pointer;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.sfys_sfjl_add .icon_add {
+	background: url(../img/icon_add.png) center no-repeat;
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+.sfys_sfjl_add .text_sfys_sfjl_add {
+	padding: 0px 10px 0px 5px;
+	height: 30px;
+	line-height: 30px;
+}
+/* 随访医生 随访记录 end*/
+/* 随访医生 咨询列表 start*/
+.content-right-zxlist{
+	padding-top: 10px;
+	padding-right: 10px;
+	margin: 0 20px;
+	margin-left: 420px;
+	height: 530px;
+}
+.sfys_zxlist_container{
+	width: 100%;
+	margin-top: 10px;
+	height: 500px;
+}
+.sfys_zxlist_container .nav {
+	background: none;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	height: 33px;
+}
+.sfys_zxlist_container .nav-tabs {
+	border-bottom: 1px solid #ddd;
+}
+.sfys_zxlist_container .nav-tabs>li {
+	float: left;
+	margin-bottom: -1px;
+}
+.sfys_zxlist_container .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #0092D6 !important;
+	cursor: default;
+	background-color: #F0F5FA;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+.sfys_zxlist_container .nav-tabs>li>a {
+	margin-right: 2px;
+	line-height: 1.42857143;
+	border: 1px solid #D6E0E9;
+	border-radius: 4px 4px 0 0;
+	color: #323232;
+}
+.sfys_zxlist_container .nav>li>a {
+	position: relative;
+	display: block;
+	padding: 6px 15px;
+}
+.sfys_zxlist_tab_content{
+	height: 480px;;
+	border: 1px solid #ddd;
+	border-top-color: #F0F5FA;
+	background-color: #F0F5FA;
+	overflow: scroll; 
+}
+.sfys_zxlist_container .sfys_zxlist_tab_content>.tab_pane {
+	display: none;
+	visibility: hidden;
+}
+.sfys_zxlist_container .sfys_zxlist_tab_content>.active {
+	display: block;
+	visibility: visible;
+}
+/* 随访医生 咨询列表 end*/

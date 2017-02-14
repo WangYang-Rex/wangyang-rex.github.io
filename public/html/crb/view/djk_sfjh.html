@@ -1,0 +1,708 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>结核随访登记卡</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/djK.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/date.js"></script>
+</head>
+<body>
+	<div class="djk_div" style="margin:20px auto 160px auto;">
+		<div class="djk_tr djk_th djk_tr_title">
+			个人基本信息
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">姓名<span class="djk_label_must">*</span></div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">路人甲</label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="路人甲" id="">
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">联系电话</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">身份证号码</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">结核病人登记号</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">随访日期<span class="djk_label_must">*</span></div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_date">
+					<input class="input_text djk_date_input" style="width:150px" onclick="HS_setDate(this)">
+					<span class="icon_date"></span>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">随访医生</div>
+			<div class="djk_td djk_td_value">
+				<div style="float:left;max-width:160px;height:30px;overflow:hidden;">
+					<label class="" for="" id="">浙江</label>
+				</div>
+				<div class="djk_value">
+					<span class="djk_btn_span">选择其他</span>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">随访方式</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id="">否</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="suiffs" type="radio" value="0">电话随访 </label>
+					<label><input name="suiffs" type="radio" value="1">上门随访 </label>
+					<label><input name="suiffs" type="radio" value="0">门诊随访 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			随访信息
+		</div>
+		<div class="djk_tr" style="height:120px;">
+			<div class="djk_td djk_th djk_td_title" style="height:120px;line-height: 120px;">治疗方案</div>
+			<div class="djk_td djk_td_value" style="width:749px;height:120px;">
+				<div class="djk_label" style="height:120px;line-height: 120px;">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio" style="height:120px;">
+					常用治疗方案：
+					<label><input name="changyzlfa" type="radio" value="0">2H3R3Z3E3/4H3R3 </label>
+					<label><input name="changyzlfa" type="radio" value="1">2HRZE/4HR </label>
+					<label><input name="changyzlfa" type="radio" value="0">2H3R3Z3E3 S3/6H3R3E3 </label><br/>
+					<label><input name="changyzlfa" type="radio" value="1">2HRZES/6HRE </label>
+					<label><input name="changyzlfa" type="radio" value="0">2HRZE/10HRE </label>
+					<label><input name="changyzlfa" type="radio" value="1">2H3R3Z3E3/10H3R3E3 </label><br/>
+					个体化治疗方案：
+					<input class="input_text djk_value_input" style="width:400px" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">督导方式</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id="">否</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="dudfs" type="radio" value="0">无 </label>
+					<label><input name="dudfs" type="radio" value="1">社区医生督导 </label>
+					<label><input name="dudfs" type="radio" value="0">家属督导 </label>
+					<label><input name="dudfs" type="radio" value="1">其他督导 </label>
+					<label><input name="dudfs" type="radio" value="0">不详 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr" style="height:80px;">
+			<div class="djk_td djk_th djk_td_title" style="height:80px;line-height: 80px;">有无药物不良反应</div>
+			<div class="djk_td djk_td_value" style="width:749px;height:80px;">
+				<div class="djk_label" style="height:80px;line-height: 80px;">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio" style="height:80px;">
+					<label><input name="ywywblfy" type="radio" value="0">无 </label>
+					<label><input name="ywywblfy" type="radio" value="1">食欲下降 </label>
+					<label><input name="ywywblfy" type="radio" value="0">恶心呕吐 </label>
+					<label><input name="ywywblfy" type="radio" value="1">睡眠困难 </label>
+					<label><input name="ywywblfy" type="radio" value="0">白细胞下降 </label>
+					<label><input name="ywywblfy" type="radio" value="1">皮疹 </label>
+					<label><input name="ywywblfy" type="radio" value="0">四肢麻木 </label>
+					<label><input name="ywywblfy" type="radio" value="1">乏力 </label>
+					<label><input name="ywywblfy" type="radio" value="1">实力改变 </label><br>
+					<label><input name="ywywblfy" type="radio" value="1">听力下降 </label>
+					<label><input name="ywywblfy" type="radio" value="1">头痛 </label>
+					<label><input name="ywywblfy" type="radio" value="1">关节痛 </label><br>
+					<label><input name="ywywblfy" type="radio" value="1">皮肤色素沉着 </label>
+					<label><input name="ywywblfy" type="radio" value="1">其他 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">调整治疗方案</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id="">否</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="dudfs" type="radio" value="0">是 </label>
+					<label><input name="dudfs" type="radio" value="1">否 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">	
+			<div class="djk_td djk_th djk_td_title">调整日期</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_date">
+					<input class="input_text djk_date_input" style="width:150px" onclick="HS_setDate(this)">
+					<span class="icon_date"></span>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">调整原因</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">每月漏服次数</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id="">否</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="mylfcs" type="radio" value="0">0次 </label>
+					<label><input name="mylfcs" type="radio" value="1">小于3次 </label>
+					<label><input name="mylfcs" type="radio" value="0">大于3次 </label>
+					<label><input name="mylfcs" type="radio" value="0">不详 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">	
+			<div class="djk_td djk_th djk_td_title">漏服原因</div>
+			<div class="djk_td djk_td_value djk_td_3" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			症状
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">发热</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="fare" type="radio" value="0">有 </label>
+					<label><input name="fare" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">咳嗽</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="kesou" type="radio" value="0">有 </label>
+					<label><input name="kesou" type="radio" value="1">无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">盗汗</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="daoh" type="radio" value="0">有 </label>
+					<label><input name="daoh" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">咳嗽性质</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="kesouxz" type="radio" value="0">干咳 </label>
+					<label><input name="kesouxz" type="radio" value="1">咳嗽伴有痰 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">消瘦</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="xiaos" type="radio" value="0">有 </label>
+					<label><input name="xiaos" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">乏力</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="fali" type="radio" value="0">有 </label>
+					<label><input name="fali" type="radio" value="1">无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">食欲减退</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="shiyjt" type="radio" value="0">有 </label>
+					<label><input name="shiyjt" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">腹痛</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="futong" type="radio" value="0">上腹痛 </label>
+					<label><input name="futong" type="radio" value="1">下腹痛 </label>
+					<label><input name="futong" type="radio" value="0">全腹痛 </label>
+					<label><input name="futong" type="radio" value="0">无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">胸痛</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="xiongt" type="radio" value="0">左侧 </label>
+					<label><input name="xiongt" type="radio" value="1">右侧 </label>
+					<label><input name="xiongt" type="radio" value="0">双侧 </label>
+					<label><input name="xiongt" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">腹泻</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="fuxie" type="radio" value="0">有 </label>
+					<label><input name="fuxie" type="radio" value="0">无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">月经失调</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="yuejst" type="radio" value="0">有 </label>
+					<label><input name="yuejst" type="radio" value="1">无 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">便秘</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id="">无</label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="bianmi" type="radio" value="0">有 </label>
+					<label><input name="bianmi" type="radio" value="0">无 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">其他重要症状</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text input_text djk_value_input" style="width:400px" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">并发症情况</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text input_text djk_value_input" style="width:400px" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			体征
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">体重（Kg）</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">体温℃</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">呼吸</div>
+			<div class="djk_td djk_td_value djk_td_3" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">次/分
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">两肺呼吸音</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="lfhxy" type="radio" value="0">清晰无啰音 </label>
+					<label><input name="lfhxy" type="radio" value="1">呼吸音粗 </label>
+					<label><input name="lfhxy" type="radio" value="0">湿啰音 </label>
+					<label><input name="lfhxy" type="radio" value="1">干啰音 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">异常呼吸音位置</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="ychxywz" type="radio" value="1">右侧 </label>
+					<label><input name="ychxywz" type="radio" value="1">左侧 </label>
+					<label><input name="ychxywz" type="radio" value="1">双侧 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">其他阳性体征</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text input_text djk_value_input" style="width:400px" value="" id="">
+				</div>
+			</div>
+		</div>
+		
+		<div class="djk_tr djk_th djk_tr_title">
+			辅助检查
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">痰涂片抗酸染色</div>
+			<div class="djk_td djk_td_value ">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="ttpksrs" type="radio" value="1">阳性 </label>
+					<label><input name="ttpksrs" type="radio" value="1">阴性 </label>
+					<label><input name="ttpksrs" type="radio" value="1">(1+) </label>
+					<label><input name="ttpksrs" type="radio" value="1">(2+) </label>
+					<label><input name="ttpksrs" type="radio" value="1">(3+) </label>
+					<label><input name="ttpksrs" type="radio" value="1">(4+) </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">痰液结核菌培养</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="tyjhjpy" type="radio" value="0">未检 </label>
+					<label><input name="tyjhjpy" type="radio" value="1">阴性 </label>
+					<label><input name="tyjhjpy" type="radio" value="0">阳性 </label>
+					<label><input name="tyjhjpy" type="radio" value="1">非结核分枝杆菌有效 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">结核菌药敏试验</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="jhjymsy" type="radio" value="0">未检 </label>
+					<label><input name="jhjymsy" type="radio" value="1">无耐药 </label>
+					<label><input name="jhjymsy" type="radio" value="1">耐药 </label>
+				</div>
+			</div>		
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">胸部X线检查</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="xbxxjc" type="radio" value="0">未检 </label>
+					<label><input name="xbxxjc" type="radio" value="1">正常 </label>
+					<label><input name="xbxxjc" type="radio" value="1">异常 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			肝功能
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">ALT</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">U/L
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">AST</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">U/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">TBIL</div>
+			<div class="djk_td djk_td_value djk_td_3" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">umol/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			肾功能
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">Scr</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">umol/L
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">BUN</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">mmol/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">UA</div>
+			<div class="djk_td djk_td_value djk_td_3" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">umol/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			血常规
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">Hb</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">g/L
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">RBC</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">10^9/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">WBC</div>
+			<div class="djk_td djk_td_value" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">10^9/L
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">PLT</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">10^9/L
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">血沉</div>
+			<div class="djk_td djk_td_value djk_td_3" style="">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text djk_value_input" style="width:150px" value="" id="">mm/h
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">其他检查</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value">
+					<input class="input_text input_text djk_value_input" style="width:400px" value="" id="">
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr djk_th djk_tr_title">
+			随访结论
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">本次随访结论</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="bcsfjl" type="radio" value="0">好转 </label>
+					<label><input name="bcsfjl" type="radio" value="1">稳定 </label>
+					<label><input name="bcsfjl" type="radio" value="1">恶化 </label>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">是否进行下次随访预约</div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_radio">
+					<label><input name="sfjxxcsfyy" type="radio" value="0">是 </label>
+					<label><input name="sfjxxcsfyy" type="radio" value="1">否 </label>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">下次随访预约日期<span class="djk_label_must">*</span></div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_date">
+					<input class="input_text input_text djk_date_input" style="width:150px" onclick="HS_setDate(this)">
+					<span class="icon_date"></span>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">调查日期<span class="djk_label_must">*</span></div>
+			<div class="djk_td djk_td_value">
+				<div class="djk_label">
+					<label class="" for="" id=""></label>
+				</div>
+				<div class="djk_value djk_value_date">
+					<input class="input_text djk_date_input" style="width:150px" onclick="HS_setDate(this)">
+					<span class="icon_date"></span>
+				</div>
+			</div>
+			<div class="djk_td djk_th djk_td_title">填表人</div>
+			<div class="djk_td djk_td_value">
+				<div style="float:left;max-width:160px;height:30px;overflow:hidden;">
+					<label class="" for="" id="">浙江</label>
+				</div>
+				<div class="djk_value">
+					<span class="djk_btn_span">选择其他</span>
+				</div>
+			</div>
+		</div>
+		<div class="djk_tr">
+			<div class="djk_td djk_th djk_td_title">调查机构</div>
+			<div class="djk_td djk_td_value djk_td_3">
+				<div style="float:left;max-width:260px;height:30px;overflow:hidden;">
+					<label class="" for="" id="">浙江</label>
+				</div>
+				<div class="djk_value">
+					<span class="djk_btn_span">选择机构</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

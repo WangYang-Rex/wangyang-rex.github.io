@@ -1,0 +1,106 @@
+/* login start */
+.login_div{
+
+	margin:100px auto;
+	height: 450px;
+	width: 700px;
+	background: url(../img/login/login_div_bg.png) center no-repeat;
+}
+.loginform{
+	/* width:260px;
+	margin:0 auto;
+	padding-top:90px; */
+	width: 320px;
+	padding-top: 40px;
+	margin-left: 240px;
+}
+.onerow{
+	width:260px;
+	height:40px;
+	line-height:30px;
+	margin-bottom:20px;
+}
+.onerow .text{
+	float: left;
+	width: 90px;
+	color:#fff;
+	line-height: 35px;
+}
+.onerow .input{
+	height:40px;
+	margin-left: 90px;
+	width: 160px; 
+}
+.onerow .input select{
+	height:40px;
+	line-height: 40px;
+	width: 200px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.onerow .input select option{
+	height:40px;
+	line-height: 40px;
+	width: 200px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+ .onerow input{
+	height:40px;
+	line-height: 40px;
+	width: 200px;
+	font-size: 14px;
+	vertical-align: middle;
+	border:1px solid #7E7E7E;
+} 
+
+.login_btn_denglu{
+	/* background:url(../img/login/login_denglu.png) center no-repeat; */
+	background-color:#2B9CD8;
+	height:30px;
+	line-height: 30px;
+	width: 160px;
+	font-size: 14px;
+	color:#fff;
+	vertical-align: middle;
+	 border:none !important; 
+}
+/* login end */
+
+
+.login_body{
+	background-color: #70BF86 !important;
+	background: url(../img/login/login_bg.jpg);
+}
+.login_div{
+	height:450px;
+	width:700px;
+	background: url(../img/login/login_div_bg.png) center no-repeat;
+}
+.login_header{
+	height:50px;
+	padding-top: 40px;
+	margin: 0px 50px 0px 100px;
+}
+.login_main{
+	margin: 0px 50px 0px 100px;
+}
+.login_logo{
+	float: left;
+	height:46px;
+	width:46px;
+}
+.login_logo_name{
+	height: 40px;
+	font-size: 30px;
+	line-height: 40px;
+	float: left;
+	margin: 0px 30px 0px 10px;
+	color:#fff;
+}
+.login_person{
+	width:210px;
+	height:210px;
+	padding-top:40px;
+	float:left;
+}

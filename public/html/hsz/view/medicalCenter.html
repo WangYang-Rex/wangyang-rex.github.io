@@ -1,0 +1,84 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes">
+	<title>体检中心！</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/medical.css" rel="stylesheet">
+</head>
+<body class="app">
+	<div class="container">
+		<section class="guide">
+			<p class="guide_title">
+				<span class="icon_tanh"></span>
+				体检须知
+			</p>
+			<p class="guide_content">为了您体检过程更加顺利，体检结果更加准确，请您在体检前仔细阅读以下注意事项</p>
+			<p class="guide_to">
+				<a href="#">查看 <span class="icon_right"></span></a>
+			</p>
+		</section>
+		<section class="tc_types">
+			<div class="tc_types_title">
+				套餐种类
+			</div>
+			<div class="tc_types_content">
+				<div class="one_type">
+					普通套餐
+				</div>
+				<div class="one_type">
+					体检套餐A
+				</div>
+				<div class="one_type">
+					体检套餐B
+				</div>
+				<div class="one_type">
+					体检套餐C
+				</div>
+				<div class="one_type">
+					体检套餐D
+				</div>
+				<div class="clr"></div>
+			</div>
+		</section>
+		<section class="book">
+			<a href="#" class="one_book">
+				<div class="book_personal"></div>
+				<p>个人预约</p>
+			</a>
+			<a href="#" class="one_book">
+				<div class="book_team"></div>
+				<p>团队预约</p>
+			</a>
+			<a href="#" class="one_book">
+				<div class="result_query"></div>
+				<p>结果查询</p>
+			</a>
+			<div class="clr"></div>
+		</section>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

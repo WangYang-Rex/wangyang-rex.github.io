@@ -1,0 +1,683 @@
+@c:46.875;
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    line-height: 1.6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+input, textarea, label[for]{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+body{
+	max-width: 640px;
+	width: 16rem;
+	margin: 0 auto;
+	background-color: #EEEEEE;
+	font-size: 12rem/@c;
+}
+img{
+	max-width: 100%;
+}
+
+.icon-toTop{
+	width: 88rem/@c;
+	height: 88rem/@c;
+	background: url(../img/icon-toTop.png) center no-repeat;
+	background-size: 88rem/@c 88rem/@c;
+	position: fixed;
+	bottom: 240rem/@c;
+	right: 40rem/@c;
+}
+.icon-toHome{
+	width: 88rem/@c;
+	height: 88rem/@c;
+	background: url(../img/icon-toHome.png) center no-repeat;
+	background-size: 88rem/@c 88rem/@c;
+	position: fixed;
+	bottom: 126rem/@c;
+	right: 40rem/@c;
+}
+.home{
+	background-color: #ffffff;
+}
+.header{
+	height: 88rem/@c;
+	background-color: #0178D6;
+	overflow: hidden;
+	.header-logo{
+		height: 88rem/@c;
+		width:155rem/@c;
+		margin-left: 24rem/@c;
+		float: left;
+		background: url(../img/header-logo.png) center no-repeat;
+		background-size: 154rem/@c 49rem/@c;
+	}
+	.header-place{
+		height:88rem/@c;
+		float: right;
+		margin-right: 24rem/@c;
+		overflow: hidden;
+		.header-place-info{
+			font-size: 32rem/@c;
+			color:#fff;
+			line-height: 88rem/@c;	
+			&:after{
+				float:right;
+			    content: " ";
+			    display: inline-block;
+			    -webkit-transform: rotate(135deg);
+			    transform: rotate(135deg);
+			    height: 12rem/@c;
+			    width: 15rem/@c;
+			    border-width: 4rem/@c 4rem/@c 0 0;
+			    border-color: #ffffff;
+			    border-style: solid;
+			    position: relative;
+			    top: -4rem/@c;
+			    margin-left: 16rem/@c;
+		        margin-top: 32rem/@c;
+			}
+		}
+	}
+}
+.main-content{
+	.slide{
+		line-height: 0;
+		position: relative;
+		.bx-wrapper .bx-pager.bx-default-pager a {
+		    width: .35rem !important;
+		    height: .35rem !important;
+		    border-radius: .35rem !important
+		}
+
+		.bx-wrapper .bx-viewport {
+		    left: 0 !important;
+		    border:0;
+		}
+
+		.bx-wrapper .bx-pager,.zx-zdy-container .bx-wrapper .bx-controls-auto {
+		    position: absolute;
+		    bottom: 40rem/@c !important;
+		    width: 100%
+		}
+
+		.bx-wrapper {
+		    margin-bottom: 0 !important
+		}
+	}
+	.home-list{
+		overflow: hidden;
+
+		.home-list-item{
+		    position: relative;
+		    float: left;
+		    padding: 18rem/@c 10rem/@c;
+		    height:178rem/@c;
+		    width: 33.33333333%;
+		    box-sizing: border-box;
+		    border-right:1px solid #E7E7E7;
+		    border-bottom:1px solid #E7E7E7;
+			// margin: -1px 0 0 -1px;
+
+			.home-item-desc{
+				font-size: 26rem/@c;
+				text-align: center;
+			}
+
+			.icon{
+				display: block;
+			    width: 40rem/@c;
+			    height: 90rem/@c;
+			    vertical-align: middle;
+			    margin:0 auto;
+			}
+
+		    .icon-home-item1{
+				background: url(../img/home-item1.png) center no-repeat;
+			    background-size: 33rem/@c 48rem/@c;
+		    }
+
+		    .icon-home-item2{
+				background: url(../img/home-item2.png) center no-repeat;
+			    background-size: 49rem/@c 39rem/@c;
+		    }
+
+		    .icon-home-item3{
+				background: url(../img/home-item3.png) center no-repeat;
+			    background-size: 48rem/@c 48rem/@c;
+		    }
+
+		    .icon-home-item4{
+				background: url(../img/home-item4.png) center no-repeat;
+			    background-size: 48rem/@c 48rem/@c;
+		    }
+
+		    .icon-home-item5{
+				background: url(../img/home-item5.png) center no-repeat;
+			    background-size: 42rem/@c 48rem/@c;
+		    }
+
+		    .icon-home-item6{
+				background: url(../img/home-item6.png) center no-repeat;
+			    background-size: 48rem/@c 48rem/@c;
+		    }
+
+		    .icon-home-item7{
+				background: url(../img/home-item7.png) center no-repeat;
+			    background-size: 48rem/@c 42rem/@c;
+		    }
+
+		    .icon-home-item8{
+				background: url(../img/home-item8.png) center no-repeat;
+			    background-size: 48rem/@c 46rem/@c;
+		    }
+
+		    .icon-home-item9{
+				background: url(../img/home-item9.png) center no-repeat;
+			    background-size: 48rem/@c 48rem/@c;
+		    }
+		}
+
+		.home-list-item:nth-child(3n){
+			border-right: none;
+		}
+	}
+
+	// 一级目录
+	.home-nav{
+		display: none;
+		font-size: 16rem/@c;
+		margin-bottom:20px;
+		.weui_cells{
+			line-height: inherit;
+			font-size: 32rem/@c;
+			color:#333333;
+			.weui_cell{
+				padding: 20rem/@c 30rem/@c;
+				height: 48rem/@c;
+				line-height: 48rem/@c;
+				
+				.weui_cell_ft{
+					&:after{
+					    content: " ";
+					    display: inline-block;
+					    -webkit-transform: rotate(45deg);
+					    transform: rotate(45deg);
+					    height: 12rem/@c;
+					    width: 12rem/@c;
+					    border-width: 2px 2px 0 0;
+					    border-color: #C8C8CD;
+					    border-style: solid;
+					    position: relative;
+					    top: -2px;
+					    top: -1px;
+					    margin-left: .3em;
+					}
+				}
+
+				.home-nav-li{
+					height: 48rem/@c;
+					width: 48rem/@c;
+					margin-right: 16rem/@c;
+				}
+
+				// 二级目录 灯具电路
+				.home-nav-li-djdl1{
+					background: url(../img/home-nav-li-djdl1.png) center no-repeat;
+			    	background-size: 48rem/@c 39rem/@c;
+				}
+				.home-nav-li-djdl2{
+					background: url(../img/home-nav-li-djdl2.png) center no-repeat;
+			    	background-size: 33rem/@c 48rem/@c;
+				}
+
+				// 二级目录 水龙头管件
+				.home-nav-li-sltgj1{
+					background: url(../img/home-nav-li-sltgj1.png) center no-repeat;
+			    	background-size: 48rem/@c 37rem/@c;
+				}
+				.home-nav-li-sltgj2{
+					background: url(../img/home-nav-li-sltgj2.png) center no-repeat;
+			    	background-size: 47rem/@c 48rem/@c;
+				}
+				.home-nav-li-sltgj3{
+					background: url(../img/home-nav-li-sltgj3.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-sltgj4{
+					background: url(../img/home-nav-li-sltgj4.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+
+				// 二级目录 卫浴洁具
+				.home-nav-li-wyjj1{
+					background: url(../img/home-nav-li-wyjj1.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-wyjj2{
+					background: url(../img/home-nav-li-wyjj2.png) center no-repeat;
+			    	background-size: 40rem/@c 48rem/@c;
+				}
+				.home-nav-li-wyjj3{
+					background: url(../img/home-nav-li-wyjj3.png) center no-repeat;
+			    	background-size: 38rem/@c 48rem/@c;
+				}
+				.home-nav-li-wyjj4{
+					background: url(../img/home-nav-li-wyjj4.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-wyjj5{
+					background: url(../img/home-nav-li-wyjj5.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+
+				// 二级目录 墙面地面
+				.home-nav-li-qmdm1{
+					background: url(../img/home-nav-li-qmdm1.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-qmdm2{
+					background: url(../img/home-nav-li-qmdm2.png) center no-repeat;
+			    	background-size: 48rem/@c 46rem/@c;
+				}
+				.home-nav-li-qmdm3{
+					background: url(../img/home-nav-li-qmdm3.png) center no-repeat;
+			    	background-size: 34rem/@c 48rem/@c;
+				}
+
+				// 二级目录 门窗家具
+				.home-nav-li-mcjj1{
+					background: url(../img/home-nav-li-mcjj1.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-mcjj2{
+					background: url(../img/home-nav-li-mcjj2.png) center no-repeat;
+			    	background-size: 48rem/@c 30rem/@c;
+				}
+				.home-nav-li-mcjj3{
+					background: url(../img/home-nav-li-mcjj3.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-mcjj4{
+					background: url(../img/home-nav-li-mcjj4.png) center no-repeat;
+			    	background-size: 48rem/@c 42rem/@c;
+				}
+				.home-nav-li-mcjj5{
+					background: url(../img/home-nav-li-mcjj5.png) center no-repeat;
+			    	background-size: 36rem/@c 48rem/@c;
+				}
+
+				// 二级目录 打孔管道疏通
+				.home-nav-li-dkgdst1{
+					background: url(../img/home-nav-li-dkgdst1.png) center no-repeat;
+			    	background-size: 47rem/@c 48rem/@c;
+				}
+				.home-nav-li-dkgdst2{
+					background: url(../img/home-nav-li-dkgdst2.png) center no-repeat;
+			    	background-size: 47rem/@c 48rem/@c;
+				}
+				.home-nav-li-dkgdst3{
+					background: url(../img/home-nav-li-dkgdst3.png) center no-repeat;
+			    	background-size: 48rem/@c 46rem/@c;
+				}
+
+				// 二级目录 家具建材安装
+				.home-nav-li-jjjcaz1{
+					background: url(../img/home-nav-li-jjjcaz1.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jjjcaz2{
+					background: url(../img/home-nav-li-jjjcaz2.png) center no-repeat;
+			    	background-size: 48rem/@c 37rem/@c;
+				}
+				.home-nav-li-jjjcaz3{
+					background: url(../img/home-nav-li-jjjcaz3.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jjjcaz4{
+					background: url(../img/home-nav-li-jjjcaz4.png) center no-repeat;
+			    	background-size: 48rem/@c 42rem/@c;
+				}
+				.home-nav-li-jjjcaz5{
+					background: url(../img/home-nav-li-jjjcaz5.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jjjcaz6{
+					background: url(../img/home-nav-li-jjjcaz6.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jjjcaz7{
+					background: url(../img/home-nav-li-jjjcaz7.png) center no-repeat;
+			    	background-size: 48rem/@c 42rem/@c;
+				}
+				.home-nav-li-jjjcaz8{
+					background: url(../img/home-nav-li-jjjcaz8.png) center no-repeat;
+			    	background-size: 48rem/@c 38rem/@c;
+				}
+				.home-nav-li-jjjcaz9{
+					background: url(../img/home-nav-li-jjjcaz9.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jjjcaz10{
+					background: url(../img/home-nav-li-jjjcaz10.png) center no-repeat;
+			    	background-size: 48rem/@c 38rem/@c;
+				}
+				.home-nav-li-jjjcaz11{
+					background: url(../img/home-nav-li-jjjcaz11.png) center no-repeat;
+			    	background-size: 48rem/@c 44rem/@c;
+				}
+
+				// 二级目录 家电维修
+				.home-nav-li-jdwx1{
+					background: url(../img/home-nav-li-jdwx1.png) center no-repeat;
+			    	background-size: 48rem/@c 22rem/@c;
+				}
+				.home-nav-li-jdwx2{
+					background: url(../img/home-nav-li-jdwx2.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jdwx3{
+					background: url(../img/home-nav-li-jdwx3.png) center no-repeat;
+			    	background-size: 30rem/@c 48rem/@c;
+				}
+				.home-nav-li-jdwx4{
+					background: url(../img/home-nav-li-jdwx4.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jdwx5{
+					background: url(../img/home-nav-li-jdwx5.png) center no-repeat;
+			    	background-size: 48rem/@c 26rem/@c;
+				}
+				.home-nav-li-jdwx6{
+					background: url(../img/home-nav-li-jdwx6.png) center no-repeat;
+			    	background-size: 48rem/@c 38rem/@c;
+				}
+				.home-nav-li-jdwx7{
+					background: url(../img/home-nav-li-jdwx7.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+				.home-nav-li-jdwx8{
+					background: url(../img/home-nav-li-jdwx8.png) center no-repeat;
+			    	background-size: 48rem/@c 26rem/@c;
+				}
+				.home-nav-li-jdwx9{
+					background: url(../img/home-nav-li-jdwx9.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+
+				// 二级目录 开锁换锁
+				.home-nav-li-kshs1{
+					background: url(../img/home-nav-li-kshs1.png) center no-repeat;
+			    	background-size: 48rem/@c 48rem/@c;
+				}
+			}
+		}
+	}
+	
+	.weui_panel{
+		margin-top:24rem/@c;
+		border-bottom: 1px solid #E7E7E7;
+		&:first-child {
+		    margin-top: 0;
+		}
+	}
+	.weui_panel_hd{
+	    padding: 28rem/@c 30rem/@c 28rem/@c;
+	    color: #333333;
+	    height: 32rem/@c;
+	    line-height: 32rem/@c;
+	    font-size: 28rem/@c;
+	    position: relative;
+	    
+	    i{
+			width:4rem/@c;
+			height: 32rem/@c;
+			min-width: 2px;
+			background-color: #0D7ED8;
+		    display: block;
+		    float: left;
+		    margin-right: 15rem/@c;
+	    }
+	}
+	.weui_media_box{
+		// padding: 25rem/@c 30rem/@c ;
+	    position: relative;
+
+		.weui_media_title{
+			margin-bottom: 14rem/@c;
+			font-size: 32rem/@c;
+			line-height: 1.1;
+			color:#333333;
+		}
+		.weui_media_desc{
+			font-size: 28rem/@c;
+			line-height: 1.1;
+			color:#888888;
+		}
+		.weui_media_info{
+			font-size: 27rem/@c;
+			line-height: 1.8;
+			color:#888888;
+			margin-top:0;
+		}
+		.list3-select{
+			display: none;
+			width:33rem/@c;
+			height:23rem/@c;
+			position: absolute;
+			right:30rem/@c;
+			top:48rem/@c;
+			background: url(../img/list3-select.png) center no-repeat;
+	    	background-size: 33rem/@c 23rem/@c;
+		}
+		&.active{
+			.list3-select{
+				display: block;
+			}
+		}
+
+	}
+	.weui_media_text{
+		.weui_media_title{
+			margin-top:18rem/@c;
+		}
+		
+	}
+
+}
+.bd-footer{
+	margin-bottom: 110rem/@c;
+}
+.ctrl-btn{
+	height: 86rem/@c;
+	width:100%;
+	max-width: 16rem;
+	overflow: hidden;
+	border-top: 1px solid #E7E7E7;
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+	// background-color: #fff;
+
+	.ctrl-list-pre{
+		width:100%;
+	    height: 100%;
+		float: left;
+		line-height: 86rem/@c;
+		text-align: center;
+		background-color: #F7F7F7;
+		font-size: 32rem/@c;
+		color: #5f646e;
+	}
+
+	.ctrl-btn-pre{
+		width:50%;
+	    height: 100%;
+		float: left;
+		line-height: 86rem/@c;
+		text-align: center;
+		background-color: #F7F7F7;
+		font-size: 32rem/@c;
+		color: #5f646e;
+	}
+	.ctrl-btn-next{
+		width:50%;
+	    height: 100%;
+		float: left;
+		line-height: 86rem/@c;
+		text-align: center;
+		background-color: #0D7ED8;
+		font-size: 32rem/@c;
+		color: #fff;
+	}
+	.ctrl-btn-confirm{
+		width:50%;
+	    height: 100%;
+		float: left;
+		line-height: 86rem/@c;
+		text-align: center;
+		background-color: #0D7ED8;
+		font-size: 32rem/@c;
+		color: #fff;
+	}
+}
+.weui_cells:first-child{
+	margin-top:0;
+}
+.weui_cell:not(.no_access):active {
+    background-color: #fff!important;
+}
+.step3-content{
+	font-size: 32rem/@c;
+	.weui_cell_hd{
+		line-height: 50rem/@c;
+	}
+	.weui_label{
+		line-height: 50rem/@c;
+	}
+	.weui_input{
+		height: 48rem/@c;
+		line-height: 50rem/@c;
+	}
+	.ssq{
+		font-size: 32rem/@c;
+	}
+	textarea{
+		height: 270rem/@c;
+	}
+	.weui_uploader_file,
+	.weui_uploader_input_wrp{
+		margin-right: 18rem/@c;
+	    margin-bottom: 18rem/@c;
+	    width: 158rem/@c;
+	    height: 158rem/@c;
+	}
+}
+// 预约成功
+.msg{
+	.weui_msg{
+		padding-top:72rem/@c;
+	}
+	.weui_msg_title{
+		color:#333333;
+	}
+	.weui_msg_desc{
+		color:#888888;
+	}
+	.weui_icon_success{
+		&:before{
+    		color: #0D7ED8;
+		}
+	}
+}
+.weui_cells{
+	font-size: 32rem/@c;
+}
+.weui_toast{
+	top: 46%;
+}
+.weui_toast_content_new{
+	font-size: 32rem/@c;
+	padding: 20rem/@c;
+}
+.weui_toast_content{
+	font-size: 32rem/@c;
+}
+
+// 选择地区 弹窗
+#selectPlace{
+	height:100%;
+	background-color: #fff;
+	.weui_search_bar{
+		padding: 16rem/@c 20rem/@c;
+		background-color: #fff;
+	}
+	.weui_search_inner{
+		background-color: #F1F1F1;
+		padding-left:60rem/@c;
+		padding-right:60rem/@c;
+		.weui_icon_search{
+		    position: absolute;
+		    left: 20rem/@c;
+		    top: -4rem/@c;
+		    line-height: 56rem/@c;
+		    &:before{
+		    	font-size: 28rem/@c;
+		    }
+		}
+		.weui_search_input{
+			padding:8rem/@c 0;
+			font-size: 28rem/@c;
+		}
+		.weui_icon_clear{
+			top: -4rem/@c;
+		    right: 0;
+		    padding: 0 20rem/@c;
+		    line-height: 56rem/@c;
+		    // color:#A6A6A6;
+		    &:before{
+	    	    font-size: 28rem/@c;
+		    }
+		}
+	}
+	.weui_search_cancel{
+		margin-left: 20rem/@c;
+	    line-height: 56rem/@c;
+	    font-size: .6rem;
+	    color: #A5A5A5;
+	    width: 80rem/@c;
+	    text-align: center;
+	}
+	.placeList{
+		.placeRow{
+			font-size: 30rem/@c;
+			// line-height: 30rem/@c;
+			padding: 20rem/@c;
+			border-bottom: 1px solid #E3E3E3;
+			.placeRow-name{
+				
+			}
+			.placeRow-district{
+			    color: #A5A5A5;
+			    font-size: 28rem/@c;
+			}
+		}
+	}
+}

@@ -70,7 +70,16 @@ theme: hexo-theme-next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+#   type: git
+#   repository: git@github.com:WangYang-Rex/wangyang-rex.github.io.git
+#   branch: master
 deploy:
   type: git
-  repository: git@github.com:WangYang-Rex/wangyang-rex.github.io.git
+  repository: git@git.coding.net:dayang/dayang.git
   branch: master
+# deploy:
+#   type: git
+#   repo: 
+#     github: git@github.com:WangYang-Rex/wangyang-rex.github.io.git, master
+#     coding: git@git.coding.net:dayang/dayang.git, master

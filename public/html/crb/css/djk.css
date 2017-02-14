@@ -1,0 +1,100 @@
+.djk_td_1_3_1{
+	width:332px !important;
+}
+.djk_td_1_3_2{
+	width:333px !important;
+}
+.djk_td_2{
+	width:499px !important;
+}
+.djk_td_3{
+	width:749px !important;
+}
+.djk_td_4{
+	width:999px !important;
+}
+.djk_div{
+	width:1000px;
+	height:auto;
+	border-left: 1px solid #d7e0e9;
+	border-top: 1px solid #d7e0e9;
+}
+.djk_tr{
+	height: 42px;
+}
+.djk_td{
+	float: left;
+	width: 249px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-right: 1px solid #d7e0e9;
+	border-bottom: 1px solid #d7e0e9;
+	overflow: hidden;
+}
+.djk_td .input_text{
+	border:1px solid #D7E0E9;
+}
+.djk_th{
+	background-color: #EFF4F9;
+	color: #7F98A5;
+}
+.djk_tr_title{
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	border-right: 1px solid #d7e0e9;
+	border-bottom: 1px solid #d7e0e9;
+	background-color:#fff;
+}
+.djk_td_title{
+	
+}
+.djk_label{
+	display:none;
+}
+.djk_value{
+	display:block;
+	margin-left:4px;
+	margin-top:2px;
+	text-align:left;
+	line-height: 34px;
+}
+.djk_label_must{
+	color:red;
+}
+.djk_value_input{
+	height: 34px;
+	line-height: 30px;
+	width: 240px;
+}
+.djk_value_radio{
+	text-align:left;
+}
+.djk_value_radio label{
+	padding-right:10px;
+}
+.djk_value_date{
+	/* height:40px; */
+}
+.djk_date_input{
+	width: 90px;
+	height: 34px;
+	line-height: 30px;
+	width: 200px;
+	float: left;
+}
+.djk_value_date .icon_date{
+	background: url(../img/icon_date.png) center no-repeat;
+	width: 22px;
+	height: 38px;
+	float:left;
+}
+.djk_btn_span{
+	background-color: #4591C6;
+	padding:3px 8px;
+	margin:0 3px;
+	cursor: pointer;
+	color:#fff;
+}

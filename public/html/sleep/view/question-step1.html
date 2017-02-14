@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no, email=no" />
+		<title>回答页面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	</head>
+	<body class="question">
+		<div class="question-top">
+			<!--<img src="../img/question/question_bg.jpg"/>-->
+			
+			<div class="question-step">1/19</div>
+			<div class="question-top-content">
+				<img class="icon-question" src="../img/question/icon-question.png"/>
+				<div class="question-title">你是否不能再30分钟内入睡？你是否不能再30分钟内入睡？你是否不能再30分钟内入睡？你是否不能再30分钟内入睡？你是否不能再30分钟内入睡？？</div>
+			</div>
+		</div>
+		<div class="question-content">
+			<input type="text" class="one-question avc" placeholder="性别" readonly="readonly"/>
+			<!--<select name="Cities" id="demo_select" data-role="none">
+                <option value="">Please Select</option>
+                <option value="1">Atlanta</option>
+                <option value="2">Berlin</option>
+                <option value="3">Boston</option>
+                <option value="4">Chicago</option>
+                <option value="5">London</option>
+                <option value="6">Los Angeles</option>
+                <option value="7">New York</option>
+                <option value="8">Paris</option>
+                <option value="9">San Francisco</option>
+            </select>   
+            <select name="Cities" id="d_select" data-role="none">
+                <option value="">Please Select</option>
+                <option value="1">Atlanta</option>
+                <option value="2">Berlin</option>
+                <option value="3">Boston</option>
+                <option value="4">Chicago</option>
+                <option value="5">London</option>
+                <option value="6">Los Angeles</option>
+                <option value="7">New York</option>
+                <option value="8">Paris</option>
+                <option value="9">San Francisco</option>
+            </select> -->  
+     		<select id="Select1" class="one-question"></select>
+			<select id="Select2" class="one-question"></select>
+			<select id="Select3" class="one-question" style="display:none;"></select>
+		</div>
+		<div class="question-footer">
+			<div class="question-footer-left"></div>
+			<div class="question-footer-right"></div>
+		</div>
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/address/jsAddress.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jQuery Include -->
+	
+	    <!-- Mobiscroll JS and CSS Includes -->
+	    <script src="../js/mobiscroll/select/js/mobiscroll.core.js"></script>
+	    <script src="../js/mobiscroll/select/js/mobiscroll.widget.js"></script>
+	    <script src="../js/mobiscroll/select/js/mobiscroll.scroller.js"></script>
+	    <script src="../js/mobiscroll/select/js/mobiscroll.select.js"></script>
+	    <script src="../js/mobiscroll/select/js/i18n/mobiscroll.i18n.zh.js"></script>
+	
+	    <link href="../js/mobiscroll/select/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+	    <link href="../js/mobiscroll/select/css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+	    <link href="../js/mobiscroll/select/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+	    
+		<script type="text/javascript">
+			$(function(){
+				addressInit('Select1', 'Select2', 'Select3');
+				init_top_height();
+				//init();
+				select_init();
+				font_init();
+			})
+			function font_init(){
+				var u = navigator.userAgent, app = navigator.appVersion;
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				if(isiOS){
+					alert('IOS!');
+					$('.question-title').css('font-size','19px');
+				}
+			}
+			function init_top_height(){
+				var _window_width = $(window).width();
+				var _height = _window_width * 180 / 374;
+				$('.question-top').css('min-height',_height+'px');
+			}
+			function init(){
+				var _window_height = $(window).height();
+				var _top_height = $('.question-top').height();
+				var _content_height = $('.question-content').height();
+				var _bottom_height = $('.question-footer').height();
+				if((_top_height+_content_height+_bottom_height)>=_window_height){
+					
+				}
+				else{
+					$('.question').css('height',_window_height+'px');
+					$('.question-footer').addClass('question-footer-bottom');
+				}
+			}
+			function select_init(){
+				$('#demo_select').mobiscroll().select({
+                    theme: 'android-holo-light',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'modal', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh'        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                $('#demo_select_dummy').addClass('one-question').attr('readonly','readonly');
+                $('#d_select').mobiscroll().select({
+                    theme: 'android-holo-light',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'modal', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh'        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                $('#d_select_dummy').addClass('one-question').attr('readonly','readonly');
+                
+                //address province city
+                $('#Select1').mobiscroll().select({
+                    theme: 'android-holo-light',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'modal', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh'        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                $('#Select1_dummy').addClass('one-question').attr('readonly','readonly'); 
+                $('#Select1_dummy').focus(function(){
+                	console.log('focus!');
+                	alert('focus');
+                	$(this).blur();
+                });
+                $('#Select2').mobiscroll().select({
+                    theme: 'android-holo-light',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'modal', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh'        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                $('#Select2_dummy').addClass('one-question').attr('readonly','readonly');
+                /*$('#Select2_dummy').focus(function(){
+                	console.log('focus!');
+                	alert('focus');
+                	$(this).blur();
+                });*/
+                $('#Select1').on('change',function(){
+                	setTimeout("$('#Select2_dummy').val($('#Select2').val())",200);
+                })
+                /*$('#Select3').mobiscroll().select({
+                    theme: 'android-holo-light',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'modal', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh'        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                $('#Select3_dummy').addClass('one-question');*/
+			}
+		</script>
+	</body>
+</html>

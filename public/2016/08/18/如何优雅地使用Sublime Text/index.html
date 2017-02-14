@@ -1,0 +1,731 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="sublime text," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="工欲善其事，必先利其器！Sublime Text：一款具有代码高亮、语法提示、自动完成且反应快速的编辑器软件，不仅具有华丽的界面，还支持插件扩展机制，用她来写代码，绝对是一种享受。
+Sublime Text 3安装插件Sublime Text的强大就是她拥有强大的课可扩展性。您可根据自己的需要安装不同的插件；这使得她变的无比强大的同时又不失轻便。123安装Sublime text 3插件很方便打开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的使用Sublime Text">
+<meta property="og:url" content="http://html-js.site/2016/08/18/如何优雅地使用Sublime Text/index.html">
+<meta property="og:site_name" content="前端-洋仔">
+<meta property="og:description" content="工欲善其事，必先利其器！Sublime Text：一款具有代码高亮、语法提示、自动完成且反应快速的编辑器软件，不仅具有华丽的界面，还支持插件扩展机制，用她来写代码，绝对是一种享受。
+Sublime Text 3安装插件Sublime Text的强大就是她拥有强大的课可扩展性。您可根据自己的需要安装不同的插件；这使得她变的无比强大的同时又不失轻便。123安装Sublime text 3插件很方便打开">
+<meta property="og:image" content="http://html-js.site/images/page/sublimetext/1.jpg">
+<meta property="og:image" content="http://html-js.site/images/page/sublimetext/2.jpg">
+<meta property="og:updated_time" content="2016-10-13T06:27:45.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何优雅的使用Sublime Text">
+<meta name="twitter:description" content="工欲善其事，必先利其器！Sublime Text：一款具有代码高亮、语法提示、自动完成且反应快速的编辑器软件，不仅具有华丽的界面，还支持插件扩展机制，用她来写代码，绝对是一种享受。
+Sublime Text 3安装插件Sublime Text的强大就是她拥有强大的课可扩展性。您可根据自己的需要安装不同的插件；这使得她变的无比强大的同时又不失轻便。123安装Sublime text 3插件很方便打开">
+<meta name="twitter:image" content="http://html-js.site/images/page/sublimetext/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://html-js.site/2016/08/18/如何优雅地使用Sublime Text/"/>
+
+  <title> 如何优雅的使用Sublime Text | 前端-洋仔 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">前端-洋仔</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">专注于前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何优雅的使用Sublime Text
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-18T09:41:08+08:00" content="2016-08-18">
+              2016-08-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/18/如何优雅地使用Sublime Text/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/如何优雅地使用Sublime Text/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>工欲善其事，必先利其器！</strong><br>Sublime Text：一款具有代码高亮、语法提示、自<br>动完成且反应快速的编辑器软件，不仅具有华丽的界面，还支持插件扩展机制，用她来写代码，绝对是一种享受。</p>
+<h2 id="Sublime-Text-3安装插件"><a href="#Sublime-Text-3安装插件" class="headerlink" title="Sublime Text 3安装插件"></a><strong>Sublime Text 3安装插件</strong></h2><p>Sublime Text的强大就是她拥有强大的课可扩展性。您可根据自己的需要安装不同的插件；这使得她变的无比强大的同时又不失轻便。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装Sublime text 3插件很方便</div><div class="line">打开Package Control：菜单-&gt;Perferences-&gt;Package Control 或者 ctrl+shift+p</div><div class="line">选择install Package,然后选择要安装的插件即可</div></pre></td></tr></table></figure></p>
+<p><img src="/images/page/sublimetext/1.jpg"><br><a id="more"></a></p>
+<p>PS：国内使用SublimeText3，经常可能遇到无法安装可用插件问题，可remove掉<b>Package Control</b>重新安装下；如遇到连Package Control也无法安装，则可以在别处拷贝一份关于Package Control的文件－(Package Control.sublime-package)存放于<code>Installed Packages</code>目录之下即可。</p>
+<h2 id="Sublime-Text-3插件推荐"><a href="#Sublime-Text-3插件推荐" class="headerlink" title="Sublime Text 3插件推荐"></a><strong>Sublime Text 3插件推荐</strong></h2><p>无插件，不神器！根据自己的需要定制属于自己的强大插件集；下面是一些常用的推荐。</p>
+<p><a href="http://www.jianshu.com/p/5905f927d01b" target="_blank" rel="external">Sublime Text3插件：增强篇</a></p>
+<p><a href="http://www.open-open.com/news/view/26d731" target="_blank" rel="external">20个强大的SublimeText插件</a></p>
+<p>墙裂推荐以下这么几款插件：</p>
+<p><strong><a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external">MarkDown Editing</a></strong><br>SublimeText不仅仅是能够查看和编辑 Markdown 文件，但它会视它们为格式很糟糕的纯文本。这个插件通过适当的颜色高亮和其它功能来更好地完成这些任务。</p>
+<p><strong><a href="https://github.com/titoBouzout/SideBarFolders" target="_blank" rel="external">SideBarFolders</a></strong><br>打开的文件夹都太多了? 来用这个来管理文件夹，世界原来也可以这么美好。<br><img src="/images/page/sublimetext/2.jpg"></p>
+<p><strong><a href="http://wbond.net/sublime_packages/terminal" target="_blank" rel="external">Sublime Terminal</a></strong><br>这个插件可以让你在Sublime中直接使用终端打开你的项目文件夹，并支持使用快捷键。</p>
+<p><strong><a href="https://github.com/SublimeLinter" target="_blank" rel="external">SublimeLinter插件</a></strong><br>SublimeLinter 是前端编码利器——<code>Sublime Text</code> 的一款插件，用于高亮提示用户编写的代码中存在的不规范和错误的写法，支持 JavaScript、CSS、HTML、Java、PHP、Python、Ruby 等十多种开发语言。这篇文章介绍如何在 Windows 中配置 SublimeLinter 进行 JS &amp; CSS 校验。<br>比如写例如像lua这样的弱语言脚本代码，有这个可以规避掉很多不该有的低级错误吧？当然这也需要你SublimeLinter安装完毕之后再安装一个<code>SublimeLinter-lua</code>即可。具体的使用可以参见：<br><a href="http://www.cnblogs.com/lhb25/archive/2013/05/02/sublimelinter-for-js-css-coding.html" target="_blank" rel="external">借助 SublimeLinter 编写高质量的 JavaScript &amp; CSS 代码</a></p>
+<p><strong><a href="https://github.com/victorporof/Sublime-HTMLPrettify" target="_blank" rel="external">HTML-CSS-JS Prettify</a></strong><br>一款集成了格式化（美化）html、css、js三种文件类型的插件，即便html,js写在PHP文件之内。插件依赖于nodejs，因此需要事先安装nodejs，然后才可以正常运行。插件安装完成后，快捷键ctrl+shift+H完成当前文件的美化操作。插件对html、css文件的美化不是非常满意，但还可以，后面将说明如何修改css美化脚本。本人用起来超级爽的，鉴于篇幅，就不赘述，可以参见<br><a href="http://frontenddev.org/article/sublime-does-text-three-plug-ins-html-and-css-js-prettify.html" target="_blank" rel="external">这篇</a></p>
+<p><strong><a href="https://github.com/csscomb/CSScomb-for-Sublime" target="_blank" rel="external">CSScomb CSS属性排序</a>:</strong>有时候看看自己写的CSS文件，会不会觉得属性很乱查找不易维护难？CSScomb可以按照一定的CSS属性排序规则，将杂乱无章的CSS属性进行重新排序。选中要排序的CSS代码，按Ctrl+Shift+C，即可对CSS属性重新排序了，代码从此简洁有序易维护，如果不款选代码则插件将排序文件中所有的CSS属性。当然，可以自己自定义CSS属性排序规则，打开插件目录里的CSScomb.sublime-settings文件，更改里面的CSS属性顺序就行了。因为这个插件使用PHP写的，要使他工作需要在环境变量中添加PHP的路径，具体请看github上的说明。</p>
+
+<p></p><p>剩下些许其他的可以按需安装的插件，比如：</p><p></p>
+<ul><br><li><strong>ConvertToUTF8</strong>  支持 GBK, BIG5, EUC-KR, EUC-JP, Shift_JIS 等编码的插件</li><br><li><strong>Bracket Highlighter</strong> 用于匹配括号，引号和html标签。对于很长的代码很有用。安装好之后，不需要设置插件会自动生效</li><br><li><strong>DocBlockr</strong> 可以自动生成PHPDoc风格的注释。它支持的语言有Javascript, PHP, ActionScript, CoffeeScript, Java, Objective C, C, C++</li><br><li><strong><font color="purple">Emmet(Zen Coding)</font></strong>快速生成HTML代码段的插件，强大到无与伦比:可以超快速编写HTML/CSS/JS，当然这个插件还支持多种编译环境，如常见的：Eclipse/Aptana、Coda、Notepad++、Adobe Dreamweaver、TextMate等，<strong>web开发必备！！！</strong>。</li><br><li><strong>jsFormat</strong> 格式化js代码，懂者自懂；强迫症Coder必备！默认快捷键Ctrl+Alt+F。</li><br><li><strong>phpFormat</strong> 格式化php代码，懂者自懂；强迫症Coder必备！</li><br><li><strong>CSS Compact Expand CSS属性展开收缩:</strong>写CSS的盆友，喜欢将其写多行还是一行(个人喜欢将其格式化为多行)？如果阅读别人的代码不符合自己的习惯，可以用CSS Compact Expand这个插件将CSS格式化一下，按 Ctrl+Alt+[ 收缩CSS代码为一行显示，按 Ctrl+Alt+] 展开CSS代码为多行显示；强迫症Coder必备！。</li><br><li><strong>Autoprefixer插件</strong>：这是一款CSS3私有前缀自动补全插件；该插件使用CanIUse资料库（当然，SublimeText自然也有<font color="purple">CanIUse</font>这个插件咯），能精准判断哪些属性需要什么前缀，与CssComb插件一样，该插件也需要系统已安装Node.js环境；使用方法：在输入CSS3属性后（冒号前）按Tab键即可。</li><br><li><strong>YUI Compressor</strong>：压缩JS和CSS文件，按F7键后，若压缩当前文件（demo.js），则压缩后的文件（demo.min.js）保存在该文件的同级目录，需要安装java的JDK。使用方法：<a href="http://frontenddev.org/article/sublime-does-text-3-plug-in-yui-compressor.html" target="_blank" rel="external">YUI Compressor</a></li><br><li><strong>ClickableURLs：可点击的URL</strong>使用小插件<a href="https://github.com/leonid-shevtsov/ClickableUrls_SublimeText" target="_blank" rel="external">ClickableURLs</a>可以让文件中的URL能够点击。</li><br><li><strong>终极王道</strong>：自己编写专用的Sublime Text插件。虽然说各个方面比如移动端，Web前段，服务器端，非Coder的Writer所需要的方便已经被集成在了不同的插件中。但譬如，需要快捷打开PC端的某个模拟器，便捷的进行某些校验，只要你想的到的基本都可以将其在插件内，以快捷键处理之。至于如何编写SublimeText插件，请参看这里<a href="http://www.360doc.com/content/15/0417/22/19342630_463999403.shtml" target="_blank" rel="external">编写自己的Sublime Text2 插件</a></li><br></ul>
+
+
+
+<h2 id="自定义代码片段"><a href="#自定义代码片段" class="headerlink" title="自定义代码片段"></a><strong>自定义代码片段</strong></h2><p>我们在开发中有很多代码是需要重复编写的，每一次都去复制粘贴显然是一件效率极其低下的事情，sublime的自定义代码片段功能就很好的解决了这个问题。下面就来看一下如何在sublime中自定义代码片段</p>
+<p></p><p>首先在菜单栏选择：Tools -&gt;developer -&gt; New Snippet可以看到新建一个<code>xml</code>类型的描述文件，如下：</p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;snippet&gt;</div><div class="line">    &lt;content&gt;&lt;![CDATA[</div><div class="line">Hello, $&#123;1:this&#125; is a $&#123;2:snippet&#125;.</div><div class="line">]]&gt;&lt;/content&gt;</div><div class="line">    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</div><div class="line">    &lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</div><div class="line">    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</div><div class="line">    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</div><div class="line">&lt;/snippet&gt;</div></pre></td></tr></table></figure><p></p>
+<p></p><p>注释已经非常详细了，<code>content</code> 里面就是代码模版：<code>${序号：默认值}</code> ，序号相同的地方光标会同时停在那可以多处同时编辑。序号大小就是 <code>tabindex</code>。在实际使用代码的时候，可以使用 <code>tab</code> 切换光标位置。</p><br>例子：Tatami.module<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;snippet&gt;</div><div class="line">	&lt;content&gt;&lt;![CDATA[</div><div class="line">/**</div><div class="line"> * Created by wangyang on $&#123;1:16/8/1&#125;.</div><div class="line"> */</div><div class="line">(function (rc) &#123;</div><div class="line">  	rc.modules.define(&#123;</div><div class="line">	    name: &apos;$&#123;2:name&#125;&apos;,</div><div class="line">	    depend: &apos;$&#123;3:depend&#125;&apos;,</div><div class="line">	    viewName: &apos;view.$&#123;2:name&#125;&apos;,</div><div class="line">	    type: &apos;&apos;, //basic/normal/sub</div><div class="line">	    ctrlsMap: &#123;&#125;,</div><div class="line">	    statusMap: &#123;&#125;,</div><div class="line">	    dataMap: &#123;&#125;,</div><div class="line">	    methodsMap: &#123;</div><div class="line">	    &#125;,</div><div class="line">	    events: &#123;&#125;,</div><div class="line">	    activation: function()&#123;&#125;,</div><div class="line">	    init: function () &#123;</div><div class="line">	    &#125;,</div><div class="line">	    update: function (hashs, isSelf) &#123;</div><div class="line"></div><div class="line">	    &#125;,</div><div class="line">	    destory: function () &#123;&#125;,</div><div class="line">	    disabled: function () &#123;&#125;</div><div class="line">  	&#125;)</div><div class="line">&#125;)(window.Tatami);</div><div class="line">]]&gt;&lt;/content&gt;</div><div class="line">	&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</div><div class="line">	&lt;!-- 可选：快捷键，利用Tab自动补全代码的功能 --&gt;</div><div class="line">	&lt;tabTrigger&gt;ttmModule&lt;/tabTrigger&gt;</div><div class="line">	&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</div><div class="line">	&lt;!-- 可选：使用范围，不填写代表对所有文件有效。附：source.css和test.html分别对应不同文件。 --&gt;</div><div class="line">	&lt;scope&gt;source.js&lt;/scope&gt;</div><div class="line">	&lt;!-- 可选：在snippet菜单中的显示说明（支持中文）。如果不定义，菜单则显示当前文件的文件名。 --&gt;</div><div class="line">	&lt;description&gt;Tatami Module&lt;/description&gt;</div><div class="line">&lt;/snippet&gt;</div></pre></td></tr></table></figure><p></p>
+<p>结束语：如果你还在一行一行的手动敲代码，是时候改变了</p>
+<p><strong>工欲善其事，必先利其器！</strong><br><strong>工欲善其事，必先利其器！</strong><br><strong>工欲善其事，必先利其器！</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="wangyang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="wangyang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sublime-text/" rel="tag">#sublime text</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/14/一些jquery小技巧/" rel="next" title="一些jquery小技巧">
+                <i class="fa fa-chevron-left"></i> 一些jquery小技巧
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/19/九个Console命令，让js调试更简单/" rel="prev" title="九个Console命令，让js调试更简单">
+                九个Console命令，让js调试更简单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/18/如何优雅地使用Sublime Text/"
+           data-title="如何优雅的使用Sublime Text" data-url="http://html-js.site/2016/08/18/如何优雅地使用Sublime Text/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/default_avatar.jpg"
+               alt="wangyang" />
+          <p class="site-author-name" itemprop="name">wangyang</p>
+          <p class="site-description motion-element" itemprop="description">专注于前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="617418875" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="moxhuis" target="_blank">moxhuis</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="indexof" target="_blank">indexof</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="xiaoqiang" target="_blank">xiaoqiang</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-3安装插件"><span class="nav-number">1.</span> <span class="nav-text">Sublime Text 3安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-3插件推荐"><span class="nav-number">2.</span> <span class="nav-text">Sublime Text 3插件推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义代码片段"><span class="nav-number">3.</span> <span class="nav-text">自定义代码片段</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangyang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"html-js"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生-公告列表</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/sxdoctor.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/layer/layer.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul">
+			<div class="navli active"><a href="sjdoctor.html" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="sjdoctor_rwfp.html" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="sjdoctor_Announce.html" onclick="showmenu(0)">公告管理</a></div> 
+		
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">日记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">月记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">周记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">乙肝</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">艾滋病</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">结核病</a></div> 
+		</ul>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active">
+				<div class="sidebar_div_text">公告管理</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<div class="content-header">
+					<div class="content-header-title">
+						<div class="icon_voice"></div>
+						公告管理
+					</div>
+				</div>
+				<div class="content-content">
+					<div class="search_bar">
+						<div class="s-operat-minus">
+							<span class="icon_minus"></span>
+							<span class="text_minus">删除所有选中公告</span>
+						</div>
+						<div class="s-operat-plus">
+							<span class="icon_plus"></span>
+							<span class="text_plus">新增公告</span>
+						</div>
+					</div>
+					<table class="announce-res">
+						<tr class="announce-th announce-tr">
+							<td style="width:40px"></td>
+							<td style="width:150px">操作</td>
+							<td style="">发布时间</td>
+							<td style="">公告标题</td>
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+						<tr class="announce-tr">
+							<td><input type="checkbox" ></td>
+							<td class="announce-operat">
+								<a href="" class="">修改</a>
+								<a href="" class="">删除</a>
+							</td>
+							<td>2014-04-28</td>
+							<td>系统使用建议提示1</td>
+							
+						</tr>
+					</table>
+					<div class="pagediv">
+						<div class="pagediv-left">
+							<a class="" href=""><上一页</a>
+							<span class="pageindex">4/15</span>
+							<a class="" href="">下一页></a>
+						</div>
+						<div class="pagediv-right">
+							<input id="" type="text" autocomplete="off"  class="pageto">
+							<a class="" href="">跳转></a>
+						</div>
+					</div>
+		
+				</div>
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+	<!-- 弹出框 start -->
+	<div class="announce_popdiv" style="display:none;">
+		<div class="popdiv_save">
+			保存数据
+		</div>
+		<div class="popdiv_title">
+			<div class="popdiv_left">公告标题：</div>
+			<div class="popdiv_right">
+				<input id="" type="text" autocomplete="off"  class="popdiv_inout_title">
+			</div>
+		</div>
+		<div class="popdiv_content">
+			<div class="popdiv_left">公告内容：</div>
+			<div class="popdiv_right">
+				<textarea id="" type="text" autocomplete="off"  class="popdiv_inout_content"></textarea>
+			</div>
+		</div>
+	</div>
+	<!-- 弹出框 end -->
+	<script>
+		$(document).ready(function(){
+			$(".s-operat-plus").on("click",function(){
+
+			});
+			//弹出一个iframe层
+			$('.s-operat-plus').on('click', function(){
+			    /*$.layer({
+			        type: 1,
+			        title: '新公告发布',
+			        maxmin: true,
+			        shadeClose: true, //开启点击遮罩关闭层
+			        area : ['750px' , '400px'],
+			        offset : ['100px', ''],
+			     
+			        iframe: {src: 'sjdoctor_Announce_popdiv.html'}
+			    });*/
+				$.layer({
+			        type: 1,
+			        title: "新公告发布", //不显示默认标题栏
+			         maxmin: true,
+			        shadeClose: true, //开启点击遮罩关闭层
+			        area:['750px' , '460px'],
+			        offset : ['100px', ''],
+			        page: {dom: '.announce_popdiv'}
+			    });
+			    $(".announce_popdiv").closest(".xubox_page").css("width","100%");
+			});
+		});
+	</script>
+</body>
+</html>

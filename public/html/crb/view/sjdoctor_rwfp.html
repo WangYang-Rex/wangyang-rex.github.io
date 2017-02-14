@@ -1,0 +1,355 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生-分配任务</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/sxdoctor_selectpatient.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
+	<script src="../js/date.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul">
+			<div class="navli active"><a href="sjdoctor.html" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="sjdoctor_rwfp.html" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="sjdoctor_Announce.html" onclick="showmenu(0)">公告管理</a></div> 
+		
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">日记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">月记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">周记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">乙肝</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">艾滋病</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">结核病</a></div> 
+		</ul>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active">
+				<div class="sidebar_div_text">任务分配</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<div class="content-header">
+					<div class="content-header-title">
+						<div class="header-title-right" >
+							<div class="rwfp">
+								任务分配
+							</div>
+							<div class="rwtj">
+								任务提交
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-body" style="width:900px;margin:20px auto;padding-bottom:30px;">
+					<div class="rwfp_one"  style="width:100%;">
+						<div class="rwfp_one_text">
+							任务名称：
+						</div>
+						<div class="rwfp_input" style="margin-right:40px">
+							<input class="login_input_pass" autocomplete="off">
+						</div>
+						<div class="rwfp_one_text">
+							任务开始时间：
+						</div>
+						<div class="rwfp_input_date" style="margin-right:40px">
+							<input class="rwfp_date_input" onclick="HS_setDate(this)" >
+							<span class="icon_date"></span>
+						</div>
+						<div class="rwfp_one_text">
+							任务结束时间：
+						</div>
+						<div class="rwfp_input_date">
+							<input class="rwfp_date_input" onclick="HS_setDate(this)" >
+							<span class="icon_date"></span>
+						</div>
+					</div>
+					<div class="rwfp_one"  style="height:auto;width:100%;">
+						<div class="rwfp_one_text">
+							任务描述：
+						</div>
+						<div class="rwfp_textarea" style="margin-left:90px;">
+							<textarea class="refp_description" style="height:190px;width:646px;border:1px solid #D7E0E9;"></textarea>
+						</div>
+					</div>
+					<p>任务详细内容：（请选择您想要医生询问的内容）</p>
+					<div class="rwfp_one"  style="height:auto;width:100%;">
+						<div class="rwfp_select" style="margin-left:90px;">
+							<div class="rwfp_checkboxline"  id="jczb_div">
+								<div style="float:left;height:30px;">
+									<input type="checkbox" value="">
+									<span>需要检查的指标选择：</span>
+								</div>
+								<!-- <div style="float:left;height:30px;">
+									<a href="#" class='btn rwfp_btn_blue' >选择</a>
+								</div> -->
+								<div style="float:left;height:30px;">
+									<div class="rwfp_select_res rwfp_select_res_hide">
+										<span class="rwfp_select_res_active">血压</span>
+										<span>总胆红素</span>
+										<span>血蛋白</span>
+										<span>甲胎蛋白</span>
+										<span>直接胆黄素</span>
+									</div>
+									<span  class='btn rwfp_btn_blue' id="jczb_btn" >选择</span>
+								</div>
+							</div>
+							<div class="rwfp_checkboxline">
+								<div style="float:left;height:30px;">
+									<input type="checkbox" value="">
+									<span>咨询患者是否接受抗病毒治疗</span>
+								</div>
+							</div>
+							<div class="rwfp_checkboxline">
+								<div style="float:left;height:30px;">
+									<input type="checkbox" value="">
+									<span>咨询患者是药物剂量与起止时间</span>
+								</div>
+							</div>
+							<div class="ywjl">
+								<div class="ywjl_tr ">
+									<div class="ywjl_td ywjl_th">
+										药物名称
+									</div>
+									<div class="ywjl_td ywjl_th">
+										剂量
+									</div>
+									<div class="ywjl_td ywjl_th">
+										开始时间
+									</div>
+									<div class="ywjl_td ywjl_th">
+										终止时间
+									</div>
+								</div>
+								<div class="ywjl_tr ">
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 154px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+								</div>
+								<div class="ywjl_tr ">
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;">
+									</div>
+									<div class="ywjl_td">
+										<input value="" style="height: 34px;line-height: 30px;width: 158px;border:none">
+									</div>
+								</div>
+								<div class="ywjl_tr " style="height:75px;">
+									<div class="ywjl_td ywjl_th" style="border-top-color: transparent;height:75px;line-height:75px">	
+										药物副作用
+									</div>
+									<div class="ywjl_td" style="width:482px;height:75px;overflow:hidden">	
+										<textarea class="refp_description" style="height:74px;width:480px;border:none"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="rwfp_checkboxline">
+								<div style="float:left;height:30px;">
+									<input type="checkbox" value="">
+									<span>咨询患者是否接受其他治疗</span>
+									<input  value="" style="height: 30px;line-height: 30px;width: 455px;border: 1px solid #d7e0e9;">
+								</div>
+							</div>
+							<div class="rwfp_checkboxline " id="zxzz_div">
+								<div style="float:left;height:30px;">
+									<input type="checkbox" value="">
+									<span>选择要咨询患者的症状：</span>
+								</div>
+								<div style="float:left;height:30px;">
+									<div class="rwfp_select_res rwfp_select_res_hide">
+										<span class="rwfp_select_res_active">血压</span>
+										<span>总胆红素</span>
+										<span>血蛋白</span>
+										<span>甲胎蛋白</span>
+										<span>直接胆黄素</span>
+									</div>
+									<span  class='btn rwfp_btn_blue' id="zxzz_btn" >选择</span>
+								</div>
+							</div>
+							<div class="rwfp_checkboxline" style="height:auto;padding-bottom:60px">
+								<div style="height:30px;">
+									<input type="checkbox" value="">
+									<span>随访信息</span>
+								</div>
+								<div class="rwfp_checkboxline" style="padding-left:15px;">
+									<div class="rwfp_one_text">
+										随访方式：
+									</div>
+									<div class="rwfp_input" style="margin-right:40px">
+										<select class="">
+										  <option value="volvo">上门随访</option>
+										  <option value="saab">其他</option>
+										</select>
+									</div>
+									
+									
+								</div>
+								<div class="rwfp_checkboxline" style="padding-left:15px;">
+									<div class="rwfp_one_text">
+										随访医生：
+									</div>
+									<div class="rwfp_input" style="margin-right:40px">
+										<input class="login_input_pass" autocomplete="off">
+									</div>
+									<div class="rwfp_one_text">
+										随访日期：
+									</div>
+									<div class="rwfp_input_date" style="margin-right:40px">
+										<input class="rwfp_date_input" onclick="HS_setDate(this)" >
+										<span class="icon_date"></span>
+									</div>
+								</div>
+								<div class="rwfp_checkboxline" style="padding-left:15px;">
+									<div class="rwfp_one_text">
+										是否进行下一次随访：
+									</div>
+									<div class="rwfp_input" style="margin-right:40px">
+										<select class="">
+										  <option value="volvo">是</option>
+										  <option value="saab">否</option>
+										</select>
+									</div>
+									<div class="rwfp_one_text">
+										下次随访日期：
+									</div>
+									<div class="rwfp_input_date" style="margin-right:40px">
+										<input class="rwfp_date_input" onclick="HS_setDate(this)" >
+										<span class="icon_date"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+	<script>
+		$(document).ready(function(){
+			/*咨检查的指标选择 start*/
+			$('#jczb_btn').on("click",function(){
+				if($('#jczb_div .rwfp_select_res').hasClass('rwfp_select_res_show')){
+					$('#jczb_div .rwfp_select_res').removeClass('rwfp_select_res_show').addClass('rwfp_select_res_hide');
+					$('#jczb_div').removeClass('rwfp_checkboxline_jczb');
+				}else{
+					$('#jczb_div .rwfp_select_res').removeClass('rwfp_select_res_hide').addClass('rwfp_select_res_show');
+					$('#jczb_div').addClass('rwfp_checkboxline_jczb');
+				}
+
+			});
+			/*$('.rwfp_select_res span').on("click",function(){
+				if($(this).hasClass('rwfp_select_res_active')){
+					$(this).removeClass('rwfp_select_res_active');
+				}else{
+					$(this).addClass('rwfp_select_res_active');
+				}
+			});*/
+			/*检查的指标选择 end*/
+			/*咨询症状选择 start*/
+			$('#zxzz_btn').on("click",function(){
+				if($('#zxzz_div .rwfp_select_res').hasClass('rwfp_select_res_show')){
+					$('#zxzz_div .rwfp_select_res').removeClass('rwfp_select_res_show').addClass('rwfp_select_res_hide');
+					$('#zxzz_div').removeClass('rwfp_checkboxline_zxzz');
+				}else{
+					$('#zxzz_div .rwfp_select_res').removeClass('rwfp_select_res_hide').addClass('rwfp_select_res_show');
+					$('#zxzz_div').addClass('rwfp_checkboxline_zxzz');
+				}
+
+			});
+			$('.rwfp_select_res span').on("click",function(){
+				if($(this).hasClass('rwfp_select_res_active')){
+					$(this).removeClass('rwfp_select_res_active');
+				}else{
+					$(this).addClass('rwfp_select_res_active');
+				}
+			});
+			/*咨询症状选择 end*/
+			$('.rwtj').on("click",function(){
+				alert("任务提交 点击");
+			});
+		});
+		function ajax_example(){
+			$.ajax({ //一个Ajax过程 
+				type: "post", //以post方式与后台沟通 
+				url : "login.php", //与此php页面沟通 
+				dataType:'json',//从php返回的值以 JSON方式 解释 
+				data: 'username='+username+'&password='+password, //发给php的数据有两项，分别是上面传来的u和p 
+				success: function(json){//如果调用php成功 
+					
+				}
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生-随访记录</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/sxdoctor_selectpatient.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
+	<script src="../js/date.js"></script>
+	<script src="../js/layer/layer.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul">
+			<div class="navli active"><a href="sjdoctor.html" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="sjdoctor_rwfp.html" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="sjdoctor_Announce.html" onclick="showmenu(0)">公告管理</a></div> 
+		
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">日记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">月记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">周记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">乙肝</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">艾滋病</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">结核病</a></div> 
+		</ul>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active">
+				<div class="sidebar_div_text">乙肝</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<div class="content-header">
+					<div class="content-header-title">
+						<!-- <div class="icon_voice"></div> -->
+						<div class="header-title-left">管辖区人员列表</div>
+						<div class="header-title-mid">路人甲（男 57岁）</div>
+						<div class="header-title-right" >
+							<div class="header-sfjl">
+								个人乙肝记录情况
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="content-body" style="height:560px;">
+					<div class="content-left">
+						<div class="search_bar">
+							<select class="search_select">
+							  <option value ="volvo">姓名</option>
+							  <option value ="saab">身份证</option>
+							  <option value="opel">关键字</option>
+							</select>
+							<div class="s-search">
+								<input id="" type="text" autocomplete="off"  class="search-broad">
+								<span class="search-btn"></span>
+							</div>
+						</div>
+						<div class="tb-container">
+						<table class="search_res">
+						
+							<tr class="tb-th">
+								<td>患者姓名</td>
+								<td>性别</td>
+								<td>年龄</td>
+								<td>今日需要随访量</td>
+								<td>今日实际随访量</td>
+								<td>服务机构</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+						
+						</table>
+						</div>
+						<div class="pagediv">
+							<div class="pagediv-left">
+								<a class="" href=""><上一页</a>
+								<span class="pageindex">4/15</span>
+								<a class="" href="">下一页></a>
+							</div>
+							<div class="pagediv-right">
+								<input id="" type="text" autocomplete="off"  class="pageto">
+								<a class="" href="">跳转></a>
+							</div>
+						</div>
+					</div>
+					<div class="content-mid">
+						<div class="content-mid-top">
+							<div class="registerCard">
+								<span class="icon_registerCard"></span>
+								<a href="djk_zxyg.html" target="_blank"><span class="text_registerCard" style="color:#fff;">登记卡</span>
+							</div>
+							<div class="followRecord btn_active" >
+								<span class="icon_record"></span>
+								<a href="sjdoctor_sfjl.html"><span class="text_record" style="color:#fff;">随访记录</span></a>
+							</div>
+						</div>
+						<div class="content-mid-doctor">
+							<span class="text">随访医生：李医生</span>
+							<a class="btn_change " href="sjdoctor_bgsfys.html">变更</a>
+						</div>
+						<div class="content-mid-date">
+							<div class="content-mid-lastdate">
+								最近访问日期：<span class="blue">2014-04-28</span>
+							</div>
+							<div class="content-mid-nextdate">
+								下次访问日期：<span class="blue">2014-04-28</span>
+							</div>
+						</div>
+					</div>
+					<div class="content-right">
+						<div class="sfjl">
+							<div class="sfjl-div">
+								<table class="sfjl_res">
+									<tr class="sfjl-th">
+										<td style="width:50px">操作</td>
+										<td style="width:100px">随访日期</td>
+										<td style="width:90px">随访医生</td>
+										<td style="width:90px">随访方式</td>
+										<td style="width:100px">当前随访次序</td>
+										<td style="width:100px">下次随访日期</td>
+									</tr>
+								
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="1">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="javascript:pop_sfjl(2);"  index="2">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="3">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="4">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="5">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="6">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="7">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="8">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="9">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+									<tr class="sfjl-tr">
+										<td><a href="djk_sfyg.html" target="_blank" index="10">查看</a></td>
+										<td>2014-04-28</td>
+										<td>张医生</td>
+										<td>上门</td>
+										<td>第16次</td>
+										<td>2014-06-28</td>
+									</tr>
+								</table>
+							</div>
+							<div class="pagediv">
+								<div class="pagediv-left">
+									<a class="" href="">&lt;上一页</a>
+									<span class="pageindex">4/15</span>
+									<a class="" href="">下一页&gt;</a>
+								</div>
+								<div class="pagediv-right">
+									<input id="" type="text" autocomplete="off" class="pageto">
+									<a class="" href="">跳转&gt;</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+	<script>
+		$(document).ready(function(){
+			//$('#datetimepicker1').datetimepicker();
+	
+		});
+		function pop_sfjl(_id){
+			$.layer({
+			    type: 2,
+			    maxmin: false,
+			    shadeClose: true,
+			    title: "查看随访记录",
+			    shade: [0.8, '#000'],
+			    border: [0],
+			    offset: ['20px',''],
+			    /*area: ['1100px', ($(window).height() - 300) +'px'],*/
+			    area: ['1030px', ($(window).height() - 300) +'px'],
+			    iframe: {src: 'djk_zxyg.html?id='+ _id}
+			}); 
+		}
+	</script>
+</body>
+</html>

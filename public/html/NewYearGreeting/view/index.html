@@ -1,0 +1,80 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+	<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+	<meta HTTP-EQUIV="expires" CONTENT="0">
+	<meta name="keywords" content="你造吗？只有一个星座可以打开！" />
+	<meta name="description" content="你造吗？只有一个星座可以打开！" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="pragram" content="no-cache" />
+	<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+	<title>demo之不是这个星座的点不开！</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	//微信去掉下方刷新栏
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/app.css" rel="stylesheet">
+</head>
+<body class="app appBg1" >
+	<header class="app-header">
+	<a href="javascript:void(0);" class="u-globalAudio z-play">
+		<i class="icon-music"></i>
+		<audio src="../media/53fd7d2cebd4a60654.mp3" id="header_audio" autoplay="autoplay" loop="loop" data-src="../media/53fd7d2cebd4a60654.mp3"></audio>
+		<span class="">开启</span>
+	</a>
+	</header>
+	<div class="app_content">
+		<div class="page z_current" index="1">
+			<div class="page_content page_content1">
+			</div>
+		</div>
+		<div class="page " index="2">
+			<div class="page_content">
+				<div class="m-mask">
+					<div class="mask-circle mask-circle-1"></div>
+					<div class="mask-circle mask-circle-2"></div>
+					<div class="mask-circle mask-circle-3"></div>
+					<div class="mask-img">
+						<div class="mask-img-front" style="background-image: url(../img/section_bg2-2.jpg);">
+						</div>
+						<div class="mask-img-back touch-4" style="background-image: url(../img/section_bg2-1.jpg);"></div>
+						<div class="mask-img-touch touch-1" style="background-image: url(../img/section_bg2-1.jpg);"></div>
+						<div class="mask-img-touch touch-2" style="background-image: url(../img/section_bg2-1.jpg);"></div>
+						<div class="mask-img-touch touch-3" style="background-image: url(../img/section_bg2-1.jpg);"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page" index="3">
+			<div class="page_content page_content3">
+			</div>
+		</div>
+		<div class="page" index="4">
+			<div class="page_content page_content4">
+			</div>
+		</div>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+.demo{
+position:relative;
+ margin:20px auto;
+}
+.full-size{
+	background-size: 100% 100%;
+}
+@media (min-width: 600px) {
+
+.demo{
+	width: 500px;
+	position: relative;
+	height: 460px;
+}
+#content{
+text-align: center;
+}
+
+.award-grade{
+    background-color:#FBE239;
+}
+
+.award-coupon{
+     background-color:#F9B420;
+}
+
+.award-center{
+     background-color:#ED515D;
+}
+
+.award-text{
+   margin-top: 16px;
+   color: red;
+	font-family: Î¢ÈíÑÅºÚ;
+	font-weight: 800;
+	font-size: 16px;
+	height: 50px;
+}
+
+.award-text-coupon{
+  margin-top: 16px;
+   color: red;
+	font-family: Î¢ÈíÑÅºÚ;
+	font-weight: 800;
+	font-size: 16px;
+	height: 50px;
+}
+.award-text-center{
+   margin-top: 75px;
+   font-size: 39px;
+   color: white;
+}
+.piece{
+	float: left;
+	height:100px;
+	width: 23%;
+	/* border: solid; */
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.red{
+	background-color:#ED515D;
+	width: 49.8%;
+	height: 204px;
+	position: absolute;
+	top: 106px;
+	left: 22.5%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	z-inedx:1;
+}
+.mask{
+	background-color:#ED515D;
+	width: 49.8%;
+	height: 204px;
+	position: absolute;
+	top: 106px;
+	left: 22.5%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	z-inedx:-1;
+}
+.run{
+	top:1px;
+	left:-13px;
+	
+	width: 24.2%;
+	height: 100px;
+    position: absolute;
+	background-color: #fff;
+	opacity: .65;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.one-chance{
+	margin-top: 10px;
+}	
+.one-chance span{
+	line-height: 40px;
+	color: white;
+	font-size: 24px;
+	font-family: Î¢ÈíÑÅºÚ;
+}
+
+.lottery-msg{
+	width: 200px;
+   height: 126px;
+   	margin-top: 40px;
+	
+}
+
+}
+@media (max-width: 599px) {
+
+.demo{
+width: 250px;
+position: relative;
+height: 260px;
+top: 10px;
+}
+#content{
+text-align: center;
+}
+
+.award-grade{
+    background-color:#FBE239;
+}
+
+.award-coupon{
+     background-color:#F9B420;
+}
+
+.award-center{
+     background-color:#ED515D;
+}
+
+.award-text{
+  	margin-top: 10px; 
+    color: red;
+	font-family: Î¢ÈíÑÅºÚ;
+	font-weight: 800;
+	font-size: 12px;
+	height: 50px;
+}
+
+
+.award-text-coupon{
+  	margin-top: 1px; 
+    color: red;
+	font-family: Î¢ÈíÑÅºÚ;
+	font-weight: 800;
+	font-size: 12px;
+	height: 50px;
+}
+
+.award-text-center{
+	margin-top: 40px;
+	font-size: 24px;
+   	color: white;
+}
+.piece{
+	float: left;
+	height:60px;
+	width: 23%;
+	/* border: solid; */
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.red{
+	background-color: #ED515D;
+	width: 53.8%;
+	height: 126px;
+	position: absolute;
+	top: 65px;
+	left: 21.5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.run{
+	top:1px;
+	left:-13px;
+	
+	width: 26.2%;
+	height:60px;
+    position: absolute;
+	background-color: #fff;
+	opacity: .65;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.one-chance{
+	margin-top: 20px;
+}	
+.one-chance span{
+	line-height: 20px;
+	color: white;
+	font-size: 14px;
+	font-family: Î¢ÈíÑÅºÚ;
+}
+
+.lottery-msg{
+	width: 120px;
+    height: 75px;
+	margin-top: 20px;
+}	
+
+
+}
+	
+	

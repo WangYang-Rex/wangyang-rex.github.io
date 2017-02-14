@@ -1,0 +1,122 @@
+<html>
+<head><meta http-equiv="content-type" content="txt/html;charset=utf-8" />
+<title>javascript解码读取二维码信息</title>
+<!-- <script src="decode-qrcode.min.js"></script> -->
+<script src="http://static.superboss.cc/newweb/js/dev/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    function handleFiles(e) {
+        f= e.target.files?e.target.files:e.target.value;
+        console.log(f);
+        var o = [];
+        for (var i = 0; i < f.length; i++) {
+            var reader = new FileReader();
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    qrcode.decode(e.target.result);
+                };
+            })(f[i]);
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f[i]);
+        }
+    }
+    function load() {
+        qrcode.success = function (d) { 
+            alert('javascript读出的二维码信息为：' + utf8ToUtf16(d)) 
+        };
+        qrcode.error = function (d) { 
+            alert('读取二维码信息错误：' + utf8ToUtf16(d)) 
+        };
+        qrcode.callback = function (d, status) { 
+            alert('读取二维码信息' + (status == 1 ? '成功' : '失败') + '：' + utf8ToUtf16(d)); 
+        };
+        $('#input-file').on('change',handleFiles);
+    }
+    function utf8ToUtf16(s) {//将utf-8字符串转码为unicode字符串，要不读取的二维码信息包含中文会乱码
+        if (!s) {
+            return;
+        }
+        var i, codes, bytes, ret = [], len = s.length;
+        for (i = 0; i < len; i++) {
+            codes = [];
+            codes.push(s.charCodeAt(i));
+            if (((codes[0] >> 7) & 0xff) == 0x0) {
+                //单字节  0xxxxxxx  
+                ret.push(s.charAt(i));
+            } else if (((codes[0] >> 5) & 0xff) == 0x6) {
+                //双字节  110xxxxx 10xxxxxx  
+                codes.push(s.charCodeAt(++i));
+                bytes = [];
+                bytes.push(codes[0] & 0x1f);
+                bytes.push(codes[1] & 0x3f);
+                ret.push(String.fromCharCode((bytes[0] << 6) | bytes[1]));
+            } else if (((codes[0] >> 4) & 0xff) == 0xe) {
+                //三字节  1110xxxx 10xxxxxx 10xxxxxx  
+                codes.push(s.charCodeAt(++i));
+                codes.push(s.charCodeAt(++i));
+                bytes = [];
+                bytes.push((codes[0] << 4) | ((codes[1] >> 2) & 0xf));
+                bytes.push(((codes[1] & 0x3) << 6) | (codes[2] & 0x3f));
+                ret.push(String.fromCharCode((bytes[0] << 8) | bytes[1]));
+            }
+        }
+        return ret.join('');
+    }  
+    function aa(){
+        var _browser = checkBrowser();
+        if(_browser && _browser.isIE){
+            console.log("IE浏览器,IE"+_browser.fIEVersion)
+            return
+        }
+        console.log("加载decode-qrcode.min.js");
+        var head= document.getElementsByTagName('head')[0]; 
+        var script= document.createElement('script'); 
+        script.type= 'text/javascript'; 
+        script.onreadystatechange= function () { 
+            if (this.readyState == 'complete') {
+                console.log("load 1")
+                if(qrcode){
+                   load();  
+                }
+                
+            }
+        } 
+        script.onload= function(){ 
+            console.log("load 2")
+            if(qrcode){
+               load();  
+            }
+        } 
+        script.src= 'decode-qrcode.min.js'; 
+        head.appendChild(script); 
+    }
+    function checkBrowser(){
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+        var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+        var isChrome = userAgent.indexOf("Chrome") > -1; //判断是否Firefox浏览器
+        var isSafari = userAgent.indexOf("Safari") > -1; //判断是否Safari浏览器
+        if (isIE) {
+            var IE5 = IE55 = IE6 = IE7 = IE8 = false;
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            return {
+                "isIE": isIE,
+                "fIEVersion": fIEVersion
+            }
+        }//isIE end
+        return {
+            "isIE": isIE
+        }
+    }
+    $(document).ready(function(){
+        aa();
+    })
+</script>
+</head>
+<body>
+选择二维码图片解码获取信息<br/> 
+<input type="file" id="input-file">
+</body>
+</html>

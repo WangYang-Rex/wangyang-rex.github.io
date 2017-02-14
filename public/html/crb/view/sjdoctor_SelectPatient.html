@@ -1,0 +1,668 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生-选择病人</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/sxdoctor_selectpatient.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
+	<script src="../js/date.js"></script>
+	<script src="../js/echart/echarts.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul">
+			<div class="navli active"><a href="sjdoctor.html" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="sjdoctor_rwfp.html" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="sjdoctor_Announce.html" onclick="showmenu(0)">公告管理</a></div> 
+		
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">日记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">月记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">周记录</a></div> 
+			<div class="menuli"><a href="sjdoctor_sfrwkc.html">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">乙肝</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">艾滋病</a></div> 
+			<div class="menuli"><a href="sjdoctor_SelectPatient.html">结核病</a></div> 
+		</ul>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active">
+				<div class="sidebar_div_text">乙肝</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<div class="content-header">
+					<div class="content-header-title">
+						<!-- <div class="icon_voice"></div> -->
+						<div class="header-title-left">管辖区人员列表</div>
+						<div class="header-title-mid">路人甲（男 57岁）</div>
+						<div class="header-title-right" >
+							<div class="gk">
+								概况
+							</div>
+						</div>
+						<div class="header-title-right"  style="display:none;">
+							<div class="bgsf">
+								变更随访医生
+							</div>
+							<div class="bgsf-save">
+								保存数据
+							</div>
+						</div>
+						<div class="header-title-right" style="display:none;">
+							<div class="djk">
+								登记卡
+							</div>
+							<div class="djk-edit">
+								编辑数据
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-body" style="height:560px;">
+					<div class="content-left">
+						<div class="search_bar">
+							<select class="search_select">
+							  <option value ="volvo">姓名</option>
+							  <option value ="saab">身份证</option>
+							  <option value="opel">关键字</option>
+							</select>
+							<div class="s-search">
+								<input id="" type="text" autocomplete="off"  class="search-broad">
+								<span class="search-btn"></span>
+							</div>
+						</div>
+						<div class="tb-container">
+						<table class="search_res">
+						
+							<tr class="tb-th">
+								<td>患者姓名</td>
+								<td>性别</td>
+								<td>年龄</td>
+								<td>今日需要随访量</td>
+								<td>今日实际随访量</td>
+								<td>服务机构</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+							<tr class="tb-tr">
+								<td>路人甲</td>
+								<td>男</td>
+								<td>57</td>
+								<td>20</td>
+								<td>18</td>
+								<td>新风社区卫生服务中心</td>
+							</tr>
+						
+						</table>
+						</div>
+						<div class="pagediv">
+							<div class="pagediv-left">
+								<a class="" href=""><上一页</a>
+								<span class="pageindex">4/15</span>
+								<a class="" href="">下一页></a>
+							</div>
+							<div class="pagediv-right">
+								<input id="" type="text" autocomplete="off"  class="pageto">
+								<a class="" href="">跳转></a>
+							</div>
+						</div>
+					</div>
+					<div class="content-mid">
+						<div class="content-mid-top">
+							<a href="djk_zxyg.html" target="_blank">
+							<div class="registerCard">
+								<span class="icon_registerCard"></span>
+								<span class="text_registerCard" style="color:#fff;">登记卡</span>
+							</div>
+							</a>
+							<a href="sjdoctor_sfjl.html">
+							<div class="followRecord">
+								<span class="icon_record"></span>
+								<span class="text_record" style="color:#fff;">随访记录</span>
+							</div>
+							</a>
+						</div>
+						<div class="content-mid-doctor">
+							<span class="text">随访医生：李医生</span>
+							<a class="btn_change" href="sjdoctor_bgsfys.html">变更</a>
+						</div>
+						<div class="content-mid-date">
+							<div class="content-mid-lastdate">
+								最近访问日期：<span class="blue">2014-04-28</span>
+							</div>
+							<div class="content-mid-nextdate">
+								下次访问日期：<span class="blue">2014-04-28</span>
+							</div>
+						</div>
+					</div>
+					<div class="content-right">
+						<div class="content-right-info">
+							<div class="infoline">
+								<div class="text" style="width:120px">
+									姓名：<span class="blue">路人甲</span>
+								</div>
+								<div class="text" style="width:125px">
+									个人状态：<span class="blue">正常</span>
+								</div>
+								<div class="text" style="width:180px">
+									电话：<span class="blue">136123456789</span>
+								</div>
+							</div>
+							<div class="infoline">
+								<div class="text" style="width:430px">
+									家庭住址：<span class="blue">浙江省杭州市新风路后宅街道上洪2户</span>
+								</div>
+							</div>
+							<div class="infoline">
+								<div class="text" style="width:120px">
+									本年随访：<span class="blue">2次</span>
+								</div>
+								<div class="text" style="width:125px">
+									累计随访：<span class="blue">19次</span>
+								</div>
+							</div>
+						</div>
+						<div class="chart_tab">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+							  <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">血压走势图</a></li>
+							  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">BMI走势图</a></li>
+							  <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">健康体检</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="home">
+									<div class="tab-pane-header">
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="startdate_div">
+												<input type="text" id="datetimepicker1" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="enddate_div">
+												<input type="text" id="datetimepicker1" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										
+									</div>
+									<div id="chart_div_1" class="tab-pane-content" style="width:466px;height:298px"></div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="profile">
+									<div class="tab-pane-header">
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="startdate_div">
+												<input type="text" id="" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="enddate_div">
+												<input type="text" id="" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										
+									</div>
+									<div id="chart_div_2" class="tab-pane-content" style="width:466px;height:298px"></div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="messages">
+									<div class="tab-pane-header">
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="startdate_div">
+												<input type="text" id="" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										<div class="date_div">
+											<span class="date_text">起始时间</span>
+											<div class="enddate_div">
+												<input type="text" id="" onclick="HS_setDate(this)">
+												<span class="icon_date"></span>
+											</div>
+										</div>
+										
+									</div>
+									<div id="chart_div_3" class="tab-pane-content" style="width:466px;height:298px"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+	<script>
+		$(document).ready(function(){
+			chartStart();
+		});
+		function chartStart(){
+        // 使用
+        require.config({
+	        paths: {
+	            echarts: '../js/echart'
+	        }
+	    });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+            	var axisData = [
+		            "2013/01/01", "2013/01/03", "2013/01/03", "2013/01/04",
+		            "2013/01/05", "2013/01/06", "2013/01/07", "2013/01/08"
+		        ];
+		        var data1_1 = [
+		            135,135,155,128,
+		            133,152,140,150
+		        ];
+		        var data1_2 = [
+		            135,135,155,128,
+		            133,152,140,150
+		        ];
+		        var data2_1 = [
+		            133,132,155,129,
+		            135,146,141,152
+		        ];
+		        var data2_2 = [
+					100,108,104,83,
+					90,79,89,90
+				];
+		        var data3_1 = [
+		            135,135,155,128,
+		            133,152,140,150
+		        ];
+		        var data3_2 = [
+					100,90,104,83,
+					70,99,89,90
+				];
+                // 基于准备好的dom，初始化echarts图表
+                var myChart1 = ec.init(document.getElementById('chart_div_1')); 
+                var option1 = {
+                    title : {
+                        text: '血压走势图（默认最近8次血压）',
+                        x: 'left'
+                    },
+                    legend: {
+				        data:['收缩压','舒张压'],
+				        x:'right',
+				    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable : true,
+                    grid: {
+                        x: 40,
+                        y:60,
+                        x2:40,
+                        y2:60
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : true,
+                            data : ['2012-10-01','2012-10-02','2012-10-03','2012-10-04','2012-10-05','2012-10-06','2012-10-07','2012-10-08'],
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} '
+                            },
+                            min : 0,
+                            max : 200,
+                            splitNumber : 4,
+							scale:true
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'收缩压',
+                            type:'line',
+							data:[
+					            135,135,155,128,
+					            133,152,140,150
+					        ],
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '收缩压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        },
+                        {
+                            name:'舒张压',
+                            type:'line',
+							data:[
+					            100,90,104,83,
+					            70,99,89,90
+					        ],
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '舒张压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据 
+                myChart1.setOption(option1); 
+				var myChart2 = ec.init(document.getElementById('chart_div_2')); 
+				var option2 = {
+                    title : {
+                        text: 'BMI走势图（默认最近8次）',
+                        x: 'left'
+                    },
+                    legend: {
+				        data:['收缩压','舒张压'],
+				        x:'right',
+				    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable : true,
+                    grid: {
+                        x: 40,
+                        y:60,
+                        x2:40,
+                        y2:60
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : true,
+                            data : ['2012-10-01','2012-10-02','2012-10-03','2012-10-04','2012-10-05','2012-10-06','2012-10-07','2012-10-08'],
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} '
+                            },
+                            min : 0,
+                            max : 200,
+                            splitNumber : 4,
+							scale:true
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'收缩压',
+                            type:'line',
+							data:data2_1,
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '收缩压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        },
+                        {
+                            name:'舒张压',
+                            type:'line',
+							data:data2_2,
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '舒张压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        }
+                    ]
+                };
+                myChart2.setOption(option2);
+				var myChart3 = ec.init(document.getElementById('chart_div_3')); 
+				var option3 = {
+                    title : {
+                        text: '健康体检（默认最近8次）',
+                        x: 'left'
+                    },
+                    legend: {
+				        data:['收缩压','舒张压'],
+				        x:'right',
+				    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    calculable : true,
+                    grid: {
+                        x: 40,
+                        y:60,
+                        x2:40,
+                        y2:60
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : true,
+                            data : ['2012-10-01','2012-10-02','2012-10-03','2012-10-04','2012-10-05','2012-10-06','2012-10-07','2012-10-08'],
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} '
+                            },
+                            min : 0,
+                            max : 200,
+                            splitNumber : 4,
+							scale:true
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'收缩压',
+                            type:'line',
+							data:data3_1,
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '收缩压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        },
+                        {
+                            name:'舒张压',
+                            type:'line',
+							data:data3_2,
+					        itemStyle : { normal: {label : {
+		                        show: true,
+		                        textStyle : {
+		                            fontSize : '12',
+		                            fontFamily : '微软雅黑',
+		                        }
+		                    }}},
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '舒张压基线'}
+                                    /*[
+                                        {name: '收缩压基线', value: 120, x: 40, y: 80}, 
+                                        {name: '收缩压基线', value: 120, x: 760, y: 80}
+                                    ]*/
+                                ]
+                            }
+                        }
+                    ]
+                };
+				myChart3.setOption(option3);
+            }
+            
+        );
+        }
+    
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes">
+	<title>结果查询2</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/medical.css" rel="stylesheet">
+</head>
+<body class="app">
+	
+	<div class="container personal_container">
+		<div class="result_query_topbg"></div>
+		<div class="personInfo">
+			<div class="person_info_top">
+				<span class="person_name">啊啊</span>
+				<div class="icon_male"></div>
+				<span class="yy_name">瑞安人民医院</span>
+			</div>
+			<div class="one_result">
+				<div class="left_title">
+					年龄：
+				</div>
+				<div class="right_content">
+					34
+				</div>
+			</div>
+			<div class="one_result">
+				<div class="left_title">
+					体检类别：
+				</div>
+				<div class="right_content">
+					普通
+				</div>
+			</div>
+			<div class="one_result">
+				<div class="left_title">
+					体检编号：
+				</div>
+				<div class="right_content">
+					普通
+				</div>
+			</div>
+			<div class="one_result">
+				<div class="left_title">
+					总监医生：
+				</div>
+				<div class="right_content">
+					普通
+				</div>
+			</div>
+			<div class="one_result">
+				<div class="left_title">
+					总监日期：
+				</div>
+				<div class="right_content">
+					普通
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container personal_container">
+		<div class="one_section">
+			<p class="one_section_title">
+				总检结果：
+			</p>
+			<p class="one_section_content">
+				高血压病可疑   视力异常  初发白内障  翼状胬肉  沙眼  老年性耳聋  脂肪肝  左肾囊肿  右侧甲状腺结节  心电图轻度T波改变  γ-谷氨酰转肽酶升高  龋齿  牙楔缺
+			</p>
+		</div>
+		<div class="one_section">
+			<p class="one_section_title">
+				总检结果：
+			</p>
+			<p class="one_section_content">
+				高血压病可疑   视力异常  初发白内障  翼状胬肉  沙眼  老年性耳聋  脂肪肝  左肾囊肿  右侧甲状腺结节  心电图轻度T波改变  γ-谷氨酰转肽酶升高  龋齿  牙楔缺
+			</p>
+		</div>
+	</div>
+	<div class="result_query_detail">报告详细</div>
+	<div class="container personal_container">
+		<div class="onerow">
+			一般检查
+		</div>
+		<div class="onerow">
+			肝肾脂糖电解质测定
+		</div>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,洋仔,洋洋,wangyang" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="PC端项目很多都会用到复制到粘贴板的功能，但是由于浏览器的差异（IE/ff）和支持情况的而不同导致各种兼容
+
+本来一直用的zeroClipboard插件，这个插件主要用了flash来实现，flash可以绕过浏览器不兼容的问题，兼容性还不错，但是依赖浏览器flash插件，有些用户可能会为了禁掉各种广告而禁掉flash插件，甚至FF浏览器本身就对flash插件进行了限制，导致有客户来问，所以研究了下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器实现粘贴板复制功能">
+<meta property="og:url" content="http://html-js.site/2016/10/28/浏览器实现粘贴板复制功能/index.html">
+<meta property="og:site_name" content="前端-洋仔">
+<meta property="og:description" content="PC端项目很多都会用到复制到粘贴板的功能，但是由于浏览器的差异（IE/ff）和支持情况的而不同导致各种兼容
+
+本来一直用的zeroClipboard插件，这个插件主要用了flash来实现，flash可以绕过浏览器不兼容的问题，兼容性还不错，但是依赖浏览器flash插件，有些用户可能会为了禁掉各种广告而禁掉flash插件，甚至FF浏览器本身就对flash插件进行了限制，导致有客户来问，所以研究了下">
+<meta property="og:image" content="http://html-js.site/images/page/clipboard/1.jpg">
+<meta property="og:updated_time" content="2016-10-28T08:26:32.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器实现粘贴板复制功能">
+<meta name="twitter:description" content="PC端项目很多都会用到复制到粘贴板的功能，但是由于浏览器的差异（IE/ff）和支持情况的而不同导致各种兼容
+
+本来一直用的zeroClipboard插件，这个插件主要用了flash来实现，flash可以绕过浏览器不兼容的问题，兼容性还不错，但是依赖浏览器flash插件，有些用户可能会为了禁掉各种广告而禁掉flash插件，甚至FF浏览器本身就对flash插件进行了限制，导致有客户来问，所以研究了下">
+<meta name="twitter:image" content="http://html-js.site/images/page/clipboard/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://html-js.site/2016/10/28/浏览器实现粘贴板复制功能/"/>
+
+  <title> 浏览器实现粘贴板复制功能 | 前端-洋仔 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">前端-洋仔</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">专注于前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浏览器实现粘贴板复制功能
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T15:59:39+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/浏览器实现粘贴板复制功能/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/浏览器实现粘贴板复制功能/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>PC端项目很多都会用到复制到粘贴板的功能，但是由于浏览器的差异（IE/ff）和支持情况的而不同导致各种兼容</p>
+</blockquote>
+<p>本来一直用的<a href="http://zeroclipboard.org/" target="_blank" rel="external">zeroClipboard</a>插件，这个插件主要用了flash来实现，flash可以绕过浏览器不兼容的问题，兼容性还不错，但是依赖浏览器flash插件，有些用户可能会为了禁掉各种广告而禁掉flash插件，甚至<a href="http://www.ghacks.net/2015/07/14/mozilla-blocks-all-versions-of-adobe-flash-in-firefox/" target="_blank" rel="external">FF浏览器本身就对flash插件进行了限制</a>，导致有客户来问，所以研究了下相关内容；</p>
+<p>这里介绍一套解决方案：<a href="https://clipboardjs.com/" target="_blank" rel="external">clipBoard.js</a>，这个插件纯js实现，主要原理是用到了<code>document.execCommand(&#39;copy&#39;)</code>方法，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand" target="_blank" rel="external">使用详解</a>，这个方法可以鼠标选中的内容；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">简单的实现：</div><div class="line">&lt;input type=&quot;text&quot; id=&quot;input1&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; Value=&quot;click&quot; onclick=&quot;copy()&quot;&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        function copy () &#123;</div><div class="line">            var input = document.createElement(&apos;input&apos;);</div><div class="line">            input.value = document.getElementById(&apos;input1&apos;).value;</div><div class="line">            input.style = &quot;opacity:0&quot;</div><div class="line">            document.body.appendChild(input);</div><div class="line">            input.select();</div><div class="line">            document.execCommand(&apos;copy&apos;);</div><div class="line">            console.log(&apos;Copy!&apos;);</div><div class="line">            input.remove();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>下面介绍一整套解决方案:</p>
+<h3 id="判断浏览器"><a href="#判断浏览器" class="headerlink" title="判断浏览器"></a>判断浏览器</h3><p>因为clipboard兼容ie9以上，所以需要判断浏览器<br><img src="/images/page/clipboard/1.jpg" alt=""><br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div></pre></td><td class="code"><pre><div class="line">//getClient为判断浏览器 方法地址：/resources/js/component.js</div><div class="line">          var client = getClient();</div><div class="line">          if(window.clipboardData)&#123;</div><div class="line">            //for IE</div><div class="line">            var copyBtn = document.getElementById(&quot;copy&quot;);</div><div class="line">            copyBtn.onclick = function()&#123; </div><div class="line">            var text = $(&quot;#copy&quot;).attr(&quot;data-clipboard-text&quot;);</div><div class="line">              window.clipboardData.setData(&apos;text&apos;,text); </div><div class="line">              alert(&quot;复制成功，地址为： &quot; + text);</div><div class="line">            &#125;</div><div class="line">          &#125; else &#123;</div><div class="line">            if ((client.browser.firefox &amp;&amp; client.browser.firefox &gt; 41) || (client.browser.chrome &amp;&amp; client.browser.chrome &gt; 42) || (client.browser.ie &amp;&amp; client.browser.ie &gt; 8) || (client.browser.safari &amp;&amp; client.browser.safari &gt; 10) || (client.browser.opera &amp;&amp; client.browser.opera &gt; 29)) &#123;</div><div class="line">              //使用clipboard.js，非flash插件</div><div class="line">              clip = new Clipboard(&apos;.mytemp-list-copy&apos;);</div><div class="line"></div><div class="line">              clip.on(&apos;success&apos;, function(e) &#123;</div><div class="line">                Tatami.toast(&apos;复制成功,点击页面推广去设置&apos;);</div><div class="line">                console.info(&apos;Action:&apos;, e.action);</div><div class="line">                console.info(&apos;Text:&apos;, e.text);</div><div class="line">                console.info(&apos;Trigger:&apos;, e.trigger);</div><div class="line"></div><div class="line">                e.clearSelection();</div><div class="line">              &#125;);</div><div class="line"></div><div class="line">              clip.on(&apos;error&apos;, function(e) &#123;</div><div class="line">                console.error(&apos;Action:&apos;, e.action);</div><div class="line">                console.error(&apos;Trigger:&apos;, e.trigger);</div><div class="line">              &#125;);</div><div class="line">            &#125; else &#123;</div><div class="line">              // 用ZeroClipboard插件 使用的flash</div><div class="line">              clip = new ZeroClipboard($(&apos;.mytemp-list-copy&apos;));</div><div class="line">              clip.on(&apos;aftercopy&apos;, function () &#123;</div><div class="line">                Tatami.toast(&apos;复制成功,点击页面推广去设置&apos;);</div><div class="line">              &#125;);</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * [浏览器引擎、平台、Windows操作系统、移动设备和游戏系统检测]</div><div class="line"> */</div><div class="line">function getClient() &#123;</div><div class="line">    //呈现引擎</div><div class="line">    var engine = &#123;</div><div class="line">        ie: 0,</div><div class="line">        gecko: 0,</div><div class="line">        webkit: 0,</div><div class="line">        khtml: 0,</div><div class="line">        opera: 0,</div><div class="line"></div><div class="line">        //版本号</div><div class="line">        ver: null</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //浏览器</div><div class="line">    var browser = &#123;</div><div class="line">        ie: 0,</div><div class="line">        firefox: 0,</div><div class="line">        opera: 0,</div><div class="line">        safari: 0,</div><div class="line">        chrome: 0,</div><div class="line">        konq: 0,</div><div class="line">        //版本号</div><div class="line">        ver: null</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //平台、设备和操作系统</div><div class="line">    var system = &#123;</div><div class="line">        win: false,</div><div class="line">        mac: false,</div><div class="line"></div><div class="line">        //移动设备</div><div class="line">        iphone: false,</div><div class="line">        ipod: false,</div><div class="line">        ipad: false,</div><div class="line">        ios: false,</div><div class="line">        android: false,</div><div class="line">        winMobile: false,</div><div class="line">        nokiaN: false,</div><div class="line"></div><div class="line">        //游戏系统</div><div class="line">        wii: false,</div><div class="line">        ps: false</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //检测浏览器和引擎</div><div class="line">    var ua = navigator.userAgent;</div><div class="line">    //优先检测opera浏览器</div><div class="line">    if (window.opera) &#123;</div><div class="line">        engine.ver = browser.ver = window.opera.version();</div><div class="line">        engine.opera = browser.opera = parseFloat(engine.ver);</div><div class="line">    &#125; else if (/AppleWebKit\/(\S+)/.test(ua)) &#123;</div><div class="line">        engine.ver = RegExp[&apos;$1&apos;];</div><div class="line">        engine.webkit = parseFloat(engine.ver);</div><div class="line"></div><div class="line">        //判断是chrome还是safari</div><div class="line">        if (/Chrome\/(\S+)/.test(ua)) &#123;</div><div class="line">            browser.ver = RegExp[&apos;$1&apos;];</div><div class="line">            browser.chrome = parseFloat(browser.ver);</div><div class="line">        &#125; else if (/Version\/(\S+)/.test(ua)) &#123;</div><div class="line">            browser.ver = RegExp[&apos;$1&apos;];</div><div class="line">            browser.safari = parseFloat(browser.ver);</div><div class="line">        &#125; else &#123;</div><div class="line">            //近似确定Safari版本号</div><div class="line">            var safariVersion = 1;</div><div class="line">            if (engine.webkit &lt; 100) &#123;</div><div class="line">                safariVersion = 1;</div><div class="line">            &#125; else if (engine.webkit &lt; 312) &#123;</div><div class="line">                safariVersion = 1.2;</div><div class="line">            &#125; else if (engine.webkit &lt; 412) &#123;</div><div class="line">                safariVersion = 1.3;</div><div class="line">            &#125; else &#123;</div><div class="line">                safariVersion = 2;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            browser.safari = browser.ver = safariVersion;</div><div class="line">        &#125;</div><div class="line">    &#125; else if (/KHTML\/(\S+)/.test(ua) || /Konqueror\/([^;]+)/.test(ua)) &#123;</div><div class="line">        engine.ver = browser.ver = RegExp[&apos;$1&apos;];</div><div class="line">        engine.khtml = browser.konq = parseFloat(engine.ver);</div><div class="line">    &#125; else if (/rv:([^\)]+)\) Gecko\/\d&#123;8&#125;/.test(ua)) &#123;</div><div class="line">        engine.ver = RegExp[&apos;$1&apos;];</div><div class="line">        engine.gecko = parseFloat(engine.ver);</div><div class="line"></div><div class="line">        //判断是否是firefox</div><div class="line">        if (/Firefox\/(\S+)/.test(ua)) &#123;</div><div class="line">            browser.ver = RegExp[&apos;$1&apos;];</div><div class="line">            browser.firefox = parseFloat(browser.ver);</div><div class="line">        &#125;</div><div class="line">    &#125; else if (/MSIE ([^;]+)/.test(ua)) &#123;</div><div class="line">        engine.ver = browser.ver = RegExp[&apos;$1&apos;];</div><div class="line">        engine.ie = browser.ie = parseFloat(engine.ver);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //检测浏览器</div><div class="line">    browser.ie = engine.ie;</div><div class="line">    browser.opera = engine.opera;</div><div class="line"></div><div class="line">    //检测平台</div><div class="line">    var p = navigator.platform;</div><div class="line">    system.win = p.indexOf(&apos;Win&apos;) === 0;</div><div class="line">    system.mac = p.indexOf(&apos;Mac&apos;) === 0;</div><div class="line">    system.x11 = (p == &apos;X11&apos;) || (p.indexOf(&apos;Linux&apos;) === 0);</div><div class="line"></div><div class="line">    //检测windows操作系统</div><div class="line">    if (system.win) &#123;</div><div class="line">        if (/Win(?:dows )?([^do]&#123;2&#125;)\s?(\d+\.\d+)?/.test(ua)) &#123;</div><div class="line">            if (RegExp[&apos;$1&apos;] === &apos;NT&apos;) &#123;</div><div class="line">                switch (RegExp[&apos;$2&apos;]) &#123;</div><div class="line">                    case &apos;5.0&apos;:</div><div class="line">                        system.win = &apos;2000&apos;;</div><div class="line">                        break;</div><div class="line">                    case &apos;5.1&apos;:</div><div class="line">                        system.win = &apos;xp&apos;;</div><div class="line">                        break;</div><div class="line">                    case &apos;6.0&apos;:</div><div class="line">                        system.win = &apos;Vista&apos;;</div><div class="line">                        break;</div><div class="line">                    case &apos;6.1&apos;:</div><div class="line">                        system.win = &apos;7&apos;;</div><div class="line">                        break;</div><div class="line">                    default:</div><div class="line">                        system.win = &apos;NT&apos;;</div><div class="line">                        break;</div><div class="line">                &#125;</div><div class="line">            &#125; else if (RegExp[&apos;$1&apos;] === &apos;9x&apos;) &#123;</div><div class="line">                system.win = &apos;ME&apos;;</div><div class="line">            &#125; else &#123;</div><div class="line">                system.win = RegExp[&apos;$1&apos;];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //检测移动设备</div><div class="line">    system.iphone = ua.indexOf(&apos;iPhone&apos;) &gt; -1;</div><div class="line">    system.ipod = ua.indexOf(&apos;iPod&apos;) &gt; -1;</div><div class="line">    system.ipad = ua.indexOf(&apos;iPad&apos;) &gt; -1;</div><div class="line">    system.nokiaN = ua.indexOf(&apos;NokiaN&apos;) &gt; -1;</div><div class="line"></div><div class="line">    //windows mobile</div><div class="line">    if (system.win === &apos;CE&apos;) &#123;</div><div class="line">        system.winMobile = system.win;</div><div class="line">    &#125; else if (system.win === &apos;Ph&apos;) &#123;</div><div class="line">        if (/Windows Phone OS (\d+.\d+)/.test(ua)) &#123;</div><div class="line">            system.win = &apos;Phone&apos;;</div><div class="line">            system.winMobile = parseFloat(RegExp[&apos;$1&apos;]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //检测ios 版本</div><div class="line">    if (system.mac &amp;&amp; ua.indexOf(&apos;Mobile&apos;) &gt; -1) &#123;</div><div class="line">        if (/CPU (?:iPhone )?OS (\d+_\d+)/.test(ua)) &#123;</div><div class="line">            system.ios = parseFloat(RegExp.$1.replace(&apos;_&apos;, &apos;.&apos;));</div><div class="line">        &#125; else &#123;</div><div class="line">            system.ios = 2; //猜测的， 并非真正检测出来</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //检测android 版本</div><div class="line">    if (/Android(\d+\.\d+)/.test(ua)) &#123;</div><div class="line">        system.android = parseFloat(RegExp[&apos;$1&apos;]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //游戏系统</div><div class="line">    system.wii = ua.indexOf(&apos;Wii&apos;) &gt; -1;</div><div class="line">    system.ps = /playstation/i.test(ua);</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">        engine: engine,</div><div class="line">        browser: browser,</div><div class="line">        system: system</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="wangyang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="wangyang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/vue实例属性汇总和生命周期/" rel="next" title="vue实例属性汇总和生命周期">
+                <i class="fa fa-chevron-left"></i> vue实例属性汇总和生命周期
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/11/设计模式六大原则之单一职责原则/" rel="prev" title="设计模式六大原则之单一职责原则">
+                设计模式六大原则之单一职责原则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/28/浏览器实现粘贴板复制功能/"
+           data-title="浏览器实现粘贴板复制功能" data-url="http://html-js.site/2016/10/28/浏览器实现粘贴板复制功能/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/default_avatar.jpg"
+               alt="wangyang" />
+          <p class="site-author-name" itemprop="name">wangyang</p>
+          <p class="site-description motion-element" itemprop="description">专注于前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="617418875" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="moxhuis" target="_blank">moxhuis</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="indexof" target="_blank">indexof</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="xiaoqiang" target="_blank">xiaoqiang</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断浏览器"><span class="nav-number">1.</span> <span class="nav-text">判断浏览器</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangyang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"html-js"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

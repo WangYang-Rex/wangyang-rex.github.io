@@ -1,0 +1,116 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>上级医生</title>
+	<meta http-equiv="x-ua-compatible" content="IE=edge，chrome=1">
+	<link href="../css/reset.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"><img src="../img/header/headerlogo.png"></div>
+		<div class="logoname">传染病社区管理平台</div>
+		<div class="infoli">工号：test</div>
+		<div class="infoli">用户名：随访医生</div>
+		<div class="infoli">服务机构：新风社区卫生服务中心</div>
+		<div class="setting">
+			<a href="#" class="changepass btn">修改密码</a>
+			<a href="#" class="logout btn">退出系统</a>
+		</div>
+	</div>
+	<div class="nav">
+		<ul class="navul"  id="nav_sjdoctor" style="display:none;">
+			<div class="navli active"><a href="#" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(1)">随访任务</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(2)">患者管理</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(0)">任务分配</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(0)">公告管理</a></div> 
+		</ul>
+		<ul class="navul"  id="nav_sfdoctor" style="display:block;">
+			<div class="navli active"><a href="#" onclick="showmenu(0)">首页</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(3)">患者咨询</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(4)">随访管理</a></div> 
+			<div class="navli"><a href="#" onclick="showmenu(0)">通知公告</a></div> 
+		</ul>
+	</div>
+	<div class="menu">
+		<ul class="menuul" index="1">
+			<div class="menuli"><a href="#">日记录</a></div> 
+			<div class="menuli"><a href="#">月记录</a></div> 
+			<div class="menuli"><a href="#">周记录</a></div> 
+			<div class="menuli"><a href="#">年纪录</a></div> 
+		</ul>
+		<ul class="menuul" index="2">
+			<div class="menuli"><a href="#">乙肝</a></div> 
+			<div class="menuli"><a href="#">艾滋病</a></div> 
+			<div class="menuli"><a href="#">结核病</a></div> 
+		</ul>
+		<ul class="menuul" index="3">
+			<div class="menuli"><a href="#">未回复咨询</a></div> 
+			<div class="menuli"><a href="#">全部咨询</a></div>  
+		</ul>
+		<ul class="menuul" index="4">
+			<div class="menuli"><a href="#">乙肝</a></div> 
+			<div class="menuli"><a href="#">艾滋病</a></div> 
+			<div class="menuli"><a href="#">结核病</a></div> 
+		</ul>
+	</div>
+	
+	
+	<script>
+		$(document).ready(function(){
+			$(".navli").on("click",function(){
+				$(".navli").removeClass("active");
+				$(this).addClass("active");
+			});
+			$(".menuli").on("click",function(){
+				$(".menuli").removeClass("active");
+				$(this).addClass("active");
+			});
+			
+		});
+		function showmenu(i){
+			$(".menuul").each(function(){
+				if($(this).attr("index")==i){
+					$(this).css("display","block");
+				}
+				else{
+					$(this).css("display","none");
+				}
+			});
+		}
+	</script>
+	<div class="main">
+		<div class="sidebar">
+			<div class="sidebar_div" id="aa">
+				<div class="sidebar_div_text">首页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+			<div class="sidebar_div active" id="bb">
+				<div class="sidebar_div_text">其他页</div>
+				<div class="sidebar_div_xicon"></div>
+			</div>
+		</div>
+		<div class="main_right">
+			<div class="content">
+				<!-- do something start -->
+				<iframe src="" width="100%" height="460px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" id="iframe1"></iframe>
+				<!-- do something end -->
+			</div>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+	<script>
+		$(document).ready(function(){
+			$("#aa").on("click",function(){
+				$("#iframe1").attr("src","http://baidu.com"); 
+			})
+			$("#bb").on("click",function(){
+				$("#iframe1").attr("src","http://www.bootcss.com"); 
+			})
+		});
+	</script>
+</body>
+</html>

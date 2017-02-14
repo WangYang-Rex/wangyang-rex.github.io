@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>小小师傅—维修预约</title>
+	<script src="../js/viewport.js" type='text/javascript'></script>
+	<script src='../js/jquery-1.10.2.min.js' type='text/javascript' charset='utf-8'></script>
+	<!-- <script src='../js/jquery.bxslider.js' type='text/javascript' charset='utf-8'></script> -->
+	<script src="../js/common.js"></script>
+	<!-- <script src="../js/server.js"></script> -->
+	<link rel="stylesheet" href="../style/combine.min.css"/>
+	<!-- <script src="../js/combine.min.js"></script>
+	<script src='../js/jquery.bxslider.js' type='text/javascript' charset='utf-8'></script> -->
+</head>
+<body class="home">
+	<div class="header">
+		<div class="header-logo"></div>
+		<div class="header-place">
+			<div class="header-place-info">佛山</div>
+		</div>
+	</div>
+	<div class="main-content">
+		<div class="slide">
+			<ul class="slide-pic-wrap" >
+				<li><img src="../img/home-pic.jpg" ></li>
+				<li><img src="../img/home-pic.jpg" ></li>
+			</ul>
+		</div>
+		<div class="home-list">
+			<div class="home-list-item" index="1">
+				<i class="icon icon-home-item1"></i>
+				<p class="home-item-desc">灯具电路</p>
+			</div>
+			<div class="home-list-item" index="2">
+				<i class="icon icon-home-item2"></i>
+				<p class="home-item-desc">水龙头管件</p>
+			</div>
+			<div class="home-list-item" index="3">
+				<i class="icon icon-home-item3"></i>
+				<p class="home-item-desc">打孔管道疏通</p>
+			</div>
+			<div class="home-list-item" index="4">
+				<i class="icon icon-home-item4"></i>
+				<p class="home-item-desc">卫浴洁具</p>
+			</div>
+			<div class="home-list-item" index="5">
+				<i class="icon icon-home-item5"></i>
+				<p class="home-item-desc">门窗家具</p>
+			</div>
+			<div class="home-list-item" index="6">
+				<i class="icon icon-home-item6"></i>
+				<p class="home-item-desc">家电维修</p>
+			</div>
+			<div class="home-list-item" index="7">
+				<i class="icon icon-home-item7"></i>
+				<p class="home-item-desc">家具建材</p>
+			</div>
+			<div class="home-list-item" index="8">
+				<i class="icon icon-home-item8"></i>
+				<p class="home-item-desc">墙面地面</p>
+			</div>
+			<div class="home-list-item" index="9">
+				<i class="icon icon-home-item9"></i>
+				<p class="home-item-desc">门锁开换</p>
+			</div>
+		</div>
+		
+	</div>
+	<div id="demo"></div>
+	<div class="footer"></div>
+	
+	<script>
+		var list = ['灯具电路','水龙头管件','打孔管道疏通','卫浴洁具','门窗家具','家电维修','家具建材','家具建材','墙面地面','门锁开换'];
+		$(document).ready(function(){
+		    init();
+		    Bind();
+		})
+		function init(){
+			// $('.slide-pic-wrap').bxSlider({
+			// 	page:true,
+		 //      	auto: true,
+		 //      	speed:800,
+		 //      	controls: false//隐藏左右按钮
+		 //    });
+		}
+		function Bind(){
+			// $('.home-list-item').on('click',function(e){
+			// 	toast(123)
+			// 	var id = $(e.currentTarget).attr('index');
+			// 	console.log(id);
+			// 	alert(id);
+			// 	window.sessionStorage.setItem('firstCatId',id);
+			// 	window.sessionStorage.setItem('firstCatName',list[id]);
+			// 	location.href = "list.html?id="+id;
+			// })
+			$(document).on('click','.home-list-item',function(e){
+
+		    	var id = $(e.currentTarget).attr('index');
+				console.log(id);
+				alert(id);
+				window.sessionStorage.setItem('firstCatId',id);
+				window.sessionStorage.setItem('firstCatName',list[id]);
+				location.href = "list.html?id="+id;
+		    })
+		    
+		}
+	</script>
+</body>
+</html>

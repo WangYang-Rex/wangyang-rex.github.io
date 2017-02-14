@@ -1,0 +1,39 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes">
+	<title>个人预约</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/medical.css" rel="stylesheet">
+</head>
+<body class="app">
+	<div class="personal_step3">
+		<span class="icon_personal_step3_yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		已提交，收到短信表示您已预约成功。
+	</div>
+	<input type="submit" class="personal_submit" value="确定" >
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

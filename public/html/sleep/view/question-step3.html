@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no, email=no" />
+		<title>回答页面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	</head>
+	<body class="question">
+		<div class="question-top">
+			<img src="../img/question/question_bg.jpg"/>
+			
+			<div class="question-step">1/19</div>
+			<div class="question-top-content">
+				<img class="icon-question" src="../img/question/icon-question.png"/>
+				<div class="question-title">你是否不能再30分钟内入睡？</div>
+			</div>
+		</div>
+		<div class="question-content">
+			<div class="one-question-choose">过去一个月没有</div>
+			<div class="one-question-choose one-question-choose-select"><1次/周</div>
+			<div class="one-question-choose">过去一个月没有</div>
+			<div class="one-question-choose">过去一个月没有</div>
+		</div>
+		<div class="question-footer">
+			<div class="question-footer-left"></div>
+			<div class="question-footer-right"></div>
+		</div>
+		<script src="../js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				init();
+			})
+			function init(){
+				var _window_height = $(window).height();
+				var _top_height = $('.question-top').height();
+				var _content_height = $('.question-content').height();
+				var _bottom_height = $('.question-footer').height();
+				if((_top_height+_content_height+_bottom_height)>=_window_height){
+					
+				}
+				else{
+					$('.question').css('height',_window_height+'px');
+					$('.question-footer').addClass('question-footer-bottom');
+				}
+			}
+		</script>
+	</body>
+</html>
+

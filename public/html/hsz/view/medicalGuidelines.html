@@ -1,0 +1,69 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes">
+	<title>体检中心！</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/medical.css" rel="stylesheet">
+</head>
+<body class="app">
+	<div class="container">
+		<div class="guide_header">
+		</div>
+		<div class="guide_cont">
+			<div class="guide_cont_container">
+				<div class="guide_cont_header">
+					体检前须知
+				</div>
+				<p class="guide_cont_name">体检时间</p>
+				<p class="guide_cont_info">
+					预约日期当天上午（五一劳动节后7:00—9:30 十一国庆节后7:30-9:30）请按预约分时间段前来体检。星期天休息
+				</p>
+				<p class="guide_cont_name">体检注意事项</p>
+				<p class="guide_cont_info">
+					1、体检前三天，应清淡饮食，正常休息；受检前禁食8-12小时;进行抽血、B超、碳13呼气试验检查后，方可进食;（慢性病如高血压、糖尿病者可少量水吞服服药）<br/>
+					2、男性有前列腺B超检查者应检查后留取尿液标本。安装“心脏起搏器”者，禁做人体成分检查。<br/>
+				</p>
+				<p class="guide_cont_name">女性体检特别注意事项 </p>
+				<p class="guide_cont_info">
+					1）、经期延迟的育龄女性，建议先憋尿做子宫附件B超检查排除怀孕可能后，再进行放射线检查（CT、DR、胸透等）<br/>
+					2）、怀孕或可能已经怀孕者，请预先告知医护人员，勿做放射线检查（DR、胸透、CT等）。<br/>
+					3) 、未婚女性不做妇科检查，憋尿做子宫附件B超检查（如签字自愿要求妇科检查者除外）已婚女性留取尿液标本后，先做妇科检查后做经阴道子宫附件B超。<br/>
+					4）、月经期间，请勿进行尿液、宫颈涂片、TLT、HPV宫颈癌检查，待经期结束后3－5天再进行补检。检查前24小时阴道不上药、不冲洗、不过性生活。<br/>
+					5）、建议体检当天不化妆、不抹口红、不佩戴项链或金属扣的内衣进行体检，（DR胸片检查前要求取下随身佩戴的金属饰品）
+				</p>
+				<p class="guide_cont_name">温馨提示</p>
+				<p class="guide_cont_info">
+					注：目前医学科技发展，对于疾病的筛检仍有限制及存在检查的盲点，健检未发现异常的部分，并不代表完全没有潜在性的疾病。若有发现任何疾病徵状出现，应立即就医。
+				</p>
+				<!-- <div class="guide_cont_header">
+					体检后须知
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

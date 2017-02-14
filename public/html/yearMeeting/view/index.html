@@ -1,0 +1,130 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+	<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+	<meta HTTP-EQUIV="expires" CONTENT="-1">
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+	<title>卓健&邦泰年度联谊盛典</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	//微信去掉下方刷新栏
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/app.css" rel="stylesheet">
+</head>
+<body class="app appBg1">
+	<header class="app-header">
+	<a href="javascript:void(0);" class="u-globalAudio z-play">
+		<i class="icon-music"></i>
+		<audio src="../media/1.mp3" id="header_audio" autoplay="autoplay" loop="loop" data-src="../media/53fd7d2cebd4a60654.mp3"></audio>
+		<span class="">开启</span>
+	</a>
+	</header>
+	<!--<div class="mask" style="display:none;">-->
+	<div class="mask">
+		<div class="prev-bg">
+			<img src="../img/mask_bg.jpg"/>
+		</div>
+		<div class="next-bg">
+			<img src="../img/mask_bg.jpg"/>
+		</div>
+		<div class="finger" style="background:url(../img/finger.png) 0 0">  
+			<span class="scan-line" style="background:url(../img/finger_Line.png) 0 0"></span>  
+		</div>
+		<div class="finger-touch-bright" style="background:url(../img/touchFinger.png) 0 0"></div>
+		<div class="finger-touch"></div>
+	</div>
+	<div class="app_content">
+		<div class="page page1" index="1">
+			<div class="page_content page_content1">
+				<div class="page1_top">
+					<img src="../img/section1/section1_star.png" class="section1_star"/>
+					<img src="../img/section1/section1_circle.png" class="section1_circle"/>
+				</div>
+				<div class="page1_bottom">
+					<img src="../img/section1/section1_bottom_bg.png" class="page1_bottom_bg "/>
+					<img src="../img/section1/section1_bottom_text0.png" class="page1_bottom_text1"/>
+					<!--<img src="../img/section1/section1_bottom_text1.png" class="page1_bottom_text1"/>
+					<img src="../img/section1/section1_bottom_text2.png" class="page1_bottom_text2"/>
+					<img src="../img/section1/section1_bottom_text3.png" class="page1_bottom_text3"/>
+					<img src="../img/section1/section1_bottom_text4.png" class="page1_bottom_text4"/>
+					<img src="../img/section1/section1_bottom_text5.png" class="page1_bottom_text5"/>
+					<img src="../img/section1/section1_bottom_text6.png" class="page1_bottom_text6"/>
+					<img src="../img/section1/section1_bottom_text7.png" class="page1_bottom_text7"/>
+					<img src="../img/section1/section1_bottom_text8.png" class="page1_bottom_text8"/>
+					<img src="../img/section1/section1_bottom_text9.png" class="page1_bottom_text9"/>-->
+					<div class="section1_bottom_text">
+						<span class="section1_bottom_text_text"></span>
+						<span class="section1_bottom_text_cursor">_</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page page2" index="2">
+			<div class="page_content page_content2">
+				<div class="page2_line"></div>
+				<div class="page2_2011_bg"></div>
+				<div class="page2_2012_bg"></div>
+				<div class="page2_2013_bg"></div>
+				<div class="page2_2014_bg"></div>
+				<div class="page2_2015_bg"></div>
+				<!--<img src="../img/section2/section2_line_2011.png" class="page2_2011"/>
+				<img src="../img/section2/section2_line_2012.png" class="page2_2012"/>
+				<img src="../img/section2/section2_line_2013.png" class="page2_2013"/>
+				<img src="../img/section2/section2_line_2014.png" class="page2_2014"/>
+				<img src="../img/section2/section2_line_2015.png" class="page2_2015"/>-->
+			</div>
+		</div>
+		<div class="page page3" index="3">
+			<div class="page_content page_content3">
+				<div class="page3_top">
+					<img src="../img/section3/section3_bg.png"  class="section3_star"/>
+					<img src="../img/section3/section3_circle.png"  class="section3_circle"/>
+				</div>
+				<img src="../img/section3/section3_text.png" class="page3_text"/>
+				<div style="position: relative;">
+					<img src="../img/section3/section3_map.png" class="page3_map"/>
+					<img src="../img/section3/section3_map1.png" class="page3_map1"/>
+					<div class="page3_map1_div" onclick="javascript:location.href = 'http://apis.map.qq.com/uri/v1/marker?marker=coord:30.289510,120.197620;title:杭州瑞京国际大酒店;addr:浙江省杭州市江干区秋涛北路&coord_type=2&referer=卓健微信';"></div>
+				</div>
+			</div>
+		</div>
+		<div class="page page4" index="4">
+			<div class="page_content page_content4">
+				<div>
+					<img src="../img/section4/section4_text1.png" class="page4_text1"/>
+					<img src="../img/section4/section4_text2.png" class="page4_text2"/>
+					<img src="../img/section4/section4_text3.png" class="page4_text3"/>
+					<img src="../img/section4/section4_text4.png" class="page4_text4"/>
+				</div>
+				<div style="position: relative;">
+					<img src="../img/section4/section4_input.png" class="page4_input_img"/>
+					<div class="page4_input" onclick="javascript:location.href = 'login.html';"></div>
+				</div>
+				<img src="../img/section4/section4_text5.png" class="page4_text5"/>
+			</div>
+		</div>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

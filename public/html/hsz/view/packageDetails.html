@@ -1,0 +1,59 @@
+<html lang="ch">
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, user-scalable=yes">
+	<title>套餐详情</title>
+	<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+	<link href="../css/medical.css" rel="stylesheet">
+</head>
+<body class="app">
+	<div class="container tc_detail_container">
+		<section class="tc_detail_price">
+			<p>
+				<span class="tc_detail_title">套餐详情</span>
+				男：<span class="price">308</span>元
+				女：<span class="price">338</span>元
+			</p>
+		</section>
+		<section class="tc_detail_content">
+			<p class="tc_detail_content_title">一般检查</p>
+			<p class="tc_detail_content_info">血压、脉搏</p>
+		</section>
+		<section class="tc_detail_content">
+			<p class="tc_detail_content_title">外科</p>
+			<p class="tc_detail_content_info">身高、体重、皮肤、淋巴结、甲状腺、四肢、关节、脊柱、其他</p>
+		</section>
+		<section class="tc_detail_content">
+			<p class="tc_detail_content_title">一般检查</p>
+			<p class="tc_detail_content_info">血压、脉搏</p>
+		</section>
+		<section class="tc_detail_content">
+			<p class="tc_detail_content_title">一般检查</p>
+			<p class="tc_detail_content_info">血压、脉搏</p>
+		</section>
+	</div>
+	<script src="../js/zepto.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>
