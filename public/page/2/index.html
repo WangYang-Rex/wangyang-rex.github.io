@@ -153,6 +153,8 @@
  ">
     <div class="headband"></div>
 
+    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
@@ -238,6 +240,224 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/18/Git-推送和删除远程标签/" itemprop="url">
+                  Git 推送和删除远程标签
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-18T14:34:41+08:00" content="2016-09-18">
+              2016-09-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/18/Git-推送和删除远程标签/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Git-推送和删除远程标签/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>事实上Git 的推送和删除远程标签命令是相同的，删除操作实际上就是推送空的源标签refs：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin 标签名</div></pre></td></tr></table></figure>
+<p>相当于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin refs/tags/源标签名:refs/tags/目的标签名</div></pre></td></tr></table></figure></p>
+<p>推送标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin 标签名</div></pre></td></tr></table></figure></p>
+<p>删除本地标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d 标签名</div></pre></td></tr></table></figure></p>
+<p>删除远程标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git push origin :refs/tags/标签名</div><div class="line"></div><div class="line">git push origin :refs/tags/protobuf-2.5.0rc1</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/18/Git-推送和删除远程标签/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/12/fiddler之https抓包（windows）/" itemprop="url">
+                  fiddler之https抓包（windows）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-12T19:13:36+08:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/12/fiddler之https抓包（windows）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/fiddler之https抓包（windows）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>最近因为fiddler升级，引发的一系列血案，花了整整2个小时才解决，必须记录一下</p>
+</blockquote>
+<h2 id="安装并设置"><a href="#安装并设置" class="headerlink" title="安装并设置"></a>安装并设置</h2><p>下载fiddler最新版本，官网地址：<a href="http://www.telerik.com/fiddler">http://www.telerik.com/fiddler</a></p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>1.打开Fiddler，然后点击菜单栏的Tools &gt; Fiddler Options，打开“Fiddler Options”对话框。<br><img src="/images/page/fiddler/1.jpg" alt=""></p>
+<p>2.在打开的对话框中切换到“HTTPS”选项卡<br><img src="/images/page/fiddler/2.jpg" alt=""></p>
+<p>3.在打开的“HTTPS”选项卡中，勾选“Capture HTTPS  CONNECTs”和“Decrypt HTTPS traffic”前面的复选框，然后点击“OK”。<br><img src="/images/page/fiddler/3.jpg" alt=""></p>
+<p>4.现在Fiddler就是在监听https的请求和响应了。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/12/fiddler之https抓包（windows）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -1091,217 +1311,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="url">
-                  GitHub/GitLab 代码结构浏览插件-Octotree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T10:50:46+08:00" content="2016-06-03">
-              2016-06-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Octotree 是一个浏览器扩展（Chrome，Firefox，Opera和Safari），用以显示GitHub/GitLab 代码结构(代码树)。可以非常方便的浏览项目源代码，这样不必把每个项目拉取到你的机器。浏览器浏览时就像使用IDE目录结构，也不必来回的前进后退。</p>
-<p>项目地址：<a href="https://github.com/buunguyen/octotree">https://github.com/buunguyen/octotree</a></p>
-<p><img src="/images/page/Octotree/1.png"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/30/webpack前端模块加载工具/" itemprop="url">
-                  webpack前端模块加载工具
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-30T19:34:21+08:00" content="2016-05-30">
-              2016-05-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/30/webpack前端模块加载工具/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/webpack前端模块加载工具/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近在看许多React的资料，发现了大部分的项目都是用webpack行模块化管理的工具。这次也是借着写了一个React-Todos的小应用，对webPack最基本实用的功能体验了一番，顺带做个小记录。</p>
-<h3 id="为什么用webpack"><a href="#为什么用webpack" class="headerlink" title="为什么用webpack"></a>为什么用webpack</h3><h3 id="CommonJs与AMD"><a href="#CommonJs与AMD" class="headerlink" title="CommonJs与AMD"></a>CommonJs与AMD</h3><p>在一开始，我们先讲一下它和以往我们所用的模块管理工具有什么不一样。在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，得不到有效妥善的管理。后来前端圈开始制定规范，最耳熟能详的是CommonJs和AMD。</p>
-<p>CommonJs是应用在NodeJs，是一种同步的模块机制。它的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var firstModule = require(&quot;firstModule&quot;);</div><div class="line"></div><div class="line">//your code...</div><div class="line"></div><div class="line">module.export = anotherModule</div></pre></td></tr></table></figure></p>
-<p>AMD的应用场景则是浏览器，异步加载的模块机制。require.js的写法大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define([&apos;firstModule&apos;], function(module)&#123;</div><div class="line"></div><div class="line">  //your code...</div><div class="line">  return anotherModule</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/30/webpack前端模块加载工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1347,7 +1356,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1357,7 +1366,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1429,15 +1438,19 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://http://moshui.site/" title="moxhuis" target="_blank">moxhuis</a>
+                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://indexof.site/" title="indexof" target="_blank">indexof</a>
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://xiaoqiang730730.github.io/" title="xiaoqiang" target="_blank">xiaoqiang</a>
+                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="国文" target="_blank">国文</a>
                 </li>
               
             </ul>
