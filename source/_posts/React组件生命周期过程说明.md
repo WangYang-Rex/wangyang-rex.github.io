@@ -12,7 +12,7 @@ tags:
 - render
 - componentDidMount
 
-
+<!--more-->
 ### 实例化完成后的更新
 - getInitialState
 - componentWillMount

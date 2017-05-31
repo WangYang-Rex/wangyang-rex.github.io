@@ -6,6 +6,8 @@ tags: [手机调试]
 
 Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。
 
+<!--more-->
+
 ## 准备工作
 ### 1、PC
 a) 安装Chrome32以上版本。
@@ -23,7 +25,7 @@ a） 开启Debug:<br/>
 需要App中的WebView开启debug功能：
 ![](/images/page/android-webview/3.png)
 千牛Android App可以在运行时开启WebView的Debug功能：<br/>
-<!--more-->
+
 进入“设置”à“关于千牛”,在如下界面点击千牛图标大于等于10次开启debug模式，开启后会有提示如下图：
 ![](/images/page/android-webview/4.png)
 

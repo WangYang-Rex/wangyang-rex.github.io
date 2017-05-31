@@ -86,16 +86,12 @@
 
 
 
-<meta name="description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。
-准备工作1、PCa) 安装Chrome32以上版本。b) 开启Chrome的USB检索功能：   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。
-2、Android手机（4.4及以上版本）/ A">
+<meta name="description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android WebView调试">
 <meta property="og:url" content="http://html-js.site/2017/02/08/Android-WebView调试/index.html">
 <meta property="og:site_name" content="前端-洋仔">
-<meta property="og:description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。
-准备工作1、PCa) 安装Chrome32以上版本。b) 开启Chrome的USB检索功能：   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。
-2、Android手机（4.4及以上版本）/ A">
+<meta property="og:description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/1.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/2.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/3.png">
@@ -103,12 +99,10 @@
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/5.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/6.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/7.png">
-<meta property="og:updated_time" content="2017-02-08T09:31:29.213Z">
+<meta property="og:updated_time" content="2017-05-26T01:55:39.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android WebView调试">
-<meta name="twitter:description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。
-准备工作1、PCa) 安装Chrome32以上版本。b) 开启Chrome的USB检索功能：   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。
-2、Android手机（4.4及以上版本）/ A">
+<meta name="twitter:description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。">
 <meta name="twitter:image" content="http://html-js.site/images/page/android-webview/1.png">
 
 
@@ -322,9 +316,11 @@
 
       
         <p>Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。</p>
+<a id="more"></a>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1、PC"><a href="#1、PC" class="headerlink" title="1、PC"></a>1、PC</h3><p>a) 安装Chrome32以上版本。<br>b) 开启Chrome的USB检索功能：<br><br>   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。<br><img src="/images/page/android-webview/1.png" alt=""></p>
 <h3 id="2、Android手机（4-4及以上版本）-Android4-4模拟器"><a href="#2、Android手机（4-4及以上版本）-Android4-4模拟器" class="headerlink" title="2、Android手机（4.4及以上版本）/ Android4.4模拟器"></a>2、Android手机（4.4及以上版本）/ Android4.4模拟器</h3><p>a） 开启Debug:<br><br>    打开 “设置”à“开发选项”à“USB调试”。<br><img src="/images/page/android-webview/2.png" alt=""><br>注：一些手机默认隐藏了”开发选项“，需要进入”设置“à”关于手机“，然后连续点击”Android版本号“栏（大于等于7次），之后“设置“中将会出现”开发选项“。</p>
-<h3 id="3、需要调试的目标Android-APP"><a href="#3、需要调试的目标Android-APP" class="headerlink" title="3、需要调试的目标Android APP"></a>3、需要调试的目标Android APP</h3><p>需要App中的WebView开启debug功能：<br><img src="/images/page/android-webview/3.png" alt=""><br>千牛Android App可以在运行时开启WebView的Debug功能：<br><br><a id="more"></a><br>进入“设置”à“关于千牛”,在如下界面点击千牛图标大于等于10次开启debug模式，开启后会有提示如下图：<br><img src="/images/page/android-webview/4.png" alt=""></p>
+<h3 id="3、需要调试的目标Android-APP"><a href="#3、需要调试的目标Android-APP" class="headerlink" title="3、需要调试的目标Android APP"></a>3、需要调试的目标Android APP</h3><p>需要App中的WebView开启debug功能：<br><img src="/images/page/android-webview/3.png" alt=""><br>千牛Android App可以在运行时开启WebView的Debug功能：<br></p>
+<p>进入“设置”à“关于千牛”,在如下界面点击千牛图标大于等于10次开启debug模式，开启后会有提示如下图：<br><img src="/images/page/android-webview/4.png" alt=""></p>
 <h2 id="调试WebView页面"><a href="#调试WebView页面" class="headerlink" title="调试WebView页面"></a>调试WebView页面</h2><h3 id="1、通过USB线连接Android手机与PC。"><a href="#1、通过USB线连接Android手机与PC。" class="headerlink" title="1、通过USB线连接Android手机与PC。"></a>1、通过USB线连接Android手机与PC。</h3><p>如果出现”是否允许调试“的条框中，选择”确定“。<br><img src="/images/page/android-webview/5.png" alt=""></p>
 <h3 id="2、调试Android-App中WebView页面："><a href="#2、调试Android-App中WebView页面：" class="headerlink" title="2、调试Android App中WebView页面："></a>2、调试Android App中WebView页面：</h3><p>在Android App中打开某个需要调试的WebView页面。然后在PC Chrome中打开”chrome://inspect“页面：<br><img src="/images/page/android-webview/6.png" alt=""><br>如图中列出的WebView实例，及其打开的页面信息。点击”inspect”打开页面调试窗口（注意：这步需要翻墙后才能打开,翻墙参考<a href="https://github.com/goagent/goagent）：" target="_blank" rel="external">https://github.com/goagent/goagent）：</a><br><img src="/images/page/android-webview/7.png" alt=""></p>
 <p>FAQ:</p>
@@ -469,7 +465,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -479,7 +475,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

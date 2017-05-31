@@ -88,29 +88,26 @@
 
 <meta name="description" content="ps内容较多，请细心看完
 
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。
-前言在细说Flux之前，还是得提一下React ，毕竟Flux这个名字，是因为它才逐渐进入到大众视野。React是f">
+Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReFlux详解">
 <meta property="og:url" content="http://html-js.site/2017/03/22/ReFlux细说/index.html">
 <meta property="og:site_name" content="前端-洋仔">
 <meta property="og:description" content="ps内容较多，请细心看完
 
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。
-前言在细说Flux之前，还是得提一下React ，毕竟Flux这个名字，是因为它才逐渐进入到大众视野。React是f">
+Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/1.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/2.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/3.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/4.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/5.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/6.png">
-<meta property="og:updated_time" content="2017-03-22T09:05:15.299Z">
+<meta property="og:updated_time" content="2017-05-26T01:54:32.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReFlux详解">
 <meta name="twitter:description" content="ps内容较多，请细心看完
 
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。
-前言在细说Flux之前，还是得提一下React ，毕竟Flux这个名字，是因为它才逐渐进入到大众视野。React是f">
+Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
 <meta name="twitter:image" content="http://html-js.site/images/page/reflux/1.png">
 
 
@@ -327,6 +324,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 <p>ps内容较多，请细心看完</p>
 </blockquote>
 <p>Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。</p>
+<a id="more"></a>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在细说Flux之前，还是得提一下React ，毕竟Flux这个名字，是因为它才逐渐进入到大众视野。<br>React是facebook提出来的一个库，用来构建用户界面（User Interface），它的三大特点（来自官方）：</p>
 <ul>
 <li>JUST THE UI： 仅仅是一个View（components），可以认为是MVC中V，用来构建UI界面。</li>
@@ -339,7 +337,6 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 <p>那么，倘若此时数据变化了（比如：对于一个列表而言，用户点击删除按钮，删除了一条数据），我们又该如何通知各个组件进行UI更新呢？</p>
 <p>有这样一种清晰的思路：<br>首先，我们应该需要一个数据存储（Store），存储着react web应用当前的状态（State），就像MVC中的Model一样。<br>然后，当用户点击删除按钮时，将会触发一个消息（Action），告诉Store数据变化了，以及哪里变化了（payload）。<br>最后，Store修改了数据之后，再将新的数据传递给最顶层组件，重新完成一次自上而下的渲染（re-render），从而更新了UI（不要过分担心性能问题，VIRTUAL DOM就是用来解决这个的）。</p>
 <p>显然上述的几步，React作为一个View是不可能做到的，也正因为这样，<strong>Flux作为一种架构方案才被提出来</strong>，它的思想大体就是上述这几步，通过一个<strong>单向数据的流动</strong>，完成了UI的更新，用一张图可以表示，如下（以Facebook Flux为例）：<br><img src="/images/page/reflux/1.png" alt=""></p>
-<a id="more"></a>
 <p>当然，作为应用数据处理的模式，除了Flux，还有很多（如：传统的MVC，MVVM），只是Flux凭借其单向数据流特点，使得数据流变得简单，易于调试和追踪问题，所以更适合与React进行组合使用。<br>前面，我们就一直在说，<strong>Flux是一种架构，一种模式，并不是一个框架，也不是一个库</strong>，就像我们说MVC（VM）的概念一样，所以，遵循着Flux模式所阐述的思想自然就会出现一些库，如：Facebook Flux、Reflux、Fluxxor、Redux等等。<br>本文主要讲解的Reflux，不过在这之前还是需要先提一下Facebook Flux，从而为后面一些对比做一些铺垫。</p>
 <h3 id="Facebook-Flux"><a href="#Facebook-Flux" class="headerlink" title="Facebook Flux"></a>Facebook Flux</h3><p><a href="https://github.com/facebook/flux" target="_blank" rel="external">Facebook Flux</a>，是Facebook在提出Flux架构后，给出的一个对Flux的简单实现，可以认为是Flux库的第一个范例，所以，也有人称之为Original Flux。<br>Facebook Flux中引入了四个概念： Dispatcher、 Actions、Stores、Views（Controller-Views），而它们之间的关系就如同上面的那张图所描述的一样，构成了一个单向数据流的闭环，简化版如下：<br><img src="/images/page/reflux/2.png" alt=""><br>接下来，将以官方的TodoMVC Demo为例，来说明它们各自的作用，以及它们之间是如何配合工作的？（PS：建议读者将源代码clone下来，边看边调试）<br><img src="/images/page/reflux/3.png" alt=""></p>
 <h4 id="Views-and-Controller-Views"><a href="#Views-and-Controller-Views" class="headerlink" title="Views and Controller-Views"></a>Views and Controller-Views</h4><p>Facebook Flux中所指的Views，其实就是React Components，用作UI渲染，而相对特别的，Controller-Views指的则是顶层React Component，除了UI渲染外，它还负责接收来自Store变化的数据，并传递给它的Child Component（即Controller-View -&gt; Child Views），用于子View的渲染。<br>在这个例子中，TodoApp就是一个Controller-View，它监听到TodoStore的数据变化后，便会重新从TodoStore中获取数据，然后通过调用组件setState()方法，触发render()方法的执行，从而得到UI的更新（自上而下的渲染）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// 从TodoStore中获取数据</div><div class="line">function getTodoState() &#123;</div><div class="line">  return &#123;</div><div class="line">    allTodos: TodoStore.getAll(),</div><div class="line">    areAllComplete: TodoStore.areAllComplete()</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var TodoApp = React.createClass(&#123;</div><div class="line"></div><div class="line">  componentDidMount: function() &#123;</div><div class="line">	// TodoApp监听TodoStore的数据变化</div><div class="line">    TodoStore.addChangeListener(this._onChange);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  render: function() &#123;</div><div class="line">	return (</div><div class="line">		&lt;div&gt;&#123;/* 此处代码省去 */&#125;&lt;/div&gt;</div><div class="line">	);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  _onChange: function() &#123;</div><div class="line">	// 重新获取TodoStore的数据，并通过调用setState，触发re-render</div><div class="line">    this.setState(getTodoState());</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
@@ -545,7 +542,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -555,7 +552,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

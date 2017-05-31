@@ -8,6 +8,8 @@ tags: [react, reflux]
 
 Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。
 
+<!--more-->
+
 ### 前言
 在细说Flux之前，还是得提一下React ，毕竟Flux这个名字，是因为它才逐渐进入到大众视野。
 React是facebook提出来的一个库，用来构建用户界面（User Interface），它的三大特点（来自官方）：
@@ -30,8 +32,6 @@ React是facebook提出来的一个库，用来构建用户界面（User Interfac
 
 显然上述的几步，React作为一个View是不可能做到的，也正因为这样，**Flux作为一种架构方案才被提出来**，它的思想大体就是上述这几步，通过一个**单向数据的流动**，完成了UI的更新，用一张图可以表示，如下（以Facebook Flux为例）：
 ![](/images/page/reflux/1.png)
-
-<!--more-->
 
 当然，作为应用数据处理的模式，除了Flux，还有很多（如：传统的MVC，MVVM），只是Flux凭借其单向数据流特点，使得数据流变得简单，易于调试和追踪问题，所以更适合与React进行组合使用。
 前面，我们就一直在说，**Flux是一种架构，一种模式，并不是一个框架，也不是一个库**，就像我们说MVC（VM）的概念一样，所以，遵循着Flux模式所阐述的思想自然就会出现一些库，如：Facebook Flux、Reflux、Fluxxor、Redux等等。
