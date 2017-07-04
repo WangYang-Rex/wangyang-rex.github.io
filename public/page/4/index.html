@@ -262,6 +262,426 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/28/自己实现lazyload/" itemprop="url">
+                  自己实现lazyload
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T09:31:12+08:00" content="2016-06-28">
+              2016-06-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/自己实现lazyload/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/自己实现lazyload/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>心血来潮，自己花了一个小时实现了一个简易版的lazyload插件。</p>
+<p><a href="/file/lazyload/index.html" target="_blank">例子</a>，<br><a href="https://github.com/WangYang-Rex/lazyload" target="_blank">源代码</a></p>
+<h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><p>插件初始化时对匹配的img元素进行遍历，如果在可是区域之内，那么就赋值src，然后监听scroll事件，直到匹配的img数组为空。</p>
+<p>主要用到了getBoundingClientRect()函数，兼容ie，作用是获取元素距离视窗上下左右的距离<br><img src="/images/page/lazyload/1.jpg"></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/自己实现lazyload/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/17/window-location-hash和search-掐架/" itemprop="url">
+                  window.location hash和search 掐架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-17T11:01:03+08:00" content="2016-06-17">
+              2016-06-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/window-location-hash和search-掐架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/17/window-location-hash和search-掐架/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="发现问题的由来"><a href="#发现问题的由来" class="headerlink" title="发现问题的由来"></a>发现问题的由来</h3><p>首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function GetQueryString(name)</div><div class="line">&#123;</div><div class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</div><div class="line">     var r = window.location.search.substr(1).match(reg);</div><div class="line">     if(r!=null)return  unescape(r[2]); return null;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 调用方法</div><div class="line">alert(GetQueryString(&quot;参数名1&quot;));</div></pre></td></tr></table></figure></p>
+<p>设置了一个全局方法，成功了，立马各个项目用起来~</p>
+<p>这次有个需求，在页面加载时去获取参数时发现怎么都获取不到，于是去看代码，发现用到了window.location.search，调试发现window.location.search是空字符串。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/17/window-location-hash和search-掐架/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/mobile-reset-css/" itemprop="url">
+                  mobile reset.css
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T15:15:32+08:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/08/mobile-reset-css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/08/mobile-reset-css/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>手机端页面开发有很多未知的问题，android和ios又有所不同，所以有个reset.css会避免掉很多的问题、bug</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/* css reset author wangyang */</div><div class="line">*&#123;</div><div class="line">	cursor: pointer; //为所有dom添加手势，解决IOS下不能点击的对象上绑定点击事件失效的问题</div><div class="line">&#125;</div><div class="line">html &#123;</div><div class="line">  font-family: &quot;Helvetica Neue&quot;, Helvetica, STHeiTi, sans-serif;//设置通用字体</div><div class="line">  -webkit-text-size-adjust: 100%;//chrome字体禁止缩放</div><div class="line">  font-size: 20px;//设置初始rem基准值</div><div class="line">  overflow-y: scroll;</div><div class="line">&#125;</div><div class="line">body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td &#123; margin:0; padding:0; &#125;</div><div class="line">body &#123; background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; &#125;</div><div class="line">td,th,caption &#123; font-size:14px; &#125;</div><div class="line">h1, h2, h3, h4, h5, h6 &#123; font-weight:normal; font-size:100%; &#125;</div><div class="line">address, caption, cite, code, dfn, em, strong, th, var &#123; font-style:normal; font-weight:normal;&#125;</div><div class="line">a,input,textarea,select,button&#123;</div><div class="line">  outline: 0;//去除外框</div><div class="line">  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);//去除聚焦时的阴影</div><div class="line">  -webkit-tap-highlight-color: transparent;</div><div class="line">&#125;</div><div class="line">a &#123;text-decoration:none;&#125; //去除下划线</div><div class="line">a:hover &#123; text-decoration:underline; &#125;</div><div class="line">a:active&#123;</div><div class="line">	outline: 0;</div><div class="line">    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);</div><div class="line">    -webkit-tap-highlight-color: transparent;</div><div class="line">&#125;</div><div class="line">img, input, button &#123; border:none; &#125;//去除边框</div><div class="line">ol,ul,li &#123; list-style:none; &#125; //去除默认圆点</div><div class="line">input, textarea, select, button &#123; font:14px Verdana,Helvetica,Arial,sans-serif;border-radius: 0; &#125;</div><div class="line">table &#123;</div><div class="line">	border-collapse:collapse;  //把表格边框显示为一条单独的边框</div><div class="line">	border-spacing: 0; //设置相邻单元格的边框间的距离为0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/mobile-reset-css/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="url">
+                  GitHub/GitLab 代码结构浏览插件-Octotree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T10:50:46+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Octotree 是一个浏览器扩展（Chrome，Firefox，Opera和Safari），用以显示GitHub/GitLab 代码结构(代码树)。可以非常方便的浏览项目源代码，这样不必把每个项目拉取到你的机器。浏览器浏览时就像使用IDE目录结构，也不必来回的前进后退。</p>
+<p>项目地址：<a href="https://github.com/buunguyen/octotree">https://github.com/buunguyen/octotree</a></p>
+<p><img src="/images/page/Octotree/1.png"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/03/GitHub-GitLab-代码结构浏览插件-Octotree/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/30/webpack前端模块加载工具/" itemprop="url">
                   webpack前端模块加载工具
                 </a>
@@ -923,7 +1343,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

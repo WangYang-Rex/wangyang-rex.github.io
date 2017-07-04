@@ -262,6 +262,429 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/12/ES6学习-字符串的扩展/" itemprop="url">
+                  ES6学习-字符串的扩展
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-12T15:02:34+08:00" content="2017-04-12">
+              2017-04-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/12/ES6学习-字符串的扩展/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/12/ES6学习-字符串的扩展/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>ES6 加强了对 Unicode 的支持，并且扩展了字符串对象。</p>
+<h3 id="字符的-Unicode-表示法"><a href="#字符的-Unicode-表示法" class="headerlink" title="字符的 Unicode 表示法"></a>字符的 Unicode 表示法</h3><p>JavaScript 允许采用<code>\uxxxx</code>形式表示一个字符，其中<code>xxxx</code>表示字符的 Unicode 码点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;\u0061&quot;</div><div class="line">// &quot;a&quot;</div></pre></td></tr></table></figure></p>
+<p>但是，这种表示法只限于码点在<code>\u0000</code>~<code>\uFFFF</code>之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;\uD842\uDFB7&quot;</div><div class="line">// &quot;𠮷&quot;</div><div class="line"></div><div class="line">&quot;\u20BB7&quot;</div><div class="line">// &quot; 7&quot;</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/12/ES6学习-字符串的扩展/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/11/webkit-overflow-scrolling/" itemprop="url">
+                  -webkit-overflow-scrolling:touch移动设备滚动回弹效果
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-11T20:25:13+08:00" content="2017-04-11">
+              2017-04-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/11/webkit-overflow-scrolling/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/11/webkit-overflow-scrolling/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>-webkit-overflow-scrolling 属性控制元素在移动设备上是否使用滚动回弹效果.</p>
+<h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><ul>
+<li>auto: 使用普通滚动, 当手指从触摸屏上移开，滚动会立即停止。</li>
+<li>touch: 使用具有回弹效果的滚动, 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。继续滚动的速度和持续的时间和滚动手势的强烈程度成正比。同时也会创建一个新的堆栈上下文。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */</div><div class="line"></div><div class="line">-webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/05/cookie/" itemprop="url">
+                  cookie
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-05T10:59:35+08:00" content="2017-04-05">
+              2017-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/05/cookie/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/05/cookie/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>咱们不搞一开始就一大堆理论知识介绍，怕把人讲懵了…… 咱们换一个思维方式——“从现象看本质”，先说说我们看到了什么，再从看到的现象中提出问题，最后深入寻找答案。</p>
+</blockquote>
+<h2 id="我们看到的-cookie"><a href="#我们看到的-cookie" class="headerlink" title="我们看到的 cookie"></a>我们看到的 cookie</h2><p>在 chrome 浏览器中打开一个网站，进入开发者模式，点击<code>Resources</code>栏 -&gt; 选择<code>cookies</code>，我们会看到如下图所示的界面：<br><img src="/images/page/cookie/1.png" alt=""><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/05/cookie/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/ReFlux细说/" itemprop="url">
+                  ReFlux详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T15:53:49+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/22/ReFlux细说/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/ReFlux细说/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>ps内容较多，请细心看完</p>
+</blockquote>
+<p>Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/22/ReFlux细说/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/10/React组件生命周期过程说明/" itemprop="url">
                   React组件生命周期过程说明
                 </a>
@@ -888,436 +1311,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/28/浏览器实现粘贴板复制功能/" itemprop="url">
-                  浏览器实现粘贴板复制功能
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T15:59:39+08:00" content="2016-10-28">
-              2016-10-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/28/浏览器实现粘贴板复制功能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/浏览器实现粘贴板复制功能/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>PC端项目很多都会用到复制到粘贴板的功能，但是由于浏览器的差异（IE/ff）和支持情况的而不同导致各种兼容</p>
-</blockquote>
-<p>本来一直用的<a href="http://zeroclipboard.org/">zeroClipboard</a>插件，这个插件主要用了flash来实现，flash可以绕过浏览器不兼容的问题，兼容性还不错，但是依赖浏览器flash插件，有些用户可能会为了禁掉各种广告而禁掉flash插件，甚至<a href="http://www.ghacks.net/2015/07/14/mozilla-blocks-all-versions-of-adobe-flash-in-firefox/">FF浏览器本身就对flash插件进行了限制</a>，导致有客户来问，所以研究了下相关内容；</p>
-<p>这里介绍一套解决方案：<a href="https://clipboardjs.com/">clipBoard.js</a>，这个插件纯js实现，主要原理是用到了<code>document.execCommand(&#39;copy&#39;)</code>方法，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand">使用详解</a>，这个方法可以鼠标选中的内容；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">简单的实现：</div><div class="line">&lt;input type=&quot;text&quot; id=&quot;input1&quot;&gt;</div><div class="line">    &lt;input type=&quot;button&quot; Value=&quot;click&quot; onclick=&quot;copy()&quot;&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        function copy () &#123;</div><div class="line">            var input = document.createElement(&apos;input&apos;);</div><div class="line">            input.value = document.getElementById(&apos;input1&apos;).value;</div><div class="line">            input.style = &quot;opacity:0&quot;</div><div class="line">            document.body.appendChild(input);</div><div class="line">            input.select();</div><div class="line">            document.execCommand(&apos;copy&apos;);</div><div class="line">            console.log(&apos;Copy!&apos;);</div><div class="line">            input.remove();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>下面介绍一整套解决方案:</p>
-<h3 id="判断浏览器"><a href="#判断浏览器" class="headerlink" title="判断浏览器"></a>判断浏览器</h3><p>因为clipboard兼容ie9以上，所以需要判断浏览器<br><img src="/images/page/clipboard/1.jpg" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/28/浏览器实现粘贴板复制功能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/12/vue实例属性汇总和生命周期/" itemprop="url">
-                  vue实例属性汇总和生命周期
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T15:20:42+08:00" content="2016-10-12">
-              2016-10-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/12/vue实例属性汇总和生命周期/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/vue实例属性汇总和生命周期/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>做了个仿cnode的spa项目，用vue-cli搭了项目，用到了cnode的api和vue-router. <a href="https://github.com/WangYang-Rex/learn-vue">项目地址&gt;&gt;</a></p>
-</blockquote>
-<p>看了很多遍vue和vue-router的文档，这里记录下</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/vue实例属性汇总和生命周期/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/29/vue学习-用vue-cli快速开发单页应用/" itemprop="url">
-                  vue学习-用vue-cli快速开发单页应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-29T10:42:00+08:00" content="2016-09-29">
-              2016-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/29/vue学习-用vue-cli快速开发单页应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/vue学习-用vue-cli快速开发单页应用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>最近正在学习vue，看了遍api和新手教程，打算动手做个单页面应用练手，在此记录一下</p>
-</blockquote>
-<p>开发一个单页面应用涉及的点很多，路由，模块打包，资源请求等，我们用<code>vue-cli</code>来帮助快速构建一个单页面应用，<code>vue-cli</code> 可以生成一套提前定义好的构建文件，和相应的文件。</p>
-<h2 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h2><p><code>vue-cli</code>有5个对应的项目结构。我们使用的是<a href="https://github.com/vuejs-templates/webpack">vue-webpack-boilerplate</a>。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/29/vue学习-用vue-cli快速开发单页应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/18/Git-推送和删除远程标签/" itemprop="url">
-                  Git 推送和删除远程标签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T14:34:41+08:00" content="2016-09-18">
-              2016-09-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/18/Git-推送和删除远程标签/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Git-推送和删除远程标签/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>事实上Git 的推送和删除远程标签命令是相同的，删除操作实际上就是推送空的源标签refs：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin 标签名</div></pre></td></tr></table></figure>
-<p>相当于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin refs/tags/源标签名:refs/tags/目的标签名</div></pre></td></tr></table></figure></p>
-<p>推送标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin 标签名</div></pre></td></tr></table></figure></p>
-<p>删除本地标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d 标签名</div></pre></td></tr></table></figure></p>
-<p>删除远程标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git push origin :refs/tags/标签名</div><div class="line"></div><div class="line">git push origin :refs/tags/protobuf-2.5.0rc1</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/18/Git-推送和删除远程标签/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1363,7 +1356,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
