@@ -5,11 +5,17 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
 
 
 
@@ -27,9 +33,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +72,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="react,reflux," />
@@ -79,76 +88,69 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
 
 
 
-<meta name="description" content="ps内容较多，请细心看完
-
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
+<meta name="description" content="ps内容较多，请细心看完  Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
+<meta name="keywords" content="react,reflux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReFlux详解">
 <meta property="og:url" content="http://html-js.site/2017/03/22/ReFlux细说/index.html">
 <meta property="og:site_name" content="前端-洋仔">
-<meta property="og:description" content="ps内容较多，请细心看完
-
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
+<meta property="og:description" content="ps内容较多，请细心看完  Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/1.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/2.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/3.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/4.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/5.png">
 <meta property="og:image" content="http://html-js.site/images/page/reflux/6.png">
-<meta property="og:updated_time" content="2017-05-26T01:54:32.081Z">
+<meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReFlux详解">
-<meta name="twitter:description" content="ps内容较多，请细心看完
-
-Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
+<meta name="twitter:description" content="ps内容较多，请细心看完  Flux作为一种应用架构（application architecture）或是设计模式（pattern），阐述的是单向数据流（a unidirectional data flow）的思想，并不是一个框架（framework）或者库（library）。">
 <meta name="twitter:image" content="http://html-js.site/images/page/reflux/1.png">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://html-js.site/2017/03/22/ReFlux细说/"/>
 
-  <title> ReFlux详解 | 前端-洋仔 </title>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+
+
+  <title>ReFlux详解 | 前端-洋仔</title>
   
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -156,37 +158,46 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 
 
 
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-
     <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">前端-洋仔</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端-洋仔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
   </div>
-  <p class="site-subtitle">专注于前端</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -206,18 +217,8 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -227,7 +228,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -243,6 +244,8 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -256,63 +259,69 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
     
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/03/22/ReFlux细说/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                ReFlux详解
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">ReFlux详解</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T15:53:49+08:00" content="2017-03-22">
-              2017-03-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T15:53:49+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
           </span>
 
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/22/ReFlux细说/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/ReFlux细说/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
           
 
           
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -445,15 +454,26 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/react/" rel="tag">#react</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
-            <a href="/tags/reflux/" rel="tag">#reflux</a>
+            <a href="/tags/reflux/" rel="tag"># reflux</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -465,6 +485,8 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -495,10 +517,6 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 
           
   <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/03/22/ReFlux细说/"
-           data-title="ReFlux详解" data-url="http://html-js.site/2017/03/22/ReFlux细说/">
-      </div>
     
   </div>
 
@@ -531,27 +549,34 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
                alt="wangyang" />
           <p class="site-author-name" itemprop="name">wangyang</p>
-          <p class="site-description motion-element" itemprop="description">专注于前端</p>
+           
+              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">40</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
           
 
           
+
+          
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -582,29 +607,29 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
                   
-                    <i class="fa fa-fw fa-weibo"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
-                  Weibo
+                  微博
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="617418875" target="_blank" title="QQ">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-fw fa-qq"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
-                  QQ
+                  Twitter
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
                   
-                    <i class="fa fa-fw fa-envelope-o"></i>
+                    <i class="fa fa-fw fa-facebook"></i>
                   
-                  Mail
+                  Facebook
                 </a>
               </span>
             
@@ -619,7 +644,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
           <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友链
+              Links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -643,19 +668,29 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
           </div>
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Facebook-Flux"><span class="nav-number">2.</span> <span class="nav-text">Facebook Flux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Views-and-Controller-Views"><span class="nav-number">2.1.</span> <span class="nav-text">Views and Controller-Views</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stores"><span class="nav-number">3.</span> <span class="nav-text">Stores</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatcher"><span class="nav-number">4.</span> <span class="nav-text">Dispatcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actions"><span class="nav-number">5.</span> <span class="nav-text">Actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考"><span class="nav-number">6.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflux"><span class="nav-number"></span> <span class="nav-text">Reflux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这样的场景还是有的，比如：在单页面应用中，如果不同Page拥有不同的Store，那么就可能会出现：子页面Store数据变化后，需要通知到父页面Store进行相应修改的情况。"><span class="nav-number"></span> <span class="nav-text">这样的场景还是有的，比如：在单页面应用中，如果不同Page拥有不同的Store，那么就可能会出现：子页面Store数据变化后，需要通知到父页面Store进行相应修改的情况。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本质"><span class="nav-number">1.</span> <span class="nav-text">本质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reflux单向数据流的实现，是完全基于PubSub设计模式的。"><span class="nav-number">1.1.</span> <span class="nav-text">Reflux单向数据流的实现，是完全基于PubSub设计模式的。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解"><span class="nav-number"></span> <span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Action"><span class="nav-number">1.</span> <span class="nav-text">Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asyncResult：设置为true时，自动创建两个名为’completed’和’failed’的子Action（可以认为是设置子Action的一个快捷方式）"><span class="nav-number"></span> <span class="nav-text">asyncResult：设置为true时，自动创建两个名为’completed’和’failed’的子Action（可以认为是设置子Action的一个快捷方式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般说来，在实际项目代码中，由于涉及到的Action较多，所以一般都是调用Reflux-createActions-一次性创建Actions集合，比较方便。另外，之后Store通过listenables字段与Action进行关联时，需要的也是一个Actions集合。"><span class="nav-number"></span> <span class="nav-text">一般说来，在实际项目代码中，由于涉及到的Action较多，所以一般都是调用Reflux.createActions()一次性创建Actions集合，比较方便。另外，之后Store通过listenables字段与Action进行关联时，需要的也是一个Actions集合。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#triggerAsync-异步触发Action消息（而trigger同步触发消息），类似于setTimeout-function-action-0-。"><span class="nav-number"></span> <span class="nav-text">triggerAsync: 异步触发Action消息（而trigger同步触发消息），类似于setTimeout(function () {action();}, 0)。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在创建之后这两个子Action在数据存储结构中，便可以直接通过addAction-completed和addAction-failed访问。"><span class="nav-number"></span> <span class="nav-text">在创建之后这两个子Action在数据存储结构中，便可以直接通过addAction.completed和addAction.failed访问。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">1.</span> <span class="nav-text">Store</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同于Action，Store返回的是一个普通的对象，通常我们会在init方法中进行数据的存储-和Action的监听。"><span class="nav-number"></span> <span class="nav-text">不同于Action，Store返回的是一个普通的对象，通常我们会在init方法中进行数据的存储 和Action的监听。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-onAddItemDefault-gt-this-addItemDefault-gt-undefined（没有初始化回调）"><span class="nav-number"></span> <span class="nav-text">this.onAddItemDefault -> this.addItemDefault -> undefined（没有初始化回调）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#即：on-主action名-子action名（驼峰）"><span class="nav-number"></span> <span class="nav-text">即：on + 主action名 + 子action名（驼峰）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">1.</span> <span class="nav-text">View</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -670,13 +705,14 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2016 - 
+  &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wangyang</span>
 </div>
+
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -689,15 +725,20 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
   </a>
 </div>
 
+
         
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -720,74 +761,9 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"html-js"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
 
 
@@ -795,6 +771,92 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
 
 
   
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
   
 
   
@@ -802,6 +864,7 @@ Flux作为一种应用架构（application architecture）或是设计模式（p
   
 
   
+
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 </body>
 </html>

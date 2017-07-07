@@ -5,11 +5,17 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
 
 
 
@@ -27,9 +33,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +72,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="排序,算法," />
@@ -79,76 +88,69 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
 
 
 
-<meta name="description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）
-
-平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
+<meta name="description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）  平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
+<meta name="keywords" content="排序,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="http://html-js.site/2016/05/20/排序算法/index.html">
 <meta property="og:site_name" content="前端-洋仔">
-<meta property="og:description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）
-
-平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
+<meta property="og:description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）  平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
 <meta property="og:image" content="http://html-js.site/images/page/sort/1.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/sort/2.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/sort/3.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/sort/4.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/sort/5.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/sort/6.jpg">
-<meta property="og:updated_time" content="2016-10-13T06:39:01.000Z">
+<meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）
-
-平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
+<meta name="twitter:description" content="1.插入排序-直接插入排序2.插入排序—希尔排序（Shell`s Sort）3.选择排序—简单选择排序（Simple Selection4.交换排序—冒泡排序（Bubble Sort）5.交换排序—快速排序（Quick Sort）  平常在项目中可能都会用到排序，就我本人而言，可能大部分都是用的选择排序或者冒泡排序，简单粗暴，但是这往往都只是实现了功能，而没有去关注性能，所以还是有必要了解常用的">
 <meta name="twitter:image" content="http://html-js.site/images/page/sort/1.jpg">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://html-js.site/2016/05/20/排序算法/"/>
 
-  <title> 排序算法 | 前端-洋仔 </title>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+
+
+  <title>排序算法 | 前端-洋仔</title>
   
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
@@ -156,37 +158,46 @@
 
 
 
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-
     <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">前端-洋仔</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端-洋仔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
   </div>
-  <p class="site-subtitle">专注于前端</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -206,18 +217,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -227,7 +228,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -243,6 +244,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -256,63 +259,69 @@
     
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2016/05/20/排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                排序算法
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">排序算法</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-20T10:59:52+08:00" content="2016-05-20">
-              2016-05-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-20T10:59:52+08:00">
+                2016-05-20
+              </time>
+            
+
+            
+
+            
           </span>
 
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/20/排序算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/排序算法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
           
 
           
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -409,15 +418,26 @@
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/排序/" rel="tag">#排序</a>
+            <a href="/tags/排序/" rel="tag"># 排序</a>
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -429,6 +449,8 @@
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -459,10 +481,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/05/20/排序算法/"
-           data-title="排序算法" data-url="http://html-js.site/2016/05/20/排序算法/">
-      </div>
     
   </div>
 
@@ -495,27 +513,34 @@
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
                alt="wangyang" />
           <p class="site-author-name" itemprop="name">wangyang</p>
-          <p class="site-description motion-element" itemprop="description">专注于前端</p>
+           
+              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">40</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
           
 
           
+
+          
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -546,29 +571,29 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
                   
-                    <i class="fa fa-fw fa-weibo"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
-                  Weibo
+                  微博
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="617418875" target="_blank" title="QQ">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-fw fa-qq"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
-                  QQ
+                  Twitter
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
                   
-                    <i class="fa fa-fw fa-envelope-o"></i>
+                    <i class="fa fa-fw fa-facebook"></i>
                   
-                  Mail
+                  Facebook
                 </a>
               </span>
             
@@ -583,7 +608,7 @@
           <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友链
+              Links
             </div>
             <ul class="links-of-blogroll-list">
               
@@ -607,19 +632,29 @@
           </div>
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序-直接插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序-直接插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">1.1.</span> <span class="nav-text">基本思想:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要点："><span class="nav-number">1.2.</span> <span class="nav-text">要点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接插入排序示例："><span class="nav-number">1.3.</span> <span class="nav-text">直接插入排序示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理演示："><span class="nav-number">1.4.</span> <span class="nav-text">原理演示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现："><span class="nav-number">1.5.</span> <span class="nav-text">算法实现：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-插入排序—希尔排序（Shell-s-Sort）"><span class="nav-number">2.</span> <span class="nav-text">2.插入排序—希尔排序（Shell`s Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想："><span class="nav-number">2.1.</span> <span class="nav-text">基本思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理演示：-1"><span class="nav-number">2.2.</span> <span class="nav-text">原理演示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法："><span class="nav-number">2.3.</span> <span class="nav-text">操作方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">2.4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">2.5.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-选择排序—简单选择排序（Simple-Selection-Sort）"><span class="nav-number">3.</span> <span class="nav-text">3.选择排序—简单选择排序（Simple Selection Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想：-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单选择排序的示例"><span class="nav-number">3.2.</span> <span class="nav-text">简单选择排序的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理演示：-2"><span class="nav-number">3.3.</span> <span class="nav-text">原理演示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法：-1"><span class="nav-number">3.4.</span> <span class="nav-text">操作方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-1"><span class="nav-number">3.5.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-交换排序—冒泡排序（Bubble-Sort）"><span class="nav-number">4.</span> <span class="nav-text">4. 交换排序—冒泡排序（Bubble Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想：-2"><span class="nav-number">4.1.</span> <span class="nav-text">基本思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序的示例"><span class="nav-number">4.2.</span> <span class="nav-text">冒泡排序的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理演示：-3"><span class="nav-number">4.3.</span> <span class="nav-text">原理演示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法的实现："><span class="nav-number">4.4.</span> <span class="nav-text">算法的实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序算法的改进"><span class="nav-number">4.5.</span> <span class="nav-text">冒泡排序算法的改进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-交换排序—快速排序（Quick-Sort）"><span class="nav-number">5.</span> <span class="nav-text">5. 交换排序—快速排序（Quick Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想-1"><span class="nav-number">5.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理演示：-4"><span class="nav-number">5.2.</span> <span class="nav-text">原理演示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的示例："><span class="nav-number">5.3.</span> <span class="nav-text">快速排序的示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法的实现：-1"><span class="nav-number">5.4.</span> <span class="nav-text">算法的实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析："><span class="nav-number">5.5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的改进"><span class="nav-number">5.6.</span> <span class="nav-text">快速排序的改进</span></a></li></ol></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -634,13 +669,14 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2016 - 
+  &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wangyang</span>
 </div>
+
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -653,15 +689,20 @@
   </a>
 </div>
 
+
         
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -684,74 +725,9 @@
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"html-js"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
 
 
@@ -759,6 +735,92 @@
 
 
   
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
   
 
   
@@ -766,6 +828,7 @@
   
 
   
+
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 </body>
 </html>
