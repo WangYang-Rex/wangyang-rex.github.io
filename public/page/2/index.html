@@ -258,6 +258,524 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/函数柯里化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/11/函数柯里化/" itemprop="url">函数柯里化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:00:59+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家哈斯凯尔·加里命名的，尽管它是 Moses Schönfinkel 和 Gottlob Frege 发明的。</p>
+<p>这是来自维基百科的名词解释。顾名思义，柯里化其实本身是固定一个可以预期的参数，并返回一个特定的函数，处理批特定的需求。这增加了函数的适用性，但同时也降低了函数的适用范围。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/11/函数柯里化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/13/git学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/13/git学习/" itemprop="url">git学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T14:58:40+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>git config –global user.name “username”<br>git config –global user.email “email”</p>
+<p>提交流程：<br>git add .<br>git commit -m “代码提交信息”<br>git pull “代码提交信息”<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名</local_branch></p>
+<p>git branch branchName 创建新分支<br>git checkout branchName 切换到新分支</p>
+<p>查看、添加、提交、删除、找回，重置修改文件<br>git help <command> # 显示command的help<br>git show # 显示某次提交的内容 git show $id<br>git co – <file> # 抛弃工作区修改<br>git co . # 抛弃工作区修改<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git add . # 将所有修改过的工作文件提交暂存区<br>git rm <file> # 从版本库中删除文件<br>git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset – . # 从暂存区恢复到工作文件<br>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　git ci -am “some comments”<br>git ci –amend # 修改最后一次提交记录<br>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p>
+<p>git commit -m “代码提交信息”</p>
+<p>查看文件diff<br>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git diff <id1><id1><id2> # 比较两次提交之间的差异<br>git diff <branch1>..<branch2> # 在两个分支之间比较<br>git diff –staged # 比较暂存区和版本库差异<br>git diff –cached # 比较暂存区和版本库差异<br>git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p>
+<p>查看提交记录<br>git log git log <file> # 查看该文件每次提交记录<br>git log -p <file> # 查看每次详细修改内容的diff<br>git log -p -2 # 查看最近两次详细修改内容的diff<br>git log –stat #查看提交统计信息<br>tig Mac上可以使用tig代替diff和log，brew install tig<br>Git 本地分支管理</file></file></p>
+<p>查看、切换、创建和删除分支<br>git br -r # 查看远程分支<br>git br <new_branch> # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b <new_branch> # 创建新的分支，并且切换过去<br>git co -b <new_branch> <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b <new_branch> # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></new_branch></branch></new_branch></new_branch></branch></new_branch></p>
+<p>分支合并和rebase<br>git merge <branch> # 将branch分支合并到当前分支<br>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交<br>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch><br>Git补丁管理(方便在多台机器上开发同步时用)<br>git diff &gt; ../sync.patch # 生成补丁<br>git apply ../sync.patch # 打补丁<br>git apply –check ../sync.patch #测试补丁能否成功</branch></branch></branch></branch></p>
+<p>Git暂存管理<br>git stash # 暂存<br>git stash list # 列所有stash<br>git stash apply # 恢复暂存的内容<br>git stash drop # 删除暂存区</p>
+<p>Git远程分支管理<br>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b <local_branch> origin/<remote_branch> # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名<br>git push origin <local_branch>:<remote_branch> # 创建远程分支<br>git push origin :<remote_branch> #先删除本地分支(git br -d <branch>)，然后再push删除远程分支<br>删除远程分支<br>git branch -a<br>git branch -r -d origin/branch-name<br>git push origin :branch-name</branch></remote_branch></remote_branch></local_branch></local_branch></remote_branch></local_branch></p>
+<p>Git远程仓库管理<br>GitHub<br>git remote -v # 查看远程服务器地址和仓库名称<br>git remote show origin # 查看远程服务器仓库状态<br>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址<br>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</repository></p>
+<p>创建远程仓库<br>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库<br>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上<br>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库<br>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址<br>git push -u origin master # 客户端首次提交<br>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track<br>git remote set-head origin master # 设置远程仓库的HEAD指向master分支</p>
+<p>也可以命令设置跟踪远程库和本地库<br>git branch –set-upstream master origin/master<br>git branch –set-upstream develop origin/develop</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/javascript进阶-惰性函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/09/javascript进阶-惰性函数/" itemprop="url">javascript进阶-惰性函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T15:15:03+08:00">
+                2017-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>函数是js世界的一等公民，js的动态性、易变性在函数的应用上，体现的淋漓尽致。做为参数，做为返回值等，正是函数这些特性，使得js开发变的有趣。</p>
+</blockquote>
+<p>下面就阐述一下，js一个有趣的应用–惰性函数定义（Lazy Function Definition）。</p>
+<p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。</p>
+<p>下面我们看几个典型的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        element[<span class="string">'on'</span> + type] = fun;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面是注册函数监听的各浏览器兼容函数。由于，各浏览之间的差异，不得不在用的时候做能力检测。显然，单从功能上讲，已经做到了兼容浏览器。美中不足，每次绑定监听，都会对能力做一次检测。然而，真正的应用中，这显然是多余的，同一个应用环境中，其实只需要检测一次即可。</p>
+<p>下面我们重写上面的addEvent：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element[<span class="string">'on'</span> + type] = fun;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    addEvent(type, element, fun);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由上，第一次调用addEvent会对浏览器做能力检测，然后，重写了addEvent。下次再调用的时候，由于函数被重写，不会再做能力检测。</p>
+<p>同样的应用，javascript高级程序设计里的一例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</div><div class="line">            <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">                            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line">    </div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                    <span class="built_in">arguments</span>.callee.activeXString = versions[i];</div><div class="line">                    <span class="keyword">return</span> xhr;</div><div class="line">                &#125; <span class="keyword">catch</span> (ex)&#123;</div><div class="line">                    <span class="comment">//skip</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>很显然，惰性函数在这里优势更加明显，因为这里有更多的分支。下面我们看一下重写后台的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>) &#123;</div><div class="line">        createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>) &#123;</div><div class="line">        <span class="keyword">var</span> curxhr;</div><div class="line">        <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = versions.length; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                curxhr = versions[i];</div><div class="line">                createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(curxhr);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> xhr;</div><div class="line">            &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">                <span class="comment">//skip</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>浏览器之间最大的差异，莫过于Dom操作，Dom操作也是前端应用 中最频繁的操作，前端的大多性能提升，均体现在Dom操作方面。下面看一个Dom操作方面的惰性函数定义例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.pageYOffset == <span class="string">'number'</span>) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">window</span>.pageYOffset;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">typeof</span> <span class="built_in">document</span>.compatMode == <span class="string">'string'</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.compatMode.indexOf(<span class="string">'CSS'</span>) &gt;= <span class="number">0</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.documentElement) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.documentElement.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.scrollTop;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="built_in">document</span>.body) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.body.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="built_in">document</span>.body.scrollTop;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="literal">NaN</span>;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> getScrollY();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>惰性函数定义应用还体现在创建单例上：(目前还不清楚创建单例的话有什么好处)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">unction Universe() &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 缓存的实例</span></div><div class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 其它内容</span></div><div class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 重写构造函数</span></div><div class="line">    Universe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，像上面这种例子有很多。惰性函数定义，应用场景我们可以总结一下：</p>
+<p>1 应用频繁，如果只用一次，是体现不出它的优点出来的，用的次数越多，越能体现这种模式的优势所在；</p>
+<p>2 固定不变，一次判定，在固定的应用环境中不会发生改变；</p>
+<p>3 复杂的分支判断，没有差异性，不需要应用这种模式；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/react-router-按需加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端-洋仔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/09/react-router-按需加载/" itemprop="url">react-router 按需加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T00:54:49+08:00">
+                2017-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>注：本文使用的 react-router 版本为 2.8.1</p>
+</blockquote>
+<p>React Router 是一个非常出色的路由解决方案，同时也非常容易上手。但是当网站规模越来越大的时候，首先出现的问题是 Javascript 文件变得巨大，这导致首页渲染的时间让人难以忍受。实际上程序应当只加载当前渲染页所需的 JavaScript，也就是大家说的“代码分拆” — 将所有的代码分拆成多个小包，在用户浏览过程中按需加载。</p>
+<p>效果：<br>以前是这样：<br><img src="/images/page/reactRouter/01.png" alt=""></p>
+<p>现在是这样：<img src="/images/page/reactRouter/02.png" alt=""></p>
+<p>实际上就是将一个大 javascript 文件拆分成了若干个 chunk file。</p>
+<p>下面是改造过程</p>
+<h2 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h2><p>首先在 <code>webpack.config.js</code> 的 <code>output</code> 内加上 <code>chunkFilename</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</div><div class="line">    <span class="attr">filename</span>: <span class="string">'app.js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: defaultSettings.publicPath,</div><div class="line">    <span class="comment">// 添加 chunkFilename</span></div><div class="line">    chunkFilename: <span class="string">'[name].[chunkhash:5].chunk.js'</span>,</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p><code>name</code> 是在代码里为创建的 <code>chunk</code> 指定的名字，如果代码中没指定则 <code>webpack</code> 默认分配 <code>id</code> 作为 <code>name</code>。</p>
+<p><code>chunkhash</code> 是文件的 <code>hash</code> 码，这里只使用前五位。</p>
+<h2 id="添加首页"><a href="#添加首页" class="headerlink" title="添加首页"></a>添加首页</h2><p>以前你的路由大概应该是这样的：（作为需要按需加载的大型应用，路由肯定是相当复杂，这里只列举部分路由举例）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">      &#123;/* 主页 */&#125;</div><div class="line">      &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">        &#123;/* 默认 */&#125;</div><div class="line">        &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">        &#123;/* baidu */&#125;</div><div class="line">        &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">          &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">          &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">        &lt;/Route&gt;</div><div class="line"></div><div class="line">        &#123;/* 404 */&#125;</div><div class="line">        &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">        </div><div class="line">        &#123;/* 其他重定向到 404 */&#125;</div><div class="line">        &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">      &lt;/Route&gt;</div><div class="line">    &lt;/Router&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>按需加载之后，我们需要让路由动态加载组件，需要将 <code>component</code> 换成 <code>getComponent</code>。首先将路由拆出来（因为路由庞大之后全部写在一起会很难看），创建一个根路由 <code>rootRoute</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rootRoute = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">  <span class="attr">indexRoute</span>: &#123;</div><div class="line">    getComponent(nextState, cb) &#123;</div><div class="line">      <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/HomePage'</span>))</div><div class="line">      &#125;, <span class="string">'HomePage'</span>)</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/Main'</span>))</div><div class="line">    &#125;, <span class="string">'Main'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">childRoutes</span>: [</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/baidu'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/404'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/redirect'</span>)</div><div class="line">  ]</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router</div><div class="line">      history=&#123;browserHistory&#125;</div><div class="line">      routes=&#123;rootRoute&#125;</div><div class="line">      /&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><code>history</code> 不变，在 <code>Router</code> 中添加 <code>routes</code> 属性，将创建的路由传递进去。</p>
+<p>这里有四个属性：</p>
+<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>将匹配的路由，也就是以前的 path。</p>
+<h3 id="getComponent"><a href="#getComponent" class="headerlink" title="getComponent"></a>getComponent</h3><p>对应于以前的 component 属性，但是这个方法是异步的，也就是当路由匹配时，才会调用这个方法。</p>
+<p>这里面有个 <strong>require.ensure</strong> 方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure(dependencies, callback, chunkName)</div></pre></td></tr></table></figure></p>
+<p>这是 <code>webpack</code> 提供的方法，这也是按需加载的核心方法。第一个参数是依赖，第二个是回调函数，第三个就是上面提到的 <code>chunkName</code>，用来指定这个 <code>chunk file</code> 的 <code>name</code>。</p>
+<p>如果需要返回多个子组件，则使用 <code>getComponents</code> 方法，将多个组件作为一个对象的属性通过 <code>cb</code> 返回出去即可。这个在官方示例也有，但是我们这里并不需要，而且根组件是不能返回多个子组件的，所以使用 <code>getComponent</code>。</p>
+<h3 id="indexRoute"><a href="#indexRoute" class="headerlink" title="indexRoute"></a>indexRoute</h3><p>用来设置主页，对应于以前的 <code>&lt;IndexRoute&gt;</code>。</p>
+<p>注意这里的 <code>indexRoute</code> 写法， <strong>这是个对象，在对象里面使用 getComponent</strong>。</p>
+<h3 id="childRoutes"><a href="#childRoutes" class="headerlink" title="childRoutes"></a>childRoutes</h3><p>这里面放置的就是子路由的配置，对应于以前的子路由们。我们将以前的 <code>/baidu</code>、<code>/404</code> 和 <code>*</code> 都拆了出来，接下来将分别为他们创建路由配置。</p>
+<h2 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h2><p>上面的 <code>childRoutes</code> 里面，我们 <code>require</code> 了三个子路由，在目录下创建 <code>routes</code> 目录，将这三个路由放置进去。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">routes/</div><div class="line">├── <span class="number">404</span></div><div class="line">│   └── index.js</div><div class="line">├── baidu</div><div class="line">│   ├── index.js</div><div class="line">│   └── routes</div><div class="line">│       ├── frequency</div><div class="line">│       │   └── index.js</div><div class="line">│       └── result</div><div class="line">│           └── index.js</div><div class="line">└── redirect</div><div class="line">    └── index.js</div></pre></td></tr></table></figure>
+<p>和 rootRoute 类似，里面的每个 index.js 都是一个路由对象：</p>
+<h3 id="404-index-js"><a href="#404-index-js" class="headerlink" title="/404/index.js"></a>/404/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'404'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/NotFoundPage'</span>))</div><div class="line">    &#125;, <span class="string">'NotFoundPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>/baidu/index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'baidu'</span>,</div><div class="line"></div><div class="line">  getChildRoutes(partialNextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, [</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/result'</span>),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/frequency'</span>)</div><div class="line">      ])</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="baidu-routes-frequency-index-js"><a href="#baidu-routes-frequency-index-js" class="headerlink" title="/baidu/routes/frequency/index.js"></a>/baidu/routes/frequency/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'frequency'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduFrequencyPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduFrequencyPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>举这几个例子应该就差不多了，其他都是一样的，稍微有点特别的是 redirect。</p>
+<h2 id="设置-Redirect"><a href="#设置-Redirect" class="headerlink" title="设置 Redirect"></a>设置 Redirect</h2><p>之前我们在根路由下是这么设置重定向的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">    &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">    &#123;/* home */&#125;</div><div class="line">    &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">    &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">        &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">        &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line"></div><div class="line">    &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">    &#123;/* 如果都不匹配，重定向到 404 */&#125;</div><div class="line">    &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure></p>
+<p>当改写之后，我们需要把这个重定向的路由单独拆出来，也就是 * 这个路由，我们上面已经为他创建了一个 <code>redirect</code> 目录。这里使用到 <code>onEnter</code> 方法，然后在这个方法里改变路由状态，调到另外的路由，实现 <code>redirect</code> ：</p>
+<h3 id="redirect-index-js"><a href="#redirect-index-js" class="headerlink" title="/redirect/index.js"></a>/redirect/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'*'</span>,</div><div class="line">  <span class="attr">onEnter</span>: <span class="function">(<span class="params">_, replaceState</span>) =&gt;</span> replaceState(<span class="literal">null</span>, <span class="string">"/404"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="The-root-route-must-render-a-single-element"><a href="#The-root-route-must-render-a-single-element" class="headerlink" title="The root route must render a single element"></a>The root route must render a single element</h2><p>跟着官方示例和上面码出来之后，可能页面并没有渲染出来，而是报 <strong>The root route must render a single element</strong> 这个异常，这是因为 <code>module.exports</code> 和 ES6 里的 <code>export default</code> 有区别。</p>
+<p>如果你是使用 <code>es6</code> 的写法，也就是你的组件都是通过 <code>export default</code> 导出的，那么在 <code>getComponent</code> 方法里面需要加入 <code>.default</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      <span class="comment">// 在后面加 .default</span></div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/ReportPage'</span>)).default</div><div class="line">    &#125;, <span class="string">'ReportPage'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果你是使用 <code>CommonJS</code> 的写法，也就是通过 <code>module.exports</code> 导出的，那就无须加 <code>.default</code> 了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/02/React和Redux的连接react-redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1001,477 +1519,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/23/浅谈webpack模块引用的五种方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/23/浅谈webpack模块引用的五种方法/" itemprop="url">浅谈webpack模块引用的五种方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T09:24:54+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="commonjs格式的require同步语法"><a href="#commonjs格式的require同步语法" class="headerlink" title="commonjs格式的require同步语法"></a>commonjs格式的require同步语法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> home = <span class="built_in">require</span>(<span class="string">'./Home'</span>);  </div><div class="line">… <span class="comment">// 使用</span></div></pre></td></tr></table></figure>
-<h3 id="commonjs格式的require-ensure异步语法"><a href="#commonjs格式的require-ensure异步语法" class="headerlink" title="commonjs格式的require.ensure异步语法"></a>commonjs格式的require.ensure异步语法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; &#123;  </div><div class="line">    <span class="keyword">const</span> home = <span class="built_in">require</span>(<span class="string">'./Home'</span>);  </div><div class="line">    … <span class="comment">//使用  </span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/浅谈webpack模块引用的五种方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/22/webpack入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/22/webpack入门/" itemprop="url">webpack入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T19:13:44+08:00">
-                2017-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在webpack看来，所有的资源文件都是模块，只是处理的方式不同。<br>webpack解决的需求点是：如何更好地加载前端模块。</p>
-<h3 id="使用webpack"><a href="#使用webpack" class="headerlink" title="使用webpack"></a>使用webpack</h3><p>只需要指定一个入口文件，webpack将自动识别项目所依赖的其它文件，不过需要注意的是如果webpack没有进行全局安装，那么在终端中使用此命令时，需要额外指定其在node_modules中的地址。</p>
-<p>若webpack全局安装，使用webpack app/main.js public/bundle.js命令即可。<br>若webpack非全局安装，需使用node_modules.bin\webpack app/main.js public/bundle.js命令。<br>注意：node_modules.bin\webpack的路径需用右斜杠形式，用左斜杠形式会报错。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/22/webpack入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/07/npmlist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/07/npmlist/" itemprop="url">npmlist</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T10:48:19+08:00">
-                2017-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这里收集了一些目前用到的一些npm库以及相关的功能</p>
-<h3 id="node-glob-获取对应规则的文件-路径-所有文件"><a href="#node-glob-获取对应规则的文件-路径-所有文件" class="headerlink" title="node-glob  获取对应规则的文件/路径/所有文件"></a>node-glob  获取对应规则的文件/路径/所有文件</h3><blockquote>
-<p>node的glob模块允许你使用 *等符号, 来写一个glob规则,获取匹配对应规则的文件.<br>这个glob工具基于javascript.它使用了 minimatch 库来进行匹配<br><a href="https://github.com/isaacs/node-glob" target="_blank" rel="external">https://github.com/isaacs/node-glob</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/07/npmlist/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/02/node-glob/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/02/node-glob/" itemprop="url">node-glob</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T17:38:16+08:00">
-                2017-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>node的glob模块允许你使用 *等符号, 来写一个glob规则,获取匹配对应规则的文件.<br>这个glob工具基于javascript.它使用了 minimatch 库来进行匹配<br><a href="https://github.com/isaacs/node-glob" target="_blank" rel="external">https://github.com/isaacs/node-glob</a></p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/02/node-glob/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1521,7 +1568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1647,7 +1694,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
