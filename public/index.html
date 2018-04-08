@@ -258,6 +258,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/Fetch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/Fetch/" itemprop="url">Fetch</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T20:18:01+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于 Fetch API 是基于 Promise 设计，有必要先学习一下 Promise，推荐阅读 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">MDN Promise</a> 教程。旧浏览器不支持 Promise，需要使用 polyfill <a href="https://github.com/jakearchibald/es6-promise" target="_blank" rel="external">es6-promise</a> 。</p>
+<p>本文不是 Fetch API 科普贴，其实是讲异步处理和 Promise 的。Fetch API 很简单，看文档很快就学会了。推荐 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="external">MDN Fetch</a> 教程 和 万能的<a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">WHATWG Fetch</a> 规范</p>
+<h3 id="Why-Fetch"><a href="#Why-Fetch" class="headerlink" title="Why Fetch"></a>Why Fetch</h3><p>XMLHttpRequest 是一个设计粗糙的 API，不符合关注分离（Separation of Concerns）的原则，配置和调用方式非常混乱，而且基于事件的异步模型写起来也没有现代的 Promise，generator/yield，async/await 友好。</p>
+<p>Fetch 的出现就是为了解决 XHR 的问题，拿例子说明：</p>
+<p>使用 XHR 发送一个 json 请求一般是这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.open(<span class="string">'GET'</span>, url);</div><div class="line">xhr.responseType = <span class="string">'json'</span>;</div><div class="line"></div><div class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(xhr.response);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">xhr.send();</div></pre></td></tr></table></figure></p>
+<p>使用 Fetch 后，顿时看起来好一点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fetch(url).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> response.json();</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>使用 ES6 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">箭头函数</a> 后：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fetch(url).then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</div><div class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data))</div><div class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e))</div></pre></td></tr></table></figure></p>
+<p>现在看起来好很多了，但这种 Promise 的写法还是有 Callback 的影子，而且 promise 使用 catch 方法来进行错误处理的方式有点奇怪。不用急，下面使用 async/await 来做最终优化：</p>
+<blockquote>
+<p>注：async/await 是非常新的 API，属于 ES7，目前尚在 Stage 1(提议) 阶段，这是它的<a href="https://github.com/lukehoban/ecmascript-asyncawait。使用 [Babel](https://babeljs.io/" target="_blank" rel="external">完整规范</a> 开启 <a href="https://babeljs.io/docs/usage/runtime/" target="_blank" rel="external">runtime</a> 模式后可以把 async/await 无痛编译成 ES5 代码。也可以直接使用 <a href="https://github.com/facebook/regenerator" target="_blank" rel="external">regenerator</a> 来编译到 ES5。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</div><div class="line">    <span class="keyword">let</span> data = <span class="keyword">await</span> response.json();</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 注：这段代码如果想运行，外面需要包一个 async function</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>duang~~ 的一声，使用 <code>await</code> 后，<b>写异步代码就像写同步代码一样爽</b>。<code>await</code> 后面可以跟 <code>Promise</code> 对象，表示等待 <code>Promise resolve()</code> 才会继续向下执行，如果 Promise 被 <code>reject()</code> 或抛出异常则会被外面的 <code>try...catch</code> 捕获。</p>
+<p>Promise，generator/yield，await/async 都是现在和未来 JS 解决异步的标准做法，可以完美搭配使用。这也是使用标准 Promise 一大好处。最近也把项目中使用第三方 Promise 库的代码全部转成标准 Promise，为以后全面使用 async/await 做准备。</p>
+<p>另外，Fetch 也很适合做现在流行的同构应用，有人基于 Fetch 的语法，在 Node 端基于 http 库实现了 <a href="https://github.com/bitinn/node-fetch" target="_blank" rel="external">node-fetch</a>，又有人封装了用于同构应用的 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="external">isomorphic-fetch</a>。</p>
+<blockquote>
+<p>注：同构(isomorphic/universal)就是使前后端运行同一套代码的意思，后端一般是指 NodeJS 环境。</p>
+</blockquote>
+<p>总结一下，Fetch 优点主要有：</p>
+<ul>
+<li>语法简洁，更加语义化</li>
+<li>基于标准 Promise 实现，支持 async/await</li>
+<li>同构方便，使用 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="external">isomorphic-fetch</a></li>
+</ul>
+<h3 id="Fetch-启用方法"><a href="#Fetch-启用方法" class="headerlink" title="Fetch 启用方法"></a>Fetch 启用方法</h3><p>下面是重点↓↓↓</p>
+<p>先看一下 Fetch 原生支持率：<br><img src="/images/page/fetch/1.png" alt=""></p>
+<p>原生支持率并不高，幸运的是，引入下面这些 polyfill 后可以完美支持 IE8+ ：</p>
+<ul>
+<li>由于 IE8 是 ES3，需要引入 ES5 的 polyfill: <a href="https://github.com/es-shims/es5-shim" target="_blank" rel="external">es5-shim, es5-sham</a></li>
+<li>引入 Promise 的 polyfill: <a href="https://github.com/jakearchibald/es6-promise" target="_blank" rel="external">es6-promise</a></li>
+<li>引入 fetch 探测库：<a href="https://github.com/camsong/fetch-detector" target="_blank" rel="external">fetch-detector</a></li>
+<li>引入 fetch 的 polyfill: <a href="https://github.com/camsong/fetch-ie8" target="_blank" rel="external">fetch-ie8</a></li>
+<li>可选：如果你还使用了 jsonp，引入 <a href="https://github.com/camsong/fetch-jsonp" target="_blank" rel="external">fetch-jsonp</a></li>
+<li>可选：开启 Babel 的 runtime 模式，现在就使用 async/await</li>
+</ul>
+<p>Fetch polyfill 的基本原理是探测是否存在 <code>window.fetch</code> 方法，如果没有则用 XHR 实现。这也是 <a href="https://github.com/github/fetch" target="_blank" rel="external">github/fetch</a> 的做法，但是有些浏览器（Chrome 45）原生支持 Fetch，但响应中有中文时会乱码，老外又不太关心这种问题，所以我自己才封装了 <code>fetch-detector</code> 和 <code>fetch-ie8</code> 只在浏览器稳定支持 Fetch 情况下才使用原生 Fetch。这些库现在 <b>每天有几千万个请求都在使用，绝对靠谱</b> ！</p>
+<p>终于，引用了这一堆 polyfill 后，可以愉快地使用 Fetch 了。但要小心，下面有坑：</p>
+<h3 id="Fetch-常见坑"><a href="#Fetch-常见坑" class="headerlink" title="Fetch 常见坑"></a>Fetch 常见坑</h3><ul>
+<li>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: ‘include’})</li>
+<li>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。</li>
+</ul>
+<h3 id="IE-使用策略"><a href="#IE-使用策略" class="headerlink" title="IE 使用策略"></a>IE 使用策略</h3><p>所有版本的 IE 均不支持原生 Fetch，fetch-ie8 会自动使用 XHR 做 polyfill。但在跨域时有个问题需要处理。</p>
+<p>IE8, 9 的 XHR 不支持 CORS 跨域，虽然提供 <code>XDomainRequest</code>，但这个东西就是玩具，不支持传 Cookie！如果接口需要权限验证，还是乖乖地使用 jsonp 吧，推荐使用 <a href="https://github.com/camsong/fetch-jsonp" target="_blank" rel="external">fetch-jsonp</a>。如果有问题直接提 issue，我会第一时间解决。</p>
+<h3 id="Fetch-和标准-Promise-的不足"><a href="#Fetch-和标准-Promise-的不足" class="headerlink" title="Fetch 和标准 Promise 的不足"></a>Fetch 和标准 Promise 的不足</h3><p>由于 Fetch 是典型的异步场景，所以大部分遇到的问题不是 Fetch 的，其实是 Promise 的。ES6 的 Promise 是基于 <a href="https://promisesaplus.com/" target="_blank" rel="external">Promises/A+ </a>标准，为了保持 简单简洁 ，只提供极简的几个 API。如果你用过一些牛 X 的异步库，如 jQuery(不要笑) 、Q.js 或者 RSVP.js，可能会感觉 Promise 功能太少了。</p>
+<h4 id="没有-Deferred"><a href="#没有-Deferred" class="headerlink" title="没有 Deferred"></a>没有 Deferred</h4><p><a href="http://api.jquery.com/category/deferred-object/" target="_blank" rel="external">Deferred</a> 可以在创建 Promise 时可以减少一层嵌套，还有就是跨方法使用时很方便。<br>ECMAScript 11 年就有过 <a href="http://wiki.ecmascript.org/doku.php?id=strawman:deferred_functions" target="_blank" rel="external">Deferred 提案</a>，但后来没被接受。其实用 Promise 不到十行代码就能实现 Deferred：<a href="https://github.com/seangenabe/es6-deferred/blob/master/deferred.js" target="_blank" rel="external">es6-deferred</a>。现在有了 async/await，generator/yield 后，deferred 就没有使用价值了。</p>
+<h4 id="没有获取状态方法：isRejected，isResolved"><a href="#没有获取状态方法：isRejected，isResolved" class="headerlink" title="没有获取状态方法：isRejected，isResolved"></a>没有获取状态方法：isRejected，isResolved</h4><p>标准 Promise 没有提供获取当前状态 rejected 或者 resolved 的方法。只允许外部传入成功或失败后的回调。我认为这其实是优点，这是一种声明式的接口，更简单。</p>
+<h4 id="缺少其它一些方法：always，progress，finally"><a href="#缺少其它一些方法：always，progress，finally" class="headerlink" title="缺少其它一些方法：always，progress，finally"></a>缺少其它一些方法：always，progress，finally</h4><p>always 可以通过在 then 和 catch 里重复调用方法实现。finally 也类似。progress 这种进度通知的功能还没有用过，暂不知道如何替代。</p>
+<h4 id="不能中断，没有-abort、terminate、onTimeout-或-cancel-方法"><a href="#不能中断，没有-abort、terminate、onTimeout-或-cancel-方法" class="headerlink" title="不能中断，没有 abort、terminate、onTimeout 或 cancel 方法"></a>不能中断，没有 abort、terminate、onTimeout 或 cancel 方法</h4><p>Fetch 和 Promise 一样，一旦发起，不能中断，也不会超时，只能等待被 resolve 或 reject。幸运的是，whatwg 目前正在尝试解决这个问题 <a href="https://github.com/whatwg/fetch/issues/27" target="_blank" rel="external">whatwg/fetch#27</a></p>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<li><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="external">WHATWG Fetch 规范</a></li>
+<li><a href="http://bubkoo.com/2015/05/08/introduction-to-fetch/" target="_blank" rel="external">Fetch API 简介</a></li>
+<li><a href="http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html" target="_blank" rel="external">教你驯服 async</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_blank" rel="external">阮一峰介绍 async</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/React框架精髓/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1430,205 +1594,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/29/Webpack-学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/29/Webpack-学习笔记/" itemprop="url">Webpack 学习笔记[精华]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T19:21:34+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色<br><a href="https://webpack.github.io/docs/configuration.html" target="_blank" rel="external">https://webpack.github.io/docs/configuration.html</a> //config配置</p>
-<h3 id="cli-参数"><a href="#cli-参数" class="headerlink" title="cli 参数"></a>cli 参数</h3><ul>
-<li>–hot 代码热更新</li>
-<li>–progress 有tab栏</li>
-<li>–watch 实时监控</li>
-<li>-debug 调试</li>
-</ul>
-<h3 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h3><p>加载器的使用, 加载器可以配置query参数并可以链式调用, 本质上是纯函数, 遵循单一职责原则<br><a href="https://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="external">https://webpack.github.io/docs/list-of-loaders.html</a><br><a href="https://webpack.github.io/docs/loader-conventions.html" target="_blank" rel="external">https://webpack.github.io/docs/loader-conventions.html</a></p>
-<h3 id="devTools"><a href="#devTools" class="headerlink" title="devTools"></a>devTools</h3><p>webpack-dev-server / webpack-dev-middleware / koa-webpack-dev</p>
-<h3 id="codeSplitting-代码分割"><a href="#codeSplitting-代码分割" class="headerlink" title="codeSplitting 代码分割"></a>codeSplitting 代码分割</h3><p>定义分割点<br>CommonJS: require.ensure<br>AMD: require</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([<span class="string">"./file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// is equal to</span></div><div class="line"></div><div class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="built_in">require</span>.include(<span class="string">"./file"</span>);</div><div class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><h3 id="最小化"><a href="#最小化" class="headerlink" title="最小化"></a>最小化</h3><p>new webpack.optimize.UglifyJsPlugin() // 压缩<br>new webpack.optimize.OccurrenceOrderPlugin() //排序输出</p>
-<h3 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h3><p>new webpack.optimize.DedupePlugin()</p>
-<h3 id="设置分块传输大小和数目"><a href="#设置分块传输大小和数目" class="headerlink" title="设置分块传输大小和数目"></a>设置分块传输大小和数目</h3><p>new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})<br>new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000})</p>
-<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>webpack-dev-server/webpack-dev-middleware/webpack –watch or watch: true</p>
-<h3 id="不解析"><a href="#不解析" class="headerlink" title="不解析"></a>不解析</h3><p>noParse</p>
-<h3 id="SourceMap-使调试更容易）"><a href="#SourceMap-使调试更容易）" class="headerlink" title="SourceMap (使调试更容易）"></a>SourceMap (使调试更容易）</h3><ul>
-<li>devtool: “source-map” 在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的<code>source map</code>，但是它会减慢打包速度；</li>
-<li>devtool: “cheap-module-source-map” 在一个单独的文件中生成一个不带列映射的<code>map</code>，不带列映射提高了打包速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
-<li>devtool: “eval-source-map” 使用<code>eval</code>打包源文件模块，在同一个文件中生成干净的完整的<code>source map</code>。这个选项可以在不影响构建速度的前提下生成完整的<code>sourcemap</code>，但是对打包后输出的JS文件的执行具有性能和安全的隐患。在开发阶段这是一个非常好的选项，在生产阶段则一定不要启用这个选项；</li>
-<li>devtool: “cheap-module-eval-source-map” 这是在打包文件时最快的生成<code>source map</code>的方法，生成的<code>Source Map</code> 会和打包后的<code>JavaScript</code>文件同行显示，没有列映射，和<code>eval-source-map</code>选项具有相似的缺点；</li>
-</ul>
-<p>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的打包速度的后果就是对打包后的文件的的执行有一定影响。</p>
-<blockquote>
-<p><code>cheap-module-eval-source-map</code>方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。</p>
-</blockquote>
-<p>对小到中型的项目中，eval-source-map是一个很好的选项，再次强调你只应该开发阶段使用它</p>
-<h3 id="模块-和-依赖位置"><a href="#模块-和-依赖位置" class="headerlink" title="模块 和 依赖位置"></a>模块 和 依赖位置</h3><p>RESOLVE.ROOT VS RESOLVE.MODULESDIRECTORIES</p>
-<h3 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h3><p>初始加载的应该是路由和首页, 然后再加载其他页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"entry-chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"3.chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="多页应用"><a href="#多页应用" class="headerlink" title="多页应用"></a>多页应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">p1</span>: <span class="string">"./page1"</span>,</div><div class="line">        <span class="attr">p2</span>: <span class="string">"./page2"</span>,</div><div class="line">        <span class="attr">p3</span>: <span class="string">"./page3"</span>,</div><div class="line">        <span class="attr">ap1</span>: <span class="string">"./admin/page1"</span>,</div><div class="line">        <span class="attr">ap2</span>: <span class="string">"./admin/page2"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">"[name].js"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  commons chunk</span></div><div class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">p1</span>: <span class="string">"./page1"</span>,</div><div class="line">        <span class="attr">p2</span>: <span class="string">"./page2"</span>,</div><div class="line">        <span class="attr">commons</span>: <span class="string">"./entry-for-the-commons-chunk"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>)</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h2 id="官方建议场景"><a href="#官方建议场景" class="headerlink" title="官方建议场景"></a>官方建议场景</h2><h3 id="应用性能"><a href="#应用性能" class="headerlink" title="应用性能"></a>应用性能</h3><ul>
-<li>尽量使用<code>UglifyJsPlugin</code>减少文件体积</li>
-<li>使用代码分割, 使首次加载尽可能快速</li>
-<li>对于<code>React</code>, 使用 <code>react-proxy-loader</code></li>
-<li>添加 <code>hash</code> 到文件, 并尽可能长时间缓存</li>
-<li>使 <code>module/chunk</code> 的ID尽可能保持一致</li>
-<li>如果有静态页面, 使用 <code>html-webpack-plugin</code></li>
-<li>不要立即删除无用的资源(等待数周), 以免长时间保持浏览器窗口打开的用户 404</li>
-<li>使用<code>DefinePlugin</code>来配置应用(是否内联, 各种条件配置)</li>
-<li>使用<code>EnvironmentPlugin</code>来传递<code>process.env</code>到应用</li>
-<li>使用包分析工具来检查问题, 减小下载时间, 改进内聚性</li>
-<li>使用<code>stats-webpack-plugin</code>获取状态</li>
-<li>使用配置文件<code>option</code>来获取更多性能数据</li>
-<li>提取通用模块到单独的<code>script</code>文件(多页应用)</li>
-<li>使用<code>DedupePlugin</code>来删除与<code>NPM</code>重复的数据</li>
-<li>对<code>CSS</code>做处理</li>
-<li>对静态资源做处理(<code>font/image</code>)</li>
-<li>内联静态资源<code>url-loader</code>,减少加载时间</li>
-<li>用<code>extract-text-webpack-plugin</code>来分割CSS资源(有很多css资源的应用)</li>
-<li><code>LimitChunkCountPlugin</code> <code>MinChunkSizePlugin</code> <code>AggressiveMergingPlugin</code>来改善<code>chunk</code>传输</li>
-<li>通过添加<code>script</code>标签来异步<code>chunk</code>的加载</li>
-</ul>
-<h3 id="开发性能"><a href="#开发性能" class="headerlink" title="开发性能"></a>开发性能</h3><ul>
-<li>使用 <code>webpack.config.js</code> 代替 <code>CLi</code></li>
-<li>不要重写不兼容的<code>JS</code>, 使用 <code>imports-loader/exports-loader</code> 使之兼容, 并且更易升级</li>
-<li>使用 <code>webpack devtools</code> 来在浏览器调试</li>
-<li>尽可能使用 <code>ES6</code> 模块加载方式, 这更易于未来的优化(<code>webpack2</code>支持)</li>
-<li>使用 <code>output.library</code> 来声明依赖</li>
-<li>使用 <code>externals</code> 来对外声明依赖</li>
-<li>使用 <code>HMR</code> 代码热更新</li>
-<li>对于 <code>React</code> 使用 <code>react-hot-loader</code> 或 <code>react-transform</code></li>
-<li>自定义路由, 最好在路由级别更新</li>
-<li>使用<code>Javascript</code>来书写配置文件</li>
-<li>使用<code>resolve.root</code>来配置应用模块的路径, 允许较短的引用关系</li>
-<li>使用<code>karma</code> 通过 <code>karma-webpack</code>来在浏览器测试模块</li>
-<li>面向环境构建, 而不是面向浏览器构建</li>
-<li>使用<code>BannerPlugin</code>来放置<code>Licensing</code></li>
-<li>通过<code>debug</code>来获取更多的出错信息</li>
-<li>在<code>module.loaders</code>中使用<code>include</code>而不是<code>exclude</code>, 这样更不容易出错更加清晰</li>
-</ul>
-<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><ul>
-<li>使用增量备份 如果 <code>watch</code> 网络或<code>VM</code>内部的代码,请使用 <code>watchOptions.poll</code></li>
-<li>使用 <code>web-dev-server</code> 可以快速构建发布</li>
-<li>使用多个 入口点 , 而不是多次运行 <code>webpack</code>(多页应用)</li>
-<li>通过配置一个数组配置, 使<code>webpack</code>可以并行编译(大型配置复杂的应用)</li>
-<li>大型无依赖的模块要配置<code>module.noParse</code>, 可以更快构建</li>
-</ul>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="分割App中的共有模块和代码模块"><a href="#分割App中的共有模块和代码模块" class="headerlink" title="分割App中的共有模块和代码模块"></a>分割App中的共有模块和代码模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="attr">app</span>: <span class="string">"./app.js"</span>,</div><div class="line">    <span class="attr">vendor</span>: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">"bundle.js"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vendor.bundle.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"bundle.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h3 id="多入口文件分割"><a href="#多入口文件分割" class="headerlink" title="多入口文件分割"></a>多入口文件分割</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123; <span class="attr">a</span>: <span class="string">"./a"</span>, <span class="attr">b</span>: <span class="string">"./b"</span> &#125;,</div><div class="line">    <span class="attr">output</span>: &#123; <span class="attr">filename</span>: <span class="string">"[name].js"</span> &#125;,</div><div class="line">    <span class="attr">plugins</span>: [ <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"init.js"</span>) ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"init.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"a.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"b.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h3 id="CSS样式单独切成独立文件"><a href="#CSS样式单独切成独立文件" class="headerlink" title="CSS样式单独切成独立文件"></a>CSS样式单独切成独立文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// The standard entry point and output config</span></div><div class="line">    entry: &#123;</div><div class="line">        <span class="attr">posts</span>: <span class="string">"./posts"</span>,</div><div class="line">        <span class="attr">post</span>: <span class="string">"./post"</span>,</div><div class="line">        <span class="attr">about</span>: <span class="string">"./about"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">"[name].js"</span>,</div><div class="line">        <span class="attr">chunkFilename</span>: <span class="string">"[id].js"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            <span class="comment">// Extract css files</span></div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">                <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)</div><div class="line">            &#125;,</div><div class="line">            <span class="comment">// Optionally extract less files</span></div><div class="line">            <span class="comment">// or any other compile-to-css language</span></div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</div><div class="line">                <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// You could also use other loaders the same way. I. e. the autoprefixer-loader</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// Use the plugin to specify the resulting filename (and add needed behavior to the compiler)</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// posts.js posts.css</span></div><div class="line"><span class="comment">// post.js post.css</span></div><div class="line"><span class="comment">// about.js about.css</span></div><div class="line"><span class="comment">// 1.js 2.js (包含嵌入式的样式)</span></div></pre></td></tr></table></figure>
-<h3 id="所有的CSS文件合并成1个文件-allChunks设置成true"><a href="#所有的CSS文件合并成1个文件-allChunks设置成true" class="headerlink" title="所有的CSS文件合并成1个文件, allChunks设置成true"></a>所有的CSS文件合并成1个文件, allChunks设置成true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"style.css"</span>, &#123;</div><div class="line">            <span class="attr">allChunks</span>: <span class="literal">true</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"><span class="comment">// You’ll get these output files:</span></div><div class="line"></div><div class="line"><span class="comment">// posts.js</span></div><div class="line"><span class="comment">// post.js</span></div><div class="line"><span class="comment">// about.js</span></div><div class="line"><span class="comment">// 1.js 2.js (don’t contain embedded styles)</span></div><div class="line"><span class="comment">// style.css</span></div></pre></td></tr></table></figure>
-<h3 id="公共样式会被抽出来"><a href="#公共样式会被抽出来" class="headerlink" title="公共样式会被抽出来"></a>公共样式会被抽出来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>),</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"><span class="comment">// You’ll get these output files:</span></div><div class="line"></div><div class="line"><span class="comment">// commons.js commons.css</span></div><div class="line"><span class="comment">// posts.js posts.css</span></div><div class="line"><span class="comment">// post.js post.css</span></div><div class="line"><span class="comment">// about.js about.css</span></div><div class="line"><span class="comment">// 1.js 2.js (包含内置样式)</span></div><div class="line"></div><div class="line"><span class="comment">// 如果 allChunks: true</span></div><div class="line"><span class="comment">// 1.js 2.js (不含内置样式)</span></div></pre></td></tr></table></figure>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="文件过大"><a href="#文件过大" class="headerlink" title="文件过大"></a>文件过大</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">entry: &#123;</div><div class="line">    <span class="attr">topic</span>:<span class="string">'./src/components/app/topic.js'</span></div><div class="line">    activity: <span class="string">'./src/components/app/activity.js'</span>,</div><div class="line">    <span class="attr">react</span>: [<span class="string">'react'</span>],</div><div class="line">    <span class="attr">jquery</span>: [<span class="string">'jquery'</span>]</div><div class="line">&#125;,</div><div class="line"><span class="attr">plugins</span>:[</div><div class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</div><div class="line">        <span class="attr">name</span>: [<span class="string">'jquery'</span>, <span class="string">'react'</span>], <span class="comment">//提取公共模块</span></div><div class="line">        minChunks: <span class="literal">Infinity</span> <span class="comment">//提取所有entry依赖模块</span></div><div class="line">        &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJSPlugin(&#123;</div><div class="line">        <span class="attr">compress</span>: &#123;</div><div class="line">            <span class="attr">warinings</span>: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        &#125;)</div><div class="line">]</div></pre></td></tr></table></figure>
-<h3 id="文件缓存"><a href="#文件缓存" class="headerlink" title="文件缓存"></a>文件缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    <span class="attr">path</span>: __dirname + <span class="string">'/release/'</span>,</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[chunkFilename:8].[name].js'</span>,</div><div class="line">    <span class="attr">chunkFilename</span>: <span class="string">'[name].[chunkFilename:8].js'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="自动生成页面"><a href="#自动生成页面" class="headerlink" title="自动生成页面"></a>自动生成页面</h3><p>使用 HtmlWebpackPlugin 和 ExtractTextPlugin 插件可以解决此问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">'topic.html'</span>,</div><div class="line">        <span class="attr">template</span>: __dirname + <span class="string">'/src/app.html'</span>,</div><div class="line">        <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">chunks</span>: [<span class="string">'react'</span>, <span class="string">'jquery'</span>, <span class="string">'topic'</span>],</div><div class="line">        <span class="comment">//排序</span></div><div class="line">        chunksSortModel: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> index = &#123;<span class="string">'topic'</span>: <span class="number">1</span>, <span class="string">'react'</span>: <span class="number">3</span>, <span class="string">'jquery'</span>: <span class="number">2</span>&#125;,</div><div class="line">              aI = index[a.origins[<span class="number">0</span>].name],</div><div class="line">              bI = index[b.origins[<span class="number">0</span>].name];</div><div class="line">            <span class="keyword">return</span> aI &amp;&amp; bI ? bI - aI : <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'comm.[contenthash:8].css'</span>)</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span>&#123;</div><div class="line">    <span class="keyword">var</span> dialog = <span class="built_in">require</span>(<span class="string">'../../widget/dialog'</span>),</div><div class="line">    $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1678,7 +1643,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1691,7 +1656,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

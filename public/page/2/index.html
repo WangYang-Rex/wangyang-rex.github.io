@@ -258,6 +258,205 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/29/Webpack-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/29/Webpack-学习笔记/" itemprop="url">Webpack 学习笔记[精华]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T19:21:34+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色<br><a href="https://webpack.github.io/docs/configuration.html" target="_blank" rel="external">https://webpack.github.io/docs/configuration.html</a> //config配置</p>
+<h3 id="cli-参数"><a href="#cli-参数" class="headerlink" title="cli 参数"></a>cli 参数</h3><ul>
+<li>–hot 代码热更新</li>
+<li>–progress 有tab栏</li>
+<li>–watch 实时监控</li>
+<li>-debug 调试</li>
+</ul>
+<h3 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h3><p>加载器的使用, 加载器可以配置query参数并可以链式调用, 本质上是纯函数, 遵循单一职责原则<br><a href="https://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="external">https://webpack.github.io/docs/list-of-loaders.html</a><br><a href="https://webpack.github.io/docs/loader-conventions.html" target="_blank" rel="external">https://webpack.github.io/docs/loader-conventions.html</a></p>
+<h3 id="devTools"><a href="#devTools" class="headerlink" title="devTools"></a>devTools</h3><p>webpack-dev-server / webpack-dev-middleware / koa-webpack-dev</p>
+<h3 id="codeSplitting-代码分割"><a href="#codeSplitting-代码分割" class="headerlink" title="codeSplitting 代码分割"></a>codeSplitting 代码分割</h3><p>定义分割点<br>CommonJS: require.ensure<br>AMD: require</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([<span class="string">"./file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// is equal to</span></div><div class="line"></div><div class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="built_in">require</span>.include(<span class="string">"./file"</span>);</div><div class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><h3 id="最小化"><a href="#最小化" class="headerlink" title="最小化"></a>最小化</h3><p>new webpack.optimize.UglifyJsPlugin() // 压缩<br>new webpack.optimize.OccurrenceOrderPlugin() //排序输出</p>
+<h3 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h3><p>new webpack.optimize.DedupePlugin()</p>
+<h3 id="设置分块传输大小和数目"><a href="#设置分块传输大小和数目" class="headerlink" title="设置分块传输大小和数目"></a>设置分块传输大小和数目</h3><p>new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})<br>new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000})</p>
+<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>webpack-dev-server/webpack-dev-middleware/webpack –watch or watch: true</p>
+<h3 id="不解析"><a href="#不解析" class="headerlink" title="不解析"></a>不解析</h3><p>noParse</p>
+<h3 id="SourceMap-使调试更容易）"><a href="#SourceMap-使调试更容易）" class="headerlink" title="SourceMap (使调试更容易）"></a>SourceMap (使调试更容易）</h3><ul>
+<li>devtool: “source-map” 在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的<code>source map</code>，但是它会减慢打包速度；</li>
+<li>devtool: “cheap-module-source-map” 在一个单独的文件中生成一个不带列映射的<code>map</code>，不带列映射提高了打包速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
+<li>devtool: “eval-source-map” 使用<code>eval</code>打包源文件模块，在同一个文件中生成干净的完整的<code>source map</code>。这个选项可以在不影响构建速度的前提下生成完整的<code>sourcemap</code>，但是对打包后输出的JS文件的执行具有性能和安全的隐患。在开发阶段这是一个非常好的选项，在生产阶段则一定不要启用这个选项；</li>
+<li>devtool: “cheap-module-eval-source-map” 这是在打包文件时最快的生成<code>source map</code>的方法，生成的<code>Source Map</code> 会和打包后的<code>JavaScript</code>文件同行显示，没有列映射，和<code>eval-source-map</code>选项具有相似的缺点；</li>
+</ul>
+<p>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的打包速度的后果就是对打包后的文件的的执行有一定影响。</p>
+<blockquote>
+<p><code>cheap-module-eval-source-map</code>方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。</p>
+</blockquote>
+<p>对小到中型的项目中，eval-source-map是一个很好的选项，再次强调你只应该开发阶段使用它</p>
+<h3 id="模块-和-依赖位置"><a href="#模块-和-依赖位置" class="headerlink" title="模块 和 依赖位置"></a>模块 和 依赖位置</h3><p>RESOLVE.ROOT VS RESOLVE.MODULESDIRECTORIES</p>
+<h3 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h3><p>初始加载的应该是路由和首页, 然后再加载其他页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"entry-chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"3.chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="多页应用"><a href="#多页应用" class="headerlink" title="多页应用"></a>多页应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">p1</span>: <span class="string">"./page1"</span>,</div><div class="line">        <span class="attr">p2</span>: <span class="string">"./page2"</span>,</div><div class="line">        <span class="attr">p3</span>: <span class="string">"./page3"</span>,</div><div class="line">        <span class="attr">ap1</span>: <span class="string">"./admin/page1"</span>,</div><div class="line">        <span class="attr">ap2</span>: <span class="string">"./admin/page2"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">"[name].js"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  commons chunk</span></div><div class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">p1</span>: <span class="string">"./page1"</span>,</div><div class="line">        <span class="attr">p2</span>: <span class="string">"./page2"</span>,</div><div class="line">        <span class="attr">commons</span>: <span class="string">"./entry-for-the-commons-chunk"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>)</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="官方建议场景"><a href="#官方建议场景" class="headerlink" title="官方建议场景"></a>官方建议场景</h2><h3 id="应用性能"><a href="#应用性能" class="headerlink" title="应用性能"></a>应用性能</h3><ul>
+<li>尽量使用<code>UglifyJsPlugin</code>减少文件体积</li>
+<li>使用代码分割, 使首次加载尽可能快速</li>
+<li>对于<code>React</code>, 使用 <code>react-proxy-loader</code></li>
+<li>添加 <code>hash</code> 到文件, 并尽可能长时间缓存</li>
+<li>使 <code>module/chunk</code> 的ID尽可能保持一致</li>
+<li>如果有静态页面, 使用 <code>html-webpack-plugin</code></li>
+<li>不要立即删除无用的资源(等待数周), 以免长时间保持浏览器窗口打开的用户 404</li>
+<li>使用<code>DefinePlugin</code>来配置应用(是否内联, 各种条件配置)</li>
+<li>使用<code>EnvironmentPlugin</code>来传递<code>process.env</code>到应用</li>
+<li>使用包分析工具来检查问题, 减小下载时间, 改进内聚性</li>
+<li>使用<code>stats-webpack-plugin</code>获取状态</li>
+<li>使用配置文件<code>option</code>来获取更多性能数据</li>
+<li>提取通用模块到单独的<code>script</code>文件(多页应用)</li>
+<li>使用<code>DedupePlugin</code>来删除与<code>NPM</code>重复的数据</li>
+<li>对<code>CSS</code>做处理</li>
+<li>对静态资源做处理(<code>font/image</code>)</li>
+<li>内联静态资源<code>url-loader</code>,减少加载时间</li>
+<li>用<code>extract-text-webpack-plugin</code>来分割CSS资源(有很多css资源的应用)</li>
+<li><code>LimitChunkCountPlugin</code> <code>MinChunkSizePlugin</code> <code>AggressiveMergingPlugin</code>来改善<code>chunk</code>传输</li>
+<li>通过添加<code>script</code>标签来异步<code>chunk</code>的加载</li>
+</ul>
+<h3 id="开发性能"><a href="#开发性能" class="headerlink" title="开发性能"></a>开发性能</h3><ul>
+<li>使用 <code>webpack.config.js</code> 代替 <code>CLi</code></li>
+<li>不要重写不兼容的<code>JS</code>, 使用 <code>imports-loader/exports-loader</code> 使之兼容, 并且更易升级</li>
+<li>使用 <code>webpack devtools</code> 来在浏览器调试</li>
+<li>尽可能使用 <code>ES6</code> 模块加载方式, 这更易于未来的优化(<code>webpack2</code>支持)</li>
+<li>使用 <code>output.library</code> 来声明依赖</li>
+<li>使用 <code>externals</code> 来对外声明依赖</li>
+<li>使用 <code>HMR</code> 代码热更新</li>
+<li>对于 <code>React</code> 使用 <code>react-hot-loader</code> 或 <code>react-transform</code></li>
+<li>自定义路由, 最好在路由级别更新</li>
+<li>使用<code>Javascript</code>来书写配置文件</li>
+<li>使用<code>resolve.root</code>来配置应用模块的路径, 允许较短的引用关系</li>
+<li>使用<code>karma</code> 通过 <code>karma-webpack</code>来在浏览器测试模块</li>
+<li>面向环境构建, 而不是面向浏览器构建</li>
+<li>使用<code>BannerPlugin</code>来放置<code>Licensing</code></li>
+<li>通过<code>debug</code>来获取更多的出错信息</li>
+<li>在<code>module.loaders</code>中使用<code>include</code>而不是<code>exclude</code>, 这样更不容易出错更加清晰</li>
+</ul>
+<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><ul>
+<li>使用增量备份 如果 <code>watch</code> 网络或<code>VM</code>内部的代码,请使用 <code>watchOptions.poll</code></li>
+<li>使用 <code>web-dev-server</code> 可以快速构建发布</li>
+<li>使用多个 入口点 , 而不是多次运行 <code>webpack</code>(多页应用)</li>
+<li>通过配置一个数组配置, 使<code>webpack</code>可以并行编译(大型配置复杂的应用)</li>
+<li>大型无依赖的模块要配置<code>module.noParse</code>, 可以更快构建</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="分割App中的共有模块和代码模块"><a href="#分割App中的共有模块和代码模块" class="headerlink" title="分割App中的共有模块和代码模块"></a>分割App中的共有模块和代码模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="attr">app</span>: <span class="string">"./app.js"</span>,</div><div class="line">    <span class="attr">vendor</span>: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">"bundle.js"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vendor.bundle.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"bundle.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="多入口文件分割"><a href="#多入口文件分割" class="headerlink" title="多入口文件分割"></a>多入口文件分割</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123; <span class="attr">a</span>: <span class="string">"./a"</span>, <span class="attr">b</span>: <span class="string">"./b"</span> &#125;,</div><div class="line">    <span class="attr">output</span>: &#123; <span class="attr">filename</span>: <span class="string">"[name].js"</span> &#125;,</div><div class="line">    <span class="attr">plugins</span>: [ <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"init.js"</span>) ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"init.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"a.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"b.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="CSS样式单独切成独立文件"><a href="#CSS样式单独切成独立文件" class="headerlink" title="CSS样式单独切成独立文件"></a>CSS样式单独切成独立文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// The standard entry point and output config</span></div><div class="line">    entry: &#123;</div><div class="line">        <span class="attr">posts</span>: <span class="string">"./posts"</span>,</div><div class="line">        <span class="attr">post</span>: <span class="string">"./post"</span>,</div><div class="line">        <span class="attr">about</span>: <span class="string">"./about"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">"[name].js"</span>,</div><div class="line">        <span class="attr">chunkFilename</span>: <span class="string">"[id].js"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            <span class="comment">// Extract css files</span></div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">                <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)</div><div class="line">            &#125;,</div><div class="line">            <span class="comment">// Optionally extract less files</span></div><div class="line">            <span class="comment">// or any other compile-to-css language</span></div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</div><div class="line">                <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// You could also use other loaders the same way. I. e. the autoprefixer-loader</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// Use the plugin to specify the resulting filename (and add needed behavior to the compiler)</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// posts.js posts.css</span></div><div class="line"><span class="comment">// post.js post.css</span></div><div class="line"><span class="comment">// about.js about.css</span></div><div class="line"><span class="comment">// 1.js 2.js (包含嵌入式的样式)</span></div></pre></td></tr></table></figure>
+<h3 id="所有的CSS文件合并成1个文件-allChunks设置成true"><a href="#所有的CSS文件合并成1个文件-allChunks设置成true" class="headerlink" title="所有的CSS文件合并成1个文件, allChunks设置成true"></a>所有的CSS文件合并成1个文件, allChunks设置成true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"style.css"</span>, &#123;</div><div class="line">            <span class="attr">allChunks</span>: <span class="literal">true</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"><span class="comment">// You’ll get these output files:</span></div><div class="line"></div><div class="line"><span class="comment">// posts.js</span></div><div class="line"><span class="comment">// post.js</span></div><div class="line"><span class="comment">// about.js</span></div><div class="line"><span class="comment">// 1.js 2.js (don’t contain embedded styles)</span></div><div class="line"><span class="comment">// style.css</span></div></pre></td></tr></table></figure>
+<h3 id="公共样式会被抽出来"><a href="#公共样式会被抽出来" class="headerlink" title="公共样式会被抽出来"></a>公共样式会被抽出来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>),</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"><span class="comment">// You’ll get these output files:</span></div><div class="line"></div><div class="line"><span class="comment">// commons.js commons.css</span></div><div class="line"><span class="comment">// posts.js posts.css</span></div><div class="line"><span class="comment">// post.js post.css</span></div><div class="line"><span class="comment">// about.js about.css</span></div><div class="line"><span class="comment">// 1.js 2.js (包含内置样式)</span></div><div class="line"></div><div class="line"><span class="comment">// 如果 allChunks: true</span></div><div class="line"><span class="comment">// 1.js 2.js (不含内置样式)</span></div></pre></td></tr></table></figure>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="文件过大"><a href="#文件过大" class="headerlink" title="文件过大"></a>文件过大</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">entry: &#123;</div><div class="line">    <span class="attr">topic</span>:<span class="string">'./src/components/app/topic.js'</span></div><div class="line">    activity: <span class="string">'./src/components/app/activity.js'</span>,</div><div class="line">    <span class="attr">react</span>: [<span class="string">'react'</span>],</div><div class="line">    <span class="attr">jquery</span>: [<span class="string">'jquery'</span>]</div><div class="line">&#125;,</div><div class="line"><span class="attr">plugins</span>:[</div><div class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</div><div class="line">        <span class="attr">name</span>: [<span class="string">'jquery'</span>, <span class="string">'react'</span>], <span class="comment">//提取公共模块</span></div><div class="line">        minChunks: <span class="literal">Infinity</span> <span class="comment">//提取所有entry依赖模块</span></div><div class="line">        &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJSPlugin(&#123;</div><div class="line">        <span class="attr">compress</span>: &#123;</div><div class="line">            <span class="attr">warinings</span>: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        &#125;)</div><div class="line">]</div></pre></td></tr></table></figure>
+<h3 id="文件缓存"><a href="#文件缓存" class="headerlink" title="文件缓存"></a>文件缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    <span class="attr">path</span>: __dirname + <span class="string">'/release/'</span>,</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[chunkFilename:8].[name].js'</span>,</div><div class="line">    <span class="attr">chunkFilename</span>: <span class="string">'[name].[chunkFilename:8].js'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自动生成页面"><a href="#自动生成页面" class="headerlink" title="自动生成页面"></a>自动生成页面</h3><p>使用 HtmlWebpackPlugin 和 ExtractTextPlugin 插件可以解决此问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">        <span class="attr">filename</span>: <span class="string">'topic.html'</span>,</div><div class="line">        <span class="attr">template</span>: __dirname + <span class="string">'/src/app.html'</span>,</div><div class="line">        <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">chunks</span>: [<span class="string">'react'</span>, <span class="string">'jquery'</span>, <span class="string">'topic'</span>],</div><div class="line">        <span class="comment">//排序</span></div><div class="line">        chunksSortModel: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> index = &#123;<span class="string">'topic'</span>: <span class="number">1</span>, <span class="string">'react'</span>: <span class="number">3</span>, <span class="string">'jquery'</span>: <span class="number">2</span>&#125;,</div><div class="line">              aI = index[a.origins[<span class="number">0</span>].name],</div><div class="line">              bI = index[b.origins[<span class="number">0</span>].name];</div><div class="line">            <span class="keyword">return</span> aI &amp;&amp; bI ? bI - aI : <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'comm.[contenthash:8].css'</span>)</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span>&#123;</div><div class="line">    <span class="keyword">var</span> dialog = <span class="built_in">require</span>(<span class="string">'../../widget/dialog'</span>),</div><div class="line">    $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/14/React-Router-使用教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1382,154 +1581,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/react-router-按需加载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/react-router-按需加载/" itemprop="url">react-router 按需加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T00:54:49+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>注：本文使用的 react-router 版本为 2.8.1</p>
-</blockquote>
-<p>React Router 是一个非常出色的路由解决方案，同时也非常容易上手。但是当网站规模越来越大的时候，首先出现的问题是 Javascript 文件变得巨大，这导致首页渲染的时间让人难以忍受。实际上程序应当只加载当前渲染页所需的 JavaScript，也就是大家说的“代码分拆” — 将所有的代码分拆成多个小包，在用户浏览过程中按需加载。</p>
-<p>效果：<br>以前是这样：<br><img src="/images/page/reactRouter/01.png" alt=""></p>
-<p>现在是这样：<img src="/images/page/reactRouter/02.png" alt=""></p>
-<p>实际上就是将一个大 javascript 文件拆分成了若干个 chunk file。</p>
-<p>下面是改造过程</p>
-<h2 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h2><p>首先在 <code>webpack.config.js</code> 的 <code>output</code> 内加上 <code>chunkFilename</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</div><div class="line">    <span class="attr">filename</span>: <span class="string">'app.js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: defaultSettings.publicPath,</div><div class="line">    <span class="comment">// 添加 chunkFilename</span></div><div class="line">    chunkFilename: <span class="string">'[name].[chunkhash:5].chunk.js'</span>,</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-<p><code>name</code> 是在代码里为创建的 <code>chunk</code> 指定的名字，如果代码中没指定则 <code>webpack</code> 默认分配 <code>id</code> 作为 <code>name</code>。</p>
-<p><code>chunkhash</code> 是文件的 <code>hash</code> 码，这里只使用前五位。</p>
-<h2 id="添加首页"><a href="#添加首页" class="headerlink" title="添加首页"></a>添加首页</h2><p>以前你的路由大概应该是这样的：（作为需要按需加载的大型应用，路由肯定是相当复杂，这里只列举部分路由举例）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">      &#123;/* 主页 */&#125;</div><div class="line">      &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">        &#123;/* 默认 */&#125;</div><div class="line">        &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">        &#123;/* baidu */&#125;</div><div class="line">        &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">          &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">          &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">        &lt;/Route&gt;</div><div class="line"></div><div class="line">        &#123;/* 404 */&#125;</div><div class="line">        &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">        </div><div class="line">        &#123;/* 其他重定向到 404 */&#125;</div><div class="line">        &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">      &lt;/Route&gt;</div><div class="line">    &lt;/Router&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p>按需加载之后，我们需要让路由动态加载组件，需要将 <code>component</code> 换成 <code>getComponent</code>。首先将路由拆出来（因为路由庞大之后全部写在一起会很难看），创建一个根路由 <code>rootRoute</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rootRoute = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">  <span class="attr">indexRoute</span>: &#123;</div><div class="line">    getComponent(nextState, cb) &#123;</div><div class="line">      <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/HomePage'</span>))</div><div class="line">      &#125;, <span class="string">'HomePage'</span>)</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/Main'</span>))</div><div class="line">    &#125;, <span class="string">'Main'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">childRoutes</span>: [</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/baidu'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/404'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/redirect'</span>)</div><div class="line">  ]</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router</div><div class="line">      history=&#123;browserHistory&#125;</div><div class="line">      routes=&#123;rootRoute&#125;</div><div class="line">      /&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p><code>history</code> 不变，在 <code>Router</code> 中添加 <code>routes</code> 属性，将创建的路由传递进去。</p>
-<p>这里有四个属性：</p>
-<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>将匹配的路由，也就是以前的 path。</p>
-<h3 id="getComponent"><a href="#getComponent" class="headerlink" title="getComponent"></a>getComponent</h3><p>对应于以前的 component 属性，但是这个方法是异步的，也就是当路由匹配时，才会调用这个方法。</p>
-<p>这里面有个 <strong>require.ensure</strong> 方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure(dependencies, callback, chunkName)</div></pre></td></tr></table></figure></p>
-<p>这是 <code>webpack</code> 提供的方法，这也是按需加载的核心方法。第一个参数是依赖，第二个是回调函数，第三个就是上面提到的 <code>chunkName</code>，用来指定这个 <code>chunk file</code> 的 <code>name</code>。</p>
-<p>如果需要返回多个子组件，则使用 <code>getComponents</code> 方法，将多个组件作为一个对象的属性通过 <code>cb</code> 返回出去即可。这个在官方示例也有，但是我们这里并不需要，而且根组件是不能返回多个子组件的，所以使用 <code>getComponent</code>。</p>
-<h3 id="indexRoute"><a href="#indexRoute" class="headerlink" title="indexRoute"></a>indexRoute</h3><p>用来设置主页，对应于以前的 <code>&lt;IndexRoute&gt;</code>。</p>
-<p>注意这里的 <code>indexRoute</code> 写法， <strong>这是个对象，在对象里面使用 getComponent</strong>。</p>
-<h3 id="childRoutes"><a href="#childRoutes" class="headerlink" title="childRoutes"></a>childRoutes</h3><p>这里面放置的就是子路由的配置，对应于以前的子路由们。我们将以前的 <code>/baidu</code>、<code>/404</code> 和 <code>*</code> 都拆了出来，接下来将分别为他们创建路由配置。</p>
-<h2 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h2><p>上面的 <code>childRoutes</code> 里面，我们 <code>require</code> 了三个子路由，在目录下创建 <code>routes</code> 目录，将这三个路由放置进去。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">routes/</div><div class="line">├── <span class="number">404</span></div><div class="line">│   └── index.js</div><div class="line">├── baidu</div><div class="line">│   ├── index.js</div><div class="line">│   └── routes</div><div class="line">│       ├── frequency</div><div class="line">│       │   └── index.js</div><div class="line">│       └── result</div><div class="line">│           └── index.js</div><div class="line">└── redirect</div><div class="line">    └── index.js</div></pre></td></tr></table></figure>
-<p>和 rootRoute 类似，里面的每个 index.js 都是一个路由对象：</p>
-<h3 id="404-index-js"><a href="#404-index-js" class="headerlink" title="/404/index.js"></a>/404/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'404'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/NotFoundPage'</span>))</div><div class="line">    &#125;, <span class="string">'NotFoundPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>/baidu/index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'baidu'</span>,</div><div class="line"></div><div class="line">  getChildRoutes(partialNextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, [</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/result'</span>),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/frequency'</span>)</div><div class="line">      ])</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="baidu-routes-frequency-index-js"><a href="#baidu-routes-frequency-index-js" class="headerlink" title="/baidu/routes/frequency/index.js"></a>/baidu/routes/frequency/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'frequency'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduFrequencyPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduFrequencyPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>举这几个例子应该就差不多了，其他都是一样的，稍微有点特别的是 redirect。</p>
-<h2 id="设置-Redirect"><a href="#设置-Redirect" class="headerlink" title="设置 Redirect"></a>设置 Redirect</h2><p>之前我们在根路由下是这么设置重定向的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">    &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">    &#123;/* home */&#125;</div><div class="line">    &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">    &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">        &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">        &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line"></div><div class="line">    &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">    &#123;/* 如果都不匹配，重定向到 404 */&#125;</div><div class="line">    &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure></p>
-<p>当改写之后，我们需要把这个重定向的路由单独拆出来，也就是 * 这个路由，我们上面已经为他创建了一个 <code>redirect</code> 目录。这里使用到 <code>onEnter</code> 方法，然后在这个方法里改变路由状态，调到另外的路由，实现 <code>redirect</code> ：</p>
-<h3 id="redirect-index-js"><a href="#redirect-index-js" class="headerlink" title="/redirect/index.js"></a>/redirect/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'*'</span>,</div><div class="line">  <span class="attr">onEnter</span>: <span class="function">(<span class="params">_, replaceState</span>) =&gt;</span> replaceState(<span class="literal">null</span>, <span class="string">"/404"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="The-root-route-must-render-a-single-element"><a href="#The-root-route-must-render-a-single-element" class="headerlink" title="The root route must render a single element"></a>The root route must render a single element</h2><p>跟着官方示例和上面码出来之后，可能页面并没有渲染出来，而是报 <strong>The root route must render a single element</strong> 这个异常，这是因为 <code>module.exports</code> 和 ES6 里的 <code>export default</code> 有区别。</p>
-<p>如果你是使用 <code>es6</code> 的写法，也就是你的组件都是通过 <code>export default</code> 导出的，那么在 <code>getComponent</code> 方法里面需要加入 <code>.default</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      <span class="comment">// 在后面加 .default</span></div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/ReportPage'</span>)).default</div><div class="line">    &#125;, <span class="string">'ReportPage'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>如果你是使用 <code>CommonJS</code> 的写法，也就是通过 <code>module.exports</code> 导出的，那就无须加 <code>.default</code> 了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1579,7 +1630,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1592,7 +1643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
