@@ -109,7 +109,7 @@ var div1 = document.getElementById('content');
 ReactDOM.render(<Counter/>,div1,()=>{});
 ```
 
-### C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免
+C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免
 ```js
 import React,{ Component } from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';

@@ -83,7 +83,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
 
 
 
@@ -100,9 +100,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="React组件库开发:多层嵌套弹层组件">
 <meta property="og:url" content="http://html-js.site/2018/03/08/React组件库开发-多层嵌套弹层组件/index.html">
-<meta property="og:site_name" content="前端-洋仔">
+<meta property="og:site_name" content="大洋">
 <meta property="og:description" content="引言UI 组件中有很多弹出式组件，常见的如 Dialog，Tooltip 以及 Select 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 DOM 树中，而是直接插入在 body （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 z-index ，确保它们能够处于合适的层级上，不至于被遮挡。 我们都知道 React App 的顶层某个地方肯定有这么一行代码：Reac">
-<meta property="og:updated_time" content="2018-03-08T07:36:12.756Z">
+<meta property="og:updated_time" content="2018-03-26T06:47:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React组件库开发:多层嵌套弹层组件">
 <meta name="twitter:description" content="引言UI 组件中有很多弹出式组件，常见的如 Dialog，Tooltip 以及 Select 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 DOM 树中，而是直接插入在 body （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 z-index ，确保它们能够处于合适的层级上，不至于被遮挡。 我们都知道 React App 的顶层某个地方肯定有这么一行代码：Reac">
@@ -139,7 +139,7 @@
 
 
 
-  <title>React组件库开发:多层嵌套弹层组件 | 前端-洋仔</title>
+  <title>React组件库开发:多层嵌套弹层组件 | 大洋</title>
   
 
 
@@ -175,7 +175,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">前端-洋仔</span>
+        <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -261,13 +261,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/08/React组件库开发-多层嵌套弹层组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -325,7 +325,7 @@
         <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
 <p>我们都知道 React App 的顶层某个地方肯定有这么一行代码：<code>ReactDOM.render(&lt;App /&gt;, mountNode)</code>，这个 API 调用的作用是在 <code>mountNode</code> 的位置创建一棵 React 的渲染树，React 会接管 <code>mountNode</code> 开始的这棵 DOM 树。</p>
 <p>在 React 的这种管理模式下，会发现使用弹层似乎不太方便，因为组件树是逐层往下生长的，但React 的 API 中并没有直接提供跳出这棵组件树的方法。</p>
-<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。</p>
+<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。<br><a id="more"></a></p>
 <h3 id="那么问题是什么呢？"><a href="#那么问题是什么呢？" class="headerlink" title="那么问题是什么呢？"></a>那么问题是什么呢？</h3><p>别急，我们先聊点别的。</p>
 <p>相信大部分 React 开发者都用过 <code>redux</code>（至少听过吧），<code>react-redux</code> 这个 <code>binding</code> 库提供了连接 <code>React</code> 和 <code>redux</code> 的一个桥梁。<code>react-redux</code> 的实现依赖 <code>React</code> 很有用的一个功能<code>Context</code>，简单来说 <code>context</code> 就是提供了一个方便的跨越层级往下传递数据的方式。<br><code>ReactDOM.render</code> 的问题正是在于这个 <code>context</code> 的功能，它无法连接两棵 <code>React</code> 组件树的 <code>context</code>。<br><code>ReactDOM.render</code> 的函数原型中并没有当前组件树的信息，而 <code>context</code> 是跟组件树有关的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  container,</div><div class="line">  [callback]</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <h3 id="解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer"><a href="#解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer" class="headerlink" title="解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer"></a>解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer</h3><p>React 提供了另一个非公开 API：<code>ReactDOM.unstable_renderSubtreeIntoContainer</code>。这个 API 多了一个参数，这个参数就是用来指定新的 React 组件树根节点的父组件的，有了这个参数，两棵本来互不相干的 React 组件树就被联系起来了，同时它们的 <code>context</code> 也连接了起来。</p>
@@ -359,13 +359,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="wangyang WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="wangyang Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -473,10 +473,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
-               alt="wangyang" />
-          <p class="site-author-name" itemprop="name">wangyang</p>
+               alt="大洋" />
+          <p class="site-author-name" itemprop="name">大洋</p>
            
-              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -484,7 +484,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -630,7 +630,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">wangyang</span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
 </div>
 
 
@@ -642,6 +642,13 @@
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
+  </a>
+</div>
+
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
   </a>
 </div>
 

@@ -83,7 +83,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
 
 
 
@@ -95,15 +95,15 @@
 
 
 
-<meta name="description" content="专注于前端">
+<meta name="description" content="成功道路并不拥挤，因为坚持的人不多">
 <meta property="og:type" content="website">
-<meta property="og:title" content="前端-洋仔">
+<meta property="og:title" content="大洋">
 <meta property="og:url" content="http://html-js.site/index.html">
-<meta property="og:site_name" content="前端-洋仔">
-<meta property="og:description" content="专注于前端">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="成功道路并不拥挤，因为坚持的人不多">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端-洋仔">
-<meta name="twitter:description" content="专注于前端">
+<meta name="twitter:title" content="大洋">
+<meta name="twitter:description" content="成功道路并不拥挤，因为坚持的人不多">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>前端-洋仔</title>
+  <title>大洋</title>
   
 
 
@@ -175,7 +175,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">前端-洋仔</span>
+        <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -258,16 +258,839 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/19/JavaScript函数节流和函数防抖之间的区别/">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/React框架精髓/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/React框架精髓/" itemprop="url">React框架精髓</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T14:19:28+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="React-diff-算法"><a href="#React-diff-算法" class="headerlink" title="React diff 算法"></a>React diff 算法</h2><p>React的<code>diff</code>算法是<code>Virtual DOM</code>之所以任性的最大依仗，大家知道页面的性能 一般是由渲染速度和渲染次数决定，如何最大程度地利用<code>diff</code>算法进行开发？我们先看看它的原理。</p>
+<h3 id="传统-diff-算法"><a href="#传统-diff-算法" class="headerlink" title="传统 diff 算法"></a>传统 diff 算法</h3><p>计算一棵树形结构转换成另一棵树形结构的最少操作，传统 <code>diff</code> 算法通过循环递归对节点进行依次对比，效率低下，算法复杂度达到 <code>O(n^3)</code>，其中 <code>n</code> 是树中节点的总数。也就是说如果要展示1000个节点，就要依次执行上十亿次的比较。这个性能消耗对对于前端项目来说是不可接受的。</p>
+<h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p>如上所见，传统 <code>diff</code> 算法的复杂度为 <code>O(n^3)</code>，显然这是无法满足性能要求的。而<code>React</code>通过制定大胆的策略，将 <code>O(n^3)</code> 复杂度的问题转换成 <code>O(n)</code> 复杂度的问题。他是怎么做到的？</p>
+<h3 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h3><p>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。如下图所示：</p>
+<p><img src="/images/page/react/2.png" alt=""></p>
+<blockquote>
+<p>React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同颜色方框内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// tree diff算法实现</span></div><div class="line">updateChildren: <span class="function"><span class="keyword">function</span>(<span class="params">nextNestedChildrenElements, transaction, context</span>) </span>&#123;</div><div class="line">  updateDepth++;</div><div class="line">  <span class="keyword">var</span> errorThrown = <span class="literal">true</span>;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">this</span>._updateChildren(nextNestedChildrenElements, transaction, context);</div><div class="line">    errorThrown = <span class="literal">false</span>;</div><div class="line">  &#125; <span class="keyword">finally</span> &#123;</div><div class="line">    updateDepth--;</div><div class="line">    <span class="keyword">if</span> (!updateDepth) &#123;</div><div class="line">      <span class="keyword">if</span> (errorThrown) &#123;</div><div class="line">        clearQueue();</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        processQueue();</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="为什么要减少DOM节点的跨层级操作？"><a href="#为什么要减少DOM节点的跨层级操作？" class="headerlink" title="为什么要减少DOM节点的跨层级操作？"></a>为什么要减少DOM节点的跨层级操作？</h3><p>如下图，A 节点（包括其子节点）整个被移动到 D 节点下，由于 React 只会简单的考虑同层级节点的位置变换，而对于不同层级的节点，只有创建和删除操作。当根节点发现子节点中 A 消失了，就会直接销毁 A；当 D 发现多了一个子节点 A，则会创建新的 A（包括子节点）作为其子节点。此时，<code>React diff</code> 的执行情况：create A -&gt; create B -&gt; create C -&gt; delete A。</p>
+<p><img src="/images/page/react/3.png" alt=""></p>
+<p>由此可发现，当出现节点跨层级移动时，并不会出现想象中的移动操作，而是以 A 为根节点的树被整个重新创建，这是一种影响 <code>React</code> 性能的操作。</p>
+<h3 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h3><p>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。</p>
+<ul>
+<li>如果是同一类型的组件，按照原策略继续比较 <code>virtual DOM tree</code>。</li>
+<li>如果不是，则将该组件判断为 <code>dirty component</code>，从而替换整个组件下的所有子节点。</li>
+<li>对于同一类型的组件，有可能其 <code>Virtual DOM</code> 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 <code>React</code> 允许用户通过 <code>shouldComponentUpdate()</code> 来判断该组件是否需要进行 diff。</li>
+</ul>
+<p><img src="/images/page/react/4.png" alt=""></p>
+<p>如上图，当 <code>component D</code> 改变为 <code>component G</code> 时，即使这两个 <code>component</code> 结构相似，一旦 <code>React</code> 判断 D 和 G 是不同类型的组件，就不会比较二者的结构，而是直接删除 <code>component D</code>，重新创建 <code>component G</code> 以及其子节点。虽然当两个 <code>component</code> 是不同类型但结构相似时，<code>React diff</code> 会影响性能，但正如 <code>React</code> 官方博客所言：不同类型的 <code>component</code> 是很少存在相似 <code>DOM tree</code> 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。</p>
+<h3 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h3><p>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。React 提出优化策略：允许开发者对同一层级的同组子节点，添加唯一 key 进行区分，虽然只是小小的改动，性能上却发生了翻天覆地的变化！</p>
+<p>新老集合所包含的节点，如下图所示，新老集合进行 diff 差异化对比，通过 key 发现新老集合中的节点都是相同的节点，因此无需进行节点删除和创建，只需要将老集合中节点的位置进行移动，更新为新集合中节点的位置，此时 React 给出的 diff 结果为：B、D 不做任何操作，A、C 进行移动操作，即可。</p>
+<p><img src="/images/page/react/5.png" alt=""></p>
+<h3 id="开发建议"><a href="#开发建议" class="headerlink" title="开发建议"></a>开发建议</h3><p>（1）<b>[基于tree diff]</b> 开发组件时，保持稳定的DOM结构有助于维持整体的性能。换而言之，尽可能少地动态操作DOM结构，尤其是移动操作。当节点数过大或者页面更新次数过多时，页面卡顿的现象比较明显。可以通过 CSS 隐藏或显示节点，而不是真的移除或添加 DOM 节点。</p>
+<p>（2）<b>[基于component diff]</b> 开发组件时，注意使用 <code>shouldComponentUpdate()</code> 来减少组件不必要的更新。除此之外，对于类似的结构应该尽量封装成组件，既减少代码量，又能减少<code>component diff</code>的性能消耗。</p>
+<p>（3）<b>[基于element diff]</b> 对于列表结构，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。</p>
+<h2 id="React-Lifecycle"><a href="#React-Lifecycle" class="headerlink" title="React Lifecycle"></a>React Lifecycle</h2><p>React的生命周期具体可分为四种情况：<br><img src="/images/page/react/6.png" alt=""></p>
+<ul>
+<li><p>当首次装载组件时，按顺序执行 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>componentWillMount``、render</code> 和 <code>componentDidMount；</code></p>
+</li>
+<li><p>当卸载组件时，执行 <code>componentWillUnmount</code>；</p>
+</li>
+<li><p>当重新装载组件时，此时按顺序执行 <code>getInitialState</code>、<code>componentWillMount``、render</code> 和 <code>componentDidMount</code>，但并不执行 <code>getDefaultProps</code>；</p>
+</li>
+<li><p>当再次渲染组件时，组件接受到更新状态，此时按顺序执行 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。</p>
+</li>
+</ul>
+<h2 id="React组件的3种状态"><a href="#React组件的3种状态" class="headerlink" title="React组件的3种状态"></a>React组件的3种状态</h2><h3 id="状态一：MOUNTING"><a href="#状态一：MOUNTING" class="headerlink" title="状态一：MOUNTING"></a>状态一：MOUNTING</h3><p><code>mountComponent</code> 负责管理生命周期中的 <code>getInitialState</code>、<code>componentWillMount``、render</code> 和 <code>componentDidMount</code>。<br><img src="/images/page/react/7.png" alt=""></p>
+<h3 id="状态二：RECEIVE-PROPS"><a href="#状态二：RECEIVE-PROPS" class="headerlink" title="状态二：RECEIVE_PROPS"></a>状态二：RECEIVE_PROPS</h3><p><code>updateComponent</code> 负责管理生命周期中的 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。<br><img src="/images/page/react/8.png" alt=""></p>
+<h3 id="状态三：UNMOUNTING"><a href="#状态三：UNMOUNTING" class="headerlink" title="状态三：UNMOUNTING"></a>状态三：UNMOUNTING</h3><p><code>unmountComponent</code> 负责管理生命周期中的 <code>componentWillUnmount</code>。</p>
+<p>首先将状态设置为 <code>UNMOUNTING</code>，若存在 <code>componentWillUnmount</code>，则执行；如果此时在 <code>componentWillUnmount</code> 中调用 <code>setState</code>，是不会触发 <code>reRender</code>。更新状态为 <code>NULL</code>，完成组件卸载操作。实现代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 卸载组件</span></div><div class="line">unmountComponent: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 设置状态为 UNMOUNTING</span></div><div class="line">  <span class="keyword">this</span>._compositeLifeCycleState = CompositeLifeCycle.UNMOUNTING;</div><div class="line"></div><div class="line">  <span class="comment">// 如果存在 componentWillUnmount，则触发</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.componentWillUnmount) &#123;</div><div class="line">    <span class="keyword">this</span>.componentWillUnmount();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 更新状态为 null</span></div><div class="line">  <span class="keyword">this</span>._compositeLifeCycleState = <span class="literal">null</span>;</div><div class="line">  <span class="keyword">this</span>._renderedComponent.unmountComponent();</div><div class="line">  <span class="keyword">this</span>._renderedComponent = <span class="literal">null</span>;</div><div class="line"></div><div class="line">  ReactComponent.Mixin.unmountComponent.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="React生命周期总结"><a href="#React生命周期总结" class="headerlink" title="React生命周期总结"></a>React生命周期总结</h2><p><img src="/images/page/react/9.png" alt=""></p>
+<p><img src="/images/page/react/10.png" alt=""></p>
+<h2 id="setState实现机制"><a href="#setState实现机制" class="headerlink" title="setState实现机制"></a>setState实现机制</h2><p><code>setState</code>是<code>React</code>框架的核心方法之一，下面介绍一下它的原理：<br><img src="/images/page/react/11.png" alt=""><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 更新 state</span></div><div class="line">setState: <span class="function"><span class="keyword">function</span>(<span class="params">partialState, callback</span>) </span>&#123;</div><div class="line">  <span class="comment">// 合并 _pendingState</span></div><div class="line">  <span class="keyword">this</span>.replaceState(</div><div class="line">    assign(&#123;&#125;, <span class="keyword">this</span>._pendingState || <span class="keyword">this</span>.state, partialState),</div><div class="line">    callback</div><div class="line">  );</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>当调用 <code>setState</code> 时，会对 <code>state</code> 以及 <code>_pendingState</code> 更新队列进行合并操作，但其实真正更新 <code>state</code> 的幕后黑手是<code>replaceState</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 更新 state</span></div><div class="line">replaceState: <span class="function"><span class="keyword">function</span>(<span class="params">completeState, callback</span>) </span>&#123;</div><div class="line">  validateLifeCycleOnReplaceState(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 更新队列</span></div><div class="line">  <span class="keyword">this</span>._pendingState = completeState;</div><div class="line"></div><div class="line">  <span class="comment">// 判断状态是否为 MOUNTING，如果不是，即可执行更新</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._compositeLifeCycleState !== CompositeLifeCycle.MOUNTING) &#123;</div><div class="line">    ReactUpdates.enqueueUpdate(<span class="keyword">this</span>, callback);</div><div class="line">  &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p><code>replaceState</code> 会先判断当前状态是否为 MOUNTING，如果不是即会调用 <code>ReactUpdates.enqueueUpdate</code> 执行更新。</p>
+<p>当状态不为 <code>MOUNTING</code> 或 <code>RECEIVING_PROPS</code> <code>时，performUpdateIfNecessary</code> 会获取 <code>_pendingElement</code>、<code>_pendingState</code>、<code>_pendingForceUpdate</code>，并调用 <code>updateComponent</code> 进行组件更新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 如果存在 _pendingElement、_pendingState、_pendingForceUpdate，则更新组件</span></div><div class="line">performUpdateIfNecessary: <span class="function"><span class="keyword">function</span>(<span class="params">transaction</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> compositeLifeCycleState = <span class="keyword">this</span>._compositeLifeCycleState;</div><div class="line"></div><div class="line">  <span class="comment">// 当状态为 MOUNTING 或 RECEIVING_PROPS时，则不更新</span></div><div class="line">  <span class="keyword">if</span> (compositeLifeCycleState === CompositeLifeCycle.MOUNTING ||</div><div class="line">      compositeLifeCycleState === CompositeLifeCycle.RECEIVING_PROPS) &#123;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> prevElement = <span class="keyword">this</span>._currentElement;</div><div class="line">  <span class="keyword">var</span> nextElement = prevElement;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._pendingElement != <span class="literal">null</span>) &#123;</div><div class="line">    nextElement = <span class="keyword">this</span>._pendingElement;</div><div class="line">    <span class="keyword">this</span>._pendingElement = <span class="literal">null</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 调用 updateComponent</span></div><div class="line">  <span class="keyword">this</span>.updateComponent(</div><div class="line">    transaction,</div><div class="line">    prevElement,</div><div class="line">    nextElement</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在 <code>shouldComponentUpdate</code> 或 <code>componentWillUpdate</code> 中调用 <code>setState</code>，此时的状态已经从 <code>RECEIVING_PROPS -&gt; NULL</code>，则 <code>performUpdateIfNecessary</code> 就会调用 <code>updateComponent</code> 进行组件更新，但 <code>updateComponent</code> 又会调用 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>，因此造成循环调用，使得浏览器内存占满后崩溃。</p>
+</blockquote>
+<h3 id="开发建议-1"><a href="#开发建议-1" class="headerlink" title="开发建议"></a>开发建议</h3><p>不建议在 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentWillUnmount</code> 中调用 <code>setState</code>，特别注意：不能在 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>中调用 <code>setState</code>，会导致循环调用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/JS中的函数劫持/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/JS中的函数劫持/" itemprop="url">JS中的函数劫持</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T13:48:31+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>说到劫持，第一反应可能是什么不好的东西。函数劫持并不邪恶，关键是看使用的人。虽然这个概念在前端领域使用较少，但是在安全领域、自定义业务等场景下还是有一定的使用价值的。所以，这一篇文章将会和大家一起去了解一下JS中的函数劫持是什么，有什么用。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>函数劫持，顾名思义，即在一个函数运行之前把它劫持下来，添加我们想要的功能。当这个函数实际运行的时候，它已经不是原本的函数了，而是带上了被我们添加上去的功能。这也是我们常见的<code>钩子函数</code>的原理之一。</p>
+<p>乍一看上去，这很像是函数的改写。函数的改写也可以理解为是函数劫持的一种，但是这种方式太恶心了。作为一个劫持者，在绑票获得好处以后也应该遵守职业道德，把人原封不动地还回去，所以我们得在合适的地方把函数原本的功能给重新调用回来。</p>
+<p>推而广之，其实“劫持”这一概念我们经常会遇到，比方说某网站被运营商劫持了，在浏览该网站的时候会弹出运营商的广告。</p>
+<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>现在我们来举个简单的例子，劫持一下<code>alert()</code>函数，为它增添一点小小的功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> warn = alert</div><div class="line"><span class="built_in">window</span>.alert = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(<span class="string">'Help me...!!!'</span>)</div></pre></td></tr></table></figure></p>
+<p>可以打开开发者工具尝试一下这个例子，你会发现只有你在 <code>confirm</code> 里面点击了OK，才会弹出 <code>Help me...!!!</code></p>
+<p>接下来我们把这部分的内容封装一下，成为一个通用的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hijack = <span class="function">(<span class="params">obj, method, fun</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> orig = obj[method]</div><div class="line">  obj[method] = fun(orig)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先我们定义了一个 <code>hijack</code> 函数，它会先把原函数给保存下来，然后执行自定义函数，而原函数将会在自定义函数内部进行调用。</p>
+<p>然后我们来劫持 <code>confirm()</code> 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">hijack(<span class="built_in">window</span>, <span class="string">'confirm'</span>, (orig) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</div><div class="line">    alert(<span class="string">'HELP ME PLZ!!!'</span>)</div><div class="line">    <span class="keyword">if</span> (orig.call(<span class="keyword">this</span>, text)) &#123;</div><div class="line">      alert(<span class="string">'YOU SEEMS FINE AND I AM LEAVING, GOOD BYE!'</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      alert(<span class="string">'HOLD ON! I AM COMING!!'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="反劫持"><a href="#反劫持" class="headerlink" title="反劫持"></a>反劫持</h3><p>新建一个页面，打开你的开发者工具控制台，输入 <code>alert</code>，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">alert</span>(<span class="params"></span>) </span>&#123; [native code] &#125;</div></pre></td></tr></table></figure></p>
+<p>然后使用本文开头的那段代码，把<code>alert()</code>劫持一下，再重新在控制台输入alert，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">t</span>) =&gt; </span>&#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上述的例子可以知道，要看一个函数是否被劫持了，只需要直接把它打印出来即可。针对系统原生的函数，<code>[native code]</code>即代表它是纯净无污染的。</p>
+<h3 id="函数劫持的作用"><a href="#函数劫持的作用" class="headerlink" title="函数劫持的作用"></a>函数劫持的作用</h3><p>除了为函数增加功能以外，还能够利用函数劫持去追踪恶意用户的信息。一般的<code>XSS</code>攻击会先利用<code>alert()</code>等能够输出信息的方法进行测试，这时候我们可以先对原生<code>alert()</code>进行劫持，向其输入追踪信息的代码，最后才把原函数释放出去。当恶意用户在测试<code>alert()</code>的时候就会立即被我们追踪，而他本人却无从察觉。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/nvm管理不同版本的node与npm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/nvm管理不同版本的node与npm/" itemprop="url">nvm管理不同版本的node与npm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T11:35:05+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>补充说明: Mac 下通过 brew install nvm 所安装的 nvm ，由于安装路径不同，无法正确启用。建议使用 brew uninstall nvm 卸载掉之后，通过本文的方案重新安装一次。</p>
+</blockquote>
+<p>最近 <code>NodeJS</code> 的版本更新速度有点 Chrome 的迹象，4.0 版本没发布多久，又推出了 5.0 。升级 NodeJS 之后可以很方便的开始使用一些 ES6 的语言特性，但又会导致团队内部的 <code>mz-fis</code> 框架无法更新，因为它暂时只支持 v0.12 版本。于是团队开始试用管理 node 版本的工具  nvm，试用后发现 Mac 下很好用，推荐大家尽快用起来。</p>
+<p><code>nvm</code> 是 Mac 下的 node 管理工具，有点类似管理 Ruby 的 rvm，如果是需要管理 Windows 下的 node，官方推荐是使用 <code>nvmw</code> 或 <code>nvm-windows</code> 。</p>
+<p>以下具体说下 Mac 系统中的安装与使用细节（Windows 系统仅供类比参考）。</p>
+<h3 id="一、卸载已安装到全局的-node-npm"><a href="#一、卸载已安装到全局的-node-npm" class="headerlink" title="一、卸载已安装到全局的 node/npm"></a>一、卸载已安装到全局的 node/npm</h3><p>如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中</p>
+<p>node 命令在 /usr/local/bin/node ，npm 命令在全局 node_modules 目录中，具体路径为 /usr/local/lib/node_modules/npm</p>
+<p>安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm ls -g --depth=0 #查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</div><div class="line"></div><div class="line">sudo rm -rf /usr/local/lib/node_modules #删除全局 node_modules 目录</div><div class="line">sudo rm /usr/local/bin/node #删除 node</div><div class="line">cd  /usr/local/bin &amp;&amp; ls -l | grep "../lib/node_modules/" | awk '&#123;print $9&#125;'| xargs rm #删除全局 node 模块注册的软链</div></pre></td></tr></table></figure></p>
+<h3 id="二、安装-nvm"><a href="#二、安装-nvm" class="headerlink" title="二、安装 nvm"></a>二、安装 nvm</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https:<span class="comment">//raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></div></pre></td></tr></table></figure>
+<p>安装完成后请重新打开终端环境，Mac 下推荐使用 <code>oh-my-zsh</code> 代替默认的 <code>bash shell</code>。</p>
+<h3 id="三、安装切换各版本-node-npm"><a href="#三、安装切换各版本-node-npm" class="headerlink" title="三、安装切换各版本 node/npm"></a>三、安装切换各版本 node/npm</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">nvm install stable #安装最新稳定版 node，现在是 5.0.0</div><div class="line">nvm install 4.2.2 #安装 4.2.2 版本</div><div class="line">nvm install 0.12.7 #安装 0.12.7 版本</div><div class="line"></div><div class="line"># 特别说明：以下模块安装仅供演示说明，并非必须安装模块</div><div class="line">nvm use 0 #切换至 0.12.7 版本</div><div class="line">npm install -g mz-fis #安装 mz-fis 模块至全局目录，安装完成的路径是 /Users/&lt;你的用户名&gt;/.nvm/versions/node/v0.12.7/lib/mz-fis</div><div class="line">nvm use 4 #切换至 4.2.2 版本</div><div class="line">npm install -g react-native-cli #安装 react-native-cli 模块至全局目录，安装完成的路径是 /Users/&lt;你的用户名&gt;/.nvm/versions/node/v4.2.2/lib/react-native-cli</div><div class="line"></div><div class="line">nvm alias default 0.12.7 #设置默认 node 版本为 0.12.7</div></pre></td></tr></table></figure>
+<h3 id="四、使用-nvmrc-文件配置项目所使用的-node-版本"><a href="#四、使用-nvmrc-文件配置项目所使用的-node-版本" class="headerlink" title="四、使用 .nvmrc 文件配置项目所使用的 node 版本"></a>四、使用 .nvmrc 文件配置项目所使用的 node 版本</h3><p>如果你的默认 node 版本（通过 nvm alias 命令设置的）与项目所需的版本不同，则可在项目根目录或其任意父级目录中创建 .nvmrc 文件，在文件中指定使用的 node 版本号，例如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd &lt;项目根目录&gt;  #进入项目根目录</div><div class="line">echo 4 &gt; .nvmrc #添加 .nvmrc 文件</div><div class="line">nvm use #无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</div><div class="line">node -v #查看 node 是否切换为对应版本</div></pre></td></tr></table></figure></p>
+<h3 id="五、nvm-与-n-的区别"><a href="#五、nvm-与-n-的区别" class="headerlink" title="五、nvm 与 n 的区别"></a>五、nvm 与 n 的区别</h3><p>node 版本管理工具还有一个是 TJ 大神的 n 命令，n 命令是作为一个 node 的模块而存在，而 nvm 是一个独立于 node/npm 的外部 shell 脚本，因此 n 命令相比 nvm 更加局限。</p>
+<p>由于 npm 安装的模块路径均为 /usr/local/lib/node_modules ，当使用 n 切换不同的 node 版本时，实际上会共用全局的 node/npm 目录。 因此不能很好的满足『按不同 node 版本使用不同全局 node 模块』的需求。</p>
+<p>因此建议各位尽早开始使用 nvm ，以免出现全局模块无法更新的问题。</p>
+<p>当然，如果你用的是 windows 操作系统，我只能说 …… 朋友，能不能早点换个 Mac ，做一个有品位的程序猿呢：P</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/pm2实现负载均衡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/pm2实现负载均衡/" itemprop="url">pm2实现负载均衡</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T11:16:03+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>源码：<a href="https://github.com/Unitech/pm2" target="_blank" rel="external">https://github.com/Unitech/pm2</a></p>
+<blockquote>
+<p>这里的pm2并不是大气污染物啊</p>
+</blockquote>
+<p>事实上，pm2 是一个带有负载均衡功能的Node应用的进程管理器，Node实现进程管理的库有很多，forever也是其中一个很强大但是也相对较老的进程管理器。</p>
+<h3 id="为什么要使用pm2"><a href="#为什么要使用pm2" class="headerlink" title="为什么要使用pm2"></a>为什么要使用pm2</h3><p>对于这个问题，先说说我的看法，最基本的原因是因为node本身是一个单线程应用，它的特点就是所有方法都是串行一次执行，并且node并没有能力像Java一样独自去创建一个新的线程来实现异步操作，如果在执行I/O中遇到了阻塞就会降低整个应用的执行效率，导致CPU使用率高等不利原因。</p>
+<p>因此在这种模式下，一个线程只能处理一个任务，要想提高吞吐量必须通过多线程。虽然单线程的好处有很多比如避免了线程同步或者死锁、状态同步等等之类的问题，但是在应用和计算能力要求日益倍增的今天，单线程最大的弊端就是无法利用多核CPU带来的优势来提升运行效率。</p>
+<p>我们知道node可以利用异步I/O来避免线程阻塞，提高利用率等优点:<br><img src="/images/page/pm2/1.png" alt=""></p>
+<p>同时为了弥补单线程无法利用多核CPU的问题，提供了“子进程”这个概念，Node.js 实际上是 Javascript 执行线程的单线程，真正的的 I/O 操作，底层 API 调用都是通过多线程执行的。当然在这里我只是指出了这一背景，那么为什么我们要用pm2？</p>
+<p>我总结了两个比较简洁的答案：1、pm2可以把你的应用部署到服务器所有的CPU上（$ pm2 start app.js -i max），有效的解决了之前背景里提出的问题。 2、同样是进程管理器，为什么不用forever？我认为最大的区别是在监控欠缺，进程和集群管理有限。在监控以及log方面可以认为forever完败于pm2，为什么，一张图你就知道答案。<br><img src="/images/page/pm2/2.png" alt=""></p>
+<p>这是pm2官网给出的Demo，我们可以清晰地看见整个集群的模式、状态，CPU利用率甚至是内存大小，而forever给出的是什么呢？null</p>
+<p>如果我要实时监控所有的进程状态呢？<br><img src="/images/page/pm2/3.png" alt=""></p>
+<p>这就是pm2的强大之处，多进程管理、监控、负载均衡……</p>
+<h3 id="pm2主要特点"><a href="#pm2主要特点" class="headerlink" title="pm2主要特点"></a>pm2主要特点</h3><ul>
+<li>内建负载均衡（使用Node cluster 集群模块、子进程，可以参考朴灵的《深入浅出node.js》一书第九章）</li>
+<li>线程守护，keep alive</li>
+<li>0秒停机重载，维护升级的时候不需要停机.</li>
+<li>现在 Linux (stable) &amp; MacOSx (stable) &amp; Windows (stable).多平台支持</li>
+<li>停止不稳定的进程（避免无限循环）</li>
+<li>控制台检测</li>
+<li>提供 HTTP API</li>
+<li>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">$ npm install pm2 -g     # 命令行安装 pm2</div><div class="line">$ pm2 start app.js -i 4  #后台运行pm2，启动4个app.js</div><div class="line">                         # 也可以把'max' 参数传递给 start</div><div class="line">                         # 正确的进程数目依赖于Cpu的核心数目</div><div class="line">$ pm2 start app.js --name my-api # 命名进程</div><div class="line">$ pm2 list               # 显示所有进程状态</div><div class="line">$ pm2 monit              # 监视所有进程</div><div class="line">$ pm2 logs               #  显示所有进程日志</div><div class="line">$ pm2 stop all           # 停止所有进程</div><div class="line">$ pm2 restart all        # 重启所有进程</div><div class="line">$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)</div><div class="line">$ pm2 stop 0             # 停止指定的进程</div><div class="line">$ pm2 restart 0          # 重启指定的进程</div><div class="line">$ pm2 startup            # 产生 init 脚本 保持进程活着</div><div class="line">$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)</div><div class="line">$ pm2 delete 0           # 杀死指定的进程</div><div class="line">$ pm2 delete all         # 杀死全部进程</div><div class="line"></div><div class="line">运行进程的不同方式：</div><div class="line">$ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目</div><div class="line">$ pm2 start app.js -i 3      # 启动3个进程</div><div class="line">$ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster</div><div class="line">$ pm2 start app.js -x -- -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)</div><div class="line">$ pm2 start app.js --name serverone  # 启动一个进程并把它命名为 serverone</div><div class="line">$ pm2 stop serverone       # 停止 serverone 进程</div><div class="line">$ pm2 start app.json        # 启动进程, 在 app.json里设置选项</div><div class="line">$ pm2 start app.js -i max -- -a 23                   #在--之后给 app.js 传递参数</div><div class="line">$ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件</div><div class="line">你也可以执行用其他语言编写的app  ( fork 模式):</div><div class="line">$ pm2 start my-bash-script.sh    -x --interpreter bash</div><div class="line">$ pm2 start my-python-script.py -x --interpreter python</div></pre></td></tr></table></figure>
+<h3 id="附上keymetrics实时监控"><a href="#附上keymetrics实时监控" class="headerlink" title="附上keymetrics实时监控"></a>附上keymetrics实时监控</h3><p>地址：<a href="https://app.keymetrics.io/#/register" target="_blank" rel="external">https://app.keymetrics.io/#/register</a></p>
+<p>pm2官方也结合pm2管理提供了一套可视化在线监控平台，有多牛？上图：<br><img src="/images/page/pm2/4.png" alt=""></p>
+<p>注册完毕后创建自己的第一个项目工程成功后会得到如图所示口令：<br><img src="/images/page/pm2/5.jpeg" alt=""></p>
+<p>系统分配的public key 和secret key。然后，在安装有pm2的服务器端输入以下命令<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pm2 interact your-secret-key your-public-key</div></pre></td></tr></table></figure></p>
+<p>接下来的事情就交给可视化去做吧。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/31/ajax-hook原理解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/31/ajax-hook原理解析/" itemprop="url">ajax-hook原理解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T22:07:45+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>最近github上出现了一个神器ajax-hook，它可以拦截所有ajax请求并允许修改请求数据和响应数据！实际项目中它可以用于请求添加统一签名、协议自动解析、接口调用统计等。本文主要分析其源码实现，抛砖引玉了。</p>
+</blockquote>
+<p>如果你还不知道ajax-hook，请先了解一下：<br>github : <a href="https://github.com/wendux/Ajax-hook" target="_blank" rel="external">https://github.com/wendux/Ajax-hook</a><br>中文介绍：<a href="http://www.jianshu.com/p/9b634f1c9615" target="_blank" rel="external">http://www.jianshu.com/p/9b634f1c9615</a></p>
+<h3 id="整体思路－代理模式"><a href="#整体思路－代理模式" class="headerlink" title="整体思路－代理模式"></a>整体思路－代理模式</h3><p>Ajax-hook实现的整体思路是实现一个XMLHttpRequest的代理对象，然后覆盖全局的XMLHttpRequest，这样一但上层调用 new XMLHttpRequest这样的代码时，其实创建的是Ajax-hook的代理对象实例。具体原理图如下：</p>
+<p><img src="/images/page/ajaxhook/1.png" alt=""></p>
+<p>上图中青色部分为Ajax-hook实现的代理XMLHttpRequest，内部会调用真正的XMLHttpRequest。我们看一下hookAjax的部分源码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">ob.hookAjax = <span class="function"><span class="keyword">function</span> (<span class="params">funs</span>) </span>&#123;</div><div class="line">  <span class="comment">//保存真正的XMLHttpRequest对象</span></div><div class="line">  <span class="built_in">window</span>._ahrealxhr = <span class="built_in">window</span>._ahrealxhr || XMLHttpRequest</div><div class="line">  <span class="comment">//1.覆盖全局XMLHttpRequest，代理对象</span></div><div class="line">  XMLHttpRequest = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//创建真正的XMLHttpRequest实例</span></div><div class="line">    <span class="keyword">this</span>.xhr = <span class="keyword">new</span> <span class="built_in">window</span>._ahrealxhr;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> <span class="keyword">this</span>.xhr) &#123;</div><div class="line">      <span class="keyword">var</span> type = <span class="string">""</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        type = <span class="keyword">typeof</span> <span class="keyword">this</span>.xhr[attr]</div><div class="line">      &#125; <span class="keyword">catch</span> (e) &#123;&#125;</div><div class="line">      <span class="keyword">if</span> (type === <span class="string">"function"</span>) &#123;</div><div class="line">        <span class="comment">//2.代理方法</span></div><div class="line">        <span class="keyword">this</span>[attr] = hookfun(attr);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//3.代理属性</span></div><div class="line">        <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, attr, &#123;</div><div class="line">          <span class="attr">get</span>: getFactory(attr),</div><div class="line">          <span class="attr">set</span>: setFactory(attr)</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ......</div></pre></td></tr></table></figure></p>
+<p>Ajax-hook 一开始先保存了真正的XMLHttpRequest对象到一个全局对象，然后在注释1处，Ajax-hook覆盖了全局的XMLHttpRequest对象，这就是代理对象的具体实现。在代理对象内部，首先创建真正的XMLHttpRequest实例,记为xhr,然后遍历xhr所有属性和方法，在2处hookfun为xhr的每一个方法生成一个代理方法，在3处，通过defineProperty为每一个属性生成一个代理属性。下面我们重点看一看代理方法和代理属性的实现。</p>
+<h3 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h3><p>代理方法通过hookfun函数生成，我们看看hookfun的具体实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hookfun</span>(<span class="params">fun</span>) </span>&#123;</div><div class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>)</div><div class="line">    <span class="comment">//1.如果fun拦截函数存在，则先调用拦截函数</span></div><div class="line">    <span class="keyword">if</span> (funs[fun] &amp;&amp; funs[fun].call(<span class="keyword">this</span>, args, <span class="keyword">this</span>.xhr)) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">   <span class="comment">//2.调用真正的xhr方法</span></div><div class="line">   <span class="keyword">this</span>.xhr[fun].apply(<span class="keyword">this</span>.xhr, args);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>为了叙述清晰，我们假设fun为 send函数，其中funs为用户提供的拦截函数对象。代码很简单，首先会根据用户提供的funs判断用户是否要拦截send, 如果提供了send的拦截方法，记为send_hook, 则上层调用代理对象send方法时，则会先调用send_hook，同时将调用参数和当前的xhr对象传递给send_hook，如果send_hook返回了true, 则调用终止，直接返回，相当于调用被终止了，如果没有返回或返回的是false,则会走到注释2处，此处调用了xhr的send方法，至此ajax send被调用成功。 所以，我们在send_hook中可以拿到调用的参数并修改，因为参数是以数组形式传递，改变会被记录，当然，我们也可以返回true直接终止调用。</p>
+<h3 id="代理属性"><a href="#代理属性" class="headerlink" title="代理属性"></a>代理属性</h3><p>属性如onload、onreadystatechange等，上层在调用ajax时通常要设置这些回调以处理请求到的数据，Ajax-hook也能够实现在请求返回时先拿到数据第一个进行处理，然后将处理过的数据传递给用户提供的回调。要实现这个功能，直接的思路就是用户设置回调时将用户提供的回调保存起来，然后设置成代理回调，当数据返回时，代理回调会被调用，然后在代理回调中首先将返回的数据提供给拦截函数处理，然后再将处理后的数据传递给用户真正的回调。那么问题来了，如何捕获用户设置回调的动作？一段典型的用户调用代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xh=<span class="keyword">new</span> XMLHttpRequest;</div><div class="line">xh.open(<span class="string">"https://xxx"</span>)</div><div class="line">xh.onload=<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123; <span class="comment">//1</span></div><div class="line">  <span class="comment">//处理请求到的数据</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>也就是说上面代码1处的赋值时机代理对象怎么捕获？如果在赋值的时候有机会执行代码就好了。我们回过头来看看上面原理图，有没有注意到proxy props后面的小括号里的 es5，答案就在这里！ es5中对于属性引入了setter、getter,详细内容请参考：<br>Javascript getter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get</a><br>Javascript setter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set</a></p>
+<p>Ajax-hook通过getFactory和setFactory生成setter、getter方法。我们来看看它们的实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFactory</span>(<span class="params">attr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[attr + <span class="string">"_"</span>] || <span class="keyword">this</span>.xhr[attr]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setFactory</span>(<span class="params">attr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">f</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> xhr = <span class="keyword">this</span>.xhr;</div><div class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//区分是否回调属性</span></div><div class="line">        <span class="keyword">if</span> (attr.indexOf(<span class="string">"on"</span>) != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">this</span>[attr + <span class="string">"_"</span>] = f;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (funs[attr]) &#123;</div><div class="line">            xhr[attr] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                funs[attr](that) || f.apply(xhr, <span class="built_in">arguments</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            xhr[attr] = f;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码比较简单，值得注意的是里面的属性加下划线是什么意思？请继续往下看。</p>
+<h3 id="属性修改"><a href="#属性修改" class="headerlink" title="属性修改"></a>属性修改</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.responseText = <span class="built_in">JSON</span>.parse(xhr.responseText)</div></pre></td></tr></table></figure>
+<p>但是，这里有坑，因为xhr的responseText属性并不是writeable的（详情请移步 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</a> ),这也就意味着你无法直接更改xhr.responseText的值，而Ajax-hook也代理了这些原始属性，内部生成了一下原始属性名＋下滑线的代理属性。</p>
+<p>至此，Ajax-hook源码分析完毕。下面我们总结一下：</p>
+<p>Ajax-hook使用代理的方式对原生XMLHttpRequest的方法及属性进行代理，然后覆盖全局XMLHttpRequest，实现拦截所有Ajax-hook的功能。从代码角度来看，逻辑清晰，思维巧妙，简洁优雅，值得学习。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/26/前端面试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/26/前端面试/" itemprop="url">前端面试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T14:24:47+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="HTML-amp-CSS-部分"><a href="#HTML-amp-CSS-部分" class="headerlink" title="HTML &amp; CSS 部分"></a>HTML &amp; CSS 部分</h3><ul>
+<li><p>css常用布局<br>定位布局，流布局，浮动布局，flex和grid布局，包括还有三栏布局中的圣杯和双飞翼<br>使用flex实现垂直水平居中</p>
+</li>
+<li><p>BFC<br>盒模型包括怪异盒模型，如何转换 box-sizing</p>
+</li>
+<li><p>session、cookie、sessionStorage、localStorage等区别</p>
+</li>
+<li><p>animation和transiton的相关属性<br>为什么动画推荐用c3而不是js，主要是性能方面….浏览器怎么优化的动画</p>
+</li>
+</ul>
+<h3 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h3><ul>
+<li><p>JavaScript闭包</p>
+</li>
+<li><p>前端跨域<br>CORS怎么实现的</p>
+</li>
+<li><p>JavaScript继承<br>原型继承、构造函数继承、组合继承、寄生组合继承优缺点和实现方式，es5如何实现super关键字</p>
+</li>
+<li><p>JavaScript的节流和防抖</p>
+</li>
+<li><p>js事件执行机制<br>event loop，microtask，task queue<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
+</li>
+<li><p>this指向的问题<br>四种绑定规则，new的执行过程以及箭头函数注意事项</p>
+</li>
+<li><p>es6相关知识点<br>promise的实现方式；<br>generator怎么实现；</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/26/前端面试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/19/JavaScript函数节流和函数防抖之间的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -378,13 +1201,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/08/React组件库开发-多层嵌套弹层组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -442,24 +1265,17 @@
 
       
         
-          
-            <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
+          <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
 <p>我们都知道 React App 的顶层某个地方肯定有这么一行代码：<code>ReactDOM.render(&lt;App /&gt;, mountNode)</code>，这个 API 调用的作用是在 <code>mountNode</code> 的位置创建一棵 React 的渲染树，React 会接管 <code>mountNode</code> 开始的这棵 DOM 树。</p>
 <p>在 React 的这种管理模式下，会发现使用弹层似乎不太方便，因为组件树是逐层往下生长的，但React 的 API 中并没有直接提供跳出这棵组件树的方法。</p>
-<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。</p>
-<h3 id="那么问题是什么呢？"><a href="#那么问题是什么呢？" class="headerlink" title="那么问题是什么呢？"></a>那么问题是什么呢？</h3><p>别急，我们先聊点别的。</p>
-<p>相信大部分 React 开发者都用过 <code>redux</code>（至少听过吧），<code>react-redux</code> 这个 <code>binding</code> 库提供了连接 <code>React</code> 和 <code>redux</code> 的一个桥梁。<code>react-redux</code> 的实现依赖 <code>React</code> 很有用的一个功能<code>Context</code>，简单来说 <code>context</code> 就是提供了一个方便的跨越层级往下传递数据的方式。<br><code>ReactDOM.render</code> 的问题正是在于这个 <code>context</code> 的功能，它无法连接两棵 <code>React</code> 组件树的 <code>context</code>。<br><code>ReactDOM.render</code> 的函数原型中并没有当前组件树的信息，而 <code>context</code> 是跟组件树有关的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  container,</div><div class="line">  [callback]</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h3 id="解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer"><a href="#解决方案一-ReactDOM-unstable-renderSubtreeIntoContainer" class="headerlink" title="解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer"></a>解决方案一 ReactDOM.unstable_renderSubtreeIntoContainer</h3><p>React 提供了另一个非公开 API：<code>ReactDOM.unstable_renderSubtreeIntoContainer</code>。这个 API 多了一个参数，这个参数就是用来指定新的 React 组件树根节点的父组件的，有了这个参数，两棵本来互不相干的 React 组件树就被联系起来了，同时它们的 <code>context</code> 也连接了起来。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ReactDOM.unstable_renderSubtreeIntoContainer(</div><div class="line">  parentComponent,</div><div class="line">  element,</div><div class="line">  container,</div><div class="line">  [callback]</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="解决方案二-ReactDOM-createPortal"><a href="#解决方案二-ReactDOM-createPortal" class="headerlink" title="解决方案二 ReactDOM.createPortal"></a>解决方案二 ReactDOM.createPortal</h3><p>Portals是reactjs16提供的官方解决方案，使得组件可以脱离父组件层级挂载在DOM树的任何位置。<br>用法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> DemoComponent <span class="keyword">from</span> <span class="string">'./DemoComponent'</span>;</div><div class="line"></div><div class="line">render() &#123;</div><div class="line">  <span class="comment">// react会将DemoComponent组件直接挂载在真真实实的 dom 节点 domNode 上，生命周期还和16版本之前相同。</span></div><div class="line">  <span class="keyword">return</span> ReactDOM.createPortal(</div><div class="line">    &lt;DemoComponent /&gt;,</div><div class="line">    domNode,</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>组件的挂载点虽然可以脱离父组件，但组件的事件通过冒泡机制仍可以传给父组件。<br><a href="https://reactjs.org/docs/portals.html#___gatsby" target="_blank" rel="external">官网portals</a></p>
-<h3 id="例子：rc-dialog"><a href="#例子：rc-dialog" class="headerlink" title="例子：rc-dialog"></a>例子：rc-dialog</h3><p><a href="https://github.com/react-component/dialog" target="_blank" rel="external">https://github.com/react-component/dialog</a></p>
-<p>DialogWrap.jsx<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> Dialog <span class="keyword">from</span> <span class="string">'./Dialog'</span>;</div><div class="line"><span class="keyword">import</span> ContainerRender <span class="keyword">from</span> <span class="string">'rc-util/lib/ContainerRender'</span>;</div><div class="line"><span class="keyword">import</span> Portal <span class="keyword">from</span> <span class="string">'rc-util/lib/Portal'</span>;</div><div class="line"><span class="keyword">import</span> IDialogPropTypes <span class="keyword">from</span> <span class="string">'./IDialogPropTypes'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> IS_REACT_16 = !!ReactDOM.createPortal;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DialogWrap</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">IDialogPropTypes</span>, <span class="title">any</span>&gt; </span>&#123;</div><div class="line">  <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">    <span class="attr">visible</span>: <span class="literal">false</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  _component: React.ReactElement&lt;any&gt;;</div><div class="line"></div><div class="line">  renderComponent: <span class="function">(<span class="params">props: any</span>) =&gt;</span> <span class="keyword">void</span>;</div><div class="line"></div><div class="line">  removeContainer: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span>;</div><div class="line"></div><div class="line">  shouldComponentUpdate(&#123; visible &#125;: &#123; <span class="attr">visible</span>: boolean &#125;) &#123;</div><div class="line">    <span class="keyword">return</span> !!(<span class="keyword">this</span>.props.visible || visible);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">if</span> (IS_REACT_16) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.visible) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent(&#123;</div><div class="line">        <span class="attr">afterClose</span>: <span class="keyword">this</span>.removeContainer,</div><div class="line">        onClose() &#123;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">visible</span>: <span class="literal">false</span>,</div><div class="line">      &#125;);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">this</span>.removeContainer();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  saveDialog = <span class="function">(<span class="params">node: any</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">this</span>._component = node;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getComponent = <span class="function">(<span class="params">extra = &#123;&#125;</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;Dialog</div><div class="line">        ref=&#123;this.saveDialog&#125;</div><div class="line">        &#123;...this.props&#125;</div><div class="line">        &#123;...extra&#125;</div><div class="line">        key="dialog"</div><div class="line">      /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getContainer = () =&gt; &#123;</div><div class="line">    if (this.props.getContainer) &#123;</div><div class="line">      return this.props.getContainer();</div><div class="line">    &#125;</div><div class="line">    const container = document.createElement('div');</div><div class="line">    document.body.appendChild(container);</div><div class="line">    return container;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    const &#123; visible &#125; = this.props;</div><div class="line"></div><div class="line">    let portal: any = null;</div><div class="line"></div><div class="line">    if (!IS_REACT_16) &#123;</div><div class="line">      return (</div><div class="line">        &lt;ContainerRender</div><div class="line">          parent=&#123;this&#125;</div><div class="line">          visible=&#123;visible&#125;</div><div class="line">          autoDestroy=&#123;false&#125;</div><div class="line">          getComponent=&#123;this.getComponent&#125;</div><div class="line">          getContainer=&#123;this.getContainer&#125;</div><div class="line">        &gt;</div><div class="line">          &#123;(&#123; renderComponent, removeContainer &#125;: &#123; renderComponent: any, removeContainer: any &#125;) =&gt; &#123;</div><div class="line">            this.renderComponent = renderComponent;</div><div class="line">            this.removeContainer = removeContainer;</div><div class="line">            return null;</div><div class="line">          &#125;&#125;</div><div class="line">        &lt;/ContainerRender&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (visible || this._component) &#123;</div><div class="line">      portal = (</div><div class="line">        &lt;Portal getContainer=&#123;this.getContainer&#125;&gt;</div><div class="line">          &#123;this.getComponent()&#125;</div><div class="line">        &lt;/Portal&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return portal;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default DialogWrap;</div></pre></td></tr></table></figure></p>
-<p>ContainerRender.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ContainerRender</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">autoMount</span>: PropTypes.bool,</div><div class="line">    <span class="attr">autoDestroy</span>: PropTypes.bool,</div><div class="line">    <span class="attr">visible</span>: PropTypes.bool,</div><div class="line">    <span class="attr">forceRender</span>: PropTypes.bool,</div><div class="line">    <span class="attr">parent</span>: PropTypes.any,</div><div class="line">    <span class="attr">getComponent</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">getContainer</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">children</span>: PropTypes.func.isRequired,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> defaultProps = &#123;</div><div class="line">    <span class="attr">autoMount</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">autoDestroy</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">forceRender</span>: <span class="literal">false</span>,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoMount) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidUpdate() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoMount) &#123;</div><div class="line">      <span class="keyword">this</span>.renderComponent();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.autoDestroy) &#123;</div><div class="line">      <span class="keyword">this</span>.removeContainer();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  removeContainer = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.container) &#123;</div><div class="line">      ReactDOM.unmountComponentAtNode(<span class="keyword">this</span>.container);</div><div class="line">      <span class="keyword">this</span>.container.parentNode.removeChild(<span class="keyword">this</span>.container);</div><div class="line">      <span class="keyword">this</span>.container = <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  renderComponent = <span class="function">(<span class="params">props, ready</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> &#123; visible, getComponent, forceRender, getContainer, parent &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="keyword">if</span> (visible || parent._component || forceRender) &#123;</div><div class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.container) &#123;</div><div class="line">        <span class="keyword">this</span>.container = getContainer();</div><div class="line">      &#125;</div><div class="line">      ReactDOM.unstable_renderSubtreeIntoContainer(</div><div class="line">        parent,</div><div class="line">        getComponent(props),</div><div class="line">        <span class="keyword">this</span>.container,</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">if</span> (ready) &#123;</div><div class="line">            ready.call(<span class="keyword">this</span>);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children(&#123;</div><div class="line">      <span class="attr">renderComponent</span>: <span class="keyword">this</span>.renderComponent,</div><div class="line">      <span class="attr">removeContainer</span>: <span class="keyword">this</span>.removeContainer,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Portal.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Portal</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">getContainer</span>: PropTypes.func.isRequired,</div><div class="line">    <span class="attr">children</span>: PropTypes.node.isRequired,</div><div class="line">    <span class="attr">didUpdate</span>: PropTypes.func,</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">this</span>.createContainer();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidUpdate(prevProps) &#123;</div><div class="line">    <span class="keyword">const</span> &#123; didUpdate &#125; = <span class="keyword">this</span>.props;</div><div class="line">    <span class="keyword">if</span> (didUpdate) &#123;</div><div class="line">      didUpdate(prevProps);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="keyword">this</span>.removeContainer();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  createContainer() &#123;</div><div class="line">    <span class="keyword">this</span>._container = <span class="keyword">this</span>.props.getContainer();</div><div class="line">    <span class="keyword">this</span>.forceUpdate();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  removeContainer() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._container) &#123;</div><div class="line">      <span class="keyword">this</span>._container.parentNode.removeChild(<span class="keyword">this</span>._container);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._container) &#123;</div><div class="line">      <span class="keyword">return</span> ReactDOM.createPortal(<span class="keyword">this</span>.props.children, <span class="keyword">this</span>._container);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>参考链接：<br><a href="https://github.com/react-component/dialog/blob/master/src/DialogWrap.tsx" target="_blank" rel="external">https://github.com/react-component/dialog/blob/master/src/DialogWrap.tsx</a><br><a href="https://github.com/react-component/util/blob/master/src/ContainerRender.js" target="_blank" rel="external">https://github.com/react-component/util/blob/master/src/ContainerRender.js</a><br><a href="https://github.com/react-component/util/blob/master/src/Portal.js" target="_blank" rel="external">https://github.com/react-component/util/blob/master/src/Portal.js</a></p>
-
-          
+<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/08/React组件库开发-多层嵌套弹层组件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -504,13 +1320,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/08/AntD-Modal组件的实现原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -626,13 +1442,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/29/Webpack-学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -813,774 +1629,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/14/React-Router-使用教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/14/React-Router-使用教程/" itemprop="url">React Router 使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T11:38:16+08:00">
-                2017-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>真正学会 <a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> 是一个漫长的过程。<br><img src="/images/page/reactRouter/03.jpg" alt=""><br>你会发现，它不是一个库，也不是一个框架，而是一个庞大的体系。想要发挥它的威力，整个技术栈都要配合它改造。你要学习一整套解决方案，从后端到前端，都是全新的做法。<br><img src="/images/page/reactRouter/04.png" alt=""><br>举例来说，React 不使用 HTML，而使用 JSX 。它打算抛弃 DOM，要求开发者不要使用任何 DOM 方法。它甚至还抛弃了 SQL ，自己发明了一套查询语言 GraphQL 。当然，这些你都可以不用，React 照样运行，但是就发挥不出它的最大威力。<br>这样说吧，你只要用了 React，就会发现合理的选择就是，采用它的整个技术栈。<br>本文介绍 React 体系的一个重要部分：路由库<code>[React-Router](https://github.com/reactjs/react-router)</code>。它是官方维护的，事实上也是唯一可选的路由库。它通过管理 URL，实现组件的切换和状态的变化，开发复杂的应用几乎肯定会用到。<br><img src="/images/page/reactRouter/05.png" alt=""><br>（[说明] 本文写作时，React-router 是 2.x 版，本文的内容只适合这个版本，与最新的 4.x 版不兼容。目前，官方同时维护 2.x 和 4.x 两个版本，所以前者依然可以用在项目中。2017年3月）</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>React Router 安装命令如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -S react-router</div></pre></td></tr></table></figure></p>
-<p>使用时，路由器<code>Router</code>就是React的一个组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Router &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line">render(&lt;Router/&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</div></pre></td></tr></table></figure></p>
-<p><code>Router</code>组件本身只是一个容器，真正的路由要通过<code>Route</code>组件定义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Router, Route, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line">render((</div><div class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</div><div class="line">    &lt;Route path="/" component=&#123;App&#125;/&gt;</div><div class="line">  &lt;/Router&gt;</div><div class="line">), document.getElementById('app'));</div></pre></td></tr></table></figure></p>
-<p>上面代码中，用户访问根路由<code>/</code>（比如<code>http://www.example.com/</code>），组件<code>APP</code>就会加载到<code>document.getElementById(&#39;app&#39;)</code>。<br>你可能还注意到，<code>Router</code>组件有一个参数<code>history</code>，它的值<code>hashHistory</code>表示，路由的切换由URL的<code>hash</code>变化决定，即<code>URL</code>的<code>#</code>部分发生变化。举例来说，用户访问<code>http://www.example.com/</code>，实际会看到的是<code>http://www.example.com/#/</code>。</p>
-<p><code>Route</code>组件定义了URL路径与组件的对应关系。你可以同时使用多个<code>Route</code>组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123;hashHistory&#125;&gt;</div><div class="line">  &lt;Route path="/" component=&#123;App&#125;/&gt;</div><div class="line">  &lt;Route path="/repos" component=&#123;Repos&#125;/&gt;</div><div class="line">  &lt;Route path="/about" component=&#123;About&#125;/&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，用户访问<code>/repos</code>（比如<code>http://localhost:8080/#/repos</code>）时，加载<code>Repos</code>组件；访问<code>/about</code>（<code>http://localhost:8080/#/about</code>）时，加载<code>About</code>组件。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/React-Router-使用教程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/13/npm-scripts-使用指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/13/npm-scripts-使用指南/" itemprop="url">npm scripts 使用指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T20:38:42+08:00">
-                2017-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。<br>本文介绍如何使用 npm 脚本（npm scripts）。</p>
-<h3 id="什么是-npm-脚本？"><a href="#什么是-npm-脚本？" class="headerlink" title="什么是 npm 脚本？"></a>什么是 npm 脚本？</h3><p>npm 允许在<code>package.json</code>文件里面，使用<code>scripts</code>字段定义脚本命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node build.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码是<code>package.json</code>文件的一个片段，里面的<code>scripts</code>字段是一个对象。它的每一个属性，对应一段脚本。比如，<code>build</code>命令对应的脚本是<code>node build.js</code>。<br>命令行下使用<code>npm run</code>命令，就可以执行这段脚本。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div><div class="line"># 等同于执行</div><div class="line">$ node build.js</div></pre></td></tr></table></figure></p>
-<p>这些定义在<code>package.json</code>里面的脚本，就称为 npm 脚本。它的优点很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">项目的相关脚本，可以集中在一个地方。</div><div class="line">不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</div><div class="line">可以利用 npm 提供的很多辅助功能。</div></pre></td></tr></table></figure></p>
-<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的<code>npm run</code>命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run</div></pre></td></tr></table></figure></p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。<br>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。<br>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 <code>Mocha</code>，只要直接写<code>mocha test</code>就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"mocha test"</span></div></pre></td></tr></table></figure></p>
-<p>而不用写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha test"</span></div></pre></td></tr></table></figure></p>
-<p>由于 npm 脚本的唯一要求就是可以在 Shell 执行，因此它不一定是 Node 脚本，任何可执行文件都可以写在里面。<br>npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是<code>0</code>，npm 就认为这个脚本执行失败。</p>
-<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint *.js"</span></div><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **/*.js"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。<br>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"tap test/\*.js"</span></div></pre></td></tr></table></figure></p>
-<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>向 npm 脚本传入参数，要使用–标明。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span></div></pre></td></tr></table></figure></p>
-<p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml</div></pre></td></tr></table></figure></p>
-<p>也可以在<code>package.json</code>里面再封装一个命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span>,</div><div class="line"><span class="string">"lint:checkstyle"</span>: <span class="string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span></div></pre></td></tr></table></figure></p>
-<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。<br>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp;&amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<a href="https://github.com/paulpflug/script-runner" target="_blank" rel="external">script-runner</a>、<a href="https://github.com/mysticatea/npm-run-all" target="_blank" rel="external">npm-run-all</a>、<a href="https://github.com/coderaiser/redrun" target="_blank" rel="external">redrun</a>。</p>
-<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm run start</code>的默认值是<code>node server.js</code>，前提是项目根目录下有<code>server.js</code>这个脚本；<code>npm run install</code>的默认值是<code>node-gyp rebuild</code>，前提是项目根目录下有<code>binding.gyp</code>文件。</p>
-<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"prebuild"</span>: <span class="string">"echo I run before the build script"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</div><div class="line"><span class="string">"postbuild"</span>: <span class="string">"echo I run after the build script"</span></div></pre></td></tr></table></figure></p>
-<p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild</div></pre></td></tr></table></figure></p>
-<p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf ./dist &amp;&amp; mkdir dist"</span>,</div><div class="line"><span class="string">"prebuild"</span>: <span class="string">"npm run clean"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span></div></pre></td></tr></table></figure></p>
-<p>npm 默认提供下面这些钩子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">prepublish，postpublish</div><div class="line">preinstall，postinstall</div><div class="line">preuninstall，postuninstall</div><div class="line">preversion，postversion</div><div class="line">pretest，posttest</div><div class="line">prestop，poststop</div><div class="line">prestart，poststart</div><div class="line">prerestart，postrestart</div></pre></td></tr></table></figure></p>
-<p>自定义的脚本命令也可以加上<code>pre</code>和<code>post</code>钩子。比如，<code>myscript</code>这个脚本命令，也有<code>premyscript</code>和<code>postmyscript</code>钩子。不过，双重的<code>pre</code>和<code>post</code>无效，比如<code>prepretest</code>和<code>postposttest</code>是无效的。<br>npm 提供一个<code>npm_lifecycle_event</code>变量，返回当前正在运行的脚本名称，比如<code>pretest</code>、<code>test</code>、<code>posttest等</code>等。所以，可以利用这个变量，在同一个脚本文件里面，为不同的<code>npm scripts</code>命令编写代码。请看下面的例子。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> TARGET = process.env.npm_lifecycle_event;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'test'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the test task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'pretest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the pretest task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'posttest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the posttest task!`</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意，<code>prepublish</code>这个钩子不仅会在<code>npm publish</code>命令之前运行，还会在<code>npm install</code>（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 <code>npm 4</code>引入了一个新的钩子<code>prepare</code>，行为等同于<code>prepublish</code>，而从 <code>npm 5</code>开始，<code>prepublish</code>将只在<code>npm publish</code>命令之前运行。</p>
-<h3 id="简写形式"><a href="#简写形式" class="headerlink" title="简写形式"></a>简写形式</h3><p>四个常用的 npm 脚本有简写形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm start是npm run start</div><div class="line">npm stop是npm run stop的简写</div><div class="line">npm test是npm run test的简写</div><div class="line">npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; npm run start的简写</div></pre></td></tr></table></figure></p>
-<p><code>npm start</code>、<code>npm stop</code>和<code>npm restart</code>都比较好理解，而<code>npm restart</code>是一个复合命令，实际上会执行三个脚本命令：<code>stop</code>、<code>restart</code>、<code>start</code>。具体的执行顺序如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">prerestart</div><div class="line">prestop</div><div class="line">stop</div><div class="line">poststop</div><div class="line">restart</div><div class="line">prestart</div><div class="line">start</div><div class="line">poststart</div><div class="line">postrestart</div></pre></td></tr></table></figure></p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。<br>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"foo"</span>, </div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.2.5"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"view"</span>: <span class="string">"node view.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回<code>1.2.5</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view.js</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_name); <span class="comment">// foo</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_version); <span class="comment">// 1.2.5</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。<br><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。<br>下面是另外一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="string">"install"</span>: <span class="string">"foo.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。<br>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"view"</span>: <span class="string">"echo $npm_config_tag"</span>,</div></pre></td></tr></table></figure></p>
-<p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</div><div class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</div><div class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_config_port</code>变量返回的是8080。这个值可以用下面的方法覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config set foo:port <span class="number">80</span></div></pre></td></tr></table></figure></p>
-<p>最后，<code>env</code>命令可以列出所有环境变量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"env"</span>: <span class="string">"env"</span></div></pre></td></tr></table></figure></p>
-<h3 id="常用脚本示例"><a href="#常用脚本示例" class="headerlink" title="常用脚本示例"></a>常用脚本示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/" itemprop="url">JavaScript数字精度丢失问题总结及解决方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T17:33:02+08:00">
-                2017-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>js精度问题一般是对浮点数的加减乘除引起的，主要的解决方案大都是将浮点数<code>*10^n</code>转为整数，计算完再<code>/10^n</code>转为浮点数</p>
-<h3 id="JS数字精度丢失的一些典型问题"><a href="#JS数字精度丢失的一些典型问题" class="headerlink" title="JS数字精度丢失的一些典型问题"></a>JS数字精度丢失的一些典型问题</h3><ul>
-<li><ol>
-<li>两个简单的浮点数相加</li>
-</ol>
-</li>
-<li><ol>
-<li>大整数运算</li>
-</ol>
-</li>
-<li><ol>
-<li>toFixed 不会四舍五入（Chrome）</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/page/number/1.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/20/使用-webpack-优化资源/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/20/使用-webpack-优化资源/" itemprop="url">使用 webpack 优化资源</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T15:23:36+08:00">
-                2017-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前端应用的优化中，对加载资源的大小控制极其的重要，大多数时候我们能做的是在打包编译的过程对资源进行大小控制、拆分与复用。</p>
-<p>本片文章中主要是基于 webpack 打包，以 React、vue 等生态开发的单页面应用来举例说明如何从 webpack 打包的层面去处理资源以及缓存，其中主要我们需要做的是对 webpack 进行配置的优化，同时涉及少量的业务代码的更改。</p>
-<p>同时对打包资源的分析可以使用 (<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="external">webpack-contrib/webpack-bundle-analyzer</a>) 插件，当然可选的分析插件还是很多的，在本文中主要以该插件来举例分析。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/20/使用-webpack-优化资源/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/18/webpack-postcss配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/18/webpack-postcss配置/" itemprop="url">webpack postcss配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T14:30:28+08:00">
-                2017-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的<a href="https://github.com/ant-design/ant-design-mobile/wiki/HD" target="_blank" rel="external">高清方案</a>，但是组件都是使用px为单位的，所以需要集成postcss来进行转换rem</p>
-</blockquote>
-<h3 id="安装postcss相关npm包"><a href="#安装postcss相关npm包" class="headerlink" title="安装postcss相关npm包"></a>安装postcss相关npm包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install postcss-loader postcss-pxtorem --save-dev</div></pre></td></tr></table></figure>
-<h3 id="webpack集成postcss"><a href="#webpack集成postcss" class="headerlink" title="webpack集成postcss"></a>webpack集成postcss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">const</span> pxtorem = <span class="built_in">require</span>(<span class="string">'postcss-pxtorem'</span>);</div><div class="line"><span class="comment">// ....</span></div><div class="line">&#123;</div><div class="line">    <span class="attr">postcss</span>: [</div><div class="line">        pxtorem(&#123;</div><div class="line">            <span class="attr">rootValue</span>: <span class="number">100</span>,</div><div class="line">            <span class="attr">propWhiteList</span>: []</div><div class="line">        &#125;),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="设定post-loader"><a href="#设定post-loader" class="headerlink" title="设定post-loader"></a>设定post-loader</h3><p>改写loaders，比如要对.css文件进行过滤:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">loaders: [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'style-loader!css-loader!postcss-loader'</span></div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/lodash学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/11/lodash学习笔记/" itemprop="url">lodash学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:10:16+08:00">
-                2017-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Lodash 是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。</p>
-<h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash提供的辅助函数主要分为以下几类:</p>
-<ul>
-<li><code>Array</code>，适用于数组类型，比如填充数据，部分适用于字符串，比如分组、查找、过滤等操作。</li>
-<li><code>Collection</code>，适用于数组和对象类型，部分适用于字符串，比如分组、查找、过滤等操作。</li>
-<li><code>Function</code>，适用于函数类型，比如节流、延迟、缓存、设置钩子等操作。</li>
-<li><code>Lang</code>，普遍适用于各种类型，常用于执行类型判断和类型转换。</li>
-<li><code>Math</code>，适用于数组类型，常用于执行数学运算。</li>
-<li><code>Number</code>，适用于生成随机数，比较数值与数值区间的关系。</li>
-<li><code>Object</code>，适用于对象类型，常用于对象的创建、扩展、类型转换、检索、集合等操作。</li>
-<li><code>Seq</code>，常用于创建链式调用，提高执行性能（惰性计算）。</li>
-<li><code>String</code>，适用于字符串类型。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/11/lodash学习笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1614,10 +1667,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
-               alt="wangyang" />
-          <p class="site-author-name" itemprop="name">wangyang</p>
+               alt="大洋" />
+          <p class="site-author-name" itemprop="name">大洋</p>
            
-              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1625,7 +1678,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1755,7 +1808,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">wangyang</span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
 </div>
 
 
@@ -1767,6 +1820,13 @@
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
+  </a>
+</div>
+
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
   </a>
 </div>
 

@@ -18,3 +18,9 @@
     NexT.{{ theme.scheme }}
   </a>
 </div>
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
+  </a>
+</div>

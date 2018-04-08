@@ -83,7 +83,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
 
 
 
@@ -100,9 +100,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="react事件研究及阻止冒泡">
 <meta property="og:url" content="http://html-js.site/2017/08/25/react事件研究及阻止冒泡/index.html">
-<meta property="og:site_name" content="前端-洋仔">
+<meta property="og:site_name" content="大洋">
 <meta property="og:description" content="React 中的事件处理逻辑为了解决跨浏览器兼容性问题，React 会将浏览器原生事件（Browser Native Event）封装为合成事件（SyntheticEvent）传入设置的事件处理器中。这里的合成事件提供了与原生事件相同的接口，不过它们屏蔽了底层浏览器的细节差异，保证了行为的一致性。另外有意思的是，React 并没有直接将事件附着到子元素上，而是以单一事件监听器的方式将所有的事件发送">
-<meta property="og:updated_time" content="2017-08-25T14:34:47.000Z">
+<meta property="og:updated_time" content="2018-03-26T06:17:54.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react事件研究及阻止冒泡">
 <meta name="twitter:description" content="React 中的事件处理逻辑为了解决跨浏览器兼容性问题，React 会将浏览器原生事件（Browser Native Event）封装为合成事件（SyntheticEvent）传入设置的事件处理器中。这里的合成事件提供了与原生事件相同的接口，不过它们屏蔽了底层浏览器的细节差异，保证了行为的一致性。另外有意思的是，React 并没有直接将事件附着到子元素上，而是以单一事件监听器的方式将所有的事件发送">
@@ -139,7 +139,7 @@
 
 
 
-  <title>react事件研究及阻止冒泡 | 前端-洋仔</title>
+  <title>react事件研究及阻止冒泡 | 大洋</title>
   
 
 
@@ -175,7 +175,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">前端-洋仔</span>
+        <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -261,13 +261,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/25/react事件研究及阻止冒泡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -329,7 +329,7 @@
 <p>事件处理程序在事件冒泡阶段被触发。如果要注册事件捕获处理程序，应该使用 <code>Capture</code> 事件，例如使用 <code>onClickCapture</code> 处理点击事件的捕获阶段，而不是 <code>onClick</code>。</p>
 <h3 id="阻止冒泡事件分三种情况"><a href="#阻止冒泡事件分三种情况" class="headerlink" title="阻止冒泡事件分三种情况"></a>阻止冒泡事件分三种情况</h3><p>A、阻止合成事件间的冒泡，用e.stopPropagation();<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="comment">// 阻止合成事件间的冒泡</span></div><div class="line">        e.stopPropagation();</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    testClick()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'test'</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test" onClick=&#123;()=&gt;this.testClick()&#125;&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure></p>
 <p>B、阻止合成事件与最外层<code>document</code>上的事件间的冒泡，用<code>e.nativeEvent.stopImmediatePropagation()</code>;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="comment">// 阻止合成事件与最外层document上的事件间的冒泡</span></div><div class="line">        e.nativeEvent.stopImmediatePropagation();</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test"&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'document'</span>);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e-target来避免"><a href="#C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e-target来避免" class="headerlink" title="C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免"></a>C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test"&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>,e=&gt;&#123;</div><div class="line">            <span class="comment">// 通过e.target判断阻止冒泡</span></div><div class="line">            <span class="keyword">if</span>(e.target&amp;&amp;e.target.matches(<span class="string">'a'</span>))&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'body'</span>);</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure>
+<p>C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test"&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>,e=&gt;&#123;</div><div class="line">            <span class="comment">// 通过e.target判断阻止冒泡</span></div><div class="line">            <span class="keyword">if</span>(e.target&amp;&amp;e.target.matches(<span class="string">'a'</span>))&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'body'</span>);</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure></p>
 <h3 id="stackoverflow"><a href="#stackoverflow" class="headerlink" title="stackoverflow"></a>stackoverflow</h3><p><a href="https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events" target="_blank" rel="external">https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events</a></p>
 <p>React uses event delegation with a single event listener on document for events that bubble, like ‘click’ in this example, which means stopping propagation is not possible; the real event has already propagated by the time you interact with it in React. stopPropagation on React’s synthetic event is possible because React handles propagation of synthetic events internally.</p>
 <p>Working JSFiddle with the fixes from below: <a href="http://jsfiddle.net/7LEDT/6/" target="_blank" rel="external">http://jsfiddle.net/7LEDT/6/</a></p>
@@ -365,13 +365,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="wangyang WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="wangyang Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -479,10 +479,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
-               alt="wangyang" />
-          <p class="site-author-name" itemprop="name">wangyang</p>
+               alt="大洋" />
+          <p class="site-author-name" itemprop="name">大洋</p>
            
-              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -490,7 +490,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-中的事件处理逻辑"><span class="nav-number">1.</span> <span class="nav-text">React 中的事件处理逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合成事件-SyntheticEvent"><span class="nav-number">2.</span> <span class="nav-text">合成事件 SyntheticEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的事件"><span class="nav-number">3.</span> <span class="nav-text">支持的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止冒泡事件分三种情况"><span class="nav-number">4.</span> <span class="nav-text">阻止冒泡事件分三种情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e-target来避免"><span class="nav-number">5.</span> <span class="nav-text">C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stackoverflow"><span class="nav-number">6.</span> <span class="nav-text">stackoverflow</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-中的事件处理逻辑"><span class="nav-number">1.</span> <span class="nav-text">React 中的事件处理逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合成事件-SyntheticEvent"><span class="nav-number">2.</span> <span class="nav-text">合成事件 SyntheticEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的事件"><span class="nav-number">3.</span> <span class="nav-text">支持的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止冒泡事件分三种情况"><span class="nav-number">4.</span> <span class="nav-text">阻止冒泡事件分三种情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stackoverflow"><span class="nav-number">5.</span> <span class="nav-text">stackoverflow</span></a></li></ol></div>
             
 
           </div>
@@ -636,7 +636,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">wangyang</span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
 </div>
 
 
@@ -648,6 +648,13 @@
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
+  </a>
+</div>
+
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
   </a>
 </div>
 

@@ -83,7 +83,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="前端-洋仔" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
 
 
 
@@ -95,15 +95,15 @@
 
 
 
-<meta name="description" content="专注于前端">
+<meta name="description" content="成功道路并不拥挤，因为坚持的人不多">
 <meta property="og:type" content="website">
-<meta property="og:title" content="前端-洋仔">
+<meta property="og:title" content="大洋">
 <meta property="og:url" content="http://html-js.site/page/2/index.html">
-<meta property="og:site_name" content="前端-洋仔">
-<meta property="og:description" content="专注于前端">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="成功道路并不拥挤，因为坚持的人不多">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端-洋仔">
-<meta name="twitter:description" content="专注于前端">
+<meta name="twitter:title" content="大洋">
+<meta name="twitter:description" content="成功道路并不拥挤，因为坚持的人不多">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>前端-洋仔</title>
+  <title>大洋</title>
   
 
 
@@ -175,7 +175,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">前端-洋仔</span>
+        <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -258,16 +258,779 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/函数柯里化/">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/14/React-Router-使用教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/React-Router-使用教程/" itemprop="url">React Router 使用教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T11:38:16+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>真正学会 <a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> 是一个漫长的过程。<br><img src="/images/page/reactRouter/03.jpg" alt=""><br>你会发现，它不是一个库，也不是一个框架，而是一个庞大的体系。想要发挥它的威力，整个技术栈都要配合它改造。你要学习一整套解决方案，从后端到前端，都是全新的做法。<br><img src="/images/page/reactRouter/04.png" alt=""><br>举例来说，React 不使用 HTML，而使用 JSX 。它打算抛弃 DOM，要求开发者不要使用任何 DOM 方法。它甚至还抛弃了 SQL ，自己发明了一套查询语言 GraphQL 。当然，这些你都可以不用，React 照样运行，但是就发挥不出它的最大威力。<br>这样说吧，你只要用了 React，就会发现合理的选择就是，采用它的整个技术栈。<br>本文介绍 React 体系的一个重要部分：路由库<code>[React-Router](https://github.com/reactjs/react-router)</code>。它是官方维护的，事实上也是唯一可选的路由库。它通过管理 URL，实现组件的切换和状态的变化，开发复杂的应用几乎肯定会用到。<br><img src="/images/page/reactRouter/05.png" alt=""><br>（[说明] 本文写作时，React-router 是 2.x 版，本文的内容只适合这个版本，与最新的 4.x 版不兼容。目前，官方同时维护 2.x 和 4.x 两个版本，所以前者依然可以用在项目中。2017年3月）</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>React Router 安装命令如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -S react-router</div></pre></td></tr></table></figure></p>
+<p>使用时，路由器<code>Router</code>就是React的一个组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Router &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line">render(&lt;Router/&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</div></pre></td></tr></table></figure></p>
+<p><code>Router</code>组件本身只是一个容器，真正的路由要通过<code>Route</code>组件定义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Router, Route, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line">render((</div><div class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</div><div class="line">    &lt;Route path="/" component=&#123;App&#125;/&gt;</div><div class="line">  &lt;/Router&gt;</div><div class="line">), document.getElementById('app'));</div></pre></td></tr></table></figure></p>
+<p>上面代码中，用户访问根路由<code>/</code>（比如<code>http://www.example.com/</code>），组件<code>APP</code>就会加载到<code>document.getElementById(&#39;app&#39;)</code>。<br>你可能还注意到，<code>Router</code>组件有一个参数<code>history</code>，它的值<code>hashHistory</code>表示，路由的切换由URL的<code>hash</code>变化决定，即<code>URL</code>的<code>#</code>部分发生变化。举例来说，用户访问<code>http://www.example.com/</code>，实际会看到的是<code>http://www.example.com/#/</code>。</p>
+<p><code>Route</code>组件定义了URL路径与组件的对应关系。你可以同时使用多个<code>Route</code>组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123;hashHistory&#125;&gt;</div><div class="line">  &lt;Route path="/" component=&#123;App&#125;/&gt;</div><div class="line">  &lt;Route path="/repos" component=&#123;Repos&#125;/&gt;</div><div class="line">  &lt;Route path="/about" component=&#123;About&#125;/&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，用户访问<code>/repos</code>（比如<code>http://localhost:8080/#/repos</code>）时，加载<code>Repos</code>组件；访问<code>/about</code>（<code>http://localhost:8080/#/about</code>）时，加载<code>About</code>组件。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/14/React-Router-使用教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/13/npm-scripts-使用指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/13/npm-scripts-使用指南/" itemprop="url">npm scripts 使用指南</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T20:38:42+08:00">
+                2017-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。<br>本文介绍如何使用 npm 脚本（npm scripts）。</p>
+<h3 id="什么是-npm-脚本？"><a href="#什么是-npm-脚本？" class="headerlink" title="什么是 npm 脚本？"></a>什么是 npm 脚本？</h3><p>npm 允许在<code>package.json</code>文件里面，使用<code>scripts</code>字段定义脚本命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node build.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码是<code>package.json</code>文件的一个片段，里面的<code>scripts</code>字段是一个对象。它的每一个属性，对应一段脚本。比如，<code>build</code>命令对应的脚本是<code>node build.js</code>。<br>命令行下使用<code>npm run</code>命令，就可以执行这段脚本。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div><div class="line"># 等同于执行</div><div class="line">$ node build.js</div></pre></td></tr></table></figure></p>
+<p>这些定义在<code>package.json</code>里面的脚本，就称为 npm 脚本。它的优点很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">项目的相关脚本，可以集中在一个地方。</div><div class="line">不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</div><div class="line">可以利用 npm 提供的很多辅助功能。</div></pre></td></tr></table></figure></p>
+<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的<code>npm run</code>命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run</div></pre></td></tr></table></figure></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。<br>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。<br>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 <code>Mocha</code>，只要直接写<code>mocha test</code>就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"mocha test"</span></div></pre></td></tr></table></figure></p>
+<p>而不用写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha test"</span></div></pre></td></tr></table></figure></p>
+<p>由于 npm 脚本的唯一要求就是可以在 Shell 执行，因此它不一定是 Node 脚本，任何可执行文件都可以写在里面。<br>npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是<code>0</code>，npm 就认为这个脚本执行失败。</p>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint *.js"</span></div><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **/*.js"</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。<br>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"tap test/\*.js"</span></div></pre></td></tr></table></figure></p>
+<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>向 npm 脚本传入参数，要使用–标明。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span></div></pre></td></tr></table></figure></p>
+<p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml</div></pre></td></tr></table></figure></p>
+<p>也可以在<code>package.json</code>里面再封装一个命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span>,</div><div class="line"><span class="string">"lint:checkstyle"</span>: <span class="string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span></div></pre></td></tr></table></figure></p>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。<br>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp; npm run script2.js</div></pre></td></tr></table></figure></p>
+<p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp;&amp; npm run script2.js</div></pre></td></tr></table></figure></p>
+<p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<a href="https://github.com/paulpflug/script-runner" target="_blank" rel="external">script-runner</a>、<a href="https://github.com/mysticatea/npm-run-all" target="_blank" rel="external">npm-run-all</a>、<a href="https://github.com/coderaiser/redrun" target="_blank" rel="external">redrun</a>。</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>npm run start</code>的默认值是<code>node server.js</code>，前提是项目根目录下有<code>server.js</code>这个脚本；<code>npm run install</code>的默认值是<code>node-gyp rebuild</code>，前提是项目根目录下有<code>binding.gyp</code>文件。</p>
+<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"prebuild"</span>: <span class="string">"echo I run before the build script"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</div><div class="line"><span class="string">"postbuild"</span>: <span class="string">"echo I run after the build script"</span></div></pre></td></tr></table></figure></p>
+<p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild</div></pre></td></tr></table></figure></p>
+<p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf ./dist &amp;&amp; mkdir dist"</span>,</div><div class="line"><span class="string">"prebuild"</span>: <span class="string">"npm run clean"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span></div></pre></td></tr></table></figure></p>
+<p>npm 默认提供下面这些钩子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">prepublish，postpublish</div><div class="line">preinstall，postinstall</div><div class="line">preuninstall，postuninstall</div><div class="line">preversion，postversion</div><div class="line">pretest，posttest</div><div class="line">prestop，poststop</div><div class="line">prestart，poststart</div><div class="line">prerestart，postrestart</div></pre></td></tr></table></figure></p>
+<p>自定义的脚本命令也可以加上<code>pre</code>和<code>post</code>钩子。比如，<code>myscript</code>这个脚本命令，也有<code>premyscript</code>和<code>postmyscript</code>钩子。不过，双重的<code>pre</code>和<code>post</code>无效，比如<code>prepretest</code>和<code>postposttest</code>是无效的。<br>npm 提供一个<code>npm_lifecycle_event</code>变量，返回当前正在运行的脚本名称，比如<code>pretest</code>、<code>test</code>、<code>posttest等</code>等。所以，可以利用这个变量，在同一个脚本文件里面，为不同的<code>npm scripts</code>命令编写代码。请看下面的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> TARGET = process.env.npm_lifecycle_event;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'test'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the test task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'pretest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the pretest task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'posttest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the posttest task!`</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，<code>prepublish</code>这个钩子不仅会在<code>npm publish</code>命令之前运行，还会在<code>npm install</code>（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 <code>npm 4</code>引入了一个新的钩子<code>prepare</code>，行为等同于<code>prepublish</code>，而从 <code>npm 5</code>开始，<code>prepublish</code>将只在<code>npm publish</code>命令之前运行。</p>
+<h3 id="简写形式"><a href="#简写形式" class="headerlink" title="简写形式"></a>简写形式</h3><p>四个常用的 npm 脚本有简写形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm start是npm run start</div><div class="line">npm stop是npm run stop的简写</div><div class="line">npm test是npm run test的简写</div><div class="line">npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; npm run start的简写</div></pre></td></tr></table></figure></p>
+<p><code>npm start</code>、<code>npm stop</code>和<code>npm restart</code>都比较好理解，而<code>npm restart</code>是一个复合命令，实际上会执行三个脚本命令：<code>stop</code>、<code>restart</code>、<code>start</code>。具体的执行顺序如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">prerestart</div><div class="line">prestop</div><div class="line">stop</div><div class="line">poststop</div><div class="line">restart</div><div class="line">prestart</div><div class="line">start</div><div class="line">poststart</div><div class="line">postrestart</div></pre></td></tr></table></figure></p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。<br>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"foo"</span>, </div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.2.5"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"view"</span>: <span class="string">"node view.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回<code>1.2.5</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view.js</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_name); <span class="comment">// foo</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_version); <span class="comment">// 1.2.5</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。<br><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。<br>下面是另外一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="string">"install"</span>: <span class="string">"foo.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。<br>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"view"</span>: <span class="string">"echo $npm_config_tag"</span>,</div></pre></td></tr></table></figure></p>
+<p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</div><div class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</div><div class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>npm_package_config_port</code>变量返回的是8080。这个值可以用下面的方法覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config set foo:port <span class="number">80</span></div></pre></td></tr></table></figure></p>
+<p>最后，<code>env</code>命令可以列出所有环境变量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"env"</span>: <span class="string">"env"</span></div></pre></td></tr></table></figure></p>
+<h3 id="常用脚本示例"><a href="#常用脚本示例" class="headerlink" title="常用脚本示例"></a>常用脚本示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/" itemprop="url">JavaScript数字精度丢失问题总结及解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T17:33:02+08:00">
+                2017-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>js精度问题一般是对浮点数的加减乘除引起的，主要的解决方案大都是将浮点数<code>*10^n</code>转为整数，计算完再<code>/10^n</code>转为浮点数</p>
+<h3 id="JS数字精度丢失的一些典型问题"><a href="#JS数字精度丢失的一些典型问题" class="headerlink" title="JS数字精度丢失的一些典型问题"></a>JS数字精度丢失的一些典型问题</h3><ul>
+<li><ol>
+<li>两个简单的浮点数相加</li>
+</ol>
+</li>
+<li><ol>
+<li>大整数运算</li>
+</ol>
+</li>
+<li><ol>
+<li>toFixed 不会四舍五入（Chrome）</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/page/number/1.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/20/使用-webpack-优化资源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/使用-webpack-优化资源/" itemprop="url">使用 webpack 优化资源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T15:23:36+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前端应用的优化中，对加载资源的大小控制极其的重要，大多数时候我们能做的是在打包编译的过程对资源进行大小控制、拆分与复用。</p>
+<p>本片文章中主要是基于 webpack 打包，以 React、vue 等生态开发的单页面应用来举例说明如何从 webpack 打包的层面去处理资源以及缓存，其中主要我们需要做的是对 webpack 进行配置的优化，同时涉及少量的业务代码的更改。</p>
+<p>同时对打包资源的分析可以使用 (<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="external">webpack-contrib/webpack-bundle-analyzer</a>) 插件，当然可选的分析插件还是很多的，在本文中主要以该插件来举例分析。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/20/使用-webpack-优化资源/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/18/webpack-postcss配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/18/webpack-postcss配置/" itemprop="url">webpack postcss配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T14:30:28+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的<a href="https://github.com/ant-design/ant-design-mobile/wiki/HD" target="_blank" rel="external">高清方案</a>，但是组件都是使用px为单位的，所以需要集成postcss来进行转换rem</p>
+</blockquote>
+<h3 id="安装postcss相关npm包"><a href="#安装postcss相关npm包" class="headerlink" title="安装postcss相关npm包"></a>安装postcss相关npm包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install postcss-loader postcss-pxtorem --save-dev</div></pre></td></tr></table></figure>
+<h3 id="webpack集成postcss"><a href="#webpack集成postcss" class="headerlink" title="webpack集成postcss"></a>webpack集成postcss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">const</span> pxtorem = <span class="built_in">require</span>(<span class="string">'postcss-pxtorem'</span>);</div><div class="line"><span class="comment">// ....</span></div><div class="line">&#123;</div><div class="line">    <span class="attr">postcss</span>: [</div><div class="line">        pxtorem(&#123;</div><div class="line">            <span class="attr">rootValue</span>: <span class="number">100</span>,</div><div class="line">            <span class="attr">propWhiteList</span>: []</div><div class="line">        &#125;),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="设定post-loader"><a href="#设定post-loader" class="headerlink" title="设定post-loader"></a>设定post-loader</h3><p>改写loaders，比如要对.css文件进行过滤:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">loaders: [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'style-loader!css-loader!postcss-loader'</span></div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/lodash学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/11/lodash学习笔记/" itemprop="url">lodash学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:10:16+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Lodash 是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。</p>
+<h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash提供的辅助函数主要分为以下几类:</p>
+<ul>
+<li><code>Array</code>，适用于数组类型，比如填充数据，部分适用于字符串，比如分组、查找、过滤等操作。</li>
+<li><code>Collection</code>，适用于数组和对象类型，部分适用于字符串，比如分组、查找、过滤等操作。</li>
+<li><code>Function</code>，适用于函数类型，比如节流、延迟、缓存、设置钩子等操作。</li>
+<li><code>Lang</code>，普遍适用于各种类型，常用于执行类型判断和类型转换。</li>
+<li><code>Math</code>，适用于数组类型，常用于执行数学运算。</li>
+<li><code>Number</code>，适用于生成随机数，比较数值与数值区间的关系。</li>
+<li><code>Object</code>，适用于对象类型，常用于对象的创建、扩展、类型转换、检索、集合等操作。</li>
+<li><code>Seq</code>，常用于创建链式调用，提高执行性能（惰性计算）。</li>
+<li><code>String</code>，适用于字符串类型。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/11/lodash学习笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/11/函数柯里化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -378,13 +1141,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/13/git学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -503,13 +1266,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/javascript进阶-惰性函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -631,13 +1394,13 @@
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/react-router-按需加载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
+      <meta itemprop="name" content="大洋">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
+      <meta itemprop="name" content="大洋">
     </span>
 
     
@@ -767,763 +1530,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/02/React和Redux的连接react-redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/02/React和Redux的连接react-redux/" itemprop="url">React和Redux的连接react-redux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T10:45:57+08:00">
-                2017-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>原文地址：<a href="http://leozdgao.me/reacthe-reduxde-qiao-jie-react-redux/" target="_blank" rel="external">http://leozdgao.me/reacthe-reduxde-qiao-jie-react-redux/</a></p>
-</blockquote>
-<p>Redux本身和React并没有之间的关联，它是一个通用Javscript App模块，用做App State的管理。要在React的项目中使用Redux，比较好的方式是借助react-redux这个库来做连接，这里的意思是，并不是没有react-redux，这两个库就不弄一起用了，而是说react-redux提供了一些封装，一种更科学的代码组织方式，让我们更舒服地在React的代码中使用Redux。</p>
-<p>之前仅通过Redux文档来了解react-redux，在一段时间的实践后准备翻一翻源代码，顺便做些相关的总结。我看的代码的npm版本为<code>v4.0.0</code>，也就是说使用的React版本是<code>v0.14.x</code>。</p>
-<p>react-redux提供两个关键模块：Provider和connect。</p>
-<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider这个模块是作为整个App的容器，在你原有的App Container的基础上再包上一层，它的工作很简单，就是接受Redux的store作为props，并将其声明为context的属性之一，子组件可以在声明了<code>contextTypes</code>之后可以方便的通过<code>this.context.store</code>访问到store。不过我们的组件通常不需要这么做，将store放在context里，是为了给下面的connect用的。</p>
-<p>这个是Provider的使用示例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// config app root</span></div><div class="line"><span class="keyword">const</span> history = createHistory()  </div><div class="line"><span class="keyword">const</span> root = (  </div><div class="line">  &lt;Provider store=&#123;store&#125; key="provider"&gt;</div><div class="line">    &lt;Router history=&#123;history&#125; routes=&#123;routes&#125; /&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">)</div><div class="line"></div><div class="line">// render</div><div class="line">ReactDOM.render(  </div><div class="line">  root,</div><div class="line">  document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>这个模块是算是真正意义上连接了Redux和React，正好它的名字也叫connect。</p>
-<p>先考虑Redux是怎么运作的：首先store中维护了一个state，我们dispatch一个action，接下来reducer根据这个action更新state。</p>
-<p>映射到我们的React应用中，store中维护的state就是我们的app state，一个React组件作为View层，做两件事：render和响应用户操作。于是connect就是将store中的必要数据作为props传递给React组件来render，并包装action creator用于在响应用户操作时dispatch一个action。</p>
-<p>好了，详细看看connect这个模块做了什么。先从它的使用来说，它的API如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])</div></pre></td></tr></table></figure></p>
-<p>mapStateToProps是一个函数，返回值表示的是需要merge进props的state。默认值为<code>() =&gt; ({})</code>，即什么都不传。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(state, props) =&gt; (&#123;  &#125;) <span class="comment">// 通常会省略第二个参数</span></div></pre></td></tr></table></figure></p>
-<p><code>mapDispatchToProps</code>是可以是一个函数，返回值表示的是需要<code>merge</code>仅<code>props</code>的<code>actionCreators</code>，这里的<code>actionCreator</code>应该是已经被包装了<code>dispatch</code>了的，推荐使用<code>redux</code>的<code>bindActionCreators</code>函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(dispatch, props) =&gt; (&#123; <span class="comment">// 通常会省略第二个参数</span></div><div class="line"> ...bindActionCreators(&#123;</div><div class="line">   ...ResourceActions</div><div class="line"> &#125;, dispatch)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>更方便的是可以直接接受一个对象，此时<code>connect</code>函数内部会将其转变为函数，这个函数和上面那个例子是一模一样的。</p>
-<p><code>mergeProps</code>用于自定义<code>merge</code>流程，下面这个是默认流程，<code>parentProps</code>值的就是组件自身的<code>props</code>，可以发现如果组件的<code>props</code>上出现同名，会被覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(stateProps, dispatchProps, parentProps) =&gt; (&#123;</div><div class="line">  ...parentProps,</div><div class="line">  ...stateProps,</div><div class="line">  ...dispatchProps</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><code>options</code>共有两个开关：<code>pure</code>代表是否打开优化，详细内容下面会提，默认为<code>true</code>，<code>withRef</code>用来给包装在里面的组件一个<code>ref</code>，可以通过<code>getWrappedInstance</code>方法来获取这个<code>ref</code>，默认为<code>false</code>。</p>
-<p><code>connect</code>返回一个函数，它接受一个<code>React</code>组件的构造函数作为连接对象，最终返回连接好的组件构造函数。</p>
-<p>然后几个问题：</p>
-<ul>
-<li>React组件如何响应store的变化？</li>
-<li>为什么connect选择性的merge一些props，而不是直接将整个state传入？</li>
-<li>pure优化的是什么？</li>
-</ul>
-<p>我们把<code>connect</code>返回的函数叫做<code>Connector</code>，它返回的是内部的一个叫<code>Connect</code>的组件，它在包装原有组件的基础上，还在内部监听了<code>Redux</code>的<code>store</code>的变化，为了让被它包装的组件可以响应<code>store</code>的变化:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">trySubscribe() &#123;  </div><div class="line">  <span class="keyword">if</span> (shouldSubscribe &amp;&amp; !<span class="keyword">this</span>.unsubscribe) &#123;</div><div class="line">    <span class="keyword">this</span>.unsubscribe = <span class="keyword">this</span>.store.subscribe(::<span class="keyword">this</span>.handleChange)</div><div class="line">    <span class="keyword">this</span>.handleChange()</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">handleChange () &#123;  </div><div class="line">  <span class="keyword">this</span>.setState(&#123;</div><div class="line">    <span class="attr">storeState</span>: <span class="keyword">this</span>.store.getState()</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但是通常，我们<code>connect</code>的是某个<code>Container</code>组件，它并不承载所有<code>App state</code>，然而我们的<code>handler</code>是响应所有<code>state</code>变化的，于是我们需要优化的是：当<code>storeState</code>变化的时候，仅在我们真正依赖那部分<code>state</code>变化时，才重新<code>render</code>相应的<code>React</code>组件，那么什么是我们真正依赖的部分？就是通过<code>mapStateToProps</code>和<code>mapDispatchToProps</code>得到的。</p>
-<p>具体优化的方式就是在<code>shouldComponentUpdate</code>中做检查，如果只有在组件自身的<code>props</code>改变，或者<code>mapStateToProps</code>的结果改变，或者是<code>mapDispatchToProps</code>的结果改变时<code>shouldComponentUpdate</code>才会返回<code>true</code>，检查的方式是进行<code>shallowEqual</code>的比较。</p>
-<p>所以对于某个reducer来说：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = &#123;&#125;, action) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123; ...state &#125; <span class="comment">// 返回的是一个新的对象，可能会使组件reRender</span></div><div class="line">  <span class="comment">// return state // 可能不会使得组件reRender</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另外在<code>connect</code>的时候，要谨慎<code>map</code>真正需要的<code>state</code>或者<code>actionCreators</code>到<code>props</code>中，以避免不必要的性能损失。</p>
-<p>最后，根据<code>connect</code>的<code>API</code>我们发现可以使用<code>ES7 decorator</code>功能来配合<code>React ES6</code>的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@connect(</div><div class="line">  <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</div><div class="line">    <span class="attr">user</span>: state.user,</div><div class="line">    <span class="attr">resource</span>: state.resource</div><div class="line">  &#125;),</div><div class="line">  dispatch =&gt; (&#123;</div><div class="line">    ...bindActionCreators(&#123;</div><div class="line">      <span class="attr">loadResource</span>: ResourceActions.load</div><div class="line">    &#125;, dispatch)</div><div class="line">  &#125;)</div><div class="line">)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>OK，结束了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/25/react事件研究及阻止冒泡/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/25/react事件研究及阻止冒泡/" itemprop="url">react事件研究及阻止冒泡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T22:14:08+08:00">
-                2017-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="React-中的事件处理逻辑"><a href="#React-中的事件处理逻辑" class="headerlink" title="React 中的事件处理逻辑"></a>React 中的事件处理逻辑</h3><p>为了解决跨浏览器兼容性问题，<code>React</code> 会将浏览器原生事件（<code>Browser Native Event</code>）封装为合成事件（<code>SyntheticEvent</code>）传入设置的事件处理器中。这里的合成事件提供了与原生事件相同的接口，不过它们屏蔽了底层浏览器的细节差异，保证了行为的一致性。另外有意思的是，<code>React</code> 并没有直接将事件附着到子元素上，而是以单一事件监听器的方式将所有的事件发送到顶层进行处理。这样 <code>React</code> 在更新 <code>DOM</code> 的时候就不需要考虑如何去处理附着在 <code>DOM</code> 上的事件监听器，最终达到优化性能的目的。</p>
-<h3 id="合成事件-SyntheticEvent"><a href="#合成事件-SyntheticEvent" class="headerlink" title="合成事件 SyntheticEvent"></a>合成事件 SyntheticEvent</h3><p><code>SyntheticEvent</code> 是浏览器原生事件跨浏览器的封装。<code>SyntheticEvent</code> 和浏览器原生事件一样有 <code>stopPropagation()</code>、<code>preventDefault()</code> 接口，而且这些接口夸浏览器兼容。</p>
-<p>如果出于某些原因想使用浏览器原生事件，可以使用 <code>nativeEvent</code> 属性获取。每个和成事件（<code>SyntheticEvent</code>）对象都有以下属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">boolean bubbles</div><div class="line">boolean cancelable</div><div class="line">DOMEventTarget currentTarget</div><div class="line">boolean defaultPrevented</div><div class="line">Number eventPhase</div><div class="line">boolean isTrusted</div><div class="line">DOMEvent nativeEvent</div><div class="line">void preventDefault()</div><div class="line">void stopPropagation()</div><div class="line">DOMEventTarget target</div><div class="line">Date timeStamp</div><div class="line">String type</div></pre></td></tr></table></figure></p>
-<h3 id="支持的事件"><a href="#支持的事件" class="headerlink" title="支持的事件"></a>支持的事件</h3><p>React 将事件统一化，使事件在不同浏览器上有一致的属性。</p>
-<p>事件处理程序在事件冒泡阶段被触发。如果要注册事件捕获处理程序，应该使用 <code>Capture</code> 事件，例如使用 <code>onClickCapture</code> 处理点击事件的捕获阶段，而不是 <code>onClick</code>。</p>
-<h3 id="阻止冒泡事件分三种情况"><a href="#阻止冒泡事件分三种情况" class="headerlink" title="阻止冒泡事件分三种情况"></a>阻止冒泡事件分三种情况</h3><p>A、阻止合成事件间的冒泡，用e.stopPropagation();<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="comment">// 阻止合成事件间的冒泡</span></div><div class="line">        e.stopPropagation();</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    testClick()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'test'</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test" onClick=&#123;()=&gt;this.testClick()&#125;&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure></p>
-<p>B、阻止合成事件与最外层<code>document</code>上的事件间的冒泡，用<code>e.nativeEvent.stopImmediatePropagation()</code>;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="comment">// 阻止合成事件与最外层document上的事件间的冒泡</span></div><div class="line">        e.nativeEvent.stopImmediatePropagation();</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test"&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'document'</span>);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e-target来避免"><a href="#C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e-target来避免" class="headerlink" title="C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免"></a>C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">count</span>:<span class="number">0</span>,</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick(e)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div ref="test"&gt;</div><div class="line">                &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123;</div><div class="line">        <span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>,e=&gt;&#123;</div><div class="line">            <span class="comment">// 通过e.target判断阻止冒泡</span></div><div class="line">            <span class="keyword">if</span>(e.target&amp;&amp;e.target.matches(<span class="string">'a'</span>))&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'body'</span>);</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter/&gt;,div1,()=&gt;&#123;&#125;);</div></pre></td></tr></table></figure>
-<h3 id="stackoverflow"><a href="#stackoverflow" class="headerlink" title="stackoverflow"></a>stackoverflow</h3><p><a href="https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events" target="_blank" rel="external">https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events</a></p>
-<p>React uses event delegation with a single event listener on document for events that bubble, like ‘click’ in this example, which means stopping propagation is not possible; the real event has already propagated by the time you interact with it in React. stopPropagation on React’s synthetic event is possible because React handles propagation of synthetic events internally.</p>
-<p>Working JSFiddle with the fixes from below: <a href="http://jsfiddle.net/7LEDT/6/" target="_blank" rel="external">http://jsfiddle.net/7LEDT/6/</a></p>
-<p>React Stop Propagation on jQuery Event</p>
-<p>Use <code>Event.stopImmediatePropagation</code> to prevent your other (jQuery in this case) listeners on the root from being called. It is supported in IE9+ and modern browsers.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">    e.nativeEvent.stopImmediatePropagation();</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<ul>
-<li>Caveat: Listeners are called in the order in which they are bound. React must be initialized before other code (jQuery here) for this to work.</li>
-</ul>
-<p>jQuery Stop Propagation on React Event</p>
-<p>Your jQuery code uses event delegation as well, which means calling stopPropagation in the handler is not stopping anything; the event has already propagated to document, and React’s listener will be triggered.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Listener bound to `document`, event delegation</span></div><div class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.stop-propagation'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>To prevent propagation beyond the element, the listener must be bound to the element itself:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Listener bound to `.stop-propagation`, no delegation</span></div><div class="line">$(<span class="string">'.stop-propagation'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>Clarified that delegation is necessarily only used for events that bubble. For more details on event handling, React’s source has descriptive comments: <a href="https://github.com/facebook/react/blob/3b96650e39ddda5ba49245713ef16dbc52d25e9e/src/renderers/dom/client/ReactBrowserEventEmitter.js#L23" target="_blank" rel="external">https://github.com/facebook/react/blob/3b96650e39ddda5ba49245713ef16dbc52d25e9e/src/renderers/dom/client/ReactBrowserEventEmitter.js#L23</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/17/JavaScript-中的匿名递归/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/JavaScript-中的匿名递归/" itemprop="url">JavaScript 中的匿名递归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T14:12:47+08:00">
-                2017-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>代码如果这么写，过一段时间之后自己还能明白？</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span> f(f)</div><div class="line">  )</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span></div><div class="line">      (l) =&gt; &#123;</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line"><span class="keyword">if</span> (l.length) f(f)(l.slice(<span class="number">1</span>))</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line">      &#125;</div><div class="line">  )</div><div class="line">)</div><div class="line">(</div><div class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>是的，这就是想要分享给大家的一个有趣的示例。这个例子包含以下特性：闭包)，自执行函数，箭头函数，函数式编程 和 匿名递归。</p>
-<p>你可以复制粘贴上述代码到浏览器控制台，会看到打印结果如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[]</div><div class="line">[]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/17/JavaScript-中的匿名递归/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/01/八段代码彻底掌握-Promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/01/八段代码彻底掌握-Promise/" itemprop="url">八段代码彻底掌握 Promise</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T14:51:00+08:00">
-                2017-08-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-Promise的立即执行性"><a href="#1-Promise的立即执行性" class="headerlink" title="1.Promise的立即执行性"></a>1.Promise的立即执行性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"create a promise"</span>);</div><div class="line">  resolve(<span class="string">"success"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"after new Promise"</span>);</div><div class="line"></div><div class="line">p.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>控制台输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;create a promise&quot;</div><div class="line">&quot;after new Promise&quot;</div><div class="line">&quot;success&quot;</div></pre></td></tr></table></figure></p>
-<p>Promise对象表示未来某个将要发生的事件，但在创建（new）Promise时，作为Promise参数传入的函数是会被立即执行的，只是其中执行的代码可以是异步代码。有些同学会认为，当Promise对象调用then方法时，Promise接收的函数才会执行，这是错误的。因此，代码中”create a promise”先于”after new Promise”输出。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/01/八段代码彻底掌握-Promise/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/23/webpack的重要功能——Plugins/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/23/webpack的重要功能——Plugins/" itemprop="url">webpack的重要功能——Plugins</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T14:57:18+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><code>webpack</code>中另一个非常重要的功能是<code>Plugins</code>。<br>插件（<code>Plugins</code>）是用来拓展<code>webpack</code>功能的，它们会在整个构建过程中生效，执行相关的任务。<br><code>Loaders</code>和<code>Plugins</code>常常被弄混，但是他们其实是完全不同的东西：<code>Loaders</code>是在打包构建过程中用来处理源文件的（<code>JSX，Scss，Less..</code>），一次处理一个;插件并不直接操作单个文件，它直接对整个构建过程其作用。<br><code>webpack</code>有很多内置插件，同时也有很多第三方插件，可以让我们完成更加丰富的功能。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/webpack的重要功能——Plugins/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/23/webpack最强大的功能———Loaders/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端-洋仔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/23/webpack最强大的功能———Loaders/" itemprop="url">webpack最强大的功能———Loaders</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T10:06:43+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Loaders"><a href="#Loaders" class="headerlink" title="Loaders"></a>Loaders</h3><p><code>Loaders</code>是<code>webpack</code>中最强大的功能之一了。通过使用不同的<code>loader</code>，<code>webpack</code>通过调用外部的脚本或工具可以对各种各样的格式的文件进行处理，如分析<code>JSON</code>文件并把它转换为<code>JavaScript</code>文件；或把下一代的<code>js</code>文件（<code>ES6，ES7</code>)转换为现代浏览器可以识别的<code>JS</code>文件；或对<code>React</code>的开发而言，合适的<code>Loaders</code>可以把<code>react</code>的<code>JSX</code>文件转换为<code>JS</code>文件。</p>
-<p><code>Loaders</code>需要单独安装并且需要在<code>webpack.config.js</code>下的<code>modules</code>关键字下进行配置。安装命令为<code>npm install --save-dev json-loader</code>，<code>Loaders</code>的配置选项包括以下几方面：</p>
-<ul>
-<li>test  一个匹配loaders所处理的文件的拓展名的正则表达式（必须）</li>
-<li>loader  loader的名称（必须）</li>
-<li>include/exclude  手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）</li>
-<li>query  为loaders提供额外的设置选项（可选）
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/webpack最强大的功能———Loaders/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1557,10 +1568,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.jpg"
-               alt="wangyang" />
-          <p class="site-author-name" itemprop="name">wangyang</p>
+               alt="大洋" />
+          <p class="site-author-name" itemprop="name">大洋</p>
            
-              <p class="site-description motion-element" itemprop="description">专注于前端</p>
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1568,7 +1579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1698,7 +1709,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">wangyang</span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
 </div>
 
 
@@ -1710,6 +1721,13 @@
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
+  </a>
+</div>
+
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
   </a>
 </div>
 
