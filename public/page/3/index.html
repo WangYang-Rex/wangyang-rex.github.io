@@ -258,6 +258,134 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/javascript进阶-惰性函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/09/javascript进阶-惰性函数/" itemprop="url">javascript进阶-惰性函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T15:15:03+08:00">
+                2017-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>函数是js世界的一等公民，js的动态性、易变性在函数的应用上，体现的淋漓尽致。做为参数，做为返回值等，正是函数这些特性，使得js开发变的有趣。</p>
+</blockquote>
+<p>下面就阐述一下，js一个有趣的应用–惰性函数定义（Lazy Function Definition）。</p>
+<p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。</p>
+<p>下面我们看几个典型的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        element[<span class="string">'on'</span> + type] = fun;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面是注册函数监听的各浏览器兼容函数。由于，各浏览之间的差异，不得不在用的时候做能力检测。显然，单从功能上讲，已经做到了兼容浏览器。美中不足，每次绑定监听，都会对能力做一次检测。然而，真正的应用中，这显然是多余的，同一个应用环境中，其实只需要检测一次即可。</p>
+<p>下面我们重写上面的addEvent：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element[<span class="string">'on'</span> + type] = fun;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    addEvent(type, element, fun);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由上，第一次调用addEvent会对浏览器做能力检测，然后，重写了addEvent。下次再调用的时候，由于函数被重写，不会再做能力检测。</p>
+<p>同样的应用，javascript高级程序设计里的一例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</div><div class="line">            <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">                            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line">    </div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                    <span class="built_in">arguments</span>.callee.activeXString = versions[i];</div><div class="line">                    <span class="keyword">return</span> xhr;</div><div class="line">                &#125; <span class="keyword">catch</span> (ex)&#123;</div><div class="line">                    <span class="comment">//skip</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>很显然，惰性函数在这里优势更加明显，因为这里有更多的分支。下面我们看一下重写后台的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>) &#123;</div><div class="line">        createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>) &#123;</div><div class="line">        <span class="keyword">var</span> curxhr;</div><div class="line">        <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = versions.length; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                curxhr = versions[i];</div><div class="line">                createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(curxhr);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> xhr;</div><div class="line">            &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">                <span class="comment">//skip</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>浏览器之间最大的差异，莫过于Dom操作，Dom操作也是前端应用 中最频繁的操作，前端的大多性能提升，均体现在Dom操作方面。下面看一个Dom操作方面的惰性函数定义例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.pageYOffset == <span class="string">'number'</span>) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">window</span>.pageYOffset;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">typeof</span> <span class="built_in">document</span>.compatMode == <span class="string">'string'</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.compatMode.indexOf(<span class="string">'CSS'</span>) &gt;= <span class="number">0</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.documentElement) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.documentElement.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.scrollTop;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="built_in">document</span>.body) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.body.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="built_in">document</span>.body.scrollTop;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="literal">NaN</span>;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> getScrollY();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>惰性函数定义应用还体现在创建单例上：(目前还不清楚创建单例的话有什么好处)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">unction Universe() &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 缓存的实例</span></div><div class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 其它内容</span></div><div class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 重写构造函数</span></div><div class="line">    Universe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，像上面这种例子有很多。惰性函数定义，应用场景我们可以总结一下：</p>
+<p>1 应用频繁，如果只用一次，是体现不出它的优点出来的，用的次数越多，越能体现这种模式的优势所在；</p>
+<p>2 固定不变，一次判定，在固定的应用环境中不会发生改变；</p>
+<p>3 复杂的分支判断，没有差异性，不需要应用这种模式；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/react-router-按需加载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1384,124 +1512,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/06/07/npmlist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/07/npmlist/" itemprop="url">npmlist</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T10:48:19+08:00">
-                2017-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这里收集了一些目前用到的一些npm库以及相关的功能</p>
-<h3 id="node-glob-获取对应规则的文件-路径-所有文件"><a href="#node-glob-获取对应规则的文件-路径-所有文件" class="headerlink" title="node-glob  获取对应规则的文件/路径/所有文件"></a>node-glob  获取对应规则的文件/路径/所有文件</h3><blockquote>
-<p>node的glob模块允许你使用 *等符号, 来写一个glob规则,获取匹配对应规则的文件.<br>这个glob工具基于javascript.它使用了 minimatch 库来进行匹配<br><a href="https://github.com/isaacs/node-glob" target="_blank" rel="external">https://github.com/isaacs/node-glob</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/07/npmlist/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1551,7 +1561,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1564,7 +1574,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
