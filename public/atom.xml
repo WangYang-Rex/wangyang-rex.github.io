@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2018-04-09T02:35:11.000Z</updated>
+  <updated>2018-04-10T07:25:16.097Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CleanMyMac3.9.4(支持10.13HighSierra)</title>
+    <link href="http://html-js.site/2018/04/10/CleanMyMac3-9-4-%E6%94%AF%E6%8C%8110-13HighSierra/"/>
+    <id>http://html-js.site/2018/04/10/CleanMyMac3-9-4-支持10-13HighSierra/</id>
+    <published>2018-04-10T07:20:02.000Z</published>
+    <updated>2018-04-10T07:25:16.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>[已更新最新版3.9.4]macOS 10.13 High Sierra 系统垃圾清理神器CleanMyMac 3.9.4最新TNT破解版，对于经济实力允许的用户，请<a href="https://macpaw.com/zh/store/cleanmymac?cs=c" target="_blank" rel="external">支持正版</a>。中文版每年￥99，也还算是挺划算的。</p>
+<hr>
+<h3 id="应用介绍"><a href="#应用介绍" class="headerlink" title="应用介绍"></a>应用介绍</h3><p><img src="/images/page/CleanMyMac/1.png" alt=""><br>Mac OS X 系统下知名清理软件 CleanMyMac，这种垃圾清理类的软件似乎始终无法上架 Mac App Store，CleanMyMac 3 的宣传力度似乎并不如CleanMyMac 2，想当年 CleanMyMac 2 在MacPaw 网站上得倒计时挂了很久。这次，CleanMyMac 3 作为在 OS X Yosemite 系统下的软件，视觉风格上自然要满足扁平化和简约的设计路线。当然，版本号大升级，也需要拿出一点诚意，增加一些新功能。CleanMyMac 3 优化了清理体验，将复杂的操作和内容隐藏的更好，实际的操作流畅性更好一些。</p>
+<h3 id="文件已损坏解决方法"><a href="#文件已损坏解决方法" class="headerlink" title="文件已损坏解决方法"></a>文件已损坏解决方法</h3><p>如果显示文件已损坏，打开终端键入sudo spctl –master-disable</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>CleanMyMac 3.9.4 By TNT<br>百度云下载链接: <a href="https://pan.baidu.com/s/1brjQKhD" target="_blank" rel="external">https://pan.baidu.com/s/1brjQKhD</a> 密码: awja</p>
+<p>CleanMyMac 3.9.3 By TNT<br>百度云下载链接: <a href="https://pan.baidu.com/s/1pLOexdD" target="_blank" rel="external">https://pan.baidu.com/s/1pLOexdD</a> 密码: aepm</p>
+<p>CleanMyMac 3.9.2<br>百度云下载链接: <a href="https://pan.baidu.com/s/1eSAPg10" target="_blank" rel="external">https://pan.baidu.com/s/1eSAPg10</a> 密码: bcge</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[已更新最新版3.9.4]macOS 10.13 High Sierra 系统垃圾清理神器CleanMyMac 3.9.4最新TNT破解版，对于经济实力允许的用户，请&lt;a href=&quot;https://macpaw.com/zh/store/cleanmymac?cs=c&quot; 
+    
+    </summary>
+    
+    
+      <category term="other" scheme="http://html-js.site/tags/other/"/>
+    
+  </entry>
   
   <entry>
     <title>.eslintrc文件配置</title>
@@ -1107,41 +1134,6 @@
     
     
       <category term="javascript" scheme="http://html-js.site/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git学习</title>
-    <link href="http://html-js.site/2017/09/13/git%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://html-js.site/2017/09/13/git学习/</id>
-    <published>2017-09-13T06:58:40.000Z</published>
-    <updated>2017-09-13T06:59:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>git config –global user.name “username”<br>git config –global user.email “email”</p>
-<p>提交流程：<br>git add .<br>git commit -m “代码提交信息”<br>git pull “代码提交信息”<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名</local_branch></p>
-<p>git branch branchName 创建新分支<br>git checkout branchName 切换到新分支</p>
-<p>查看、添加、提交、删除、找回，重置修改文件<br>git help <command> # 显示command的help<br>git show # 显示某次提交的内容 git show $id<br>git co – <file> # 抛弃工作区修改<br>git co . # 抛弃工作区修改<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git add . # 将所有修改过的工作文件提交暂存区<br>git rm <file> # 从版本库中删除文件<br>git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset – . # 从暂存区恢复到工作文件<br>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　git ci -am “some comments”<br>git ci –amend # 修改最后一次提交记录<br>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p>
-<p>git commit -m “代码提交信息”</p>
-<p>查看文件diff<br>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git diff <id1><id1><id2> # 比较两次提交之间的差异<br>git diff <branch1>..<branch2> # 在两个分支之间比较<br>git diff –staged # 比较暂存区和版本库差异<br>git diff –cached # 比较暂存区和版本库差异<br>git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p>
-<p>查看提交记录<br>git log git log <file> # 查看该文件每次提交记录<br>git log -p <file> # 查看每次详细修改内容的diff<br>git log -p -2 # 查看最近两次详细修改内容的diff<br>git log –stat #查看提交统计信息<br>tig Mac上可以使用tig代替diff和log，brew install tig<br>Git 本地分支管理</file></file></p>
-<p>查看、切换、创建和删除分支<br>git br -r # 查看远程分支<br>git br <new_branch> # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b <new_branch> # 创建新的分支，并且切换过去<br>git co -b <new_branch> <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b <new_branch> # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></new_branch></branch></new_branch></new_branch></branch></new_branch></p>
-<p>分支合并和rebase<br>git merge <branch> # 将branch分支合并到当前分支<br>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交<br>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch><br>Git补丁管理(方便在多台机器上开发同步时用)<br>git diff &gt; ../sync.patch # 生成补丁<br>git apply ../sync.patch # 打补丁<br>git apply –check ../sync.patch #测试补丁能否成功</branch></branch></branch></branch></p>
-<p>Git暂存管理<br>git stash # 暂存<br>git stash list # 列所有stash<br>git stash apply # 恢复暂存的内容<br>git stash drop # 删除暂存区</p>
-<p>Git远程分支管理<br>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b <local_branch> origin/<remote_branch> # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名<br>git push origin <local_branch>:<remote_branch> # 创建远程分支<br>git push origin :<remote_branch> #先删除本地分支(git br -d <branch>)，然后再push删除远程分支<br>删除远程分支<br>git branch -a<br>git branch -r -d origin/branch-name<br>git push origin :branch-name</branch></remote_branch></remote_branch></local_branch></local_branch></remote_branch></local_branch></p>
-<p>Git远程仓库管理<br>GitHub<br>git remote -v # 查看远程服务器地址和仓库名称<br>git remote show origin # 查看远程服务器仓库状态<br>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址<br>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</repository></p>
-<p>创建远程仓库<br>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库<br>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上<br>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库<br>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址<br>git push -u origin master # 客户端首次提交<br>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track<br>git remote set-head origin master # 设置远程仓库的HEAD指向master分支</p>
-<p>也可以命令设置跟踪远程库和本地库<br>git branch –set-upstream master origin/master<br>git branch –set-upstream develop origin/develop</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;git config –global user.name “username”&lt;br&gt;git config –global user.email “email”&lt;/p&gt;
-&lt;p&gt;提交流程：&lt;br&gt;git add .&lt;br&gt;git commit -m “代码提交信息”&lt;br&gt;g
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://html-js.site/tags/git/"/>
     
   </entry>
   
