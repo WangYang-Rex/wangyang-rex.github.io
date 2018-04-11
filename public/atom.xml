@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2018-04-10T07:25:16.097Z</updated>
+  <updated>2018-04-11T08:33:47.549Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript事件循环-event loop</title>
+    <link href="http://html-js.site/2018/04/11/JavaScript%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-event-loop/"/>
+    <id>http://html-js.site/2018/04/11/JavaScript事件循环-event-loop/</id>
+    <published>2018-04-11T08:33:47.000Z</published>
+    <updated>2018-04-11T08:33:47.549Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>CleanMyMac3.9.4(支持10.13HighSierra)</title>
@@ -377,7 +391,7 @@
     <link href="http://html-js.site/2018/03/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     <id>http://html-js.site/2018/03/26/前端面试/</id>
     <published>2018-03-26T06:24:47.000Z</published>
-    <updated>2018-03-26T06:45:37.943Z</updated>
+    <updated>2018-04-11T08:28:05.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HTML-amp-CSS-部分"><a href="#HTML-amp-CSS-部分" class="headerlink" title="HTML &amp; CSS 部分"></a>HTML &amp; CSS 部分</h3><ul>
 <li><p>css常用布局<br>定位布局，流布局，浮动布局，flex和grid布局，包括还有三栏布局中的圣杯和双飞翼<br>使用flex实现垂直水平居中</p>
@@ -398,7 +412,7 @@
 </li>
 <li><p>JavaScript的节流和防抖</p>
 </li>
-<li><p>js事件执行机制<br>event loop，microtask，task queue<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
+<li><p>js事件执行机制<br>event loop，microtask，task queue : 任务队列、执行栈<br>然后事件委托、捕获、冒泡、目标阶段<br>target和currentTarget</p>
 </li>
 <li><p>this指向的问题<br>四种绑定规则，new的执行过程以及箭头函数注意事项</p>
 </li>
@@ -467,7 +481,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;JavaScript的节流和防抖&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;js事件执行机制&lt;br&gt;event loop，microtask，task queue&lt;br&gt;然后事件委托、捕获、冒泡、目标阶段&lt;br&gt;target和currentTarget&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;js事件执行机制&lt;br&gt;event loop，microtask，task queue : 任务队列、执行栈&lt;br&gt;然后事件委托、捕获、冒泡、目标阶段&lt;br&gt;target和currentTarget&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;this指向的问题&lt;br&gt;四种绑定规则，new的执行过程以及箭头函数注意事项&lt;/p&gt;
 &lt;/li&gt;
@@ -1097,43 +1111,6 @@
       <category term="javascript" scheme="http://html-js.site/tags/javascript/"/>
     
       <category term="lodash" scheme="http://html-js.site/tags/lodash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>函数柯里化</title>
-    <link href="http://html-js.site/2017/10/11/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/"/>
-    <id>http://html-js.site/2017/10/11/函数柯里化/</id>
-    <published>2017-10-11T15:00:59.000Z</published>
-    <updated>2017-10-11T15:07:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家哈斯凯尔·加里命名的，尽管它是 Moses Schönfinkel 和 Gottlob Frege 发明的。</p>
-<p>这是来自维基百科的名词解释。顾名思义，柯里化其实本身是固定一个可以预期的参数，并返回一个特定的函数，处理批特定的需求。这增加了函数的适用性，但同时也降低了函数的适用范围。</p>
-<a id="more"></a>
-<p>看一下通用实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">currying</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">    __args = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> __inargs = slice.call(<span class="built_in">arguments</span>);</div><div class="line">        <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, __args.concat(__inargs));</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>柯里化的实用性体现在很多方面：</p>
-<h3 id="提高适用性。"><a href="#提高适用性。" class="headerlink" title="提高适用性。"></a>提高适用性。</h3><p>【通用函数】解决了兼容性问题，但同时也会再来，使用的不便利性，不同的应用场景往，要传递很多参数，以达到解决特定问题的目的。有时候应用中，同一种规则可能会反复使用，这就可能会造成代码的重复性。</p>
-<p>看下面一个例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i * i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> list.map(handeler);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 数组的每一项平方</span></div><div class="line">map(square, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">map(square, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">map(square, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div><div class="line"></div><div class="line"><span class="comment">// 数组的每一项加倍</span></div><div class="line">map(dubble, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">map(dubble, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">map(dubble, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div></pre></td></tr></table></figure></p>
-<p>例子中，创建了一个map通用函数，用于适应不同的应用场景。显然，通用性不用怀疑。同时，例子中重复传入了相同的处理函数：square和dubble。</p>
-<p>应用中这种可能会更多。当然，通用性的增强必然带来适用性的减弱。但是，我们依然可以在中间找到一种平衡。</p>
-<p>看下面，我们利用柯里化改造一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i * i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> list.map(handeler);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> mapSQ = currying(map, square);</div><div class="line">mapSQ([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">mapSQ([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">mapSQ([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> mapDB = currying(map, dubble);</div><div class="line">mapDB([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">mapDB([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">mapDB([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div></pre></td></tr></table></figure></p>
-<p>我们缩小了函数的适用范围，但同时提高函数的适性。当然，也有扩展函数适用范围的方法–反柯里化，留到下一篇再讨论。</p>
-<p>由此，可知柯里化不仅仅是提高了代码的合理性，更重的它突出一种思想—降低适用范围，提高适用性。</p>
-<p>下面再看一个例子，一个应用范围更广泛更熟悉的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">&#125;</div><div class="line"></div><div class="line">Ajax.prototype.open = <span class="function"><span class="keyword">function</span>(<span class="params">type, url, data, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        callback(<span class="keyword">this</span>.xhr.responseText, <span class="keyword">this</span>.xhr.status, <span class="keyword">this</span>.xhr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.xhr.open(type, url, data.async);</div><div class="line">    <span class="keyword">this</span>.xhr.send(data.paras);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="string">'get post'</span>.split(<span class="string">' '</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mt</span>) </span>&#123;</div><div class="line">    Ajax.prototype[mt] = currying(Ajax.prototype.open, mt);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> Ajax();</div><div class="line">xhr.get(<span class="string">'/articles/list.php'</span>, &#123;&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</div><div class="line">    <span class="comment">// done(datas)    </span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr1 = <span class="keyword">new</span> Ajax();</div><div class="line">xhr1.post(<span class="string">'/articles/add.php'</span>, &#123;&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</div><div class="line">    <span class="comment">// done(datas)    </span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h3><p>柯里化的另一个应用场景是延迟执行。不断的柯里化，累积传入的参数，最后执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</div><div class="line">    _args = <span class="built_in">arguments</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) &#123;</div><div class="line">            <span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,</div><div class="line">            c; c = _args[i++];) sum += c</div><div class="line">            <span class="keyword">return</span> sum</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>) <span class="keyword">return</span> <span class="built_in">arguments</span>.callee</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)();<span class="comment">//10</span></div></pre></td></tr></table></figure></p>
-<p>通用的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> curry = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _args = []</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, _args)</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>);</div><div class="line">        <span class="keyword">return</span> cb;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="固定易变因素"><a href="#固定易变因素" class="headerlink" title="固定易变因素"></a>固定易变因素</h3><p>柯里化特性决定了它这应用场景。提前把易变因素，传参固定下来，生成一个更明确的应用函数。最典型的代表应用，是bind函数用以固定this这个易变对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</div><div class="line">    _args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> _this.apply(context, _args.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)))</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家哈斯凯尔·加里命名的，尽管它是 Moses Schönfinkel 和 Gottlob Frege 发明的。&lt;/p&gt;
-&lt;p&gt;这是来自维基百科的名词解释。顾名思义，柯里化其实本身是固定一个可以预期的参数，并返回一个特定的函数，处理批特定的需求。这增加了函数的适用性，但同时也降低了函数的适用范围。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://html-js.site/tags/javascript/"/>
     
   </entry>
   
