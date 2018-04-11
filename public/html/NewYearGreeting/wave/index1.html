@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
+			if (window.DeviceMotionEvent) {
+				var speed = 25;
+				var x = y = z = lastX = lastY = lastZ = 0;
+				var _num = 0;
+				window.addEventListener('devicemotion', function() {
+					var acceleration = event.accelerationIncludingGravity;
+					x = acceleration.x;
+					y = acceleration.y;
+					if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
+						document.body.style.backgroundColor = color[Math.round(Math.random() * 10) % 6];
+						_num++;
+					}
+					lastX = x;
+					lastY = y;
+					if(_num > 3){
+						alert('你中奖了！');
+						_num=0;
+					}
+				}, false);
+			}
+		</script>
+	</head>
+	<body style="height:100%;width:100%;">
+		
+	</body>
+
+</html>
