@@ -436,7 +436,7 @@
     <link href="http://html-js.site/2018/03/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     <id>http://html-js.site/2018/03/26/前端面试/</id>
     <published>2018-03-26T06:24:47.000Z</published>
-    <updated>2018-04-11T09:32:38.016Z</updated>
+    <updated>2018-05-22T06:59:47.808Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HTML-amp-CSS-部分"><a href="#HTML-amp-CSS-部分" class="headerlink" title="HTML &amp; CSS 部分"></a>HTML &amp; CSS 部分</h3><ul>
 <li><p>css常用布局<br>定位布局，流布局，浮动布局，flex和grid布局，包括还有三栏布局中的圣杯和双飞翼<br>使用flex实现垂直水平居中</p>
@@ -463,7 +463,10 @@
 </li>
 <li><p>es6相关知识点<br>promise的实现方式；<br>generator怎么实现；</p>
 <a id="more"></a>
-<h3 id="React部分"><a href="#React部分" class="headerlink" title="React部分"></a>React部分</h3></li>
+</li>
+</ul>
+<h3 id="Vue部分"><a href="#Vue部分" class="headerlink" title="Vue部分"></a>Vue部分</h3><p><a href="https://www.cnblogs.com/sichaoyun/p/8406194.html" target="_blank" rel="external">https://www.cnblogs.com/sichaoyun/p/8406194.html</a></p>
+<h3 id="React部分"><a href="#React部分" class="headerlink" title="React部分"></a>React部分</h3><ul>
 <li><p>react部分必考的肯定有生命周期</p>
 </li>
 <li><p>setState是异步的还是同步的，几个参数，各有什么作用，延伸到componentShouldUpdate;</p>
