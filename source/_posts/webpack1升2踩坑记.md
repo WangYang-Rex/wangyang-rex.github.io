@@ -14,3 +14,4 @@ tags: [webpack]
 - https://github.com/gaearon/react-hot-loader
 - https://www.jianshu.com/p/07c0666e87c7
 - https://segmentfault.com/a/1190000009244530
+- https://github.com/gaearon/react-hot-loader/issues/249  这个issue非常有用！！！！
