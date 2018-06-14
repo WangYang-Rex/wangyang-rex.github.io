@@ -10,6 +10,7 @@ tags: [webpack]
 
 ### 升级后 模块热替换(HMR)失效
 直接看文档
+- (http://www.css88.com/doc/webpack2/guides/hmr-react/)[http://www.css88.com/doc/webpack2/guides/hmr-react/]
 - (https://github.com/gaearon/react-hot-loader)[https://github.com/gaearon/react-hot-loader]
 - (https://www.jianshu.com/p/07c0666e87c7)[https://www.jianshu.com/p/07c0666e87c7]
 - (https://segmentfault.com/a/1190000009244530)[https://segmentfault.com/a/1190000009244530]
