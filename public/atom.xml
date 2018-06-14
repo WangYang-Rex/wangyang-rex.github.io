@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2018-05-21T09:57:53.000Z</updated>
+  <updated>2018-06-14T09:05:55.750Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack1升2踩坑记</title>
+    <link href="http://html-js.site/2018/06/14/webpack1%E5%8D%872%E8%B8%A9%E5%9D%91%E8%AE%B0/"/>
+    <id>http://html-js.site/2018/06/14/webpack1升2踩坑记/</id>
+    <published>2018-06-14T08:56:44.000Z</published>
+    <updated>2018-06-14T09:05:55.750Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="webpack-从-v1-升级到-v2"><a href="#webpack-从-v1-升级到-v2" class="headerlink" title="webpack 从 v1 升级到 v2"></a>webpack 从 v1 升级到 v2</h3><p>从 v1 升级到 v2，总体来讲比较简单，跟着官方升级文档做就行了，主要是 <code>module</code> 和 <code>ExtractTextWebpackPlugin</code> 变化比较大</p>
+<ul>
+<li>(<a href="http://www.css88.com/doc/webpack2/guides/migrating/)[http://www.css88.com/doc/webpack2/guides/migrating/" target="_blank" rel="external">http://www.css88.com/doc/webpack2/guides/migrating/)[http://www.css88.com/doc/webpack2/guides/migrating/</a>]</li>
+</ul>
+<h3 id="升级后-模块热替换-HMR-失效"><a href="#升级后-模块热替换-HMR-失效" class="headerlink" title="升级后 模块热替换(HMR)失效"></a>升级后 模块热替换(HMR)失效</h3><p>直接看文档</p>
+<ul>
+<li>(<a href="https://github.com/gaearon/react-hot-loader)[https://github.com/gaearon/react-hot-loader" target="_blank" rel="external">https://github.com/gaearon/react-hot-loader)[https://github.com/gaearon/react-hot-loader</a>]</li>
+<li>(<a href="https://www.jianshu.com/p/07c0666e87c7)[https://www.jianshu.com/p/07c0666e87c7" target="_blank" rel="external">https://www.jianshu.com/p/07c0666e87c7)[https://www.jianshu.com/p/07c0666e87c7</a>]</li>
+<li>(<a href="https://segmentfault.com/a/1190000009244530)[https://segmentfault.com/a/1190000009244530" target="_blank" rel="external">https://segmentfault.com/a/1190000009244530)[https://segmentfault.com/a/1190000009244530</a>]</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;webpack-从-v1-升级到-v2&quot;&gt;&lt;a href=&quot;#webpack-从-v1-升级到-v2&quot; class=&quot;headerlink&quot; title=&quot;webpack 从 v1 升级到 v2&quot;&gt;&lt;/a&gt;webpack 从 v1 升级到 v2&lt;/h3&gt;&lt;p&gt;从 
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://html-js.site/tags/webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>React性能优化军规</title>
@@ -1066,33 +1096,6 @@
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在前端应用的优化中，对加载资源的大小控制极其的重要，大多数时候我们能做的是在打包编译的过程对资源进行大小控制、拆分与复用。&lt;/p&gt;
 &lt;p&gt;本片文章中主要是基于 webpack 打包，以 React、vue 等生态开发的单页面应用来举例说明如何从 webpack 打包的层面去处理资源以及缓存，其中主要我们需要做的是对 webpack 进行配置的优化，同时涉及少量的业务代码的更改。&lt;/p&gt;
 &lt;p&gt;同时对打包资源的分析可以使用 (&lt;a href=&quot;http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/webpack-bundle-analyzer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webpack-contrib/webpack-bundle-analyzer&lt;/a&gt;) 插件，当然可选的分析插件还是很多的，在本文中主要以该插件来举例分析。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="webpack" scheme="http://html-js.site/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack postcss配置</title>
-    <link href="http://html-js.site/2017/10/18/webpack-postcss%E9%85%8D%E7%BD%AE/"/>
-    <id>http://html-js.site/2017/10/18/webpack-postcss配置/</id>
-    <published>2017-10-18T06:30:28.000Z</published>
-    <updated>2017-10-18T06:44:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的<a href="https://github.com/ant-design/ant-design-mobile/wiki/HD" target="_blank" rel="external">高清方案</a>，但是组件都是使用px为单位的，所以需要集成postcss来进行转换rem</p>
-</blockquote>
-<h3 id="安装postcss相关npm包"><a href="#安装postcss相关npm包" class="headerlink" title="安装postcss相关npm包"></a>安装postcss相关npm包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install postcss-loader postcss-pxtorem --save-dev</div></pre></td></tr></table></figure>
-<h3 id="webpack集成postcss"><a href="#webpack集成postcss" class="headerlink" title="webpack集成postcss"></a>webpack集成postcss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">const</span> pxtorem = <span class="built_in">require</span>(<span class="string">'postcss-pxtorem'</span>);</div><div class="line"><span class="comment">// ....</span></div><div class="line">&#123;</div><div class="line">    <span class="attr">postcss</span>: [</div><div class="line">        pxtorem(&#123;</div><div class="line">            <span class="attr">rootValue</span>: <span class="number">100</span>,</div><div class="line">            <span class="attr">propWhiteList</span>: []</div><div class="line">        &#125;),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="设定post-loader"><a href="#设定post-loader" class="headerlink" title="设定post-loader"></a>设定post-loader</h3><p>改写loaders，比如要对.css文件进行过滤:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">loaders: [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'style-loader!css-loader!postcss-loader'</span></div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的&lt;a href=&quot;https://github.com/ant-design/ant-design-mobile/wiki/HD&quot; tar
     
     </summary>
     
