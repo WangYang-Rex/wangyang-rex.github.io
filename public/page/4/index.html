@@ -268,6 +268,127 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/17/JavaScript-中的匿名递归/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/17/JavaScript-中的匿名递归/" itemprop="url">JavaScript 中的匿名递归</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T14:12:47+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>代码如果这么写，过一段时间之后自己还能明白？</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span> f(f)</div><div class="line">  )</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span></div><div class="line">      (l) =&gt; &#123;</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line"><span class="keyword">if</span> (l.length) f(f)(l.slice(<span class="number">1</span>))</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line">      &#125;</div><div class="line">  )</div><div class="line">)</div><div class="line">(</div><div class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>是的，这就是想要分享给大家的一个有趣的示例。这个例子包含以下特性：闭包)，自执行函数，箭头函数，函数式编程 和 匿名递归。</p>
+<p>你可以复制粘贴上述代码到浏览器控制台，会看到打印结果如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[]</div><div class="line">[]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/JavaScript-中的匿名递归/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/01/八段代码彻底掌握-Promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1319,123 +1440,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/05/22/当你不知道干什么的时候，可以看看这些/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/22/当你不知道干什么的时候，可以看看这些/" itemprop="url">当你不知道干什么的时候，可以看看这些</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T17:15:38+08:00">
-                2017-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="可以看看电影视频"><a href="#可以看看电影视频" class="headerlink" title="可以看看电影视频"></a>可以看看电影视频</h2><p><a href="https://movie.douban.com/top250" target="_blank" rel="external">豆瓣电影250</a> 随便挑一个都是百看不厌<br><a href="http://open.163.com/" target="_blank" rel="external">网易公开课</a> 不带目的随便看几个ted<br><a href="http://letshareba.com/movie" target="_blank" rel="external">最近正在热映电影</a> 可以看看评分，然后去电影院看看</p>
-<h2 id="可以看看知乎"><a href="#可以看看知乎" class="headerlink" title="可以看看知乎"></a>可以看看知乎</h2><p><a href="https://www.zhihu.com/collection/37406996" target="_blank" rel="external">知乎5000斩</a> 都是5K赞以上的回答</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/22/当你不知道干什么的时候，可以看看这些/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1485,7 +1489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

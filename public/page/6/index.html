@@ -268,6 +268,126 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2016/11/14/package-json/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/14/package-json/" itemprop="url">package.json</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-14T15:05:26+08:00">
+                2016-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>之前一直没好好看过（看过忘了）package.json，然后各种项目本地运行的命令又很多，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">node index</div><div class="line">node server index</div><div class="line">npm run dev</div><div class="line">webpack --progress --colors</div><div class="line">webpack-dev-server --progress --colors</div></pre></td></tr></table></figure></p>
+<p>这些命令很多，所以就研究了下package.json</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>每个项目的根目录下面，一般都有一个<code>package.json</code>文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。<code>npm install</code>命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。</p>
+<p>下面是一个最简单的<code>package.json</code>文件，只定义两项元数据：项目名称和项目版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot; : &quot;xxx&quot;,</div><div class="line">  &quot;version&quot; : &quot;0.0.0&quot;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码说明，<code>package.json</code>文件内部就是一个JSON对象，该对象的每一个成员就是当前项目的一项设置。比如<code>name</code>就是项目名称，<code>version</code>是版本（遵守“大版本.次要版本.小版本”的格式）。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/14/package-json/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2016/11/11/设计模式六大原则之单一职责原则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1354,124 +1474,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2016/07/14/一些jquery小技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/07/14/一些jquery小技巧/" itemprop="url">一些jquery小技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-14T16:27:08+08:00">
-                2016-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇文章总结了一些个人的jquery小知识</p>
-<h3 id="回到顶部的按钮"><a href="#回到顶部的按钮" class="headerlink" title="回到顶部的按钮"></a>回到顶部的按钮</h3><p>通过使用jQuery中的<code>animate</code> 与 <code>scrollTop</code> 方法可以创建一个非常简易的带有平滑滚动的回到顶部的按钮：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// Back to top</div><div class="line">$(&apos;a.top&apos;).click(function (e) &#123;</div><div class="line">  e.preventDefault();</div><div class="line">  $(document.body).animate(&#123;scrollTop: 0&#125;, 800);</div><div class="line">&#125;);</div><div class="line">&lt;!-- Create an anchor tag --&gt;</div><div class="line">&lt;a class=&quot;top&quot; href=&quot;#&quot;&gt;Back to top&lt;/a&gt;</div></pre></td></tr></table></figure></p>
-<p>通过修改 <code>scrollTop</code>的值可以设置滚动最终停止的位置，最终的效果就是在800毫秒的时间内文档会被滚动到指定的地方。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/14/一些jquery小技巧/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1521,7 +1523,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

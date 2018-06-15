@@ -268,6 +268,137 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/" itemprop="url">JavaScript数字精度丢失问题总结及解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T17:33:02+08:00">
+                2017-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>js精度问题一般是对浮点数的加减乘除引起的，主要的解决方案大都是将浮点数<code>*10^n</code>转为整数，计算完再<code>/10^n</code>转为浮点数</p>
+<h3 id="JS数字精度丢失的一些典型问题"><a href="#JS数字精度丢失的一些典型问题" class="headerlink" title="JS数字精度丢失的一些典型问题"></a>JS数字精度丢失的一些典型问题</h3><ul>
+<li><ol>
+<li>两个简单的浮点数相加</li>
+</ol>
+</li>
+<li><ol>
+<li>大整数运算</li>
+</ol>
+</li>
+<li><ol>
+<li>toFixed 不会四舍五入（Chrome）</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/page/number/1.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/10/20/使用-webpack-优化资源/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1415,127 +1546,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/08/17/JavaScript-中的匿名递归/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/JavaScript-中的匿名递归/" itemprop="url">JavaScript 中的匿名递归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T14:12:47+08:00">
-                2017-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>代码如果这么写，过一段时间之后自己还能明白？</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span> f(f)</div><div class="line">  )</div><div class="line">  (</div><div class="line">    <span class="function">(<span class="params">f</span>) =&gt;</span></div><div class="line">      (l) =&gt; &#123;</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line"><span class="keyword">if</span> (l.length) f(f)(l.slice(<span class="number">1</span>))</div><div class="line">        <span class="built_in">console</span>.log(l)</div><div class="line">      &#125;</div><div class="line">  )</div><div class="line">)</div><div class="line">(</div><div class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>是的，这就是想要分享给大家的一个有趣的示例。这个例子包含以下特性：闭包)，自执行函数，箭头函数，函数式编程 和 匿名递归。</p>
-<p>你可以复制粘贴上述代码到浏览器控制台，会看到打印结果如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[]</div><div class="line">[]</div><div class="line">[ <span class="number">3</span> ]</div><div class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/17/JavaScript-中的匿名递归/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1585,7 +1595,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

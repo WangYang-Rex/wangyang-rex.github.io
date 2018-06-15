@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2018-06-15T09:29:44.757Z</updated>
+  <updated>2018-06-15T09:32:56.967Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack优化</title>
+    <link href="http://html-js.site/2018/06/15/webpack%E4%BC%98%E5%8C%96/"/>
+    <id>http://html-js.site/2018/06/15/webpack优化/</id>
+    <published>2018-06-15T09:31:37.000Z</published>
+    <updated>2018-06-15T09:32:56.967Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><a href="https://www.jianshu.com/p/b9bf995f3712" target="_blank" rel="external">webpack优化之HappyPack 实战</a></li>
+<li><a href="https://jeffjade.com/2017/08/06/124-webpack-packge-optimization-for-volume/" target="_blank" rel="external">Webpack 打包优化之体积篇</a></li>
+<li><a href="https://jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/" target="_blank" rel="external">Webpack 打包优化之速度篇</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.jianshu.com/p/b9bf995f3712&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webpack优化之HappyPack 实战&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https:
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://html-js.site/tags/webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack优化之HappyPack 实战</title>
@@ -953,76 +980,6 @@
       <category term="node" scheme="http://html-js.site/tags/node/"/>
     
       <category term="npm" scheme="http://html-js.site/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript数字精度丢失问题总结及解决方案</title>
-    <link href="http://html-js.site/2017/10/25/JavaScript%E6%95%B0%E5%AD%97%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://html-js.site/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/</id>
-    <published>2017-10-25T09:33:02.000Z</published>
-    <updated>2017-10-25T09:48:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>js精度问题一般是对浮点数的加减乘除引起的，主要的解决方案大都是将浮点数<code>*10^n</code>转为整数，计算完再<code>/10^n</code>转为浮点数</p>
-<h3 id="JS数字精度丢失的一些典型问题"><a href="#JS数字精度丢失的一些典型问题" class="headerlink" title="JS数字精度丢失的一些典型问题"></a>JS数字精度丢失的一些典型问题</h3><ul>
-<li><ol>
-<li>两个简单的浮点数相加</li>
-</ol>
-</li>
-<li><ol>
-<li>大整数运算</li>
-</ol>
-</li>
-<li><ol>
-<li>toFixed 不会四舍五入（Chrome）</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/page/number/1.png" alt=""></p>
-<a id="more"></a>
-<h3 id="JS-数字丢失精度的原因"><a href="#JS-数字丢失精度的原因" class="headerlink" title="JS 数字丢失精度的原因"></a>JS 数字丢失精度的原因</h3><p>计算机的二进制实现和位数限制有些数无法有限表示。就像一些无理数不能有限表示，如 圆周率 3.1415926…，1.3333… 等。JS 遵循 <a href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank" rel="external">IEEE 754</a> 规范，采用双精度存储（double precision），占用 64 bit。如图<br><img src="/images/page/number/2.png" alt=""><br>意义:</p>
-<ul>
-<li>1位用来表示符号位</li>
-<li>11位用来表示指数</li>
-<li>52位表示尾数</li>
-</ul>
-<p>浮点数，比如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">0.1</span> &gt;&gt; <span class="number">0.0001</span> <span class="number">1001</span> <span class="number">1001</span> <span class="number">1001</span>…（<span class="number">1001</span>无限循环）</div><div class="line"><span class="number">0.2</span> &gt;&gt; <span class="number">0.0011</span> <span class="number">0011</span> <span class="number">0011</span> <span class="number">0011</span>…（<span class="number">0011</span>无限循环）</div></pre></td></tr></table></figure></p>
-<p>此时只能模仿十进制进行四舍五入了，但是二进制只有 0 和 1 两个，于是变为 0 舍 1 入。这即是计算机中部分浮点数运算时出现误差，丢失精度的根本原因。</p>
-<p>大整数的精度丢失和浮点数本质上是一样的，尾数位最大是 52 位，因此 JS 中能精准表示的最大整数是 Math.pow(2, 53)，十进制即 9007199254740992。</p>
-<p>大于 9007199254740992 的可能会丢失精度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">9007199254740992</span>     &gt;&gt; <span class="number">10000000000000.</span>.<span class="number">.000</span> <span class="comment">// 共计 53 个 0</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">1</span> &gt;&gt; <span class="number">10000000000000.</span>.<span class="number">.001</span> <span class="comment">// 中间 52 个 0</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">2</span> &gt;&gt; <span class="number">10000000000000.</span>.<span class="number">.010</span> <span class="comment">// 中间 51 个 0</span></div></pre></td></tr></table></figure></p>
-<p>实际上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">9007199254740992</span> + <span class="number">1</span> <span class="comment">// 丢失</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">2</span> <span class="comment">// 未丢失</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">3</span> <span class="comment">// 丢失</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">4</span> <span class="comment">// 未丢失</span></div></pre></td></tr></table></figure></p>
-<p>结果如图<br><img src="/images/page/number/3.png" alt=""></p>
-<p>以上，可以知道看似有穷的数字, 在计算机的二进制表示里却是无穷的，由于存储位数限制因此存在“舍去”，精度丢失就发生了。</p>
-<p>想了解更深入的分析可以看这篇论文（又长又臭）：<a href="http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html" target="_blank" rel="external">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>对于整数，前端出现问题的几率可能比较低，毕竟很少有业务需要需要用到超大整数，只要运算结果不超过 Math.pow(2, 53) 就不会丢失精度。</p>
-<p>对于小数，前端出现问题的几率还是很多的，尤其在一些电商网站涉及到金额等数据。解决方式：把小数放到位整数（乘倍数），再缩小回原来倍数（除倍数）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 0.1 + 0.2</span></div><div class="line">(<span class="number">0.1</span>*<span class="number">10</span> + <span class="number">0.2</span>*<span class="number">10</span>) / <span class="number">10</span> == <span class="number">0.3</span> <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
-<p>以下是我写了一个对象，对小数的加减乘除运算丢失精度做了屏蔽。当然转换后的整数依然不能超过 9007199254740992。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * floatObj 包含加减乘除四个方法，能确保浮点数运算不丢失精度</div><div class="line"> *</div><div class="line"> * 我们知道计算机编程语言里浮点数计算会存在精度丢失问题（或称舍入误差），其根本原因是二进制和实现位数限制有些数无法有限表示</div><div class="line"> * 以下是十进制小数对应的二进制表示</div><div class="line"> *      0.1 &gt;&gt; 0.0001 1001 1001 1001…（1001无限循环）</div><div class="line"> *      0.2 &gt;&gt; 0.0011 0011 0011 0011…（0011无限循环）</div><div class="line"> * 计算机里每种数据类型的存储是一个有限宽度，比如 JavaScript 使用 64 位存储数字类型，因此超出的会舍去。舍去的部分就是精度丢失的部分。</div><div class="line"> *</div><div class="line"> * ** method **</div><div class="line"> *  add / subtract / multiply /divide</div><div class="line"> *</div><div class="line"> * ** explame **</div><div class="line"> *  0.1 + 0.2 == 0.30000000000000004 （多了 0.00000000000004）</div><div class="line"> *  0.2 + 0.4 == 0.6000000000000001  （多了 0.0000000000001）</div><div class="line"> *  19.9 * 100 == 1989.9999999999998 （少了 0.0000000000002）</div><div class="line"> *</div><div class="line"> * floatObj.add(0.1, 0.2) &gt;&gt; 0.3</div><div class="line"> * floatObj.multiply(19.9, 100) &gt;&gt; 1990</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> floatObj = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    </div><div class="line">    <span class="comment">/*</span></div><div class="line">     * 判断obj是否为一个整数</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isInteger</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(obj) === obj</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/*</span></div><div class="line">     * 将一个浮点数转成整数，返回整数和倍数。如 3.14 &gt;&gt; 314，倍数是 100</div><div class="line">     * @param floatNum &#123;number&#125; 小数</div><div class="line">     * @return &#123;object&#125;</div><div class="line">     *   &#123;times:100, num: 314&#125;</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toInteger</span>(<span class="params">floatNum</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ret = &#123;<span class="attr">times</span>: <span class="number">1</span>, <span class="attr">num</span>: <span class="number">0</span>&#125;</div><div class="line">        <span class="keyword">var</span> isNegative = floatNum &lt; <span class="number">0</span></div><div class="line">        <span class="keyword">if</span> (isInteger(floatNum)) &#123;</div><div class="line">            ret.num = floatNum</div><div class="line">            <span class="keyword">return</span> ret</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> strfi  = floatNum + <span class="string">''</span></div><div class="line">        <span class="keyword">var</span> dotPos = strfi.indexOf(<span class="string">'.'</span>)</div><div class="line">        <span class="keyword">var</span> len    = strfi.substr(dotPos+<span class="number">1</span>).length</div><div class="line">        <span class="keyword">var</span> times  = <span class="built_in">Math</span>.pow(<span class="number">10</span>, len)</div><div class="line">        <span class="keyword">var</span> intNum = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.abs(floatNum) * times + <span class="number">0.5</span>, <span class="number">10</span>)</div><div class="line">        ret.times  = times</div><div class="line">        <span class="keyword">if</span> (isNegative) &#123;</div><div class="line">            intNum = -intNum</div><div class="line">        &#125;</div><div class="line">        ret.num = intNum</div><div class="line">        <span class="keyword">return</span> ret</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/*</span></div><div class="line">     * 核心方法，实现加减乘除运算，确保不丢失精度</div><div class="line">     * 思路：把小数放大为整数（乘），进行算术运算，再缩小为小数（除）</div><div class="line">     *</div><div class="line">     * @param a &#123;number&#125; 运算数1</div><div class="line">     * @param b &#123;number&#125; 运算数2</div><div class="line">     * @param digits &#123;number&#125; 精度，保留的小数点数，比如 2, 即保留为两位小数</div><div class="line">     * @param op &#123;string&#125; 运算类型，有加减乘除（add/subtract/multiply/divide）</div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">operation</span>(<span class="params">a, b, digits, op</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> o1 = toInteger(a)</div><div class="line">        <span class="keyword">var</span> o2 = toInteger(b)</div><div class="line">        <span class="keyword">var</span> n1 = o1.num</div><div class="line">        <span class="keyword">var</span> n2 = o2.num</div><div class="line">        <span class="keyword">var</span> t1 = o1.times</div><div class="line">        <span class="keyword">var</span> t2 = o2.times</div><div class="line">        <span class="keyword">var</span> max = t1 &gt; t2 ? t1 : t2</div><div class="line">        <span class="keyword">var</span> result = <span class="literal">null</span></div><div class="line">        <span class="keyword">switch</span> (op) &#123;</div><div class="line">            <span class="keyword">case</span> <span class="string">'add'</span>:</div><div class="line">                <span class="keyword">if</span> (t1 === t2) &#123; <span class="comment">// 两个小数位数相同</span></div><div class="line">                    result = n1 + n2</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t1 &gt; t2) &#123; <span class="comment">// o1 小数位 大于 o2</span></div><div class="line">                    result = n1 + n2 * (t1 / t2)</div><div class="line">                &#125; <span class="keyword">else</span> &#123; <span class="comment">// o1 小数位 小于 o2</span></div><div class="line">                    result = n1 * (t2 / t1) + n2</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> result / max</div><div class="line">            <span class="keyword">case</span> <span class="string">'subtract'</span>:</div><div class="line">                <span class="keyword">if</span> (t1 === t2) &#123;</div><div class="line">                    result = n1 - n2</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t1 &gt; t2) &#123;</div><div class="line">                    result = n1 - n2 * (t1 / t2)</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    result = n1 * (t2 / t1) - n2</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> result / max</div><div class="line">            <span class="keyword">case</span> <span class="string">'multiply'</span>:</div><div class="line">                result = (n1 * n2) / (t1 * t2)</div><div class="line">                <span class="keyword">return</span> result</div><div class="line">            <span class="keyword">case</span> <span class="string">'divide'</span>:</div><div class="line">                result = (n1 / n2) * (t2 / t1)</div><div class="line">                <span class="keyword">return</span> result</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 加减乘除的四个接口</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b, digits</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> operation(a, b, digits, <span class="string">'add'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">subtract</span>(<span class="params">a, b, digits</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> operation(a, b, digits, <span class="string">'subtract'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">a, b, digits</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> operation(a, b, digits, <span class="string">'multiply'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">divide</span>(<span class="params">a, b, digits</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> operation(a, b, digits, <span class="string">'divide'</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// exports</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">add</span>: add,</div><div class="line">        <span class="attr">subtract</span>: subtract,</div><div class="line">        <span class="attr">multiply</span>: multiply,</div><div class="line">        <span class="attr">divide</span>: divide</div><div class="line">    &#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure></p>
-<p>toFixed的修复如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// toFixed 修复</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFixed</span>(<span class="params">num, s</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> times = <span class="built_in">Math</span>.pow(<span class="number">10</span>, s)</div><div class="line">    <span class="keyword">var</span> des = num * times + <span class="number">0.5</span></div><div class="line">    des = <span class="built_in">parseInt</span>(des, <span class="number">10</span>) / times</div><div class="line">    <span class="keyword">return</span> des + <span class="string">''</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js精度问题一般是对浮点数的加减乘除引起的，主要的解决方案大都是将浮点数&lt;code&gt;*10^n&lt;/code&gt;转为整数，计算完再&lt;code&gt;/10^n&lt;/code&gt;转为浮点数&lt;/p&gt;
-&lt;h3 id=&quot;JS数字精度丢失的一些典型问题&quot;&gt;&lt;a href=&quot;#JS数字精度丢失的一些典型问题&quot; class=&quot;headerlink&quot; title=&quot;JS数字精度丢失的一些典型问题&quot;&gt;&lt;/a&gt;JS数字精度丢失的一些典型问题&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;两个简单的浮点数相加&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;大整数运算&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;toFixed 不会四舍五入（Chrome）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/images/page/number/1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://html-js.site/tags/javascript/"/>
     
   </entry>
   
