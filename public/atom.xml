@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://html-js.site/"/>
-  <updated>2018-06-15T09:32:56.967Z</updated>
+  <updated>2018-06-19T12:02:54.179Z</updated>
   <id>http://html-js.site/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://html-js.site/2018/06/15/webpack%E4%BC%98%E5%8C%96/"/>
     <id>http://html-js.site/2018/06/15/webpack优化/</id>
     <published>2018-06-15T09:31:37.000Z</published>
-    <updated>2018-06-15T09:32:56.967Z</updated>
+    <updated>2018-06-19T12:02:54.179Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><a href="https://www.jianshu.com/p/b9bf995f3712" target="_blank" rel="external">webpack优化之HappyPack 实战</a></li>
@@ -69,10 +69,11 @@
     <link href="http://html-js.site/2018/06/14/webpack1%E5%8D%872%E8%B8%A9%E5%9D%91%E8%AE%B0/"/>
     <id>http://html-js.site/2018/06/14/webpack1升2踩坑记/</id>
     <published>2018-06-14T08:56:44.000Z</published>
-    <updated>2018-06-14T13:25:16.429Z</updated>
+    <updated>2018-06-20T06:01:25.369Z</updated>
     
     <content type="html"><![CDATA[<h3 id="webpack-从-v1-升级到-v2"><a href="#webpack-从-v1-升级到-v2" class="headerlink" title="webpack 从 v1 升级到 v2"></a>webpack 从 v1 升级到 v2</h3><p>从 v1 升级到 v2，总体来讲比较简单，跟着官方升级文档做就行了，主要是 <code>module</code> 和 <code>ExtractTextWebpackPlugin</code> 变化比较大</p>
 <ul>
+<li><a href="https://www.jianshu.com/p/cb8343020833" target="_blank" rel="external">https://www.jianshu.com/p/cb8343020833</a></li>
 <li><a href="http://www.css88.com/doc/webpack2/guides/migrating/" target="_blank" rel="external">http://www.css88.com/doc/webpack2/guides/migrating/</a></li>
 </ul>
 <h3 id="升级后-模块热替换-HMR-失效"><a href="#升级后-模块热替换-HMR-失效" class="headerlink" title="升级后 模块热替换(HMR)失效"></a>升级后 模块热替换(HMR)失效</h3><p>直接看文档</p>

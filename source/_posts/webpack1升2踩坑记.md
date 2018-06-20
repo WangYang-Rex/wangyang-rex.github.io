@@ -5,6 +5,8 @@ tags: [webpack]
 ---
 ### webpack 从 v1 升级到 v2
 从 v1 升级到 v2，总体来讲比较简单，跟着官方升级文档做就行了，主要是 `module` 和 `ExtractTextWebpackPlugin` 变化比较大
+- 
+https://www.jianshu.com/p/cb8343020833
 - http://www.css88.com/doc/webpack2/guides/migrating/
 
 
