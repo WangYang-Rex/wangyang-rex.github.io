@@ -1163,7 +1163,13 @@
 
       
         
-          <p>原文地址：<a href="http://www.cnblogs.com/lyzg/p/4877277.html" target="_blank">http://www.cnblogs.com/lyzg/p/4877277.html</a></p>
+          <h2 id="2018-09-13-更新"><a href="#2018-09-13-更新" class="headerlink" title="2018-09-13 更新"></a>2018-09-13 更新</h2><ul>
+<li><a href="https://github.com/amfe/lib-flexible/tree/master" target="_blank" rel="external">淘宝flexible方案</a></li>
+<li><a href="https://github.com/amfe/article/issues/17" target="_blank" rel="external">使用Flexible实现手淘H5页面的终端适配 </a></li>
+<li>vw适配方案：<a href="https://www.w3cplus.com/css/vw-for-layout.html" target="_blank" rel="external">再聊移动端页面的适配-大漠</a></li>
+</ul>
+<hr>
+<p>原文地址：<a href="http://www.cnblogs.com/lyzg/p/4877277.html" target="_blank">http://www.cnblogs.com/lyzg/p/4877277.html</a></p>
 <p>目前很多流行的，html5要适应各种分辨率的移动设备，应该使用rem尺寸单位，各个分辨率范围在html上设置font-size.</p>
 <p>这里介绍我们项目组在用的适配方案：<br>页面加载的时候通过js计算出html的font-size。</p>
 <h3 id="计算和设计稿有关"><a href="#计算和设计稿有关" class="headerlink" title="计算和设计稿有关"></a>计算和设计稿有关</h3><p>拿网易来说，它的设计稿应该是基于iphone4或者iphone5来的，所以它的设计稿竖直放时的横向分辨率为640px，为了计算方便，取一个100px的font-size为参照，那么body元素的宽度就可以设置为width: 6.4rem，于是html的font-size=deviceWidth / 6.4。这个deviceWidth就是viewport设置中的那个deviceWidth。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deviceWidth = 320，font-size = 320 / 6.4 = 50px</div><div class="line">deviceWidth = 375，font-size = 375 / 6.4 = 58.59375px</div><div class="line">deviceWidth = 414，font-size = 414 / 6.4 = 64.6875px</div><div class="line">deviceWidth = 500，font-size = 500 / 6.4 = 78.125px</div></pre></td></tr></table></figure></p>
