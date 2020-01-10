@@ -268,6 +268,130 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/JS中的函数劫持/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/JS中的函数劫持/" itemprop="url">JS中的函数劫持</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T13:48:31+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>说到劫持，第一反应可能是什么不好的东西。函数劫持并不邪恶，关键是看使用的人。虽然这个概念在前端领域使用较少，但是在安全领域、自定义业务等场景下还是有一定的使用价值的。所以，这一篇文章将会和大家一起去了解一下JS中的函数劫持是什么，有什么用。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>函数劫持，顾名思义，即在一个函数运行之前把它劫持下来，添加我们想要的功能。当这个函数实际运行的时候，它已经不是原本的函数了，而是带上了被我们添加上去的功能。这也是我们常见的<code>钩子函数</code>的原理之一。</p>
+<p>乍一看上去，这很像是函数的改写。函数的改写也可以理解为是函数劫持的一种，但是这种方式太恶心了。作为一个劫持者，在绑票获得好处以后也应该遵守职业道德，把人原封不动地还回去，所以我们得在合适的地方把函数原本的功能给重新调用回来。</p>
+<p>推而广之，其实“劫持”这一概念我们经常会遇到，比方说某网站被运营商劫持了，在浏览该网站的时候会弹出运营商的广告。</p>
+<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>现在我们来举个简单的例子，劫持一下<code>alert()</code>函数，为它增添一点小小的功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> warn = alert</div><div class="line"><span class="built_in">window</span>.alert = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(<span class="string">'Help me...!!!'</span>)</div></pre></td></tr></table></figure></p>
+<p>可以打开开发者工具尝试一下这个例子，你会发现只有你在 <code>confirm</code> 里面点击了OK，才会弹出 <code>Help me...!!!</code></p>
+<p>接下来我们把这部分的内容封装一下，成为一个通用的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hijack = <span class="function">(<span class="params">obj, method, fun</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> orig = obj[method]</div><div class="line">  obj[method] = fun(orig)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先我们定义了一个 <code>hijack</code> 函数，它会先把原函数给保存下来，然后执行自定义函数，而原函数将会在自定义函数内部进行调用。</p>
+<p>然后我们来劫持 <code>confirm()</code> 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">hijack(<span class="built_in">window</span>, <span class="string">'confirm'</span>, (orig) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</div><div class="line">    alert(<span class="string">'HELP ME PLZ!!!'</span>)</div><div class="line">    <span class="keyword">if</span> (orig.call(<span class="keyword">this</span>, text)) &#123;</div><div class="line">      alert(<span class="string">'YOU SEEMS FINE AND I AM LEAVING, GOOD BYE!'</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      alert(<span class="string">'HOLD ON! I AM COMING!!'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="反劫持"><a href="#反劫持" class="headerlink" title="反劫持"></a>反劫持</h3><p>新建一个页面，打开你的开发者工具控制台，输入 <code>alert</code>，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">alert</span>(<span class="params"></span>) </span>&#123; [native code] &#125;</div></pre></td></tr></table></figure></p>
+<p>然后使用本文开头的那段代码，把<code>alert()</code>劫持一下，再重新在控制台输入alert，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">t</span>) =&gt; </span>&#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上述的例子可以知道，要看一个函数是否被劫持了，只需要直接把它打印出来即可。针对系统原生的函数，<code>[native code]</code>即代表它是纯净无污染的。</p>
+<h3 id="函数劫持的作用"><a href="#函数劫持的作用" class="headerlink" title="函数劫持的作用"></a>函数劫持的作用</h3><p>除了为函数增加功能以外，还能够利用函数劫持去追踪恶意用户的信息。一般的<code>XSS</code>攻击会先利用<code>alert()</code>等能够输出信息的方法进行测试，这时候我们可以先对原生<code>alert()</code>进行劫持，向其输入追踪信息的代码，最后才把原函数释放出去。当恶意用户在测试<code>alert()</code>的时候就会立即被我们追踪，而他本人却无从察觉。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/nvm管理不同版本的node与npm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1476,153 +1600,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/13/npm-scripts-使用指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/13/npm-scripts-使用指南/" itemprop="url">npm scripts 使用指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T20:38:42+08:00">
-                2017-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。<br>本文介绍如何使用 npm 脚本（npm scripts）。</p>
-<h3 id="什么是-npm-脚本？"><a href="#什么是-npm-脚本？" class="headerlink" title="什么是 npm 脚本？"></a>什么是 npm 脚本？</h3><p>npm 允许在<code>package.json</code>文件里面，使用<code>scripts</code>字段定义脚本命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node build.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码是<code>package.json</code>文件的一个片段，里面的<code>scripts</code>字段是一个对象。它的每一个属性，对应一段脚本。比如，<code>build</code>命令对应的脚本是<code>node build.js</code>。<br>命令行下使用<code>npm run</code>命令，就可以执行这段脚本。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div><div class="line"># 等同于执行</div><div class="line">$ node build.js</div></pre></td></tr></table></figure></p>
-<p>这些定义在<code>package.json</code>里面的脚本，就称为 npm 脚本。它的优点很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">项目的相关脚本，可以集中在一个地方。</div><div class="line">不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</div><div class="line">可以利用 npm 提供的很多辅助功能。</div></pre></td></tr></table></figure></p>
-<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的<code>npm run</code>命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run</div></pre></td></tr></table></figure></p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。<br>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。<br>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 <code>Mocha</code>，只要直接写<code>mocha test</code>就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"mocha test"</span></div></pre></td></tr></table></figure></p>
-<p>而不用写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha test"</span></div></pre></td></tr></table></figure></p>
-<p>由于 npm 脚本的唯一要求就是可以在 Shell 执行，因此它不一定是 Node 脚本，任何可执行文件都可以写在里面。<br>npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是<code>0</code>，npm 就认为这个脚本执行失败。</p>
-<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint *.js"</span></div><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **/*.js"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。<br>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"tap test/\*.js"</span></div></pre></td></tr></table></figure></p>
-<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>向 npm 脚本传入参数，要使用–标明。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span></div></pre></td></tr></table></figure></p>
-<p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml</div></pre></td></tr></table></figure></p>
-<p>也可以在<code>package.json</code>里面再封装一个命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span>,</div><div class="line"><span class="string">"lint:checkstyle"</span>: <span class="string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span></div></pre></td></tr></table></figure></p>
-<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。<br>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp;&amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<a href="https://github.com/paulpflug/script-runner" target="_blank" rel="external">script-runner</a>、<a href="https://github.com/mysticatea/npm-run-all" target="_blank" rel="external">npm-run-all</a>、<a href="https://github.com/coderaiser/redrun" target="_blank" rel="external">redrun</a>。</p>
-<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm run start</code>的默认值是<code>node server.js</code>，前提是项目根目录下有<code>server.js</code>这个脚本；<code>npm run install</code>的默认值是<code>node-gyp rebuild</code>，前提是项目根目录下有<code>binding.gyp</code>文件。</p>
-<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"prebuild"</span>: <span class="string">"echo I run before the build script"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</div><div class="line"><span class="string">"postbuild"</span>: <span class="string">"echo I run after the build script"</span></div></pre></td></tr></table></figure></p>
-<p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild</div></pre></td></tr></table></figure></p>
-<p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf ./dist &amp;&amp; mkdir dist"</span>,</div><div class="line"><span class="string">"prebuild"</span>: <span class="string">"npm run clean"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span></div></pre></td></tr></table></figure></p>
-<p>npm 默认提供下面这些钩子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">prepublish，postpublish</div><div class="line">preinstall，postinstall</div><div class="line">preuninstall，postuninstall</div><div class="line">preversion，postversion</div><div class="line">pretest，posttest</div><div class="line">prestop，poststop</div><div class="line">prestart，poststart</div><div class="line">prerestart，postrestart</div></pre></td></tr></table></figure></p>
-<p>自定义的脚本命令也可以加上<code>pre</code>和<code>post</code>钩子。比如，<code>myscript</code>这个脚本命令，也有<code>premyscript</code>和<code>postmyscript</code>钩子。不过，双重的<code>pre</code>和<code>post</code>无效，比如<code>prepretest</code>和<code>postposttest</code>是无效的。<br>npm 提供一个<code>npm_lifecycle_event</code>变量，返回当前正在运行的脚本名称，比如<code>pretest</code>、<code>test</code>、<code>posttest等</code>等。所以，可以利用这个变量，在同一个脚本文件里面，为不同的<code>npm scripts</code>命令编写代码。请看下面的例子。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> TARGET = process.env.npm_lifecycle_event;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'test'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the test task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'pretest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the pretest task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'posttest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the posttest task!`</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意，<code>prepublish</code>这个钩子不仅会在<code>npm publish</code>命令之前运行，还会在<code>npm install</code>（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 <code>npm 4</code>引入了一个新的钩子<code>prepare</code>，行为等同于<code>prepublish</code>，而从 <code>npm 5</code>开始，<code>prepublish</code>将只在<code>npm publish</code>命令之前运行。</p>
-<h3 id="简写形式"><a href="#简写形式" class="headerlink" title="简写形式"></a>简写形式</h3><p>四个常用的 npm 脚本有简写形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm start是npm run start</div><div class="line">npm stop是npm run stop的简写</div><div class="line">npm test是npm run test的简写</div><div class="line">npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; npm run start的简写</div></pre></td></tr></table></figure></p>
-<p><code>npm start</code>、<code>npm stop</code>和<code>npm restart</code>都比较好理解，而<code>npm restart</code>是一个复合命令，实际上会执行三个脚本命令：<code>stop</code>、<code>restart</code>、<code>start</code>。具体的执行顺序如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">prerestart</div><div class="line">prestop</div><div class="line">stop</div><div class="line">poststop</div><div class="line">restart</div><div class="line">prestart</div><div class="line">start</div><div class="line">poststart</div><div class="line">postrestart</div></pre></td></tr></table></figure></p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。<br>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"foo"</span>, </div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.2.5"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"view"</span>: <span class="string">"node view.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回<code>1.2.5</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view.js</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_name); <span class="comment">// foo</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_version); <span class="comment">// 1.2.5</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。<br><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。<br>下面是另外一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="string">"install"</span>: <span class="string">"foo.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。<br>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"view"</span>: <span class="string">"echo $npm_config_tag"</span>,</div></pre></td></tr></table></figure></p>
-<p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</div><div class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</div><div class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_config_port</code>变量返回的是8080。这个值可以用下面的方法覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config set foo:port <span class="number">80</span></div></pre></td></tr></table></figure></p>
-<p>最后，<code>env</code>命令可以列出所有环境变量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"env"</span>: <span class="string">"env"</span></div></pre></td></tr></table></figure></p>
-<h3 id="常用脚本示例"><a href="#常用脚本示例" class="headerlink" title="常用脚本示例"></a>常用脚本示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1672,7 +1649,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1798,7 +1775,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1825,7 +1802,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>
