@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="react," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="react,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2017/01/17/React学习笔记1/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="React学习捷径：  深入模式: React+ES6+WebPack+React Redux+Fetch+React Router+Immutable+React Native+NodeJs正常模式: React+ES6+WebPack+React Redux简易模式: React+ES6+WebPack+React Flux(React官方Flux库)  在看了一些react的文档以及以下新手">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://html-js.site/images/page/react/1.png">
 <meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
 <meta name="twitter:card" content="summary">
@@ -145,7 +146,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2017/01/17/React学习笔记1/"/>
+  <link rel="canonical" href="http://html-js.site/2017/01/17/React学习笔记1/">
 
 
 
@@ -185,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -215,7 +216,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -225,7 +226,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -235,7 +236,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -274,7 +275,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -338,12 +339,12 @@
 <blockquote>
 <p>深入模式: React+ES6+WebPack+React Redux+Fetch+React Router+Immutable+React Native+NodeJs<br>正常模式: React+ES6+WebPack+React Redux<br>简易模式: React+ES6+WebPack+React Flux(React官方Flux库)</p>
 </blockquote>
-<p>在看了一些react的文档以及以下新手入门文档之后，就想动手写个项目练练手，虽然知道要用react、react-router等，但是项目的脚手架如果自己写的话对于新手来说基本不可能，所以网上找了一款脚手架：<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="external">Create React App</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -g create-react-app</div><div class="line"></div><div class="line">create-react-app my-app</div><div class="line">cd my-app/</div><div class="line">npm start</div></pre></td></tr></table></figure>
-<p>然后访问 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 就可以看到初始页面了哦</p>
-<p><img src="/images/page/react/1.png" alt=""></p>
+<p>在看了一些react的文档以及以下新手入门文档之后，就想动手写个项目练练手，虽然知道要用react、react-router等，但是项目的脚手架如果自己写的话对于新手来说基本不可能，所以网上找了一款脚手架：<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line"></span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app/</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>然后访问 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 就可以看到初始页面了哦</p>
+<p><img src="/images/page/react/1.png" alt></p>
 <p>当然这个只是包含了react基础的npm包，以及静态服务，热插拔，其他如果要用的话可以自己install相关的插件。<br><a id="more"></a></p>
-<ul><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases" target="_blank" rel="external">Updating to New Releases</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#folder-structure" target="_blank" rel="external">Folder Structure</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#available-scripts" target="_blank" rel="external">Available Scripts</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#syntax-highlighting-in-the-editor" target="_blank" rel="external">Syntax Highlighting in the Editor</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#displaying-lint-output-in-the-editor" target="_blank" rel="external">Displaying Lint Output in the Editor</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#changing-the-page-title" target="_blank" rel="external">Changing the Page <code>&lt;title&gt;</code></a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#installing-a-dependency" target="_blank" rel="external">Installing a Dependency</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#importing-a-component" target="_blank" rel="external">Importing a Component</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-stylesheet" target="_blank" rel="external">Adding a Stylesheet</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#post-processing-css" target="_blank" rel="external">Post-Processing CSS</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-images-and-fonts" target="_blank" rel="external">Adding Images and Fonts</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-the-public-folder" target="_blank" rel="external">Using the <code>public</code> Folder</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-global-variables" target="_blank" rel="external">Using Global Variables</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-bootstrap" target="_blank" rel="external">Adding Bootstrap</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow" target="_blank" rel="external">Adding Flow</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables" target="_blank" rel="external">Adding Custom Environment Variables</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#can-i-use-decorators" target="_blank" rel="external">Can I Use Decorators?</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#integrating-with-a-node-backend" target="_blank" rel="external">Integrating with a Node Backend</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development" target="_blank" rel="external">Proxying API Requests in Development</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-https-in-development" target="_blank" rel="external">Using HTTPS in Development</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#generating-dynamic-meta-tags-on-the-server" target="_blank" rel="external">Generating Dynamic <code>&lt;meta&gt;</code> Tags on the Server</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests" target="_blank" rel="external">Running Tests</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#developing-components-in-isolation" target="_blank" rel="external">Developing Components in Isolation</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app" target="_blank" rel="external">Making a Progressive Web App</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment" target="_blank" rel="external">Deployment</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting" target="_blank" rel="external">Troubleshooting</a></li><br></ul>
+<ul><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases" target="_blank" rel="noopener">Updating to New Releases</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#folder-structure" target="_blank" rel="noopener">Folder Structure</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#available-scripts" target="_blank" rel="noopener">Available Scripts</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#syntax-highlighting-in-the-editor" target="_blank" rel="noopener">Syntax Highlighting in the Editor</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#displaying-lint-output-in-the-editor" target="_blank" rel="noopener">Displaying Lint Output in the Editor</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#changing-the-page-title" target="_blank" rel="noopener">Changing the Page <code>&lt;title&gt;</code></a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#installing-a-dependency" target="_blank" rel="noopener">Installing a Dependency</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#importing-a-component" target="_blank" rel="noopener">Importing a Component</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-stylesheet" target="_blank" rel="noopener">Adding a Stylesheet</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#post-processing-css" target="_blank" rel="noopener">Post-Processing CSS</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-images-and-fonts" target="_blank" rel="noopener">Adding Images and Fonts</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-the-public-folder" target="_blank" rel="noopener">Using the <code>public</code> Folder</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-global-variables" target="_blank" rel="noopener">Using Global Variables</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-bootstrap" target="_blank" rel="noopener">Adding Bootstrap</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow" target="_blank" rel="noopener">Adding Flow</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables" target="_blank" rel="noopener">Adding Custom Environment Variables</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#can-i-use-decorators" target="_blank" rel="noopener">Can I Use Decorators?</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#integrating-with-a-node-backend" target="_blank" rel="noopener">Integrating with a Node Backend</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development" target="_blank" rel="noopener">Proxying API Requests in Development</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-https-in-development" target="_blank" rel="noopener">Using HTTPS in Development</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#generating-dynamic-meta-tags-on-the-server" target="_blank" rel="noopener">Generating Dynamic <code>&lt;meta&gt;</code> Tags on the Server</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests" target="_blank" rel="noopener">Running Tests</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#developing-components-in-isolation" target="_blank" rel="noopener">Developing Components in Isolation</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app" target="_blank" rel="noopener">Making a Progressive Web App</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment" target="_blank" rel="noopener">Deployment</a></li><br><li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting" target="_blank" rel="noopener">Troubleshooting</a></li><br></ul>
 
 <blockquote>
 <p>好了，赶紧开启我们的react之旅吧~</p>
@@ -370,13 +371,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -473,9 +474,7 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -486,7 +485,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,10 +608,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -639,7 +638,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

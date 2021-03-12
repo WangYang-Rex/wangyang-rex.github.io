@@ -74,6 +74,6 @@ deploy:
 - type: git
   repository: git@github.com:WangYang-Rex/wangyang-rex.github.io.git
   branch: master
-- type: git
-  repository: git@git.coding.net:dayang/dayang.git
-  branch: master
+# - type: git
+#   repository: git@git.coding.net:dayang/dayang.git
+#   branch: master

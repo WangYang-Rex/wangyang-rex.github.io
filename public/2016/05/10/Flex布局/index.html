@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="flex,css布局," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="flex,css布局,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2016/05/10/Flex布局/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="flex测试工具 前言之前分享过Flex布局，一段时间没有用，忘得差不多了，恰逢我们的前端博客的诞生，在此记录并再次学习下； 布局方式首先,我们有表格布局。当不考虑语义并且利用一些适当的嵌套和其他技巧,我们可以用table建立具有一定功能的布局。 然后是现在大多数人都在使用的浮动布局。我们可以使用任何我们想用的元素,但浮动并不适用于初学者。表面上它看起来很基础,但背后复杂的功能可以使经验丰富的开发">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
 <meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2011/08/justify-contetnt.png">
 <meta property="og:image" content="http://cdn.css-tricks.com/wp-content/uploads/2011/08/align-items.png">
@@ -149,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2016/05/10/Flex布局/"/>
+  <link rel="canonical" href="http://html-js.site/2016/05/10/Flex布局/">
 
 
 
@@ -189,7 +190,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -219,7 +220,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -229,7 +230,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -239,7 +240,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -278,7 +279,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -353,15 +354,15 @@
 </ul>
 <h2 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
 <p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。<br>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。<br><img width="571" height="341" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt="Down arrow"></p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">display:flex | inline-flex; 定义弹性盒容器</div><div class="line">.box&#123;</div><div class="line">	display: -webkit-flex; /* Safari */</div><div class="line">	display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="定义弹性盒容器"><a href="#定义弹性盒容器" class="headerlink" title="定义弹性盒容器"></a>定义弹性盒容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">display:flex | inline-flex;</div><div class="line">flex-direction:row | row-reverse | column | column-reverse 定义主轴方向</div><div class="line">flex-wrap:nowrap | wrap | wrap-reverse 定义侧轴方向单行或多行</div><div class="line">flex-flow ‘flex-direction’ 和 ‘flex-wrap’的组合简写</div></pre></td></tr></table></figure>
-<h3 id="定义主轴上子元素的排列方式"><a href="#定义主轴上子元素的排列方式" class="headerlink" title="定义主轴上子元素的排列方式"></a>定义主轴上子元素的排列方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">justify-content:flex-start | flex-end | center | space-between | space-around</div></pre></td></tr></table></figure>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">display:flex | inline-flex; 定义弹性盒容器</span><br><span class="line">.box&#123;</span><br><span class="line">	display: -webkit-flex; /* Safari */</span><br><span class="line">	display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义弹性盒容器"><a href="#定义弹性盒容器" class="headerlink" title="定义弹性盒容器"></a>定义弹性盒容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display:flex | inline-flex;</span><br><span class="line">flex-direction:row | row-reverse | column | column-reverse 定义主轴方向</span><br><span class="line">flex-wrap:nowrap | wrap | wrap-reverse 定义侧轴方向单行或多行</span><br><span class="line">flex-flow ‘flex-direction’ 和 ‘flex-wrap’的组合简写</span><br></pre></td></tr></table></figure>
+<h3 id="定义主轴上子元素的排列方式"><a href="#定义主轴上子元素的排列方式" class="headerlink" title="定义主轴上子元素的排列方式"></a>定义主轴上子元素的排列方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">justify-content:flex-start | flex-end | center | space-between | space-around</span><br></pre></td></tr></table></figure>
 <p><img width="500" height="320" src="http://cdn.css-tricks.com/wp-content/uploads/2011/08/justify-contetnt.png"></p>
-<h3 id="定义侧轴上子元素高度的伸缩"><a href="#定义侧轴上子元素高度的伸缩" class="headerlink" title="定义侧轴上子元素高度的伸缩"></a>定义侧轴上子元素高度的伸缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-items:flex-start | flex-end | center | baseline | stretch</div></pre></td></tr></table></figure>
+<h3 id="定义侧轴上子元素高度的伸缩"><a href="#定义侧轴上子元素高度的伸缩" class="headerlink" title="定义侧轴上子元素高度的伸缩"></a>定义侧轴上子元素高度的伸缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-items:flex-start | flex-end | center | baseline | stretch</span><br></pre></td></tr></table></figure>
 <p><img width="500" height="320" src="http://cdn.css-tricks.com/wp-content/uploads/2011/08/align-items.png" alt="Down arrow"></p>
-<h3 id="定义侧轴上子元素的排列方式"><a href="#定义侧轴上子元素的排列方式" class="headerlink" title="定义侧轴上子元素的排列方式"></a>定义侧轴上子元素的排列方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-content:flex-start | flex-end | center | space-between | space-around | stretch</div></pre></td></tr></table></figure>
+<h3 id="定义侧轴上子元素的排列方式"><a href="#定义侧轴上子元素的排列方式" class="headerlink" title="定义侧轴上子元素的排列方式"></a>定义侧轴上子元素的排列方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-content:flex-start | flex-end | center | space-between | space-around | stretch</span><br></pre></td></tr></table></figure>
 <p><img width="500" height="320" src="http://cdn.css-tricks.com/wp-content/uploads/2011/08/align-content.png" alt="Down arrow"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">order 子元素的显示顺序</div><div class="line">flex-grow 父元素拉伸时子元素的拉伸比例值</div><div class="line">flex-shrink 父元素缩小时子元素的收缩比例值</div><div class="line">flex-basis 子元素的初始显示比例值</div><div class="line">flex flex-grow [，flex-shrink，flex-basis]的简写形式</div><div class="line">align-self:auto | flex-start | flex-end | center | baseline | stretch 提供给单个子元素覆盖父元素align-items值的能力</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">order 子元素的显示顺序</span><br><span class="line">flex-grow 父元素拉伸时子元素的拉伸比例值</span><br><span class="line">flex-shrink 父元素缩小时子元素的收缩比例值</span><br><span class="line">flex-basis 子元素的初始显示比例值</span><br><span class="line">flex flex-grow [，flex-shrink，flex-basis]的简写形式</span><br><span class="line">align-self:auto | flex-start | flex-end | center | baseline | stretch 提供给单个子元素覆盖父元素align-items值的能力</span><br></pre></td></tr></table></figure>
 <p>以上的CSS成为“新”的弹性盒模式,事实上，只有最近的几个Chrome内核（包括桌面版Chrome+、Android版Chrome、Opera 15+）支持这种写法，Firefox的支持还不够完善(详细信息点击这里)。更多的现代浏览器从几年前开始支持一种“老的”弹性盒模型语法，除了IE10。IE10似乎支持一种介于老语法与新语法之间的新语法。</p>
 <p><img height="600" src="/images/page/333.jpg" alt="Down arrow"></p>
 <h3 id="如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持："><a href="#如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持：" class="headerlink" title="如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持："></a>如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持：</h3><ul>
@@ -374,11 +375,11 @@
 <li>Android any</li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然老版本的flex语法难以匹敌新版语法，但是仍然有很多支持广泛并且有用的特性。<br>像下面这样写CSS，可以方便的应用flex带来的排版上的方便。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.f-f&#123;display: -webkit-box;display: -webkit-flex;&#125;</div><div class="line">.f-vc&#123;-webkit-box-align:center;-webkit-align-items:center;&#125;/*垂直居中*/</div><div class="line">.f-hc&#123;-webkit-box-pack:center;-webkit-justify-content:center;&#125;/*水平居中*/</div><div class="line">.f-hr&#123;-webkit-box-pack:end;-webkit-justify-content:flex-end;&#125;/*向右靠拢*/</div><div class="line">.f-hl&#123;-webkit-box-pack:start;-webkit-justify-content:flex-start;&#125;/*向左靠拢*/</div></pre></td></tr></table></figure>
-<h3 id="将各种flex语法写成Sass："><a href="#将各种flex语法写成Sass：" class="headerlink" title="将各种flex语法写成Sass："></a>将各种flex语法写成Sass：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@mixin flexbox() &#123;</div><div class="line">	display: -webkit-box;</div><div class="line">	display: -moz-box;</div><div class="line">	display: -ms-flexbox;</div><div class="line">	display: -webkit-flex;</div><div class="line">	display: flex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@mixin flex($values) &#123;</div><div class="line">	-webkit-box-flex: $values;</div><div class="line">	-moz-box-flex:  $values;</div><div class="line">	-webkit-flex:  $values;</div><div class="line">	-ms-flex:  $values;</div><div class="line">	flex:  $values;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@mixin order($val) &#123;</div><div class="line">	-webkit-box-ordinal-group: $val;</div><div class="line">	-moz-box-ordinal-group: $val;</div><div class="line">	-ms-flex-order: $val;</div><div class="line">	-webkit-order: $val;</div><div class="line">	order: $val;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰-Flex 布局教程：语法篇</a></p>
-<p><a href="http://my.oschina.net/yinyongcom666/blog/151085?p=NaN#OSC_h2_1" target="_blank" rel="external">Flex弹性布局在移动设备上的应用</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.f-f&#123;display: -webkit-box;display: -webkit-flex;&#125;</span><br><span class="line">.f-vc&#123;-webkit-box-align:center;-webkit-align-items:center;&#125;/*垂直居中*/</span><br><span class="line">.f-hc&#123;-webkit-box-pack:center;-webkit-justify-content:center;&#125;/*水平居中*/</span><br><span class="line">.f-hr&#123;-webkit-box-pack:end;-webkit-justify-content:flex-end;&#125;/*向右靠拢*/</span><br><span class="line">.f-hl&#123;-webkit-box-pack:start;-webkit-justify-content:flex-start;&#125;/*向左靠拢*/</span><br></pre></td></tr></table></figure>
+<h3 id="将各种flex语法写成Sass："><a href="#将各种flex语法写成Sass：" class="headerlink" title="将各种flex语法写成Sass："></a>将各种flex语法写成Sass：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@mixin flexbox() &#123;</span><br><span class="line">	display: -webkit-box;</span><br><span class="line">	display: -moz-box;</span><br><span class="line">	display: -ms-flexbox;</span><br><span class="line">	display: -webkit-flex;</span><br><span class="line">	display: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin flex($values) &#123;</span><br><span class="line">	-webkit-box-flex: $values;</span><br><span class="line">	-moz-box-flex:  $values;</span><br><span class="line">	-webkit-flex:  $values;</span><br><span class="line">	-ms-flex:  $values;</span><br><span class="line">	flex:  $values;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin order($val) &#123;</span><br><span class="line">	-webkit-box-ordinal-group: $val;</span><br><span class="line">	-moz-box-ordinal-group: $val;</span><br><span class="line">	-ms-flex-order: $val;</span><br><span class="line">	-webkit-order: $val;</span><br><span class="line">	order: $val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">A Complete Guide to Flexbox</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">阮一峰-Flex 布局教程：语法篇</a></p>
+<p><a href="http://my.oschina.net/yinyongcom666/blog/151085?p=NaN#OSC_h2_1" target="_blank" rel="noopener">Flex弹性布局在移动设备上的应用</a></p>
 
       
     </div>
@@ -401,13 +402,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -504,7 +505,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -515,9 +516,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -528,7 +527,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -647,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局方式"><span class="nav-number">2.</span> <span class="nav-text">布局方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性布局（Flex）的优势"><span class="nav-number">3.</span> <span class="nav-text">弹性布局（Flex）的优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局"><span class="nav-number"></span> <span class="nav-text">Flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义弹性盒容器"><span class="nav-number">3.</span> <span class="nav-text">定义弹性盒容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义主轴上子元素的排列方式"><span class="nav-number">4.</span> <span class="nav-text">定义主轴上子元素的排列方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义侧轴上子元素高度的伸缩"><span class="nav-number">5.</span> <span class="nav-text">定义侧轴上子元素高度的伸缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义侧轴上子元素的排列方式"><span class="nav-number">6.</span> <span class="nav-text">定义侧轴上子元素的排列方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持："><span class="nav-number">7.</span> <span class="nav-text">如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将各种flex语法写成Sass："><span class="nav-number">1.</span> <span class="nav-text">将各种flex语法写成Sass：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局方式"><span class="nav-number">2.</span> <span class="nav-text">布局方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性布局（Flex）的优势"><span class="nav-number">3.</span> <span class="nav-text">弹性布局（Flex）的优势</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局"><span class="nav-number"></span> <span class="nav-text">Flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义弹性盒容器"><span class="nav-number">3.</span> <span class="nav-text">定义弹性盒容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义主轴上子元素的排列方式"><span class="nav-number">4.</span> <span class="nav-text">定义主轴上子元素的排列方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义侧轴上子元素高度的伸缩"><span class="nav-number">5.</span> <span class="nav-text">定义侧轴上子元素高度的伸缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义侧轴上子元素的排列方式"><span class="nav-number">6.</span> <span class="nav-text">定义侧轴上子元素的排列方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持："><span class="nav-number">7.</span> <span class="nav-text">如果你将Flexbox多版本混合在一起使用，可以得到以下浏览器的支持：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将各种flex语法写成Sass："><span class="nav-number">1.</span> <span class="nav-text">将各种flex语法写成Sass：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></li></div>
             
 
           </div>
@@ -667,10 +666,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -697,7 +696,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

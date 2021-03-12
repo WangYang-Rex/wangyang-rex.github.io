@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="javascript," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="javascript,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2018/04/08/JS中的函数劫持/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="说到劫持，第一反应可能是什么不好的东西。函数劫持并不邪恶，关键是看使用的人。虽然这个概念在前端领域使用较少，但是在安全领域、自定义业务等场景下还是有一定的使用价值的。所以，这一篇文章将会和大家一起去了解一下JS中的函数劫持是什么，有什么用。 基本概念函数劫持，顾名思义，即在一个函数运行之前把它劫持下来，添加我们想要的功能。当这个函数实际运行的时候，它已经不是原本的函数了，而是带上了被我们添加上去的">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-08T05:56:05.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的函数劫持">
@@ -143,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2018/04/08/JS中的函数劫持/"/>
+  <link rel="canonical" href="http://html-js.site/2018/04/08/JS中的函数劫持/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -272,7 +273,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -336,13 +337,13 @@
 <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>函数劫持，顾名思义，即在一个函数运行之前把它劫持下来，添加我们想要的功能。当这个函数实际运行的时候，它已经不是原本的函数了，而是带上了被我们添加上去的功能。这也是我们常见的<code>钩子函数</code>的原理之一。</p>
 <p>乍一看上去，这很像是函数的改写。函数的改写也可以理解为是函数劫持的一种，但是这种方式太恶心了。作为一个劫持者，在绑票获得好处以后也应该遵守职业道德，把人原封不动地还回去，所以我们得在合适的地方把函数原本的功能给重新调用回来。</p>
 <p>推而广之，其实“劫持”这一概念我们经常会遇到，比方说某网站被运营商劫持了，在浏览该网站的时候会弹出运营商的广告。</p>
-<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>现在我们来举个简单的例子，劫持一下<code>alert()</code>函数，为它增添一点小小的功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> warn = alert</div><div class="line"><span class="built_in">window</span>.alert = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(<span class="string">'Help me...!!!'</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>现在我们来举个简单的例子，劫持一下<code>alert()</code>函数，为它增添一点小小的功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> warn = alert</span><br><span class="line"><span class="built_in">window</span>.alert = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(<span class="string">'Help me...!!!'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>可以打开开发者工具尝试一下这个例子，你会发现只有你在 <code>confirm</code> 里面点击了OK，才会弹出 <code>Help me...!!!</code></p>
-<p>接下来我们把这部分的内容封装一下，成为一个通用的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hijack = <span class="function">(<span class="params">obj, method, fun</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> orig = obj[method]</div><div class="line">  obj[method] = fun(orig)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来我们把这部分的内容封装一下，成为一个通用的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hijack = <span class="function">(<span class="params">obj, method, fun</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> orig = obj[method]</span><br><span class="line">  obj[method] = fun(orig)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>首先我们定义了一个 <code>hijack</code> 函数，它会先把原函数给保存下来，然后执行自定义函数，而原函数将会在自定义函数内部进行调用。</p>
-<p>然后我们来劫持 <code>confirm()</code> 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">hijack(<span class="built_in">window</span>, <span class="string">'confirm'</span>, (orig) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</div><div class="line">    alert(<span class="string">'HELP ME PLZ!!!'</span>)</div><div class="line">    <span class="keyword">if</span> (orig.call(<span class="keyword">this</span>, text)) &#123;</div><div class="line">      alert(<span class="string">'YOU SEEMS FINE AND I AM LEAVING, GOOD BYE!'</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      alert(<span class="string">'HOLD ON! I AM COMING!!'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="反劫持"><a href="#反劫持" class="headerlink" title="反劫持"></a>反劫持</h3><p>新建一个页面，打开你的开发者工具控制台，输入 <code>alert</code>，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">alert</span>(<span class="params"></span>) </span>&#123; [native code] &#125;</div></pre></td></tr></table></figure></p>
-<p>然后使用本文开头的那段代码，把<code>alert()</code>劫持一下，再重新在控制台输入alert，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">t</span>) =&gt; </span>&#123;</div><div class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后我们来劫持 <code>confirm()</code> 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hijack(<span class="built_in">window</span>, <span class="string">'confirm'</span>, (orig) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</span><br><span class="line">    alert(<span class="string">'HELP ME PLZ!!!'</span>)</span><br><span class="line">    <span class="keyword">if</span> (orig.call(<span class="keyword">this</span>, text)) &#123;</span><br><span class="line">      alert(<span class="string">'YOU SEEMS FINE AND I AM LEAVING, GOOD BYE!'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      alert(<span class="string">'HOLD ON! I AM COMING!!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="反劫持"><a href="#反劫持" class="headerlink" title="反劫持"></a>反劫持</h3><p>新建一个页面，打开你的开发者工具控制台，输入 <code>alert</code>，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alert</span>(<span class="params"></span>) </span>&#123; [native code] &#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后使用本文开头的那段代码，把<code>alert()</code>劫持一下，再重新在控制台输入alert，你会看到这样的输出：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">t</span>) =&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (confirm(<span class="string">'How are you?'</span>)) warn(t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>通过上述的例子可以知道，要看一个函数是否被劫持了，只需要直接把它打印出来即可。针对系统原生的函数，<code>[native code]</code>即代表它是纯净无污染的。</p>
 <h3 id="函数劫持的作用"><a href="#函数劫持的作用" class="headerlink" title="函数劫持的作用"></a>函数劫持的作用</h3><p>除了为函数增加功能以外，还能够利用函数劫持去追踪恶意用户的信息。一般的<code>XSS</code>攻击会先利用<code>alert()</code>等能够输出信息的方法进行测试，这时候我们可以先对原生<code>alert()</code>进行劫持，向其输入追踪信息的代码，最后才把原函数释放出去。当恶意用户在测试<code>alert()</code>的时候就会立即被我们追踪，而他本人却无从察觉。</p>
 
@@ -367,13 +368,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -468,7 +469,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -479,9 +480,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -492,7 +491,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -631,10 +630,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -661,7 +660,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

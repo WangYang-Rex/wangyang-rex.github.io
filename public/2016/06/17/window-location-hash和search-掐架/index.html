@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="window.location,search,hash," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="window.location,search,hash,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2016/06/17/window-location-hash和search-掐架/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="发现问题的由来首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：123456789function GetQueryString(name)&amp;#123;     var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot;+ name +&amp;quot;=([^&amp;amp;]*)">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://html-js.site/images/page/location/2.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/location/1.jpg">
 <meta property="og:image" content="http://html-js.site/images/page/location/3.jpg">
@@ -149,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2016/06/17/window-location-hash和search-掐架/"/>
+  <link rel="canonical" href="http://html-js.site/2016/06/17/window-location-hash和search-掐架/">
 
 
 
@@ -189,7 +190,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -219,7 +220,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -229,7 +230,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -239,7 +240,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -278,7 +279,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -338,7 +339,7 @@
       
 
       
-        <h3 id="发现问题的由来"><a href="#发现问题的由来" class="headerlink" title="发现问题的由来"></a>发现问题的由来</h3><p>首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function GetQueryString(name)</div><div class="line">&#123;</div><div class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</div><div class="line">     var r = window.location.search.substr(1).match(reg);</div><div class="line">     if(r!=null)return  unescape(r[2]); return null;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 调用方法</div><div class="line">alert(GetQueryString(&quot;参数名1&quot;));</div></pre></td></tr></table></figure></p>
+        <h3 id="发现问题的由来"><a href="#发现问题的由来" class="headerlink" title="发现问题的由来"></a>发现问题的由来</h3><p>首先有个需求，就是获取浏览器参数，也就是 window.location.href问号后面的参数值，就google了一个在江湖中流传的号称最好用的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function GetQueryString(name)</span><br><span class="line">&#123;</span><br><span class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">     var r = window.location.search.substr(1).match(reg);</span><br><span class="line">     if(r!=null)return  unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用方法</span><br><span class="line">alert(GetQueryString(&quot;参数名1&quot;));</span><br></pre></td></tr></table></figure></p>
 <p>设置了一个全局方法，成功了，立马各个项目用起来~</p>
 <p>这次有个需求，在页面加载时去获取参数时发现怎么都获取不到，于是去看代码，发现用到了window.location.search，调试发现window.location.search是空字符串。</p>
 <a id="more"></a>
@@ -353,8 +354,8 @@
 <p>个人猜测url解析时,即使遇到?，后面也会去解析#;</p>
 <p>相反，如解析时遇到#，后面却不会再去解析? 得找个相关的资料看下了~</p>
 <p>一句话，慎用#,慎用#,慎用#，重要的话说三遍！</p>
-<p>最后修改了获取浏览器参数的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function GetQueryString(name)</div><div class="line">&#123;</div><div class="line">     var search = window.location.search;</div><div class="line">     if(!search)&#123;</div><div class="line">        var hash = location.hash;</div><div class="line">        search = hash?hash.substring(hash.indexOf(&apos;?&apos;)):&apos;&apos;;</div><div class="line">     &#125;</div><div class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</div><div class="line">     var r = search.substr(1).match(reg);</div><div class="line">     if(r!=null)return  unescape(r[2]); return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另外，根据我们的项目特征，可以把参数设置放在#之前<br>比如：<br><img src="/images/page/location/5.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://taeyxbak1.superboss.cc/index.html?id=18511#/zx/zdy/</div></pre></td></tr></table></figure></p>
+<p>最后修改了获取浏览器参数的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function GetQueryString(name)</span><br><span class="line">&#123;</span><br><span class="line">     var search = window.location.search;</span><br><span class="line">     if(!search)&#123;</span><br><span class="line">        var hash = location.hash;</span><br><span class="line">        search = hash?hash.substring(hash.indexOf(&apos;?&apos;)):&apos;&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">     var r = search.substr(1).match(reg);</span><br><span class="line">     if(r!=null)return  unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，根据我们的项目特征，可以把参数设置放在#之前<br>比如：<br><img src="/images/page/location/5.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://taeyxbak1.superboss.cc/index.html?id=18511#/zx/zdy/</span><br></pre></td></tr></table></figure></p>
 <p>当然这个场景设定在我们的框架初始化之前就要拿url参数，如果是框架初始化之后，那么可以用我们框架的方法，相应方法可以在pages里面找到~</p>
 
       
@@ -378,13 +379,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -483,7 +484,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -494,9 +495,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -507,7 +506,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -646,10 +645,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -676,7 +675,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

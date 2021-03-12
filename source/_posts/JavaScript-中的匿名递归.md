@@ -15,7 +15,7 @@ tags: [js, es6]
     (f) =>
       (l) => {
         console.log(l)
-if (l.length) f(f)(l.slice(1))
+        if (l.length) f(f)(l.slice(1))
         console.log(l)
       }
   )

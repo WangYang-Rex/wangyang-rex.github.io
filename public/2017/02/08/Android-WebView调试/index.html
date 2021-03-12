@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="手机调试," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="手机调试,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2017/02/08/Android-WebView调试/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/1.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/2.png">
 <meta property="og:image" content="http://html-js.site/images/page/android-webview/3.png">
@@ -151,7 +152,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2017/02/08/Android-WebView调试/"/>
+  <link rel="canonical" href="http://html-js.site/2017/02/08/Android-WebView调试/">
 
 
 
@@ -191,7 +192,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -221,7 +222,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -231,7 +232,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -241,7 +242,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -280,7 +281,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -342,19 +343,19 @@
       
         <p>Google DevTools支持在PC Chrome上检查、分析、调试Android设备或者模拟器上的WebView页面。</p>
 <a id="more"></a>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1、PC"><a href="#1、PC" class="headerlink" title="1、PC"></a>1、PC</h3><p>a) 安装Chrome32以上版本。<br>b) 开启Chrome的USB检索功能：<br><br>   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。<br><img src="/images/page/android-webview/1.png" alt=""></p>
-<h3 id="2、Android手机（4-4及以上版本）-Android4-4模拟器"><a href="#2、Android手机（4-4及以上版本）-Android4-4模拟器" class="headerlink" title="2、Android手机（4.4及以上版本）/ Android4.4模拟器"></a>2、Android手机（4.4及以上版本）/ Android4.4模拟器</h3><p>a） 开启Debug:<br><br>    打开 “设置”à“开发选项”à“USB调试”。<br><img src="/images/page/android-webview/2.png" alt=""><br>注：一些手机默认隐藏了”开发选项“，需要进入”设置“à”关于手机“，然后连续点击”Android版本号“栏（大于等于7次），之后“设置“中将会出现”开发选项“。</p>
-<h3 id="3、需要调试的目标Android-APP"><a href="#3、需要调试的目标Android-APP" class="headerlink" title="3、需要调试的目标Android APP"></a>3、需要调试的目标Android APP</h3><p>需要App中的WebView开启debug功能：<br><img src="/images/page/android-webview/3.png" alt=""><br>千牛Android App可以在运行时开启WebView的Debug功能：<br></p>
-<p>进入“设置”à“关于千牛”,在如下界面点击千牛图标大于等于10次开启debug模式，开启后会有提示如下图：<br><img src="/images/page/android-webview/4.png" alt=""></p>
-<h2 id="调试WebView页面"><a href="#调试WebView页面" class="headerlink" title="调试WebView页面"></a>调试WebView页面</h2><h3 id="1、通过USB线连接Android手机与PC。"><a href="#1、通过USB线连接Android手机与PC。" class="headerlink" title="1、通过USB线连接Android手机与PC。"></a>1、通过USB线连接Android手机与PC。</h3><p>如果出现”是否允许调试“的条框中，选择”确定“。<br><img src="/images/page/android-webview/5.png" alt=""></p>
-<h3 id="2、调试Android-App中WebView页面："><a href="#2、调试Android-App中WebView页面：" class="headerlink" title="2、调试Android App中WebView页面："></a>2、调试Android App中WebView页面：</h3><p>在Android App中打开某个需要调试的WebView页面。然后在PC Chrome中打开”chrome://inspect“页面：<br><img src="/images/page/android-webview/6.png" alt=""><br>如图中列出的WebView实例，及其打开的页面信息。点击”inspect”打开页面调试窗口（注意：这步需要翻墙后才能打开,翻墙参考<a href="https://github.com/goagent/goagent）：" target="_blank" rel="external">https://github.com/goagent/goagent）：</a><br><img src="/images/page/android-webview/7.png" alt=""></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1、PC"><a href="#1、PC" class="headerlink" title="1、PC"></a>1、PC</h3><p>a) 安装Chrome32以上版本。<br>b) 开启Chrome的USB检索功能：<br><br>   在Chrome中打开”chrome://inspect/#devices“，勾选”Discover USB devices“。<br><img src="/images/page/android-webview/1.png" alt></p>
+<h3 id="2、Android手机（4-4及以上版本）-Android4-4模拟器"><a href="#2、Android手机（4-4及以上版本）-Android4-4模拟器" class="headerlink" title="2、Android手机（4.4及以上版本）/ Android4.4模拟器"></a>2、Android手机（4.4及以上版本）/ Android4.4模拟器</h3><p>a） 开启Debug:<br><br>    打开 “设置”à“开发选项”à“USB调试”。<br><img src="/images/page/android-webview/2.png" alt><br>注：一些手机默认隐藏了”开发选项“，需要进入”设置“à”关于手机“，然后连续点击”Android版本号“栏（大于等于7次），之后“设置“中将会出现”开发选项“。</p>
+<h3 id="3、需要调试的目标Android-APP"><a href="#3、需要调试的目标Android-APP" class="headerlink" title="3、需要调试的目标Android APP"></a>3、需要调试的目标Android APP</h3><p>需要App中的WebView开启debug功能：<br><img src="/images/page/android-webview/3.png" alt><br>千牛Android App可以在运行时开启WebView的Debug功能：<br></p>
+<p>进入“设置”à“关于千牛”,在如下界面点击千牛图标大于等于10次开启debug模式，开启后会有提示如下图：<br><img src="/images/page/android-webview/4.png" alt></p>
+<h2 id="调试WebView页面"><a href="#调试WebView页面" class="headerlink" title="调试WebView页面"></a>调试WebView页面</h2><h3 id="1、通过USB线连接Android手机与PC。"><a href="#1、通过USB线连接Android手机与PC。" class="headerlink" title="1、通过USB线连接Android手机与PC。"></a>1、通过USB线连接Android手机与PC。</h3><p>如果出现”是否允许调试“的条框中，选择”确定“。<br><img src="/images/page/android-webview/5.png" alt></p>
+<h3 id="2、调试Android-App中WebView页面："><a href="#2、调试Android-App中WebView页面：" class="headerlink" title="2、调试Android App中WebView页面："></a>2、调试Android App中WebView页面：</h3><p>在Android App中打开某个需要调试的WebView页面。然后在PC Chrome中打开”chrome://inspect“页面：<br><img src="/images/page/android-webview/6.png" alt><br>如图中列出的WebView实例，及其打开的页面信息。点击”inspect”打开页面调试窗口（注意：这步需要翻墙后才能打开,翻墙参考<a href="https://github.com/goagent/goagent）：" target="_blank" rel="noopener">https://github.com/goagent/goagent）：</a><br><img src="/images/page/android-webview/7.png" alt></p>
 <p>FAQ:</p>
 <ol>
 <li>在PC Chrome”chrome://inspect“页面中看不到Android设备或者模拟器信息：</li>
 <li>首先检查Android手机或者模拟器是否开起“Debug调试”，如果开启了还是不能展示，则需要检查驱动是否安装成功。</li>
 <li>在PC Chrome”chrome://inspect“页面中看不到WebView页面信息：需要跟Android App人员确定获得的App是否开启WebView可调试。</li>
 <li>在PC Chrome”chrome://inspect“页面中选择一个页面，点击“inspect”后打开的调试页面始终是空白：<strong>需要翻墙后再次打开</strong>。</li>
-<li>更多详细资料可以参考：<a href="https://developer.chrome.com/devtools/docs/remote-debugging#install-adbplugin" target="_blank" rel="external">https://developer.chrome.com/devtools/docs/remote-debugging#install-adbplugin</a></li>
+<li>更多详细资料可以参考：<a href="https://developer.chrome.com/devtools/docs/remote-debugging#install-adbplugin" target="_blank" rel="noopener">https://developer.chrome.com/devtools/docs/remote-debugging#install-adbplugin</a></li>
 </ol>
 
       
@@ -378,13 +379,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -479,7 +480,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -490,9 +491,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -503,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -642,10 +641,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -672,7 +671,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -101,6 +101,7 @@
 <meta property="og:url" content="http://html-js.site/page/3/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大洋">
 <meta name="twitter:description" content="成功道路并不拥挤，因为坚持的人不多">
@@ -141,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/page/3/"/>
+  <link rel="canonical" href="http://html-js.site/page/3/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -268,11 +269,454 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/03/08/AntD-Modal组件的实现原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/08/AntD-Modal组件的实现原理/" itemprop="url">AntD Modal组件的实现原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T14:06:23+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Ant Design(AntD)是React的一种UI组件。开发中使用AntD的Modal,在处理用户处理事务,在当前页面弹出一个对话框,承载相应的操作。现在来看看AntD的实现原理</p>
+<p>先写列出部分Modal基本用法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.showModal&#125;&gt;Open a modal dialog&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Modal title="Basic Modal" visible=&#123;this.state.visible&#125;</span></span><br><span class="line"><span class="regexp">          onOk=&#123;this.handleOk&#125; onCancel=&#123;this.handleCancel&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">          &lt;p&gt;some contents...&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">        &lt;<span class="regexp">/Modal&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//----------------</span></span><br><span class="line">ReactDOM.render(&lt;App /&gt;,mountNode)</span><br></pre></td></tr></table></figure>
+<p>这样即可使用模态对话框组件。<br>打开浏览器的开发者功能可以看到对话框的div始终在body内层中，而不是在mountNode内部。当然模态对话框本就应该存在body内存中，而不是任意其他组件元素内部,否则嵌套效果不好，添加动画会招来性能问题。<br>这是为什么？<br>从AntD的Modal组件源码中(components/modal/index.tsx)，可以看到如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> confirm <span class="keyword">from</span> <span class="string">'./confirm'</span>;</span><br><span class="line">Modal.success = <span class="function"><span class="keyword">function</span> (<span class="params">props: ModalFuncProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> config = assign(&#123;&#125;, &#123;</span><br><span class="line">    type: <span class="string">'success'</span>,</span><br><span class="line">    iconType: <span class="string">'check-circle'</span>,</span><br><span class="line">    okCancel: <span class="literal">false</span>,</span><br><span class="line">  &#125;, props);</span><br><span class="line">  <span class="keyword">return</span> confirm(config);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当Modal加载成功后，还需要进一步从confirm(config)获取组件。<br>我们进一步查看confirm,在confirm.tsx(components/modal/confirm.tsx)可以看到如下源码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line"><span class="comment">//......</span></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Dialog</span><br><span class="line">    className=&#123;classString&#125;</span><br><span class="line">    onCancel=&#123;close.bind(<span class="keyword">this</span>, &#123; <span class="attr">triggerCancel</span>: <span class="literal">true</span> &#125;)&#125;</span><br><span class="line">    visible</span><br><span class="line">    title=<span class="string">""</span></span><br><span class="line">    transitionName=<span class="string">"zoom"</span></span><br><span class="line">    footer=<span class="string">""</span></span><br><span class="line">    maskTransitionName=<span class="string">"fade"</span></span><br><span class="line">    maskClosable=&#123;maskClosable&#125;</span><br><span class="line">    style=&#123;style&#125;</span><br><span class="line">    width=&#123;width&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;div className=&#123;<span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-body-wrapper`</span>&#125;&gt;</span><br><span class="line">      &#123;body&#125; &#123;footer&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Dialog&gt;</span><br><span class="line">, div);</span><br></pre></td></tr></table></figure>
+<p>最后再次使用ReactDOM.render()在创建的div内部添加对话框。<br>同时这是说明,ReactDOM.render()并不是只有在顶层要嵌入的div中使用。内部同样可以再次使用。</p>
+<p>！！！但是，ReactDOM.render()方法，虽然可以实现组件的挂载点脱离父组件，但是组件的事件无法通过冒泡机制传递给父组件，也就是说如果挂载点div脱离了顶层root组件(<code>&lt;App /&gt;</code>)，那么挂载在div上面的组件也没办法使用redux。</p>
+<p>那么为什么Antd-Modal到底是怎么实现的呢？ 原因是Antd-Modal里面使用了<a href="https://github.com/react-component/dialog" target="_blank" rel="noopener">rc-dialog</a> 组件，里面的<code>DialogWrap</code>组件使用了<a href="https://github.com/react-component/util" target="_blank" rel="noopener">rc-util</a>这个库的<a href="https://github.com/react-component/util/blob/master/src/ContainerRender.js" target="_blank" rel="noopener">ContainerRender.js</a>和<a href="https://github.com/react-component/util/blob/master/src/Portal.js" target="_blank" rel="noopener">Portal.js</a>方法，这个库解决了 ‘组件的挂载点虽然可以脱离父组件，但组件的事件通过冒泡机制仍可以传给父组件’ 问题</p>
+<p>详情请看下一篇博客&gt;&gt;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/29/Webpack-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/29/Webpack-学习笔记/" itemprop="url">Webpack 学习笔记[精华]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T19:21:34+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色<br><a href="https://webpack.github.io/docs/configuration.html" target="_blank" rel="noopener">https://webpack.github.io/docs/configuration.html</a> //config配置</p>
+<h3 id="cli-参数"><a href="#cli-参数" class="headerlink" title="cli 参数"></a>cli 参数</h3><ul>
+<li>–hot 代码热更新</li>
+<li>–progress 有tab栏</li>
+<li>–watch 实时监控</li>
+<li>-debug 调试</li>
+</ul>
+<h3 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h3><p>加载器的使用, 加载器可以配置query参数并可以链式调用, 本质上是纯函数, 遵循单一职责原则<br><a href="https://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="noopener">https://webpack.github.io/docs/list-of-loaders.html</a><br><a href="https://webpack.github.io/docs/loader-conventions.html" target="_blank" rel="noopener">https://webpack.github.io/docs/loader-conventions.html</a></p>
+<h3 id="devTools"><a href="#devTools" class="headerlink" title="devTools"></a>devTools</h3><p>webpack-dev-server / webpack-dev-middleware / koa-webpack-dev</p>
+<h3 id="codeSplitting-代码分割"><a href="#codeSplitting-代码分割" class="headerlink" title="codeSplitting 代码分割"></a>codeSplitting 代码分割</h3><p>定义分割点<br>CommonJS: require.ensure<br>AMD: require</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([<span class="string">"./file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// is equal to</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>.include(<span class="string">"./file"</span>);</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><h3 id="最小化"><a href="#最小化" class="headerlink" title="最小化"></a>最小化</h3><p>new webpack.optimize.UglifyJsPlugin() // 压缩<br>new webpack.optimize.OccurrenceOrderPlugin() //排序输出</p>
+<h3 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h3><p>new webpack.optimize.DedupePlugin()</p>
+<h3 id="设置分块传输大小和数目"><a href="#设置分块传输大小和数目" class="headerlink" title="设置分块传输大小和数目"></a>设置分块传输大小和数目</h3><p>new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})<br>new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000})</p>
+<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>webpack-dev-server/webpack-dev-middleware/webpack –watch or watch: true</p>
+<h3 id="不解析"><a href="#不解析" class="headerlink" title="不解析"></a>不解析</h3><p>noParse</p>
+<h3 id="SourceMap-使调试更容易）"><a href="#SourceMap-使调试更容易）" class="headerlink" title="SourceMap (使调试更容易）"></a>SourceMap (使调试更容易）</h3><ul>
+<li>devtool: “source-map” 在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的<code>source map</code>，但是它会减慢打包速度；</li>
+<li>devtool: “cheap-module-source-map” 在一个单独的文件中生成一个不带列映射的<code>map</code>，不带列映射提高了打包速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
+<li>devtool: “eval-source-map” 使用<code>eval</code>打包源文件模块，在同一个文件中生成干净的完整的<code>source map</code>。这个选项可以在不影响构建速度的前提下生成完整的<code>sourcemap</code>，但是对打包后输出的JS文件的执行具有性能和安全的隐患。在开发阶段这是一个非常好的选项，在生产阶段则一定不要启用这个选项；</li>
+<li>devtool: “cheap-module-eval-source-map” 这是在打包文件时最快的生成<code>source map</code>的方法，生成的<code>Source Map</code> 会和打包后的<code>JavaScript</code>文件同行显示，没有列映射，和<code>eval-source-map</code>选项具有相似的缺点；</li>
+</ul>
+<p>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的打包速度的后果就是对打包后的文件的的执行有一定影响。</p>
+<blockquote>
+<p><code>cheap-module-eval-source-map</code>方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。</p>
+</blockquote>
+<p>对小到中型的项目中，eval-source-map是一个很好的选项，再次强调你只应该开发阶段使用它</p>
+<h3 id="模块-和-依赖位置"><a href="#模块-和-依赖位置" class="headerlink" title="模块 和 依赖位置"></a>模块 和 依赖位置</h3><p>RESOLVE.ROOT VS RESOLVE.MODULESDIRECTORIES</p>
+<h3 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h3><p>初始加载的应该是路由和首页, 然后再加载其他页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"entry-chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="3.chunk.js" type="text/</span>javascript<span class="string">" charset="</span>utf<span class="number">-8</span><span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="多页应用"><a href="#多页应用" class="headerlink" title="多页应用"></a>多页应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        p3: <span class="string">"./page3"</span>,</span><br><span class="line">        ap1: <span class="string">"./admin/page1"</span>,</span><br><span class="line">        ap2: <span class="string">"./admin/page2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  commons chunk</span></span><br><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        commons: <span class="string">"./entry-for-the-commons-chunk"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="官方建议场景"><a href="#官方建议场景" class="headerlink" title="官方建议场景"></a>官方建议场景</h2><h3 id="应用性能"><a href="#应用性能" class="headerlink" title="应用性能"></a>应用性能</h3><ul>
+<li>尽量使用<code>UglifyJsPlugin</code>减少文件体积</li>
+<li>使用代码分割, 使首次加载尽可能快速</li>
+<li>对于<code>React</code>, 使用 <code>react-proxy-loader</code></li>
+<li>添加 <code>hash</code> 到文件, 并尽可能长时间缓存</li>
+<li>使 <code>module/chunk</code> 的ID尽可能保持一致</li>
+<li>如果有静态页面, 使用 <code>html-webpack-plugin</code></li>
+<li>不要立即删除无用的资源(等待数周), 以免长时间保持浏览器窗口打开的用户 404</li>
+<li>使用<code>DefinePlugin</code>来配置应用(是否内联, 各种条件配置)</li>
+<li>使用<code>EnvironmentPlugin</code>来传递<code>process.env</code>到应用</li>
+<li>使用包分析工具来检查问题, 减小下载时间, 改进内聚性</li>
+<li>使用<code>stats-webpack-plugin</code>获取状态</li>
+<li>使用配置文件<code>option</code>来获取更多性能数据</li>
+<li>提取通用模块到单独的<code>script</code>文件(多页应用)</li>
+<li>使用<code>DedupePlugin</code>来删除与<code>NPM</code>重复的数据</li>
+<li>对<code>CSS</code>做处理</li>
+<li>对静态资源做处理(<code>font/image</code>)</li>
+<li>内联静态资源<code>url-loader</code>,减少加载时间</li>
+<li>用<code>extract-text-webpack-plugin</code>来分割CSS资源(有很多css资源的应用)</li>
+<li><code>LimitChunkCountPlugin</code> <code>MinChunkSizePlugin</code> <code>AggressiveMergingPlugin</code>来改善<code>chunk</code>传输</li>
+<li>通过添加<code>script</code>标签来异步<code>chunk</code>的加载</li>
+</ul>
+<h3 id="开发性能"><a href="#开发性能" class="headerlink" title="开发性能"></a>开发性能</h3><ul>
+<li>使用 <code>webpack.config.js</code> 代替 <code>CLi</code></li>
+<li>不要重写不兼容的<code>JS</code>, 使用 <code>imports-loader/exports-loader</code> 使之兼容, 并且更易升级</li>
+<li>使用 <code>webpack devtools</code> 来在浏览器调试</li>
+<li>尽可能使用 <code>ES6</code> 模块加载方式, 这更易于未来的优化(<code>webpack2</code>支持)</li>
+<li>使用 <code>output.library</code> 来声明依赖</li>
+<li>使用 <code>externals</code> 来对外声明依赖</li>
+<li>使用 <code>HMR</code> 代码热更新</li>
+<li>对于 <code>React</code> 使用 <code>react-hot-loader</code> 或 <code>react-transform</code></li>
+<li>自定义路由, 最好在路由级别更新</li>
+<li>使用<code>Javascript</code>来书写配置文件</li>
+<li>使用<code>resolve.root</code>来配置应用模块的路径, 允许较短的引用关系</li>
+<li>使用<code>karma</code> 通过 <code>karma-webpack</code>来在浏览器测试模块</li>
+<li>面向环境构建, 而不是面向浏览器构建</li>
+<li>使用<code>BannerPlugin</code>来放置<code>Licensing</code></li>
+<li>通过<code>debug</code>来获取更多的出错信息</li>
+<li>在<code>module.loaders</code>中使用<code>include</code>而不是<code>exclude</code>, 这样更不容易出错更加清晰</li>
+</ul>
+<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><ul>
+<li>使用增量备份 如果 <code>watch</code> 网络或<code>VM</code>内部的代码,请使用 <code>watchOptions.poll</code></li>
+<li>使用 <code>web-dev-server</code> 可以快速构建发布</li>
+<li>使用多个 入口点 , 而不是多次运行 <code>webpack</code>(多页应用)</li>
+<li>通过配置一个数组配置, 使<code>webpack</code>可以并行编译(大型配置复杂的应用)</li>
+<li>大型无依赖的模块要配置<code>module.noParse</code>, 可以更快构建</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="分割App中的共有模块和代码模块"><a href="#分割App中的共有模块和代码模块" class="headerlink" title="分割App中的共有模块和代码模块"></a>分割App中的共有模块和代码模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">    vendor: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"vendor.bundle.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="bundle.js"&gt;&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="多入口文件分割"><a href="#多入口文件分割" class="headerlink" title="多入口文件分割"></a>多入口文件分割</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123; <span class="attr">a</span>: <span class="string">"./a"</span>, <span class="attr">b</span>: <span class="string">"./b"</span> &#125;,</span><br><span class="line">    output: &#123; <span class="attr">filename</span>: <span class="string">"[name].js"</span> &#125;,</span><br><span class="line">    plugins: [ <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"init.js"</span>) ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"init.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="a.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script src=<span class="string">"b.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS样式单独切成独立文件"><a href="#CSS样式单独切成独立文件" class="headerlink" title="CSS样式单独切成独立文件"></a>CSS样式单独切成独立文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// The standard entry point and output config</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        posts: <span class="string">"./posts"</span>,</span><br><span class="line">        post: <span class="string">"./post"</span>,</span><br><span class="line">        about: <span class="string">"./about"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span>,</span><br><span class="line">        chunkFilename: <span class="string">"[id].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            <span class="comment">// Extract css files</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Optionally extract less files</span></span><br><span class="line">            <span class="comment">// or any other compile-to-css language</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// You could also use other loaders the same way. I. e. the autoprefixer-loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Use the plugin to specify the resulting filename (and add needed behavior to the compiler)</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含嵌入式的样式)</span></span><br></pre></td></tr></table></figure>
+<h3 id="所有的CSS文件合并成1个文件-allChunks设置成true"><a href="#所有的CSS文件合并成1个文件-allChunks设置成true" class="headerlink" title="所有的CSS文件合并成1个文件, allChunks设置成true"></a>所有的CSS文件合并成1个文件, allChunks设置成true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"style.css"</span>, &#123;</span><br><span class="line">            allChunks: <span class="literal">true</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js</span></span><br><span class="line"><span class="comment">// post.js</span></span><br><span class="line"><span class="comment">// about.js</span></span><br><span class="line"><span class="comment">// 1.js 2.js (don’t contain embedded styles)</span></span><br><span class="line"><span class="comment">// style.css</span></span><br></pre></td></tr></table></figure>
+<h3 id="公共样式会被抽出来"><a href="#公共样式会被抽出来" class="headerlink" title="公共样式会被抽出来"></a>公共样式会被抽出来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>),</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// commons.js commons.css</span></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含内置样式)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果 allChunks: true</span></span><br><span class="line"><span class="comment">// 1.js 2.js (不含内置样式)</span></span><br></pre></td></tr></table></figure>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="文件过大"><a href="#文件过大" class="headerlink" title="文件过大"></a>文件过大</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    topic:<span class="string">'./src/components/app/topic.js'</span></span><br><span class="line">    activity: <span class="string">'./src/components/app/activity.js'</span>,</span><br><span class="line">    react: [<span class="string">'react'</span>],</span><br><span class="line">    jquery: [<span class="string">'jquery'</span>]</span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">        name: [<span class="string">'jquery'</span>, <span class="string">'react'</span>], <span class="comment">//提取公共模块</span></span><br><span class="line">        minChunks: <span class="literal">Infinity</span> <span class="comment">//提取所有entry依赖模块</span></span><br><span class="line">        &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJSPlugin(&#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">            warinings: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="文件缓存"><a href="#文件缓存" class="headerlink" title="文件缓存"></a>文件缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/release/'</span>,</span><br><span class="line">    filename: <span class="string">'[chunkFilename:8].[name].js'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].[chunkFilename:8].js'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自动生成页面"><a href="#自动生成页面" class="headerlink" title="自动生成页面"></a>自动生成页面</h3><p>使用 HtmlWebpackPlugin 和 ExtractTextPlugin 插件可以解决此问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">'topic.html'</span>,</span><br><span class="line">        template: __dirname + <span class="string">'/src/app.html'</span>,</span><br><span class="line">        inject: <span class="literal">true</span>,</span><br><span class="line">        chunks: [<span class="string">'react'</span>, <span class="string">'jquery'</span>, <span class="string">'topic'</span>],</span><br><span class="line">        <span class="comment">//排序</span></span><br><span class="line">        chunksSortModel: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> index = &#123;<span class="string">'topic'</span>: <span class="number">1</span>, <span class="string">'react'</span>: <span class="number">3</span>, <span class="string">'jquery'</span>: <span class="number">2</span>&#125;,</span><br><span class="line">              aI = index[a.origins[<span class="number">0</span>].name],</span><br><span class="line">              bI = index[b.origins[<span class="number">0</span>].name];</span><br><span class="line">            <span class="keyword">return</span> aI &amp;&amp; bI ? bI - aI : <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'comm.[contenthash:8].css'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dialog = <span class="built_in">require</span>(<span class="string">'../../widget/dialog'</span>),</span><br><span class="line">    $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/14/React-Router-使用教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/React-Router-使用教程/" itemprop="url">React Router 使用教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T11:38:16+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>真正学会 <a href="https://facebook.github.io/react/" target="_blank" rel="noopener">React</a> 是一个漫长的过程。<br><img src="/images/page/reactRouter/03.jpg" alt><br>你会发现，它不是一个库，也不是一个框架，而是一个庞大的体系。想要发挥它的威力，整个技术栈都要配合它改造。你要学习一整套解决方案，从后端到前端，都是全新的做法。<br><img src="/images/page/reactRouter/04.png" alt><br>举例来说，React 不使用 HTML，而使用 JSX 。它打算抛弃 DOM，要求开发者不要使用任何 DOM 方法。它甚至还抛弃了 SQL ，自己发明了一套查询语言 GraphQL 。当然，这些你都可以不用，React 照样运行，但是就发挥不出它的最大威力。<br>这样说吧，你只要用了 React，就会发现合理的选择就是，采用它的整个技术栈。<br>本文介绍 React 体系的一个重要部分：路由库<code>[React-Router](https://github.com/reactjs/react-router)</code>。它是官方维护的，事实上也是唯一可选的路由库。它通过管理 URL，实现组件的切换和状态的变化，开发复杂的应用几乎肯定会用到。<br><img src="/images/page/reactRouter/05.png" alt><br>（[说明] 本文写作时，React-router 是 2.x 版，本文的内容只适合这个版本，与最新的 4.x 版不兼容。目前，官方同时维护 2.x 和 4.x 两个版本，所以前者依然可以用在项目中。2017年3月）</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>React Router 安装命令如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -S react-router</span><br></pre></td></tr></table></figure></p>
+<p>使用时，路由器<code>Router</code>就是React的一个组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line">render(&lt;Router/&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure></p>
+<p><code>Router</code>组件本身只是一个容器，真正的路由要通过<code>Route</code>组件定义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router, Route, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line">render((</span><br><span class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.getElementById('app'));</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，用户访问根路由<code>/</code>（比如<code>http://www.example.com/</code>），组件<code>APP</code>就会加载到<code>document.getElementById(&#39;app&#39;)</code>。<br>你可能还注意到，<code>Router</code>组件有一个参数<code>history</code>，它的值<code>hashHistory</code>表示，路由的切换由URL的<code>hash</code>变化决定，即<code>URL</code>的<code>#</code>部分发生变化。举例来说，用户访问<code>http://www.example.com/</code>，实际会看到的是<code>http://www.example.com/#/</code>。</p>
+<p><code>Route</code>组件定义了URL路径与组件的对应关系。你可以同时使用多个<code>Route</code>组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/repos"</span> component=&#123;Repos&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125;/&gt;</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，用户访问<code>/repos</code>（比如<code>http://localhost:8080/#/repos</code>）时，加载<code>Repos</code>组件；访问<code>/about</code>（<code>http://localhost:8080/#/about</code>）时，加载<code>About</code>组件。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/14/React-Router-使用教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/11/13/npm-scripts-使用指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -337,41 +781,41 @@
         
           
             <p>Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。<br>本文介绍如何使用 npm 脚本（npm scripts）。</p>
-<h3 id="什么是-npm-脚本？"><a href="#什么是-npm-脚本？" class="headerlink" title="什么是 npm 脚本？"></a>什么是 npm 脚本？</h3><p>npm 允许在<code>package.json</code>文件里面，使用<code>scripts</code>字段定义脚本命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node build.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码是<code>package.json</code>文件的一个片段，里面的<code>scripts</code>字段是一个对象。它的每一个属性，对应一段脚本。比如，<code>build</code>命令对应的脚本是<code>node build.js</code>。<br>命令行下使用<code>npm run</code>命令，就可以执行这段脚本。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div><div class="line"># 等同于执行</div><div class="line">$ node build.js</div></pre></td></tr></table></figure></p>
-<p>这些定义在<code>package.json</code>里面的脚本，就称为 npm 脚本。它的优点很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">项目的相关脚本，可以集中在一个地方。</div><div class="line">不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</div><div class="line">可以利用 npm 提供的很多辅助功能。</div></pre></td></tr></table></figure></p>
-<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的<code>npm run</code>命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run</div></pre></td></tr></table></figure></p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。<br>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。<br>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 <code>Mocha</code>，只要直接写<code>mocha test</code>就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"mocha test"</span></div></pre></td></tr></table></figure></p>
-<p>而不用写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha test"</span></div></pre></td></tr></table></figure></p>
+<h3 id="什么是-npm-脚本？"><a href="#什么是-npm-脚本？" class="headerlink" title="什么是 npm 脚本？"></a>什么是 npm 脚本？</h3><p>npm 允许在<code>package.json</code>文件里面，使用<code>scripts</code>字段定义脚本命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"node build.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码是<code>package.json</code>文件的一个片段，里面的<code>scripts</code>字段是一个对象。它的每一个属性，对应一段脚本。比如，<code>build</code>命令对应的脚本是<code>node build.js</code>。<br>命令行下使用<code>npm run</code>命令，就可以执行这段脚本。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm run build</span><br><span class="line"># 等同于执行</span><br><span class="line">$ node build.js</span><br></pre></td></tr></table></figure></p>
+<p>这些定义在<code>package.json</code>里面的脚本，就称为 npm 脚本。它的优点很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">项目的相关脚本，可以集中在一个地方。</span><br><span class="line">不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。</span><br><span class="line">可以利用 npm 提供的很多辅助功能。</span><br></pre></td></tr></table></figure></p>
+<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的<code>npm run</code>命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run</span><br></pre></td></tr></table></figure></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>npm 脚本的原理非常简单。每当执行<code>npm run</code>，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。<br>比较特别的是，<code>npm run</code>新建的这个 Shell，会将当前目录的<code>node_modules/.bin</code>子目录加入<code>PATH</code>变量，执行结束后，再将<code>PATH</code>变量恢复原样。<br>这意味着，当前目录的<code>node_modules/.bin</code>子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 <code>Mocha</code>，只要直接写<code>mocha test</code>就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"mocha test"</span></span><br></pre></td></tr></table></figure></p>
+<p>而不用写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha test"</span></span><br></pre></td></tr></table></figure></p>
 <p>由于 npm 脚本的唯一要求就是可以在 Shell 执行，因此它不一定是 Node 脚本，任何可执行文件都可以写在里面。<br>npm 脚本的退出码，也遵守 Shell 脚本规则。如果退出码不是<code>0</code>，npm 就认为这个脚本执行失败。</p>
-<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint *.js"</span></div><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **/*.js"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。<br>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"test"</span>: <span class="string">"tap test/\*.js"</span></div></pre></td></tr></table></figure></p>
-<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>向 npm 脚本传入参数，要使用–标明。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span></div></pre></td></tr></table></figure></p>
-<p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml</div></pre></td></tr></table></figure></p>
-<p>也可以在<code>package.json</code>里面再封装一个命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span>,</div><div class="line"><span class="string">"lint:checkstyle"</span>: <span class="string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span></div></pre></td></tr></table></figure></p>
-<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。<br>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run script1.js &amp;&amp; npm run script2.js</div></pre></td></tr></table></figure></p>
-<p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<a href="https://github.com/paulpflug/script-runner" target="_blank" rel="external">script-runner</a>、<a href="https://github.com/mysticatea/npm-run-all" target="_blank" rel="external">npm-run-all</a>、<a href="https://github.com/coderaiser/redrun" target="_blank" rel="external">redrun</a>。</p>
-<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure></p>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因为可以使用 Shell 通配符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"lint"</span>: <span class="string">"jshint *.js"</span></span><br><span class="line"><span class="string">"lint"</span>: <span class="string">"jshint **/*.js"</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>*</code>表示任意文件名，<code>**</code>表示任意一层子目录。<br>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"tap test/\*.js"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>向 npm 脚本传入参数，要使用–标明。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span></span><br></pre></td></tr></table></figure></p>
+<p>向上面的<code>npm run lint</code>命令传入参数，必须写成下面这样。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml</span><br></pre></td></tr></table></figure></p>
+<p>也可以在<code>package.json</code>里面再封装一个命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"lint"</span>: <span class="string">"jshint **.js"</span>,</span><br><span class="line"><span class="string">"lint:checkstyle"</span>: <span class="string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。<br>如果是并行执行（即同时的平行执行），可以使用<code>&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run script1.js &amp; npm run script2.js</span><br></pre></td></tr></table></figure></p>
+<p>如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用<code>&amp;&amp;</code>符号。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run script1.js &amp;&amp; npm run script2.js</span><br></pre></td></tr></table></figure></p>
+<p>这两个符号是 Bash 的功能。此外，还可以使用 node 的任务管理模块：<a href="https://github.com/paulpflug/script-runner" target="_blank" rel="noopener">script-runner</a>、<a href="https://github.com/mysticatea/npm-run-all" target="_blank" rel="noopener">npm-run-all</a>、<a href="https://github.com/coderaiser/redrun" target="_blank" rel="noopener">redrun</a>。</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</span><br><span class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></span><br></pre></td></tr></table></figure></p>
 <p>上面代码中，<code>npm run start</code>的默认值是<code>node server.js</code>，前提是项目根目录下有<code>server.js</code>这个脚本；<code>npm run install</code>的默认值是<code>node-gyp rebuild</code>，前提是项目根目录下有<code>binding.gyp</code>文件。</p>
-<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"prebuild"</span>: <span class="string">"echo I run before the build script"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</div><div class="line"><span class="string">"postbuild"</span>: <span class="string">"echo I run after the build script"</span></div></pre></td></tr></table></figure></p>
-<p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild</div></pre></td></tr></table></figure></p>
-<p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf ./dist &amp;&amp; mkdir dist"</span>,</div><div class="line"><span class="string">"prebuild"</span>: <span class="string">"npm run clean"</span>,</div><div class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span></div></pre></td></tr></table></figure></p>
-<p>npm 默认提供下面这些钩子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">prepublish，postpublish</div><div class="line">preinstall，postinstall</div><div class="line">preuninstall，postuninstall</div><div class="line">preversion，postversion</div><div class="line">pretest，posttest</div><div class="line">prestop，poststop</div><div class="line">prestart，poststart</div><div class="line">prerestart，postrestart</div></pre></td></tr></table></figure></p>
+<h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3><p>npm 脚本有<code>pre</code>和<code>post</code>两个钩子。举例来说，<code>build</code>脚本命令的钩子就是<code>prebuild</code>和<code>postbuild</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"prebuild"</span>: <span class="string">"echo I run before the build script"</span>,</span><br><span class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</span><br><span class="line"><span class="string">"postbuild"</span>: <span class="string">"echo I run after the build script"</span></span><br></pre></td></tr></table></figure></p>
+<p>用户执行<code>npm run build</code>的时候，会自动按照下面的顺序执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild</span><br></pre></td></tr></table></figure></p>
+<p>因此，可以在这两个钩子里面，完成一些准备工作和清理工作。下面是一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"clean"</span>: <span class="string">"rimraf ./dist &amp;&amp; mkdir dist"</span>,</span><br><span class="line"><span class="string">"prebuild"</span>: <span class="string">"npm run clean"</span>,</span><br><span class="line"><span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span></span><br></pre></td></tr></table></figure></p>
+<p>npm 默认提供下面这些钩子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">prepublish，postpublish</span><br><span class="line">preinstall，postinstall</span><br><span class="line">preuninstall，postuninstall</span><br><span class="line">preversion，postversion</span><br><span class="line">pretest，posttest</span><br><span class="line">prestop，poststop</span><br><span class="line">prestart，poststart</span><br><span class="line">prerestart，postrestart</span><br></pre></td></tr></table></figure></p>
 <p>自定义的脚本命令也可以加上<code>pre</code>和<code>post</code>钩子。比如，<code>myscript</code>这个脚本命令，也有<code>premyscript</code>和<code>postmyscript</code>钩子。不过，双重的<code>pre</code>和<code>post</code>无效，比如<code>prepretest</code>和<code>postposttest</code>是无效的。<br>npm 提供一个<code>npm_lifecycle_event</code>变量，返回当前正在运行的脚本名称，比如<code>pretest</code>、<code>test</code>、<code>posttest等</code>等。所以，可以利用这个变量，在同一个脚本文件里面，为不同的<code>npm scripts</code>命令编写代码。请看下面的例子。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> TARGET = process.env.npm_lifecycle_event;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'test'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the test task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'pretest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the pretest task!`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (TARGET === <span class="string">'posttest'</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the posttest task!`</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TARGET = process.env.npm_lifecycle_event;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (TARGET === <span class="string">'test'</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the test task!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (TARGET === <span class="string">'pretest'</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the pretest task!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (TARGET === <span class="string">'posttest'</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Running the posttest task!`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意，<code>prepublish</code>这个钩子不仅会在<code>npm publish</code>命令之前运行，还会在<code>npm install</code>（不带任何参数）命令之前运行。这种行为很容易让用户感到困惑，所以 <code>npm 4</code>引入了一个新的钩子<code>prepare</code>，行为等同于<code>prepublish</code>，而从 <code>npm 5</code>开始，<code>prepublish</code>将只在<code>npm publish</code>命令之前运行。</p>
-<h3 id="简写形式"><a href="#简写形式" class="headerlink" title="简写形式"></a>简写形式</h3><p>四个常用的 npm 脚本有简写形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm start是npm run start</div><div class="line">npm stop是npm run stop的简写</div><div class="line">npm test是npm run test的简写</div><div class="line">npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; npm run start的简写</div></pre></td></tr></table></figure></p>
-<p><code>npm start</code>、<code>npm stop</code>和<code>npm restart</code>都比较好理解，而<code>npm restart</code>是一个复合命令，实际上会执行三个脚本命令：<code>stop</code>、<code>restart</code>、<code>start</code>。具体的执行顺序如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">prerestart</div><div class="line">prestop</div><div class="line">stop</div><div class="line">poststop</div><div class="line">restart</div><div class="line">prestart</div><div class="line">start</div><div class="line">poststart</div><div class="line">postrestart</div></pre></td></tr></table></figure></p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。<br>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"foo"</span>, </div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.2.5"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"view"</span>: <span class="string">"node view.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回<code>1.2.5</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view.js</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_name); <span class="comment">// foo</span></div><div class="line"><span class="built_in">console</span>.log(process.env.npm_package_version); <span class="comment">// 1.2.5</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。<br><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。<br>下面是另外一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="string">"install"</span>: <span class="string">"foo.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。<br>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"view"</span>: <span class="string">"echo $npm_config_tag"</span>,</div></pre></td></tr></table></figure></p>
-<p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</div><div class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</div><div class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，<code>npm_package_config_port</code>变量返回的是8080。这个值可以用下面的方法覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config set foo:port <span class="number">80</span></div></pre></td></tr></table></figure></p>
-<p>最后，<code>env</code>命令可以列出所有环境变量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"env"</span>: <span class="string">"env"</span></div></pre></td></tr></table></figure></p>
-<h3 id="常用脚本示例"><a href="#常用脚本示例" class="headerlink" title="常用脚本示例"></a>常用脚本示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
+<h3 id="简写形式"><a href="#简写形式" class="headerlink" title="简写形式"></a>简写形式</h3><p>四个常用的 npm 脚本有简写形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm start是npm run start</span><br><span class="line">npm stop是npm run stop的简写</span><br><span class="line">npm test是npm run test的简写</span><br><span class="line">npm restart是npm run stop &amp;&amp; npm run restart &amp;&amp; npm run start的简写</span><br></pre></td></tr></table></figure></p>
+<p><code>npm start</code>、<code>npm stop</code>和<code>npm restart</code>都比较好理解，而<code>npm restart</code>是一个复合命令，实际上会执行三个脚本命令：<code>stop</code>、<code>restart</code>、<code>start</code>。具体的执行顺序如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">prerestart</span><br><span class="line">prestop</span><br><span class="line">stop</span><br><span class="line">poststop</span><br><span class="line">restart</span><br><span class="line">prestart</span><br><span class="line">start</span><br><span class="line">poststart</span><br><span class="line">postrestart</span><br></pre></td></tr></table></figure></p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>npm 脚本有一个非常强大的功能，就是可以使用 npm 的内部变量。<br>首先，通过<code>npm_package_</code>前缀，npm 脚本可以拿到<code>package.json</code>里面的字段。比如，下面是一个<code>package.json</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"foo"</span>, </span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.2.5"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"view"</span>: <span class="string">"node view.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么，变量<code>npm_package_name</code>返回<code>foo</code>，变量<code>npm_package_version</code>返回<code>1.2.5</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// view.js</span></span><br><span class="line"><span class="built_in">console</span>.log(process.env.npm_package_name); <span class="comment">// foo</span></span><br><span class="line"><span class="built_in">console</span>.log(process.env.npm_package_version); <span class="comment">// 1.2.5</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到<code>package.json</code>的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。<br><code>npm_package_</code>前缀也支持嵌套的<code>package.json</code>字段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"repository"</span>: &#123;</span><br><span class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></span><br><span class="line"> &#125;,</span><br><span class="line"> scripts: &#123;</span><br><span class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>repository</code>字段的<code>type</code>属性，可以通过<code>npm_package_repository_type</code>取到。<br>下面是另外一个例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"install"</span>: <span class="string">"foo.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>npm_package_scripts_install</code>变量的值等于<code>foo.js</code>。<br>然后，npm 脚本还可以通过<code>npm_config_</code>前缀，拿到 npm 的配置变量，即<code>npm config get xxx</code>命令返回的值。比如，当前模块的发行标签，可以通过<code>npm_config_tag</code>取到。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"view"</span>: <span class="string">"echo $npm_config_tag"</span>,</span><br></pre></td></tr></table></figure></p>
+<p>注意，<code>package.json</code>里面的<code>config</code>对象，可以被环境变量覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</span><br><span class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</span><br><span class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>npm_package_config_port</code>变量返回的是8080。这个值可以用下面的方法覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="keyword">set</span> foo:port 80</span><br></pre></td></tr></table></figure></p>
+<p>最后，<code>env</code>命令可以列出所有环境变量。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"env"</span>: <span class="string">"env"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="常用脚本示例"><a href="#常用脚本示例" class="headerlink" title="常用脚本示例"></a>常用脚本示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除目录</span></span><br><span class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></span><br><span class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开浏览器</span></span><br><span class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实时刷新</span></span><br><span class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构建 HTML 文件</span></span><br><span class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></span><br><span class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></span><br><span class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部署到 Amazon S3</span></span><br><span class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构建 favicon</span></span><br><span class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</span><br></pre></td></tr></table></figure>
 
           
         
@@ -419,7 +863,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -488,16 +932,16 @@
 <li>两个简单的浮点数相加</li>
 </ol>
 </li>
-<li><ol>
+<li><ol start="2">
 <li>大整数运算</li>
 </ol>
 </li>
-<li><ol>
+<li><ol start="3">
 <li>toFixed 不会四舍五入（Chrome）</li>
 </ol>
 </li>
 </ul>
-<p><img src="/images/page/number/1.png" alt=""></p>
+<p><img src="/images/page/number/1.png" alt></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/#more" rel="contents">
@@ -550,7 +994,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -615,7 +1059,7 @@
         
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前端应用的优化中，对加载资源的大小控制极其的重要，大多数时候我们能做的是在打包编译的过程对资源进行大小控制、拆分与复用。</p>
 <p>本片文章中主要是基于 webpack 打包，以 React、vue 等生态开发的单页面应用来举例说明如何从 webpack 打包的层面去处理资源以及缓存，其中主要我们需要做的是对 webpack 进行配置的优化，同时涉及少量的业务代码的更改。</p>
-<p>同时对打包资源的分析可以使用 (<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="external">webpack-contrib/webpack-bundle-analyzer</a>) 插件，当然可选的分析插件还是很多的，在本文中主要以该插件来举例分析。<br>
+<p>同时对打包资源的分析可以使用 (<a href="http://link.zhihu.com/?target=https%3A//github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="noopener">webpack-contrib/webpack-bundle-analyzer</a>) 插件，当然可选的分析插件还是很多的，在本文中主要以该插件来举例分析。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/20/使用-webpack-优化资源/#more" rel="contents">
@@ -625,7 +1069,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     <div>
       
@@ -668,7 +1112,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -733,11 +1177,11 @@
         
           
             <blockquote>
-<p>折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的<a href="https://github.com/ant-design/ant-design-mobile/wiki/HD" target="_blank" rel="external">高清方案</a>，但是组件都是使用px为单位的，所以需要集成postcss来进行转换rem</p>
+<p>折腾记：最近一直在写react项目，遇到了不少坑，比如客户端开发使用了antd-mobile库，也使用了推荐的<a href="https://github.com/ant-design/ant-design-mobile/wiki/HD" target="_blank" rel="noopener">高清方案</a>，但是组件都是使用px为单位的，所以需要集成postcss来进行转换rem</p>
 </blockquote>
-<h3 id="安装postcss相关npm包"><a href="#安装postcss相关npm包" class="headerlink" title="安装postcss相关npm包"></a>安装postcss相关npm包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install postcss-loader postcss-pxtorem --save-dev</div></pre></td></tr></table></figure>
-<h3 id="webpack集成postcss"><a href="#webpack集成postcss" class="headerlink" title="webpack集成postcss"></a>webpack集成postcss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line"><span class="keyword">const</span> pxtorem = <span class="built_in">require</span>(<span class="string">'postcss-pxtorem'</span>);</div><div class="line"><span class="comment">// ....</span></div><div class="line">&#123;</div><div class="line">    <span class="attr">postcss</span>: [</div><div class="line">        pxtorem(&#123;</div><div class="line">            <span class="attr">rootValue</span>: <span class="number">100</span>,</div><div class="line">            <span class="attr">propWhiteList</span>: []</div><div class="line">        &#125;),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="设定post-loader"><a href="#设定post-loader" class="headerlink" title="设定post-loader"></a>设定post-loader</h3><p>改写loaders，比如要对.css文件进行过滤:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">loaders: [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'style-loader!css-loader!postcss-loader'</span></div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="安装postcss相关npm包"><a href="#安装postcss相关npm包" class="headerlink" title="安装postcss相关npm包"></a>安装postcss相关npm包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install postcss-loader postcss-pxtorem --save-dev</span><br></pre></td></tr></table></figure>
+<h3 id="webpack集成postcss"><a href="#webpack集成postcss" class="headerlink" title="webpack集成postcss"></a>webpack集成postcss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> pxtorem = <span class="built_in">require</span>(<span class="string">'postcss-pxtorem'</span>);</span><br><span class="line"><span class="comment">// ....</span></span><br><span class="line">&#123;</span><br><span class="line">    postcss: [</span><br><span class="line">        pxtorem(&#123;</span><br><span class="line">            rootValue: <span class="number">100</span>,</span><br><span class="line">            propWhiteList: []</span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设定post-loader"><a href="#设定post-loader" class="headerlink" title="设定post-loader"></a>设定post-loader</h3><p>改写loaders，比如要对.css文件进行过滤:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        loader: <span class="string">'style-loader!css-loader!postcss-loader'</span></span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -785,7 +1229,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -913,7 +1357,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -1030,7 +1474,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -1095,438 +1539,19 @@
         
           
             <p>git config –global user.name “username”<br>git config –global user.email “email”</p>
-<p>提交流程：<br>git add .<br>git commit -m “代码提交信息”<br>git pull “代码提交信息”<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名</local_branch></p>
+<p>提交流程：<br>git add .<br>git commit -m “代码提交信息”<br>git pull “代码提交信息”<br>git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名</p>
 <p>git branch branchName 创建新分支<br>git checkout branchName 切换到新分支</p>
 <p>查看、添加、提交、删除、找回，重置修改文件<br>git help <command> # 显示command的help<br>git show # 显示某次提交的内容 git show $id<br>git co – <file> # 抛弃工作区修改<br>git co . # 抛弃工作区修改<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git add . # 将所有修改过的工作文件提交暂存区<br>git rm <file> # 从版本库中删除文件<br>git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset – . # 从暂存区恢复到工作文件<br>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　git ci -am “some comments”<br>git ci –amend # 修改最后一次提交记录<br>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p>
 <p>git commit -m “代码提交信息”</p>
 <p>查看文件diff<br>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git diff <id1><id1><id2> # 比较两次提交之间的差异<br>git diff <branch1>..<branch2> # 在两个分支之间比较<br>git diff –staged # 比较暂存区和版本库差异<br>git diff –cached # 比较暂存区和版本库差异<br>git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p>
 <p>查看提交记录<br>git log git log <file> # 查看该文件每次提交记录<br>git log -p <file> # 查看每次详细修改内容的diff<br>git log -p -2 # 查看最近两次详细修改内容的diff<br>git log –stat #查看提交统计信息<br>tig Mac上可以使用tig代替diff和log，brew install tig<br>Git 本地分支管理</file></file></p>
-<p>查看、切换、创建和删除分支<br>git br -r # 查看远程分支<br>git br <new_branch> # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b <new_branch> # 创建新的分支，并且切换过去<br>git co -b <new_branch> <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b <new_branch> # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></new_branch></branch></new_branch></new_branch></branch></new_branch></p>
+<p>查看、切换、创建和删除分支<br>git br -r # 查看远程分支<br>git br &lt;new_branch&gt; # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去<br>git co -b &lt;new_branch&gt; <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></branch></branch></p>
 <p>分支合并和rebase<br>git merge <branch> # 将branch分支合并到当前分支<br>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交<br>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch><br>Git补丁管理(方便在多台机器上开发同步时用)<br>git diff &gt; ../sync.patch # 生成补丁<br>git apply ../sync.patch # 打补丁<br>git apply –check ../sync.patch #测试补丁能否成功</branch></branch></branch></branch></p>
 <p>Git暂存管理<br>git stash # 暂存<br>git stash list # 列所有stash<br>git stash apply # 恢复暂存的内容<br>git stash drop # 删除暂存区</p>
-<p>Git远程分支管理<br>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b <local_branch> origin/<remote_branch> # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin <local_branch> # 创建远程分支， origin是远程仓库名<br>git push origin <local_branch>:<remote_branch> # 创建远程分支<br>git push origin :<remote_branch> #先删除本地分支(git br -d <branch>)，然后再push删除远程分支<br>删除远程分支<br>git branch -a<br>git branch -r -d origin/branch-name<br>git push origin :branch-name</branch></remote_branch></remote_branch></local_branch></local_branch></remote_branch></local_branch></p>
+<p>Git远程分支管理<br>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名<br>git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支<br>git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d <branch>)，然后再push删除远程分支<br>删除远程分支<br>git branch -a<br>git branch -r -d origin/branch-name<br>git push origin :branch-name</branch></p>
 <p>Git远程仓库管理<br>GitHub<br>git remote -v # 查看远程服务器地址和仓库名称<br>git remote show origin # 查看远程服务器仓库状态<br>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址<br>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</repository></p>
 <p>创建远程仓库<br>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库<br>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上<br>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库<br>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址<br>git push -u origin master # 客户端首次提交<br>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track<br>git remote set-head origin master # 设置远程仓库的HEAD指向master分支</p>
 <p>也可以命令设置跟踪远程库和本地库<br>git branch –set-upstream master origin/master<br>git branch –set-upstream develop origin/develop</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/javascript进阶-惰性函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/javascript进阶-惰性函数/" itemprop="url">javascript进阶-惰性函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T15:15:03+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>函数是js世界的一等公民，js的动态性、易变性在函数的应用上，体现的淋漓尽致。做为参数，做为返回值等，正是函数这些特性，使得js开发变的有趣。</p>
-</blockquote>
-<p>下面就阐述一下，js一个有趣的应用–惰性函数定义（Lazy Function Definition）。</p>
-<p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。</p>
-<p>下面我们看几个典型的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        element[<span class="string">'on'</span> + type] = fun;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面是注册函数监听的各浏览器兼容函数。由于，各浏览之间的差异，不得不在用的时候做能力检测。显然，单从功能上讲，已经做到了兼容浏览器。美中不足，每次绑定监听，都会对能力做一次检测。然而，真正的应用中，这显然是多余的，同一个应用环境中，其实只需要检测一次即可。</p>
-<p>下面我们重写上面的addEvent：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.addEventListener(type, fun, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element.attachEvent(<span class="string">'on'</span> + type, fun);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</div><div class="line">            element[<span class="string">'on'</span> + type] = fun;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    addEvent(type, element, fun);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>由上，第一次调用addEvent会对浏览器做能力检测，然后，重写了addEvent。下次再调用的时候，由于函数被重写，不会再做能力检测。</p>
-<p>同样的应用，javascript高级程序设计里的一例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</div><div class="line">            <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">                            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line">    </div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                    <span class="built_in">arguments</span>.callee.activeXString = versions[i];</div><div class="line">                    <span class="keyword">return</span> xhr;</div><div class="line">                &#125; <span class="keyword">catch</span> (ex)&#123;</div><div class="line">                    <span class="comment">//skip</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>很显然，惰性函数在这里优势更加明显，因为这里有更多的分支。下面我们看一下重写后台的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>) &#123;</div><div class="line">        createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>) &#123;</div><div class="line">        <span class="keyword">var</span> curxhr;</div><div class="line">        <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</div><div class="line">            <span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = versions.length; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">                curxhr = versions[i];</div><div class="line">                createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(curxhr);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> xhr;</div><div class="line">            &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">                <span class="comment">//skip</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>浏览器之间最大的差异，莫过于Dom操作，Dom操作也是前端应用 中最频繁的操作，前端的大多性能提升，均体现在Dom操作方面。下面看一个Dom操作方面的惰性函数定义例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.pageYOffset == <span class="string">'number'</span>) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">window</span>.pageYOffset;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">typeof</span> <span class="built_in">document</span>.compatMode == <span class="string">'string'</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.compatMode.indexOf(<span class="string">'CSS'</span>) &gt;= <span class="number">0</span>) &amp;&amp;</div><div class="line">               (<span class="built_in">document</span>.documentElement) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.documentElement.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.scrollTop;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="built_in">document</span>.body) &amp;&amp;</div><div class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.body.scrollTop == <span class="string">'number'</span>)) &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="built_in">document</span>.body.scrollTop;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="literal">NaN</span>;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> getScrollY();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>惰性函数定义应用还体现在创建单例上：(目前还不清楚创建单例的话有什么好处)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">unction Universe() &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 缓存的实例</span></div><div class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 其它内容</span></div><div class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 重写构造函数</span></div><div class="line">    Universe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当然，像上面这种例子有很多。惰性函数定义，应用场景我们可以总结一下：</p>
-<p>1 应用频繁，如果只用一次，是体现不出它的优点出来的，用的次数越多，越能体现这种模式的优势所在；</p>
-<p>2 固定不变，一次判定，在固定的应用环境中不会发生改变；</p>
-<p>3 复杂的分支判断，没有差异性，不需要应用这种模式；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/09/react-router-按需加载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/react-router-按需加载/" itemprop="url">react-router 按需加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T00:54:49+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>注：本文使用的 react-router 版本为 2.8.1</p>
-</blockquote>
-<p>React Router 是一个非常出色的路由解决方案，同时也非常容易上手。但是当网站规模越来越大的时候，首先出现的问题是 Javascript 文件变得巨大，这导致首页渲染的时间让人难以忍受。实际上程序应当只加载当前渲染页所需的 JavaScript，也就是大家说的“代码分拆” — 将所有的代码分拆成多个小包，在用户浏览过程中按需加载。</p>
-<p>效果：<br>以前是这样：<br><img src="/images/page/reactRouter/01.png" alt=""></p>
-<p>现在是这样：<img src="/images/page/reactRouter/02.png" alt=""></p>
-<p>实际上就是将一个大 javascript 文件拆分成了若干个 chunk file。</p>
-<p>下面是改造过程</p>
-<h2 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h2><p>首先在 <code>webpack.config.js</code> 的 <code>output</code> 内加上 <code>chunkFilename</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</div><div class="line">    <span class="attr">filename</span>: <span class="string">'app.js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: defaultSettings.publicPath,</div><div class="line">    <span class="comment">// 添加 chunkFilename</span></div><div class="line">    chunkFilename: <span class="string">'[name].[chunkhash:5].chunk.js'</span>,</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-<p><code>name</code> 是在代码里为创建的 <code>chunk</code> 指定的名字，如果代码中没指定则 <code>webpack</code> 默认分配 <code>id</code> 作为 <code>name</code>。</p>
-<p><code>chunkhash</code> 是文件的 <code>hash</code> 码，这里只使用前五位。</p>
-<h2 id="添加首页"><a href="#添加首页" class="headerlink" title="添加首页"></a>添加首页</h2><p>以前你的路由大概应该是这样的：（作为需要按需加载的大型应用，路由肯定是相当复杂，这里只列举部分路由举例）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">      &#123;/* 主页 */&#125;</div><div class="line">      &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">        &#123;/* 默认 */&#125;</div><div class="line">        &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">        &#123;/* baidu */&#125;</div><div class="line">        &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">          &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">          &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">        &lt;/Route&gt;</div><div class="line"></div><div class="line">        &#123;/* 404 */&#125;</div><div class="line">        &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">        </div><div class="line">        &#123;/* 其他重定向到 404 */&#125;</div><div class="line">        &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">      &lt;/Route&gt;</div><div class="line">    &lt;/Router&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p>按需加载之后，我们需要让路由动态加载组件，需要将 <code>component</code> 换成 <code>getComponent</code>。首先将路由拆出来（因为路由庞大之后全部写在一起会很难看），创建一个根路由 <code>rootRoute</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rootRoute = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">  <span class="attr">indexRoute</span>: &#123;</div><div class="line">    getComponent(nextState, cb) &#123;</div><div class="line">      <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/HomePage'</span>))</div><div class="line">      &#125;, <span class="string">'HomePage'</span>)</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/Main'</span>))</div><div class="line">    &#125;, <span class="string">'Main'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">childRoutes</span>: [</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/baidu'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/404'</span>),</div><div class="line">    <span class="built_in">require</span>(<span class="string">'./routes/redirect'</span>)</div><div class="line">  ]</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  (</div><div class="line">    &lt;Router</div><div class="line">      history=&#123;browserHistory&#125;</div><div class="line">      routes=&#123;rootRoute&#125;</div><div class="line">      /&gt;</div><div class="line">  ), document.getElementById('app')</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p><code>history</code> 不变，在 <code>Router</code> 中添加 <code>routes</code> 属性，将创建的路由传递进去。</p>
-<p>这里有四个属性：</p>
-<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>将匹配的路由，也就是以前的 path。</p>
-<h3 id="getComponent"><a href="#getComponent" class="headerlink" title="getComponent"></a>getComponent</h3><p>对应于以前的 component 属性，但是这个方法是异步的，也就是当路由匹配时，才会调用这个方法。</p>
-<p>这里面有个 <strong>require.ensure</strong> 方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure(dependencies, callback, chunkName)</div></pre></td></tr></table></figure></p>
-<p>这是 <code>webpack</code> 提供的方法，这也是按需加载的核心方法。第一个参数是依赖，第二个是回调函数，第三个就是上面提到的 <code>chunkName</code>，用来指定这个 <code>chunk file</code> 的 <code>name</code>。</p>
-<p>如果需要返回多个子组件，则使用 <code>getComponents</code> 方法，将多个组件作为一个对象的属性通过 <code>cb</code> 返回出去即可。这个在官方示例也有，但是我们这里并不需要，而且根组件是不能返回多个子组件的，所以使用 <code>getComponent</code>。</p>
-<h3 id="indexRoute"><a href="#indexRoute" class="headerlink" title="indexRoute"></a>indexRoute</h3><p>用来设置主页，对应于以前的 <code>&lt;IndexRoute&gt;</code>。</p>
-<p>注意这里的 <code>indexRoute</code> 写法， <strong>这是个对象，在对象里面使用 getComponent</strong>。</p>
-<h3 id="childRoutes"><a href="#childRoutes" class="headerlink" title="childRoutes"></a>childRoutes</h3><p>这里面放置的就是子路由的配置，对应于以前的子路由们。我们将以前的 <code>/baidu</code>、<code>/404</code> 和 <code>*</code> 都拆了出来，接下来将分别为他们创建路由配置。</p>
-<h2 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h2><p>上面的 <code>childRoutes</code> 里面，我们 <code>require</code> 了三个子路由，在目录下创建 <code>routes</code> 目录，将这三个路由放置进去。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">routes/</div><div class="line">├── <span class="number">404</span></div><div class="line">│   └── index.js</div><div class="line">├── baidu</div><div class="line">│   ├── index.js</div><div class="line">│   └── routes</div><div class="line">│       ├── frequency</div><div class="line">│       │   └── index.js</div><div class="line">│       └── result</div><div class="line">│           └── index.js</div><div class="line">└── redirect</div><div class="line">    └── index.js</div></pre></td></tr></table></figure>
-<p>和 rootRoute 类似，里面的每个 index.js 都是一个路由对象：</p>
-<h3 id="404-index-js"><a href="#404-index-js" class="headerlink" title="/404/index.js"></a>/404/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'404'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/NotFoundPage'</span>))</div><div class="line">    &#125;, <span class="string">'NotFoundPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>/baidu/index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'baidu'</span>,</div><div class="line"></div><div class="line">  getChildRoutes(partialNextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, [</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/result'</span>),</div><div class="line">        <span class="built_in">require</span>(<span class="string">'./routes/frequency'</span>)</div><div class="line">      ])</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="baidu-routes-frequency-index-js"><a href="#baidu-routes-frequency-index-js" class="headerlink" title="/baidu/routes/frequency/index.js"></a>/baidu/routes/frequency/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'frequency'</span>,</div><div class="line"></div><div class="line">  getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduFrequencyPage'</span>))</div><div class="line">    &#125;, <span class="string">'BaiduFrequencyPage'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>举这几个例子应该就差不多了，其他都是一样的，稍微有点特别的是 redirect。</p>
-<h2 id="设置-Redirect"><a href="#设置-Redirect" class="headerlink" title="设置 Redirect"></a>设置 Redirect</h2><p>之前我们在根路由下是这么设置重定向的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">    &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">    &#123;/* home */&#125;</div><div class="line">    &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</div><div class="line"></div><div class="line">    &lt;Route path="/baidu" component=&#123;BaiduPage&#125;&gt;</div><div class="line">        &lt;Route path="result" component=&#123;BaiduResultPage&#125; /&gt;</div><div class="line">        &lt;Route path="frequency" component=&#123;BaiduFrequencyPage&#125; /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line"></div><div class="line">    &lt;Route path='/404' component=&#123;NotFoundPage&#125; /&gt;</div><div class="line">    &#123;/* 如果都不匹配，重定向到 404 */&#125;</div><div class="line">    &lt;Redirect from='*' to='/404' /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure></p>
-<p>当改写之后，我们需要把这个重定向的路由单独拆出来，也就是 * 这个路由，我们上面已经为他创建了一个 <code>redirect</code> 目录。这里使用到 <code>onEnter</code> 方法，然后在这个方法里改变路由状态，调到另外的路由，实现 <code>redirect</code> ：</p>
-<h3 id="redirect-index-js"><a href="#redirect-index-js" class="headerlink" title="/redirect/index.js"></a>/redirect/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">path</span>: <span class="string">'*'</span>,</div><div class="line">  <span class="attr">onEnter</span>: <span class="function">(<span class="params">_, replaceState</span>) =&gt;</span> replaceState(<span class="literal">null</span>, <span class="string">"/404"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="The-root-route-must-render-a-single-element"><a href="#The-root-route-must-render-a-single-element" class="headerlink" title="The root route must render a single element"></a>The root route must render a single element</h2><p>跟着官方示例和上面码出来之后，可能页面并没有渲染出来，而是报 <strong>The root route must render a single element</strong> 这个异常，这是因为 <code>module.exports</code> 和 ES6 里的 <code>export default</code> 有区别。</p>
-<p>如果你是使用 <code>es6</code> 的写法，也就是你的组件都是通过 <code>export default</code> 导出的，那么在 <code>getComponent</code> 方法里面需要加入 <code>.default</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getComponent(nextState, cb) &#123;</div><div class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</div><div class="line">      <span class="comment">// 在后面加 .default</span></div><div class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/ReportPage'</span>)).default</div><div class="line">    &#125;, <span class="string">'ReportPage'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>如果你是使用 <code>CommonJS</code> 的写法，也就是通过 <code>module.exports</code> 导出的，那就无须加 <code>.default</code> 了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2017/09/02/React和Redux的连接react-redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/02/React和Redux的连接react-redux/" itemprop="url">React和Redux的连接react-redux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T10:45:57+08:00">
-                2017-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>原文地址：<a href="http://leozdgao.me/reacthe-reduxde-qiao-jie-react-redux/" target="_blank" rel="external">http://leozdgao.me/reacthe-reduxde-qiao-jie-react-redux/</a></p>
-</blockquote>
-<p>Redux本身和React并没有之间的关联，它是一个通用Javscript App模块，用做App State的管理。要在React的项目中使用Redux，比较好的方式是借助react-redux这个库来做连接，这里的意思是，并不是没有react-redux，这两个库就不弄一起用了，而是说react-redux提供了一些封装，一种更科学的代码组织方式，让我们更舒服地在React的代码中使用Redux。</p>
-<p>之前仅通过Redux文档来了解react-redux，在一段时间的实践后准备翻一翻源代码，顺便做些相关的总结。我看的代码的npm版本为<code>v4.0.0</code>，也就是说使用的React版本是<code>v0.14.x</code>。</p>
-<p>react-redux提供两个关键模块：Provider和connect。</p>
-<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider这个模块是作为整个App的容器，在你原有的App Container的基础上再包上一层，它的工作很简单，就是接受Redux的store作为props，并将其声明为context的属性之一，子组件可以在声明了<code>contextTypes</code>之后可以方便的通过<code>this.context.store</code>访问到store。不过我们的组件通常不需要这么做，将store放在context里，是为了给下面的connect用的。</p>
-<p>这个是Provider的使用示例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// config app root</span></div><div class="line"><span class="keyword">const</span> history = createHistory()  </div><div class="line"><span class="keyword">const</span> root = (  </div><div class="line">  &lt;Provider store=&#123;store&#125; key="provider"&gt;</div><div class="line">    &lt;Router history=&#123;history&#125; routes=&#123;routes&#125; /&gt;</div><div class="line">  &lt;/Provider&gt;</div><div class="line">)</div><div class="line"></div><div class="line">// render</div><div class="line">ReactDOM.render(  </div><div class="line">  root,</div><div class="line">  document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>这个模块是算是真正意义上连接了Redux和React，正好它的名字也叫connect。</p>
-<p>先考虑Redux是怎么运作的：首先store中维护了一个state，我们dispatch一个action，接下来reducer根据这个action更新state。</p>
-<p>映射到我们的React应用中，store中维护的state就是我们的app state，一个React组件作为View层，做两件事：render和响应用户操作。于是connect就是将store中的必要数据作为props传递给React组件来render，并包装action creator用于在响应用户操作时dispatch一个action。</p>
-<p>好了，详细看看connect这个模块做了什么。先从它的使用来说，它的API如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])</div></pre></td></tr></table></figure></p>
-<p>mapStateToProps是一个函数，返回值表示的是需要merge进props的state。默认值为<code>() =&gt; ({})</code>，即什么都不传。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(state, props) =&gt; (&#123;  &#125;) <span class="comment">// 通常会省略第二个参数</span></div></pre></td></tr></table></figure></p>
-<p><code>mapDispatchToProps</code>是可以是一个函数，返回值表示的是需要<code>merge</code>仅<code>props</code>的<code>actionCreators</code>，这里的<code>actionCreator</code>应该是已经被包装了<code>dispatch</code>了的，推荐使用<code>redux</code>的<code>bindActionCreators</code>函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(dispatch, props) =&gt; (&#123; <span class="comment">// 通常会省略第二个参数</span></div><div class="line"> ...bindActionCreators(&#123;</div><div class="line">   ...ResourceActions</div><div class="line"> &#125;, dispatch)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>更方便的是可以直接接受一个对象，此时<code>connect</code>函数内部会将其转变为函数，这个函数和上面那个例子是一模一样的。</p>
-<p><code>mergeProps</code>用于自定义<code>merge</code>流程，下面这个是默认流程，<code>parentProps</code>值的就是组件自身的<code>props</code>，可以发现如果组件的<code>props</code>上出现同名，会被覆盖。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(stateProps, dispatchProps, parentProps) =&gt; (&#123;</div><div class="line">  ...parentProps,</div><div class="line">  ...stateProps,</div><div class="line">  ...dispatchProps</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><code>options</code>共有两个开关：<code>pure</code>代表是否打开优化，详细内容下面会提，默认为<code>true</code>，<code>withRef</code>用来给包装在里面的组件一个<code>ref</code>，可以通过<code>getWrappedInstance</code>方法来获取这个<code>ref</code>，默认为<code>false</code>。</p>
-<p><code>connect</code>返回一个函数，它接受一个<code>React</code>组件的构造函数作为连接对象，最终返回连接好的组件构造函数。</p>
-<p>然后几个问题：</p>
-<ul>
-<li>React组件如何响应store的变化？</li>
-<li>为什么connect选择性的merge一些props，而不是直接将整个state传入？</li>
-<li>pure优化的是什么？</li>
-</ul>
-<p>我们把<code>connect</code>返回的函数叫做<code>Connector</code>，它返回的是内部的一个叫<code>Connect</code>的组件，它在包装原有组件的基础上，还在内部监听了<code>Redux</code>的<code>store</code>的变化，为了让被它包装的组件可以响应<code>store</code>的变化:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">trySubscribe() &#123;  </div><div class="line">  <span class="keyword">if</span> (shouldSubscribe &amp;&amp; !<span class="keyword">this</span>.unsubscribe) &#123;</div><div class="line">    <span class="keyword">this</span>.unsubscribe = <span class="keyword">this</span>.store.subscribe(::<span class="keyword">this</span>.handleChange)</div><div class="line">    <span class="keyword">this</span>.handleChange()</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">handleChange () &#123;  </div><div class="line">  <span class="keyword">this</span>.setState(&#123;</div><div class="line">    <span class="attr">storeState</span>: <span class="keyword">this</span>.store.getState()</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但是通常，我们<code>connect</code>的是某个<code>Container</code>组件，它并不承载所有<code>App state</code>，然而我们的<code>handler</code>是响应所有<code>state</code>变化的，于是我们需要优化的是：当<code>storeState</code>变化的时候，仅在我们真正依赖那部分<code>state</code>变化时，才重新<code>render</code>相应的<code>React</code>组件，那么什么是我们真正依赖的部分？就是通过<code>mapStateToProps</code>和<code>mapDispatchToProps</code>得到的。</p>
-<p>具体优化的方式就是在<code>shouldComponentUpdate</code>中做检查，如果只有在组件自身的<code>props</code>改变，或者<code>mapStateToProps</code>的结果改变，或者是<code>mapDispatchToProps</code>的结果改变时<code>shouldComponentUpdate</code>才会返回<code>true</code>，检查的方式是进行<code>shallowEqual</code>的比较。</p>
-<p>所以对于某个reducer来说：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = &#123;&#125;, action) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123; ...state &#125; <span class="comment">// 返回的是一个新的对象，可能会使组件reRender</span></div><div class="line">  <span class="comment">// return state // 可能不会使得组件reRender</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另外在<code>connect</code>的时候，要谨慎<code>map</code>真正需要的<code>state</code>或者<code>actionCreators</code>到<code>props</code>中，以避免不必要的性能损失。</p>
-<p>最后，根据<code>connect</code>的<code>API</code>我们发现可以使用<code>ES7 decorator</code>功能来配合<code>React ES6</code>的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@connect(</div><div class="line">  <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</div><div class="line">    <span class="attr">user</span>: state.user,</div><div class="line">    <span class="attr">resource</span>: state.resource</div><div class="line">  &#125;),</div><div class="line">  dispatch =&gt; (&#123;</div><div class="line">    ...bindActionCreators(&#123;</div><div class="line">      <span class="attr">loadResource</span>: ResourceActions.load</div><div class="line">    &#125;, dispatch)</div><div class="line">  &#125;)</div><div class="line">)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>OK，结束了。</p>
 
           
         
@@ -1597,9 +1622,7 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -1610,7 +1633,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1733,10 +1756,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1763,7 +1786,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="javascript,attrbute,property," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="javascript,attrbute,property,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2016/05/05/attribute-vs-property/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="1. 定义Property：属性，所有的HTML元素都由HTMLElement类型表示，HTMLElement类型直接继承自Element并添加了一些属性，添加的这些属性别对应于每个HTML元素都有下面的这5个标准特性：id，title，lang，dir，className。DOM节点是一个对象，因此，他可以和其他的JavaScript对象一样添加自定义的属性以及方法。property的值可以是任">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的property和attribute的区别">
@@ -143,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2016/05/05/attribute-vs-property/"/>
+  <link rel="canonical" href="http://html-js.site/2016/05/05/attribute-vs-property/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -272,7 +273,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -341,26 +342,26 @@
 </li>
 <li>href：getAttribute获取的是href的实际值，而点号获取的是完整的url，存在浏览器差异。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=<span class="string">"#"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> a  = <span class="built_in">document</span>.body.children[<span class="number">0</span>]</div><div class="line">    a.href = <span class="string">'/'</span></div><div class="line">    alert( <span class="string">'attribute:'</span> + a.getAttribute(<span class="string">'href'</span>) ) <span class="comment">// '/'</span></div><div class="line">    alert( <span class="string">'property:'</span> + a.href )  <span class="comment">// IE: '/', others: full URL</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"#"</span>&gt;&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    var a  = document.body.children[0]</span></span><br><span class="line"><span class="regexp">    a.href = '/</span><span class="string">'</span></span><br><span class="line"><span class="string">    alert( '</span>attribute:<span class="string">' + a.getAttribute('</span>href<span class="string">') ) // '</span>/<span class="string">'</span></span><br><span class="line"><span class="string">    alert( '</span>property:<span class="string">' + a.href )  // IE: '</span>/<span class="string">', others: full URL</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>src的值的获取类似href，不过IE也会返回full URL；</p>
 <p>value值同样存在一些 ‘one-way’（单向）同步的内置属性。</p>
 <p>例如，input.value 从 attribute 中同步（即 property 从 attribute 中获得同步）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</div><div class="line">  &lt;script&gt;</div><div class="line">       var input = document.body.children[0];</div><div class="line">       input.setAttribute('value', 'new');</div><div class="line">       alert( input.value ); // 'new', input.value changed</div><div class="line">       alert( input.getAtrribute(value) ); // 'new'</div><div class="line">  &lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>但是 attribute 不能从 property 中获得同步：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">      var input = document.body.children[0];</div><div class="line">      input.value = 'new';</div><div class="line">      alert(input.getAttribute('value'));  // 'markup', not changed!</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">       <span class="keyword">var</span> input = <span class="built_in">document</span>.body.children[<span class="number">0</span>];</span><br><span class="line">       input.setAttribute(<span class="string">'value'</span>, <span class="string">'new'</span>);</span><br><span class="line">       alert( input.value ); <span class="comment">// 'new', input.value changed</span></span><br><span class="line">       alert( input.getAtrribute(value) ); <span class="comment">// 'new'</span></span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是 attribute 不能从 property 中获得同步：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> value=<span class="string">"markup"</span>&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> input = <span class="built_in">document</span>.body.children[<span class="number">0</span>];</span><br><span class="line">      input.value = <span class="string">'new'</span>;</span><br><span class="line">      alert(input.getAttribute(<span class="string">'value'</span>));  <span class="comment">// 'markup', not changed!</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>getAttribute获取的是初始值，而点号获取的是初始值或者.value修改后的值,例如当访问者输入了某些字</p>
 <p>符后，’value’ attribute 在 property 更新后维持了原始值。原始值可以用来检验 input 是否变化，或</p>
 <p>者重置它。</p>
 <p>对于style和onclick等事件处理程序，getAttribute方法访问时会返回字符串，而点号返回的是相应的对</p>
 <p>象和事件处理函数。</p>
 <p>对于input中的checked属性，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"checkbox"</span> checked&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var input  = document.body.children[0]</div><div class="line">    alert( input.checked ) // true</div><div class="line">    alert( input.getAttribute('checked') ) // empty string</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"checkbox"</span> checked&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> input  = <span class="built_in">document</span>.body.children[<span class="number">0</span>]</span><br><span class="line">    alert( input.checked ) <span class="comment">// true</span></span><br><span class="line">    alert( input.getAttribute(<span class="string">'checked'</span>) ) <span class="comment">// empty string</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>getAttribute获取的是你是实际设置的值。而点号返回的是布尔值。</p>
 <h3 id="浏览器兼容性上的差别"><a href="#浏览器兼容性上的差别" class="headerlink" title="浏览器兼容性上的差别"></a>浏览器兼容性上的差别</h3><ul>
 <li>在IE&lt;9的浏览器中，可以用点号和getAttribute在相互之间访问自定义属性。</li>
 <li>IE&lt;8（包括IE8种的IE7兼容模式），property和attribute相同。因为attribute对大小写不敏感，在这</li>
 </ul>
 <p>种情况下，用getAttribute访问特性的时候，浏览器会选择第一次出现的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.abba = <span class="number">1</span> <span class="comment">// assign property (now can read it by getAttribute)</span></div><div class="line"><span class="built_in">document</span>.body.ABBA = <span class="number">5</span> <span class="comment">// assign property with another case</span></div><div class="line"><span class="comment">// must get a property named 'ABba' in case-insensitive way.</span></div><div class="line">alert( <span class="built_in">document</span>.body.getAttribute(<span class="string">'ABba'</span>) ) <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.abba = <span class="number">1</span> <span class="comment">// assign property (now can read it by getAttribute)</span></span><br><span class="line"><span class="built_in">document</span>.body.ABBA = <span class="number">5</span> <span class="comment">// assign property with another case</span></span><br><span class="line"><span class="comment">// must get a property named 'ABba' in case-insensitive way.</span></span><br><span class="line">alert( <span class="built_in">document</span>.body.getAttribute(<span class="string">'ABba'</span>) ) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <h3 id="优先选择property"><a href="#优先选择property" class="headerlink" title="优先选择property"></a>优先选择property</h3><p>在实际应用中，98%的 DOM 操作都是使用 properties。</p>
 <p><b>只有两种情形需要使用attributes</b></p>
 <ul>
@@ -391,13 +392,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -492,7 +493,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -503,9 +504,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -516,7 +515,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -655,10 +654,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -685,7 +684,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

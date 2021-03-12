@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="webpack,node," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="node,webpack,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -96,12 +96,13 @@
 
 
 <meta name="description" content="webpack中另一个非常重要的功能是Plugins。插件（Plugins）是用来拓展webpack功能的，它们会在整个构建过程中生效，执行相关的任务。Loaders和Plugins常常被弄混，但是他们其实是完全不同的东西：Loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个;插件并不直接操作单个文件，它直接对整个构建过程其作用。webpack有很多内置">
-<meta name="keywords" content="webpack,node">
+<meta name="keywords" content="node,webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack的重要功能——Plugins">
 <meta property="og:url" content="http://html-js.site/2017/06/23/webpack的重要功能——Plugins/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="webpack中另一个非常重要的功能是Plugins。插件（Plugins）是用来拓展webpack功能的，它们会在整个构建过程中生效，执行相关的任务。Loaders和Plugins常常被弄混，但是他们其实是完全不同的东西：Loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个;插件并不直接操作单个文件，它直接对整个构建过程其作用。webpack有很多内置">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack的重要功能——Plugins">
@@ -143,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2017/06/23/webpack的重要功能——Plugins/"/>
+  <link rel="canonical" href="http://html-js.site/2017/06/23/webpack的重要功能——Plugins/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -272,7 +273,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -334,16 +335,16 @@
       
         <p><code>webpack</code>中另一个非常重要的功能是<code>Plugins</code>。<br>插件（<code>Plugins</code>）是用来拓展<code>webpack</code>功能的，它们会在整个构建过程中生效，执行相关的任务。<br><code>Loaders</code>和<code>Plugins</code>常常被弄混，但是他们其实是完全不同的东西：<code>Loaders</code>是在打包构建过程中用来处理源文件的（<code>JSX，Scss，Less..</code>），一次处理一个;插件并不直接操作单个文件，它直接对整个构建过程其作用。<br><code>webpack</code>有很多内置插件，同时也有很多第三方插件，可以让我们完成更加丰富的功能。</p>
 <a id="more"></a>
-<h2 id="使用插件的方法"><a href="#使用插件的方法" class="headerlink" title="使用插件的方法"></a>使用插件的方法</h2><p>要使用某个插件，需要通过<code>npm</code>安装它，然后在<code>webpack.config.js</code>中的<code>plugins</code>关键字部分添加该插件的一个实例（<code>plugins</code>是一个数组，<code>new</code>一个插件即可）。<br>如添加一个实现版权声明的插件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;  </div><div class="line">        <span class="attr">devtool</span>: <span class="string">'eval-source-map'</span>,  </div><div class="line">        <span class="attr">entry</span>:  __dirname + <span class="string">"/app/main.js"</span>,  </div><div class="line">        <span class="attr">output</span>: &#123;...&#125;,  </div><div class="line">    <span class="attr">module</span>: &#123;  </div><div class="line">                <span class="attr">loaders</span>: [  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;<span class="comment">//这里添加PostCSS  </span></div><div class="line">                ]  </div><div class="line">    &#125;,  </div><div class="line">        <span class="attr">postcss</span>: [  </div><div class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </div><div class="line">        ],  </div><div class="line">        <span class="attr">plugins</span>: [  </div><div class="line">                <span class="keyword">new</span> webpack.BannerPlugin(<span class="string">"Copyright Flying Unicorns inc."</span>)    </div><div class="line">    ],  </div><div class="line">    <span class="attr">devServer</span>: &#123;...&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="几个常用的插件"><a href="#几个常用的插件" class="headerlink" title="几个常用的插件"></a>几个常用的插件</h2><h3 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h3><p>这个插件的作用是依据一个简单的模板，帮助生成最终的<code>HTML5</code>文件，这个文件中自动引用了打包后的<code>JS</code>文件。每次编译都在文件名中插入一个不同的哈希值。<br>安装命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev html-webpack-plugin</div></pre></td></tr></table></figure></p>
+<h2 id="使用插件的方法"><a href="#使用插件的方法" class="headerlink" title="使用插件的方法"></a>使用插件的方法</h2><p>要使用某个插件，需要通过<code>npm</code>安装它，然后在<code>webpack.config.js</code>中的<code>plugins</code>关键字部分添加该插件的一个实例（<code>plugins</code>是一个数组，<code>new</code>一个插件即可）。<br>如添加一个实现版权声明的插件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">        devtool: <span class="string">'eval-source-map'</span>,  </span><br><span class="line">        entry:  __dirname + <span class="string">"/app/main.js"</span>,  </span><br><span class="line">        output: &#123;...&#125;,  </span><br><span class="line">    <span class="built_in">module</span>: &#123;  </span><br><span class="line">                loaders: [  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;<span class="comment">//这里添加PostCSS  </span></span><br><span class="line">                ]  </span><br><span class="line">    &#125;,  </span><br><span class="line">        postcss: [  </span><br><span class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </span><br><span class="line">        ],  </span><br><span class="line">        plugins: [  </span><br><span class="line">                <span class="keyword">new</span> webpack.BannerPlugin(<span class="string">"Copyright Flying Unicorns inc."</span>)    </span><br><span class="line">    ],  </span><br><span class="line">    devServer: &#123;...&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="几个常用的插件"><a href="#几个常用的插件" class="headerlink" title="几个常用的插件"></a>几个常用的插件</h2><h3 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h3><p>这个插件的作用是依据一个简单的模板，帮助生成最终的<code>HTML5</code>文件，这个文件中自动引用了打包后的<code>JS</code>文件。每次编译都在文件名中插入一个不同的哈希值。<br>安装命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev html-webpack-plugin</span><br></pre></td></tr></table></figure></p>
 <p>这个插件自动完成了之前手动做的一些事情，在正式使用之前需要对项目结构做一些改变：</p>
 <ol>
 <li>移除public文件夹，利用此插件，html5文件会自动生成，此外CSS已经通过前面的操作打包到JS中了。</li>
 <li><p>在app目录下，创建一个HTML文件模板index.tmpl.html，这个模板包含title等其它需要的元素，在编译过程中，本插件会依据此模板生成最终的HTML页面，会自动添加所依赖的 css, js，favicon等文件，模板源代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;  </div><div class="line">&lt;html lang="en"&gt;  </div><div class="line">    &lt;head&gt;  </div><div class="line">    &lt;/head&gt;  </div><div class="line">    &lt;body&gt;  </div><div class="line">            &lt;div id='root'&gt;  </div><div class="line">            &lt;/div&gt;  </div><div class="line">    &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;  </span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;  </span><br><span class="line">    &lt;head&gt;  </span><br><span class="line">    &lt;<span class="regexp">/head&gt;  </span></span><br><span class="line"><span class="regexp">    &lt;body&gt;  </span></span><br><span class="line"><span class="regexp">            &lt;div id='root'&gt;  </span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;  </span><br><span class="line">    &lt;<span class="regexp">/body&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新webpack的配置文件，方法同上，新建一个build文件夹用来存放最终的输出文件。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);<span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);  </div><div class="line"><span class="built_in">module</span>.exports = &#123;  </div><div class="line">        <span class="attr">devtool</span>: <span class="string">'eval-source-map'</span>,  </div><div class="line">        <span class="attr">entry</span>:  __dirname + <span class="string">"/app/main.js"</span>,  </div><div class="line">        <span class="attr">output</span>: &#123;  </div><div class="line">                <span class="attr">path</span>: __dirname + <span class="string">"/build"</span>,  </div><div class="line">                <span class="attr">filename</span>: <span class="string">"bundle.js"</span>  </div><div class="line">        &#125;,  </div><div class="line">    <span class="attr">module</span>: &#123;  </div><div class="line">                <span class="attr">loaders</span>: [  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </div><div class="line">                &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;  </div><div class="line">            ]  </div><div class="line">        &#125;,  </div><div class="line">        <span class="attr">postcss</span>: [  </div><div class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </div><div class="line">        ],  </div><div class="line">        <span class="attr">plugins</span>: [  </div><div class="line">                <span class="keyword">new</span> HtmlWebpackPlugin(&#123;  </div><div class="line">                    <span class="attr">template</span>: __dirname + <span class="string">"/app/index.tmpl.html"</span><span class="comment">//new 一个这个插件的实例，并传入相关的参数  </span></div><div class="line">                &#125;)  </div><div class="line">        ],  </div><div class="line">    <span class="attr">devServer</span>: &#123;  </div><div class="line">                <span class="attr">colors</span>: <span class="literal">true</span>,  </div><div class="line">                <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,  </div><div class="line">                <span class="attr">inline</span>: <span class="literal">true</span>  </div><div class="line">        &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);<span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);  </span><br><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">        devtool: <span class="string">'eval-source-map'</span>,  </span><br><span class="line">        entry:  __dirname + <span class="string">"/app/main.js"</span>,  </span><br><span class="line">        output: &#123;  </span><br><span class="line">                path: __dirname + <span class="string">"/build"</span>,  </span><br><span class="line">                filename: <span class="string">"bundle.js"</span>  </span><br><span class="line">        &#125;,  </span><br><span class="line">    <span class="built_in">module</span>: &#123;  </span><br><span class="line">                loaders: [  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </span><br><span class="line">                &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;  </span><br><span class="line">            ]  </span><br><span class="line">        &#125;,  </span><br><span class="line">        postcss: [  </span><br><span class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </span><br><span class="line">        ],  </span><br><span class="line">        plugins: [  </span><br><span class="line">                <span class="keyword">new</span> HtmlWebpackPlugin(&#123;  </span><br><span class="line">                    template: __dirname + <span class="string">"/app/index.tmpl.html"</span><span class="comment">//new 一个这个插件的实例，并传入相关的参数  </span></span><br><span class="line">                &#125;)  </span><br><span class="line">        ],  </span><br><span class="line">    devServer: &#123;  </span><br><span class="line">                colors: <span class="literal">true</span>,  </span><br><span class="line">                historyApiFallback: <span class="literal">true</span>,  </span><br><span class="line">                inline: <span class="literal">true</span>  </span><br><span class="line">        &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="Hot-Module-Replacement"><a href="#Hot-Module-Replacement" class="headerlink" title="Hot Module Replacement"></a>Hot Module Replacement</h3><p><code>Hot Module Replacement（HMR）</code>也是<code>webpack</code>里很有用的一个插件，它允许在修改组件代码后，自动刷新实时预览修改后的效果。<br>在<code>webpack</code>中实现<code>HMR</code>也很简单，只需要做两项配置</p>
@@ -357,11 +358,11 @@
 <li>二者可以一起工作；</li>
 <li>二者都可以通过插件拓展功能；</li>
 <li>HMR是一个webpack插件，它让你能浏览器中实时观察模块修改后的效果，但是如果你想让它工作，需要对模块进行额外的配额；</li>
-<li>Babel有一个叫做react-transform-hrm的插件，可以在不对React模块进行额外的配置的前提下让HMR正常工作。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);  </div><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);  </div><div class="line"><span class="built_in">module</span>.exports = &#123;  </div><div class="line">        <span class="attr">devtool</span>: <span class="string">'eval-source-map'</span>,  </div><div class="line">        <span class="attr">entry</span>: __dirname + <span class="string">"/app/main.js"</span>,  </div><div class="line">        <span class="attr">output</span>: &#123;  </div><div class="line">                <span class="attr">path</span>: __dirname + <span class="string">"/build"</span>,  </div><div class="line">                <span class="attr">filename</span>: <span class="string">"bundle.js"</span>  </div><div class="line">        &#125;,  </div><div class="line">        <span class="attr">module</span>: &#123;  </div><div class="line">                <span class="attr">loaders</span>: [  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </div><div class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;  </div><div class="line">                ]     </div><div class="line">        &#125;,  </div><div class="line">        <span class="attr">postcss</span>: [  </div><div class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </div><div class="line">        ],  </div><div class="line">    <span class="attr">plugins</span>: [  </div><div class="line">                <span class="keyword">new</span> HtmlWebpackPlugin(&#123;  </div><div class="line">                    <span class="attr">template</span>: __dirname + <span class="string">"/app/index.tmpl.html"</span>  </div><div class="line">                &#125;),  </div><div class="line">                <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()<span class="comment">//热加载插件  </span></div><div class="line">        ],  </div><div class="line">    <span class="attr">devServer</span>: &#123;  </div><div class="line">                <span class="attr">colors</span>: <span class="literal">true</span>,  </div><div class="line">                <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,  </div><div class="line">                <span class="attr">inline</span>: <span class="literal">true</span>,  </div><div class="line">            <span class="attr">hot</span>: <span class="literal">true</span>  </div><div class="line">        &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>Babel有一个叫做react-transform-hrm的插件，可以在不对React模块进行额外的配置的前提下让HMR正常工作。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);  </span><br><span class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);  </span><br><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">        devtool: <span class="string">'eval-source-map'</span>,  </span><br><span class="line">        entry: __dirname + <span class="string">"/app/main.js"</span>,  </span><br><span class="line">        output: &#123;  </span><br><span class="line">                path: __dirname + <span class="string">"/build"</span>,  </span><br><span class="line">                filename: <span class="string">"bundle.js"</span>  </span><br><span class="line">        &#125;,  </span><br><span class="line">        <span class="built_in">module</span>: &#123;  </span><br><span class="line">                loaders: [  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.json$/</span>, <span class="attr">loader</span>: <span class="string">"json"</span> &#125;,  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>, <span class="attr">loader</span>: <span class="string">'babel'</span> &#125;,  </span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style!css?modules!postcss'</span> &#125;  </span><br><span class="line">                ]     </span><br><span class="line">        &#125;,  </span><br><span class="line">        postcss: [  </span><br><span class="line">                <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)  </span><br><span class="line">        ],  </span><br><span class="line">    plugins: [  </span><br><span class="line">                <span class="keyword">new</span> HtmlWebpackPlugin(&#123;  </span><br><span class="line">                    template: __dirname + <span class="string">"/app/index.tmpl.html"</span>  </span><br><span class="line">                &#125;),  </span><br><span class="line">                <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()<span class="comment">//热加载插件  </span></span><br><span class="line">        ],  </span><br><span class="line">    devServer: &#123;  </span><br><span class="line">                colors: <span class="literal">true</span>,  </span><br><span class="line">                historyApiFallback: <span class="literal">true</span>,  </span><br><span class="line">                inline: <span class="literal">true</span>,  </span><br><span class="line">            hot: <span class="literal">true</span>  </span><br><span class="line">        &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>安装react-transform-hmr：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-plugin-react-transform react-transform-hmr</div></pre></td></tr></table></figure></p>
-<p>配置Babel<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;  </div><div class="line">        <span class="string">"presets"</span>: [<span class="string">"react"</span>, <span class="string">"es2015"</span>],  </div><div class="line">        <span class="string">"env"</span>: &#123;  </div><div class="line">                <span class="string">"development"</span>: &#123;  </div><div class="line">                    <span class="string">"plugins"</span>: [[<span class="string">"react-transform"</span>, &#123;  </div><div class="line">                    <span class="string">"transforms"</span>: [&#123;  </div><div class="line">                            <span class="string">"transform"</span>: <span class="string">"react-transform-hmr"</span>,  </div><div class="line">                    <span class="string">"imports"</span>: [<span class="string">"react"</span>],  </div><div class="line">                    <span class="string">"locals"</span>: [<span class="string">"module"</span>]  </div><div class="line">                    &#125;]  </div><div class="line">                    &#125;]]  </div><div class="line">        &#125;  </div><div class="line">            &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>安装react-transform-hmr：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-plugin-react-transform react-transform-hmr</span><br></pre></td></tr></table></figure></p>
+<p>配置Babel<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">        <span class="string">"presets"</span>: [<span class="string">"react"</span>, <span class="string">"es2015"</span>],  </span><br><span class="line">        <span class="string">"env"</span>: &#123;  </span><br><span class="line">                <span class="string">"development"</span>: &#123;  </span><br><span class="line">                    <span class="string">"plugins"</span>: [[<span class="string">"react-transform"</span>, &#123;  </span><br><span class="line">                    <span class="string">"transforms"</span>: [&#123;  </span><br><span class="line">                            <span class="string">"transform"</span>: <span class="string">"react-transform-hmr"</span>,  </span><br><span class="line">                    <span class="string">"imports"</span>: [<span class="string">"react"</span>],  </span><br><span class="line">                    <span class="string">"locals"</span>: [<span class="string">"module"</span>]  </span><br><span class="line">                    &#125;]  </span><br><span class="line">                    &#125;]]  </span><br><span class="line">        &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>使用React时，可以热加载模块了</p>
 
       
@@ -385,13 +386,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -413,9 +414,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
-          
             <a href="/tags/node/" rel="tag"># node</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -488,7 +489,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -499,9 +500,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -512,7 +511,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,10 +650,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -681,7 +680,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>

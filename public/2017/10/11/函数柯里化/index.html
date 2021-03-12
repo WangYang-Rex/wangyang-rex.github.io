@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -72,23 +72,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="javascript," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml" />
+  <meta name="keywords" content="javascript,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://html-js.site/2017/10/11/函数柯里化/index.html">
 <meta property="og:site_name" content="大洋">
 <meta property="og:description" content="在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家哈斯凯尔·加里命名的，尽管它是 Moses Schönfinkel 和 Gottlob Frege 发明的。 这是来自维基百科的名词解释。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-11T15:07:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数柯里化">
@@ -143,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://html-js.site/2017/10/11/函数柯里化/"/>
+  <link rel="canonical" href="http://html-js.site/2017/10/11/函数柯里化/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">大洋</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -272,7 +273,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/default_avatar.jpg">
     </span>
 
@@ -335,19 +336,19 @@
         <p>在计算机科学中，柯里化（英语：Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由 Christopher Strachey 以逻辑学家哈斯凯尔·加里命名的，尽管它是 Moses Schönfinkel 和 Gottlob Frege 发明的。</p>
 <p>这是来自维基百科的名词解释。顾名思义，柯里化其实本身是固定一个可以预期的参数，并返回一个特定的函数，处理批特定的需求。这增加了函数的适用性，但同时也降低了函数的适用范围。</p>
 <a id="more"></a>
-<p>看一下通用实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">currying</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">    __args = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> __inargs = slice.call(<span class="built_in">arguments</span>);</div><div class="line">        <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, __args.concat(__inargs));</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看一下通用实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">currying</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice,</span><br><span class="line">    __args = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> __inargs = slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, __args.concat(__inargs));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>柯里化的实用性体现在很多方面：</p>
 <h3 id="提高适用性。"><a href="#提高适用性。" class="headerlink" title="提高适用性。"></a>提高适用性。</h3><p>【通用函数】解决了兼容性问题，但同时也会再来，使用的不便利性，不同的应用场景往，要传递很多参数，以达到解决特定问题的目的。有时候应用中，同一种规则可能会反复使用，这就可能会造成代码的重复性。</p>
-<p>看下面一个例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i * i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> list.map(handeler);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 数组的每一项平方</span></div><div class="line">map(square, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">map(square, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">map(square, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div><div class="line"></div><div class="line"><span class="comment">// 数组的每一项加倍</span></div><div class="line">map(dubble, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">map(dubble, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">map(dubble, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div></pre></td></tr></table></figure></p>
+<p>看下面一个例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i * i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.map(handeler);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的每一项平方</span></span><br><span class="line">map(square, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line">map(square, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</span><br><span class="line">map(square, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的每一项加倍</span></span><br><span class="line">map(dubble, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line">map(dubble, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</span><br><span class="line">map(dubble, [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</span><br></pre></td></tr></table></figure></p>
 <p>例子中，创建了一个map通用函数，用于适应不同的应用场景。显然，通用性不用怀疑。同时，例子中重复传入了相同的处理函数：square和dubble。</p>
 <p>应用中这种可能会更多。当然，通用性的增强必然带来适用性的减弱。但是，我们依然可以在中间找到一种平衡。</p>
-<p>看下面，我们利用柯里化改造一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i * i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> list.map(handeler);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> mapSQ = currying(map, square);</div><div class="line">mapSQ([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">mapSQ([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">mapSQ([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> mapDB = currying(map, dubble);</div><div class="line">mapDB([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line">mapDB([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</div><div class="line">mapDB([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</div><div class="line"><span class="comment">// ......</span></div></pre></td></tr></table></figure></p>
+<p>看下面，我们利用柯里化改造一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i * i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dubble</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i *= <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">map</span>(<span class="params">handeler, list</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.map(handeler);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mapSQ = currying(map, square);</span><br><span class="line">mapSQ([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line">mapSQ([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</span><br><span class="line">mapSQ([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mapDB = currying(map, dubble);</span><br><span class="line">mapDB([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line">mapDB([<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]);</span><br><span class="line">mapDB([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</span><br><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure></p>
 <p>我们缩小了函数的适用范围，但同时提高函数的适性。当然，也有扩展函数适用范围的方法–反柯里化，留到下一篇再讨论。</p>
 <p>由此，可知柯里化不仅仅是提高了代码的合理性，更重的它突出一种思想—降低适用范围，提高适用性。</p>
-<p>下面再看一个例子，一个应用范围更广泛更熟悉的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">&#125;</div><div class="line"></div><div class="line">Ajax.prototype.open = <span class="function"><span class="keyword">function</span>(<span class="params">type, url, data, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        callback(<span class="keyword">this</span>.xhr.responseText, <span class="keyword">this</span>.xhr.status, <span class="keyword">this</span>.xhr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.xhr.open(type, url, data.async);</div><div class="line">    <span class="keyword">this</span>.xhr.send(data.paras);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="string">'get post'</span>.split(<span class="string">' '</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mt</span>) </span>&#123;</div><div class="line">    Ajax.prototype[mt] = currying(Ajax.prototype.open, mt);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> Ajax();</div><div class="line">xhr.get(<span class="string">'/articles/list.php'</span>, &#123;&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</div><div class="line">    <span class="comment">// done(datas)    </span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr1 = <span class="keyword">new</span> Ajax();</div><div class="line">xhr1.post(<span class="string">'/articles/add.php'</span>, &#123;&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</div><div class="line">    <span class="comment">// done(datas)    </span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h3><p>柯里化的另一个应用场景是延迟执行。不断的柯里化，累积传入的参数，最后执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</div><div class="line">    _args = <span class="built_in">arguments</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) &#123;</div><div class="line">            <span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,</div><div class="line">            c; c = _args[i++];) sum += c</div><div class="line">            <span class="keyword">return</span> sum</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>) <span class="keyword">return</span> <span class="built_in">arguments</span>.callee</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)();<span class="comment">//10</span></div></pre></td></tr></table></figure></p>
-<p>通用的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> curry = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _args = []</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, _args)</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>);</div><div class="line">        <span class="keyword">return</span> cb;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="固定易变因素"><a href="#固定易变因素" class="headerlink" title="固定易变因素"></a>固定易变因素</h3><p>柯里化特性决定了它这应用场景。提前把易变因素，传参固定下来，生成一个更明确的应用函数。最典型的代表应用，是bind函数用以固定this这个易变对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</div><div class="line">    _args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> _this.apply(context, _args.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)))</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面再看一个例子，一个应用范围更广泛更熟悉的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Ajax.prototype.open = <span class="function"><span class="keyword">function</span>(<span class="params">type, url, data, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        callback(<span class="keyword">this</span>.xhr.responseText, <span class="keyword">this</span>.xhr.status, <span class="keyword">this</span>.xhr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.xhr.open(type, url, data.async);</span><br><span class="line">    <span class="keyword">this</span>.xhr.send(data.paras);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">'get post'</span>.split(<span class="string">' '</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mt</span>) </span>&#123;</span><br><span class="line">    Ajax.prototype[mt] = currying(Ajax.prototype.open, mt);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> Ajax();</span><br><span class="line">xhr.get(<span class="string">'/articles/list.php'</span>, &#123;&#125;,</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// done(datas)    </span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xhr1 = <span class="keyword">new</span> Ajax();</span><br><span class="line">xhr1.post(<span class="string">'/articles/add.php'</span>, &#123;&#125;,</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">datas</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// done(datas)    </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h3><p>柯里化的另一个应用场景是延迟执行。不断的柯里化，累积传入的参数，最后执行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</span><br><span class="line">    _args = <span class="built_in">arguments</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) &#123;</span><br><span class="line">            <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,</span><br><span class="line">            c; c = _args[i++];) sum += c</span><br><span class="line">            <span class="keyword">return</span> sum</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>) <span class="keyword">return</span> <span class="built_in">arguments</span>.callee</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)();<span class="comment">//10</span></span><br></pre></td></tr></table></figure></p>
+<p>通用的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> curry = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _args = []</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, _args)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> cb;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="固定易变因素"><a href="#固定易变因素" class="headerlink" title="固定易变因素"></a>固定易变因素</h3><p>柯里化特性决定了它这应用场景。提前把易变因素，传参固定下来，生成一个更明确的应用函数。最典型的代表应用，是bind函数用以固定this这个易变对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</span><br><span class="line">    _args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _this.apply(context, _args.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -370,13 +371,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay"/>
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay"/>
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
           <p>支付宝打赏</p>
         </div>
       
@@ -471,7 +472,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -482,9 +483,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/default_avatar.jpg"
-               alt="大洋" />
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
               <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
@@ -495,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -634,10 +633,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -664,7 +663,7 @@
 
 
 <div class="busuanzi-count">
-  <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
   <span class="site-uv">
     <i class="fa fa-user"></i>
