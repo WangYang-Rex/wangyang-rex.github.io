@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javascript,">
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta name="description" content="Eruda 一个被人遗忘的调试神器项目中如何引入？直接上代码123456789101112131415161718192021function debugInit(type)&amp;#123;  console.log(&apos;debugInit&apos;)	var debug = sessionStorage.getItem(&apos;debug&apos;) || type || false;	if(location.href &amp;">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在线调试工具-eruda">
 <meta property="og:url" content="http://html-js.site/2019/07/04/在线调试工具-eruda/index.html">
 <meta property="og:site_name" content="大洋">
-<meta property="og:description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta property="og:description" content="Eruda 一个被人遗忘的调试神器项目中如何引入？直接上代码123456789101112131415161718192021function debugInit(type)&amp;#123;  console.log(&apos;debugInit&apos;)	var debug = sessionStorage.getItem(&apos;debug&apos;) || type || false;	if(location.href &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T12:30:56.320Z">
+<meta property="og:updated_time" content="2021-03-12T08:42:09.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线调试工具-eruda">
-<meta name="twitter:description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta name="twitter:description" content="Eruda 一个被人遗忘的调试神器项目中如何引入？直接上代码123456789101112131415161718192021function debugInit(type)&amp;#123;  console.log(&apos;debugInit&apos;)	var debug = sessionStorage.getItem(&apos;debug&apos;) || type || false;	if(location.href &amp;">
 
 
 
@@ -332,7 +333,9 @@
       
 
       
-        
+        <h3 id="Eruda-一个被人遗忘的调试神器"><a href="#Eruda-一个被人遗忘的调试神器" class="headerlink" title="Eruda 一个被人遗忘的调试神器"></a>Eruda 一个被人遗忘的调试神器</h3><p>项目中如何引入？直接上代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debugInit</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debugInit'</span>)</span><br><span class="line">	<span class="keyword">var</span> debug = sessionStorage.getItem(<span class="string">'debug'</span>) || type || <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(location.href &amp;&amp; (location.href.includes(<span class="string">'debug'</span>) || location.href.includes(<span class="string">'dingnianhuiapp.superboss.cc'</span>))) &#123;</span><br><span class="line">		debug = <span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">window</span>._debug = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(debug) &#123;</span><br><span class="line">		<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>); </span><br><span class="line">    <span class="comment">// script.src="https://dingtalkcdn.superboss.cc/nianhui/front/pc/vconsole.min.js"; </span></span><br><span class="line">    script.src=<span class="string">"//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"</span>; </span><br><span class="line">		<span class="built_in">document</span>.body.appendChild(script); </span><br><span class="line">		script.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">      <span class="comment">// window.vConsole = new VConsole();</span></span><br><span class="line">      eruda.init();</span><br><span class="line">		&#125;</span><br><span class="line">		sessionStorage.setItem(<span class="string">'debug'</span>, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">debugInit()</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://my.oschina.net/u/4293553/blog/3708333" target="_blank" rel="noopener">Eruda 一个被人遗忘的调试神器</a></p>
+
       
     </div>
 
@@ -379,6 +382,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
       
 
       
@@ -448,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
@@ -571,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Eruda-一个被人遗忘的调试神器"><span class="nav-number">1.</span> <span class="nav-text">Eruda 一个被人遗忘的调试神器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

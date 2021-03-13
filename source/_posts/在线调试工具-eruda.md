@@ -4,7 +4,9 @@ date: 2019-07-04 20:30:56
 tags: [javascript]
 ---
 
+### Eruda 一个被人遗忘的调试神器
 
+项目中如何引入？直接上代码
 ```js
 function debugInit(type){
   console.log('debugInit')
@@ -28,3 +30,5 @@ function debugInit(type){
 }
 debugInit()
 ```
+
+[Eruda 一个被人遗忘的调试神器](https://my.oschina.net/u/4293553/blog/3708333)
