@@ -1,0 +1,30 @@
+.container{
+	height: 455px;
+    width: 455px;
+	padding:100px;
+	margin:100px auto;
+	background:url(./111.jpg) center no-repeat;
+	background-size: 535px 535px;
+}
+.fg{
+	width:36px;
+	height: 36px;
+	/*border:1px solid #343434;*/
+	float: left;
+	margin-top:-1px;
+	margin-left:-1px;
+}
+.fg .qz1{
+	width:32px;
+	height: 32px;
+	margin:4px;
+	border-radius: 20px;
+	background-color: #000;
+}
+.fg .qz2{
+	width:32px;
+	height: 32px;
+	margin:4px;
+	border-radius: 20px;
+	background-color: #fff;
+}

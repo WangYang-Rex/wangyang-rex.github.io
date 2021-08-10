@@ -269,6 +269,119 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://html-js.site/2019/07/04/在线调试工具-eruda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/04/在线调试工具-eruda/" itemprop="url">在线调试工具-eruda</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T20:30:56+08:00">
+                2019-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Eruda-一个被人遗忘的调试神器"><a href="#Eruda-一个被人遗忘的调试神器" class="headerlink" title="Eruda 一个被人遗忘的调试神器"></a>Eruda 一个被人遗忘的调试神器</h3><p>项目中如何引入？直接上代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debugInit</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debugInit'</span>)</span><br><span class="line">	<span class="keyword">var</span> debug = sessionStorage.getItem(<span class="string">'debug'</span>) || type || <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(location.href &amp;&amp; (location.href.includes(<span class="string">'debug'</span>) || location.href.includes(<span class="string">'dingnianhuiapp.superboss.cc'</span>))) &#123;</span><br><span class="line">		debug = <span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">window</span>._debug = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(debug) &#123;</span><br><span class="line">		<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>); </span><br><span class="line">    <span class="comment">// script.src="https://dingtalkcdn.superboss.cc/nianhui/front/pc/vconsole.min.js"; </span></span><br><span class="line">    script.src=<span class="string">"//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"</span>; </span><br><span class="line">		<span class="built_in">document</span>.body.appendChild(script); </span><br><span class="line">		script.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">      <span class="comment">// window.vConsole = new VConsole();</span></span><br><span class="line">      eruda.init();</span><br><span class="line">		&#125;</span><br><span class="line">		sessionStorage.setItem(<span class="string">'debug'</span>, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">debugInit()</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://my.oschina.net/u/4293553/blog/3708333" target="_blank" rel="noopener">Eruda 一个被人遗忘的调试神器</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://html-js.site/2019/05/13/2019年Web前端入门的自学路线/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1376,169 +1489,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://html-js.site/2018/04/08/React框架精髓/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/08/React框架精髓/" itemprop="url">React框架精髓</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T14:19:28+08:00">
-                2018-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="React-diff-算法"><a href="#React-diff-算法" class="headerlink" title="React diff 算法"></a>React diff 算法</h2><p>React的<code>diff</code>算法是<code>Virtual DOM</code>之所以任性的最大依仗，大家知道页面的性能 一般是由渲染速度和渲染次数决定，如何最大程度地利用<code>diff</code>算法进行开发？我们先看看它的原理。</p>
-<h3 id="传统-diff-算法"><a href="#传统-diff-算法" class="headerlink" title="传统 diff 算法"></a>传统 diff 算法</h3><p>计算一棵树形结构转换成另一棵树形结构的最少操作，传统 <code>diff</code> 算法通过循环递归对节点进行依次对比，效率低下，算法复杂度达到 <code>O(n^3)</code>，其中 <code>n</code> 是树中节点的总数。也就是说如果要展示1000个节点，就要依次执行上十亿次的比较。这个性能消耗对对于前端项目来说是不可接受的。</p>
-<h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p>如上所见，传统 <code>diff</code> 算法的复杂度为 <code>O(n^3)</code>，显然这是无法满足性能要求的。而<code>React</code>通过制定大胆的策略，将 <code>O(n^3)</code> 复杂度的问题转换成 <code>O(n)</code> 复杂度的问题。他是怎么做到的？</p>
-<h3 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h3><p>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。如下图所示：</p>
-<p><img src="/images/page/react/2.png" alt></p>
-<blockquote>
-<p>React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同颜色方框内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tree diff算法实现</span></span><br><span class="line">updateChildren: <span class="function"><span class="keyword">function</span>(<span class="params">nextNestedChildrenElements, transaction, context</span>) </span>&#123;</span><br><span class="line">  updateDepth++;</span><br><span class="line">  <span class="keyword">var</span> errorThrown = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>._updateChildren(nextNestedChildrenElements, transaction, context);</span><br><span class="line">    errorThrown = <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    updateDepth--;</span><br><span class="line">    <span class="keyword">if</span> (!updateDepth) &#123;</span><br><span class="line">      <span class="keyword">if</span> (errorThrown) &#123;</span><br><span class="line">        clearQueue();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        processQueue();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="为什么要减少DOM节点的跨层级操作？"><a href="#为什么要减少DOM节点的跨层级操作？" class="headerlink" title="为什么要减少DOM节点的跨层级操作？"></a>为什么要减少DOM节点的跨层级操作？</h3><p>如下图，A 节点（包括其子节点）整个被移动到 D 节点下，由于 React 只会简单的考虑同层级节点的位置变换，而对于不同层级的节点，只有创建和删除操作。当根节点发现子节点中 A 消失了，就会直接销毁 A；当 D 发现多了一个子节点 A，则会创建新的 A（包括子节点）作为其子节点。此时，<code>React diff</code> 的执行情况：create A -&gt; create B -&gt; create C -&gt; delete A。</p>
-<p><img src="/images/page/react/3.png" alt></p>
-<p>由此可发现，当出现节点跨层级移动时，并不会出现想象中的移动操作，而是以 A 为根节点的树被整个重新创建，这是一种影响 <code>React</code> 性能的操作。</p>
-<h3 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h3><p>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。</p>
-<ul>
-<li>如果是同一类型的组件，按照原策略继续比较 <code>virtual DOM tree</code>。</li>
-<li>如果不是，则将该组件判断为 <code>dirty component</code>，从而替换整个组件下的所有子节点。</li>
-<li>对于同一类型的组件，有可能其 <code>Virtual DOM</code> 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 <code>React</code> 允许用户通过 <code>shouldComponentUpdate()</code> 来判断该组件是否需要进行 diff。</li>
-</ul>
-<p><img src="/images/page/react/4.png" alt></p>
-<p>如上图，当 <code>component D</code> 改变为 <code>component G</code> 时，即使这两个 <code>component</code> 结构相似，一旦 <code>React</code> 判断 D 和 G 是不同类型的组件，就不会比较二者的结构，而是直接删除 <code>component D</code>，重新创建 <code>component G</code> 以及其子节点。虽然当两个 <code>component</code> 是不同类型但结构相似时，<code>React diff</code> 会影响性能，但正如 <code>React</code> 官方博客所言：不同类型的 <code>component</code> 是很少存在相似 <code>DOM tree</code> 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。</p>
-<h3 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h3><p>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。React 提出优化策略：允许开发者对同一层级的同组子节点，添加唯一 key 进行区分，虽然只是小小的改动，性能上却发生了翻天覆地的变化！</p>
-<p>新老集合所包含的节点，如下图所示，新老集合进行 diff 差异化对比，通过 key 发现新老集合中的节点都是相同的节点，因此无需进行节点删除和创建，只需要将老集合中节点的位置进行移动，更新为新集合中节点的位置，此时 React 给出的 diff 结果为：B、D 不做任何操作，A、C 进行移动操作，即可。</p>
-<p><img src="/images/page/react/5.png" alt></p>
-<h3 id="开发建议"><a href="#开发建议" class="headerlink" title="开发建议"></a>开发建议</h3><p>（1）<b>[基于tree diff]</b> 开发组件时，保持稳定的DOM结构有助于维持整体的性能。换而言之，尽可能少地动态操作DOM结构，尤其是移动操作。当节点数过大或者页面更新次数过多时，页面卡顿的现象比较明显。可以通过 CSS 隐藏或显示节点，而不是真的移除或添加 DOM 节点。</p>
-<p>（2）<b>[基于component diff]</b> 开发组件时，注意使用 <code>shouldComponentUpdate()</code> 来减少组件不必要的更新。除此之外，对于类似的结构应该尽量封装成组件，既减少代码量，又能减少<code>component diff</code>的性能消耗。</p>
-<p>（3）<b>[基于element diff]</b> 对于列表结构，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。</p>
-<h2 id="React-Lifecycle"><a href="#React-Lifecycle" class="headerlink" title="React Lifecycle"></a>React Lifecycle</h2><p>React的生命周期具体可分为四种情况：<br><img src="/images/page/react/6.png" alt></p>
-<ul>
-<li><p>当首次装载组件时，按顺序执行 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount；`</p>
-</li>
-<li><p>当卸载组件时，执行 <code>componentWillUnmount</code>；</p>
-</li>
-<li><p>当重新装载组件时，此时按顺序执行 <code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount<code>，但并不执行</code>getDefaultProps`；</p>
-</li>
-<li><p>当再次渲染组件时，组件接受到更新状态，此时按顺序执行 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。</p>
-</li>
-</ul>
-<h2 id="React组件的3种状态"><a href="#React组件的3种状态" class="headerlink" title="React组件的3种状态"></a>React组件的3种状态</h2><h3 id="状态一：MOUNTING"><a href="#状态一：MOUNTING" class="headerlink" title="状态一：MOUNTING"></a>状态一：MOUNTING</h3><p><code>mountComponent</code> 负责管理生命周期中的 <code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount`。<br><img src="/images/page/react/7.png" alt></p>
-<h3 id="状态二：RECEIVE-PROPS"><a href="#状态二：RECEIVE-PROPS" class="headerlink" title="状态二：RECEIVE_PROPS"></a>状态二：RECEIVE_PROPS</h3><p><code>updateComponent</code> 负责管理生命周期中的 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。<br><img src="/images/page/react/8.png" alt></p>
-<h3 id="状态三：UNMOUNTING"><a href="#状态三：UNMOUNTING" class="headerlink" title="状态三：UNMOUNTING"></a>状态三：UNMOUNTING</h3><p><code>unmountComponent</code> 负责管理生命周期中的 <code>componentWillUnmount</code>。</p>
-<p>首先将状态设置为 <code>UNMOUNTING</code>，若存在 <code>componentWillUnmount</code>，则执行；如果此时在 <code>componentWillUnmount</code> 中调用 <code>setState</code>，是不会触发 <code>reRender</code>。更新状态为 <code>NULL</code>，完成组件卸载操作。实现代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 卸载组件</span></span><br><span class="line">unmountComponent: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 设置状态为 UNMOUNTING</span></span><br><span class="line">  <span class="keyword">this</span>._compositeLifeCycleState = CompositeLifeCycle.UNMOUNTING;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果存在 componentWillUnmount，则触发</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.componentWillUnmount) &#123;</span><br><span class="line">    <span class="keyword">this</span>.componentWillUnmount();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新状态为 null</span></span><br><span class="line">  <span class="keyword">this</span>._compositeLifeCycleState = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">this</span>._renderedComponent.unmountComponent();</span><br><span class="line">  <span class="keyword">this</span>._renderedComponent = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  ReactComponent.Mixin.unmountComponent.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="React生命周期总结"><a href="#React生命周期总结" class="headerlink" title="React生命周期总结"></a>React生命周期总结</h2><p><img src="/images/page/react/9.png" alt></p>
-<p><img src="/images/page/react/10.png" alt></p>
-<h2 id="setState实现机制"><a href="#setState实现机制" class="headerlink" title="setState实现机制"></a>setState实现机制</h2><p><code>setState</code>是<code>React</code>框架的核心方法之一，下面介绍一下它的原理：<br><img src="/images/page/react/11.png" alt><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新 state</span></span><br><span class="line">setState: <span class="function"><span class="keyword">function</span>(<span class="params">partialState, callback</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 合并 _pendingState</span></span><br><span class="line">  <span class="keyword">this</span>.replaceState(</span><br><span class="line">    assign(&#123;&#125;, <span class="keyword">this</span>._pendingState || <span class="keyword">this</span>.state, partialState),</span><br><span class="line">    callback</span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>当调用 <code>setState</code> 时，会对 <code>state</code> 以及 <code>_pendingState</code> 更新队列进行合并操作，但其实真正更新 <code>state</code> 的幕后黑手是<code>replaceState</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新 state</span></span><br><span class="line">replaceState: <span class="function"><span class="keyword">function</span>(<span class="params">completeState, callback</span>) </span>&#123;</span><br><span class="line">  validateLifeCycleOnReplaceState(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新队列</span></span><br><span class="line">  <span class="keyword">this</span>._pendingState = completeState;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断状态是否为 MOUNTING，如果不是，即可执行更新</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._compositeLifeCycleState !== CompositeLifeCycle.MOUNTING) &#123;</span><br><span class="line">    ReactUpdates.enqueueUpdate(<span class="keyword">this</span>, callback);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p><code>replaceState</code> 会先判断当前状态是否为 MOUNTING，如果不是即会调用 <code>ReactUpdates.enqueueUpdate</code> 执行更新。</p>
-<p>当状态不为 <code>MOUNTING</code> 或 <code>RECEIVING_PROPS</code> <code>时，performUpdateIfNecessary</code> 会获取 <code>_pendingElement</code>、<code>_pendingState</code>、<code>_pendingForceUpdate</code>，并调用 <code>updateComponent</code> 进行组件更新。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果存在 _pendingElement、_pendingState、_pendingForceUpdate，则更新组件</span></span><br><span class="line">performUpdateIfNecessary: <span class="function"><span class="keyword">function</span>(<span class="params">transaction</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> compositeLifeCycleState = <span class="keyword">this</span>._compositeLifeCycleState;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当状态为 MOUNTING 或 RECEIVING_PROPS时，则不更新</span></span><br><span class="line">  <span class="keyword">if</span> (compositeLifeCycleState === CompositeLifeCycle.MOUNTING ||</span><br><span class="line">      compositeLifeCycleState === CompositeLifeCycle.RECEIVING_PROPS) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> prevElement = <span class="keyword">this</span>._currentElement;</span><br><span class="line">  <span class="keyword">var</span> nextElement = prevElement;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._pendingElement != <span class="literal">null</span>) &#123;</span><br><span class="line">    nextElement = <span class="keyword">this</span>._pendingElement;</span><br><span class="line">    <span class="keyword">this</span>._pendingElement = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用 updateComponent</span></span><br><span class="line">  <span class="keyword">this</span>.updateComponent(</span><br><span class="line">    transaction,</span><br><span class="line">    prevElement,</span><br><span class="line">    nextElement</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果在 <code>shouldComponentUpdate</code> 或 <code>componentWillUpdate</code> 中调用 <code>setState</code>，此时的状态已经从 <code>RECEIVING_PROPS -&gt; NULL</code>，则 <code>performUpdateIfNecessary</code> 就会调用 <code>updateComponent</code> 进行组件更新，但 <code>updateComponent</code> 又会调用 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>，因此造成循环调用，使得浏览器内存占满后崩溃。</p>
-</blockquote>
-<h3 id="开发建议-1"><a href="#开发建议-1" class="headerlink" title="开发建议"></a>开发建议</h3><p>不建议在 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentWillUnmount</code> 中调用 <code>setState</code>，特别注意：不能在 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>中调用 <code>setState</code>，会导致循环调用。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1586,7 +1536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

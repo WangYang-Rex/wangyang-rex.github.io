@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>CSS3轮播图</title>
+</head>
+<style type="text/css">
+        *{margin: 0;padding: 0;list-style:none;font-family: 'Microsoft Yahei'}
+
+        h3{height: 150px;text-align: center;line-height: 150px;}
+        #shuff{height: 400px;width: 100%;position: relative;}
+        .size{height: 400px;width: 100%; color: #fff;font-size: 100px;line-height: 400px;text-align: center;position: absolute;left: 0;top: 0;}
+        .one{background-color: #ad5d5c;
+                animation:one 10s linear infinite ;
+            -webkit-animation:one 10s linear infinite ;
+            -moz-webkit-animation:one 10s linear infinite ;
+            -o-webkit-animation:one 10s linear infinite ;
+        }
+        .two{background-color: #845ba7;
+                animation:two 10s linear infinite ;
+                -webkit-animation:two 10s linear infinite ;
+            -moz-webkit-animation:two 10s linear infinite ;
+            -o-webkit-animation:two 10s linear infinite ;                
+        }
+        .three{background-color: #60742d;
+                animation:three 10s linear infinite;
+            -webkit-animation:three 10s linear infinite ;
+            -moz-webkit-animation:three 10s linear infinite ;
+            -o-webkit-animation:three 10s linear infinite ;            
+        }
+        .four{background-color: #37839d;
+                animation:four 10s linear infinite ;
+                -webkit-animation:four 10s linear infinite ;
+            -moz-webkit-animation:four 10s linear infinite ;
+            -o-webkit-animation:four 10s linear infinite ;                
+        }
+
+/*第一个盒子的动画*/
+@keyframes one
+{
+0%   {opacity: 1}
+10%  {opacity: 1}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 1}
+100% {opacity: 1}
+}
+
+@-moz-keyframes one /* Firefox */
+{
+0%   {opacity: 1}
+10%  {opacity: 1}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 1}
+100% {opacity: 1}
+}
+
+@-webkit-keyframes one /* Safari and Chrome */
+{
+0%   {opacity: 1}
+10%  {opacity: 1}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 1}
+100% {opacity: 1}
+}
+
+@-o-keyframes one /* Opera */
+{
+0%   {opacity: 1}
+10%  {opacity: 1}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 1}
+100% {opacity: 1}
+}
+
+/*第二个盒子的动画*/
+@keyframes two
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 1}
+30%  {opacity: 1}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+@-moz-keyframes two /* Firefox */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 1}
+30%  {opacity: 1}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+@-webkit-keyframes two /* Safari and Chrome */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 1}
+30%  {opacity: 1}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+@-o-keyframes two /* Opera */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 1}
+30%  {opacity: 1}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+/*第三个盒子的动画*/
+@keyframes three
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 1}
+50%  {opacity: 1}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+@-moz-keyframes three /* Firefox */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 1}
+50%  {opacity: 1}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+@-webkit-keyframes three /* Safari and Chrome */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 1}
+50%  {opacity: 1}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+@-o-keyframes three/* Opera */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 1}
+50%  {opacity: 1}
+60%  {opacity: 0}
+70%  {opacity: 0}
+80%  {opacity: 0}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+
+/*第四个盒子的动画*/
+@keyframes four
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 1}
+70%  {opacity: 1}
+80%  {opacity: 1}
+90%  {opacity: 0}
+100%  {opacity: 0}
+}
+@-moz-keyframes four /* Firefox */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 1}
+70%  {opacity: 1}
+80%  {opacity: 1}
+90%  {opacity: 0}
+100% {opacity: 0}
+}
+
+@-webkit-keyframes four /* Safari and Chrome */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 1}
+70%  {opacity: 1}
+80%  {opacity: 1}
+90%  {opacity: 0}
+100% {opacity: 0}
+}
+
+@-o-keyframes four /* Opera */
+{
+0%   {opacity: 0}
+10%  {opacity: 0}
+20%  {opacity: 0}
+30%  {opacity: 0}
+40%  {opacity: 0}
+50%  {opacity: 0}
+60%  {opacity: 1}
+70%  {opacity: 1}
+80%  {opacity: 1}
+90%  {opacity: 0}
+100% {opacity: 0}
+}
+</style>
+<body>
+        <h3>CSS3模拟轮播图</h3>
+        <div id="shuff">
+                <!-- 四个盒子，每个盒子一张图 -->
+                <div class="size one">MI3.0</div>
+                <div class="size two">UC4.1</div>
+                <div class="size three">ENUM 5.2</div>
+                <div class="size four">MEIZU 6.3</div>
+        </div>
+</body>
+</html>

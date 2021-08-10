@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://app.hengtiansoft.com/resource/demo/Bigwheel.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+        <title>home</title>
+        <!--<base href=".">--><!--<base href=".">--><base href=".">
+        <meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link href="css/Bigwheel.css" rel="stylesheet" type="text/css">
+		<style>
+			
+		</style>
+</head>
+<body screen_capture_injected="true">
+    <div id="body">
+		<div id="tmp"></div>
+		<div id="logo">
+			<!--<img alt="xizi" src="./home_files/logo.png">-->
+			<h3>幸运大抽奖</h3>
+		</div>
+
+		<div class="main">
+			<div class="pointer"></div>
+			<div class="cj-bg" style="-webkit-transform: rotate(3680deg);">
+				<!--<div class="tmp"></div>
+				<div class="start"></div>-->
+			</div>
+			<div class="start"></div>
+		</div>
+		<div class="date">
+			<p>活动日期 即日起-8月30日</p>
+		</div>
+		<div class="other">
+			<p>本活动只对内部员工开放，中奖者请凭工号至总工会领取奖品</p>
+			<p>本活动每位员工只拥有一次抽奖机会</p>
+		</div>
+	</div>
+	<!--以下是底部浮动菜单-->
+	<div class="mask"></div>
+	<script src="js/zepto.min.js" type="text/javascript"></script>
+	<!--<script src="http://gmu.baidu.com/dist/zepto.js" type="text/javascript"></script>-->
+	<script>
+		 $(function(){
+			var _deg = 0;
+			$(".start").on("click",function(){
+				//$(".cj-bg").addClass("open");
+				_deg = _deg + 920;
+				$(".cj-bg").css("-webkit-transform","rotate("+_deg+"deg)");
+				$(".cj-bg").css("-moz-transform","rotate("+_deg+"deg)");
+				$(".cj-bg").css("-o-transform","rotate("+_deg+"deg)");
+				$(".cj-bg").css("transform","rotate("+_deg+"deg)");
+			})   
+		});
+	</script>
+
+</body></html>
