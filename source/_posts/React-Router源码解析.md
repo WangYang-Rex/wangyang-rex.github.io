@@ -415,4 +415,4 @@ Link组件也是相当简单的一个组件，内部主要做了以下事情：
 
 `React Router`的代码其实很好理解，主要涉及到的是`history`这个库是核心点，整个路由的触发事件的封装，抹平了浏览器差异。其次就是`React Router`实际是基于`context`来实现`Router`、`Route`、`Link`等组件中，`history`，`location`等值的传递。
 
-https://zhuanlan.zhihu.com/p/106042913
+<!-- https://zhuanlan.zhihu.com/p/106042913 -->
