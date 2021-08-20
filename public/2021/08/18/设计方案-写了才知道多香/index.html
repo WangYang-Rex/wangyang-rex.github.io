@@ -95,17 +95,26 @@
 
 
 
-<meta name="description" content="https://juejin.cn/post/6996819856033054756?utm_source=gold_browser_extension">
+<meta name="description" content="设计方案，拿来吧你今天要跟大家聊聊开发流程中不起眼的环节——设计方案。你们可能没听过，也可能只是简单得走过过场，别划走，这非常重要！ 更完善、更规范、更高效的开发流程：产品需求设计 =&amp;gt; 需求粗评 =&amp;gt; 做设计方案 =&amp;gt; 粗估时 =&amp;gt; 需求细评 =&amp;gt; 排期 =&amp;gt; 开发 =&amp;gt; 提测、修bug =&amp;gt; code review =&amp;gt; 上线 平常工作中，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计方案,写了才知道多香">
 <meta property="og:url" content="http://blog.html-js.site/2021/08/18/设计方案-写了才知道多香/index.html">
 <meta property="og:site_name" content="大洋">
-<meta property="og:description" content="https://juejin.cn/post/6996819856033054756?utm_source=gold_browser_extension">
+<meta property="og:description" content="设计方案，拿来吧你今天要跟大家聊聊开发流程中不起眼的环节——设计方案。你们可能没听过，也可能只是简单得走过过场，别划走，这非常重要！ 更完善、更规范、更高效的开发流程：产品需求设计 =&amp;gt; 需求粗评 =&amp;gt; 做设计方案 =&amp;gt; 粗估时 =&amp;gt; 需求细评 =&amp;gt; 排期 =&amp;gt; 开发 =&amp;gt; 提测、修bug =&amp;gt; code review =&amp;gt; 上线 平常工作中，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-08-20T06:30:09.103Z">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/-1.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/0.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/1.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/2.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/3.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/4.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/5.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/fangan/6.png">
+<meta property="og:updated_time" content="2021-08-20T07:21:30.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计方案,写了才知道多香">
-<meta name="twitter:description" content="https://juejin.cn/post/6996819856033054756?utm_source=gold_browser_extension">
+<meta name="twitter:description" content="设计方案，拿来吧你今天要跟大家聊聊开发流程中不起眼的环节——设计方案。你们可能没听过，也可能只是简单得走过过场，别划走，这非常重要！ 更完善、更规范、更高效的开发流程：产品需求设计 =&amp;gt; 需求粗评 =&amp;gt; 做设计方案 =&amp;gt; 粗估时 =&amp;gt; 需求细评 =&amp;gt; 排期 =&amp;gt; 开发 =&amp;gt; 提测、修bug =&amp;gt; code review =&amp;gt; 上线 平常工作中，">
+<meta name="twitter:image" content="http://blog.html-js.site/images/page/fangan/-1.png">
 
 
 
@@ -332,7 +341,69 @@
       
 
       
-        <p><a href="https://juejin.cn/post/6996819856033054756?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://juejin.cn/post/6996819856033054756?utm_source=gold_browser_extension</a></p>
+        <h3 id="设计方案，拿来吧你"><a href="#设计方案，拿来吧你" class="headerlink" title="设计方案，拿来吧你"></a>设计方案，拿来吧你</h3><p>今天要跟大家聊聊开发流程中不起眼的环节——<code>设计方案</code>。你们可能没听过，也可能只是简单得走过过场，别划走，这非常重要！</p>
+<p>更完善、更规范、更高效的开发流程：<code>产品需求设计</code> =&gt; <code>需求粗评</code> =&gt; <code>做设计方案</code> =&gt; <code>粗估时</code> =&gt; <code>需求细评</code> =&gt; <code>排期</code> =&gt; <code>开发</code> =&gt; <code>提测、修bug</code> =&gt; <code>code review</code> =&gt; <code>上线</code></p>
+<p>平常工作中，比较少接触的可能就是1和<code>code review</code>了，这两者分别是干什么的？</p>
+<ul>
+<li><code>设计方案</code>：在拿到需求后，写一个文档，来描述自己对于该需求的实现思路、模块划分等相关考虑的点，可供今后自己或他人查阅。</li>
+<li><code>Code review</code>：代码提交合并前给mentor或leader检查一下你的代码，让别人作为旁观者来看你的代码，集思广益，完善代码，发现未考虑到的边界问题。</li>
+</ul>
+<a id="more"></a>
+<p>说实话哈，啥设计方案啊，通常都是在工作时，突然就被产品叫过去，花5分钟给我阐述了一下下个版本他想要上的功能，紧接着立马就问我：<code>你看看大概需要多久？我的预估是5天后就上线，ok吗</code>？</p>
+<p>我： <code>？？？？？？？？？</code> （内心os：我刚知道这个需求，我哪能那么快知道我得花多久做出来啊！你说5天就5天吧，反正我说6天也没用）</p>
+<p><img src="/images/page/fangan/-1.png" alt></p>
+<p>太离谱了，可能很多小公司的现状都是像我说的这样吧！这样真的很不好，版本快速迭代中掺杂着许多需求，而开发时间又比较紧张，只会让开发想尽办法怎么赶紧把功能实现，而不会去考虑任何性能问题，更别说让你考虑边界问题了。长期这样下去，你会深深地体会到你处于一个无止境的项目快速迭代中，加班、通宵可能都是常事，哪还会有时间去学习新的知识或做自己爱做的事，也不会有多余的时间去关注自己接手的需求从开发到上线的整个生命周期线，不会定期去复盘，因此个人的项目经验、技术积累是很少的</p>
+<p>之前也有小伙伴私聊过我类似的情况，我也是建议他最好能在一个有「自我学习」、「定期复盘反省」的环境中工作</p>
+<p>大圣老师就是如此，记得他在有次直播中讲到，他当年去360时，把「能留给自己充足的学习时间」作为他最在乎的因素，这样真的非常好。大家也可以看看自己当前的现状是否真的利于自己发展，然后做更长远的打算。</p>
+<p>好了，言归正传！</p>
+<h3 id="我们为什么要写设计方案呢"><a href="#我们为什么要写设计方案呢" class="headerlink" title="我们为什么要写设计方案呢"></a>我们为什么要写设计方案呢</h3><p>目的是为了在真正开始敲代码之前理清自己的思路，对需求有一个更清楚的认识，这样就不至于在开始开发后边写代码边思考了，想必你们都有遇到在写代码时突然发现哪一模块之前没考虑到，然后对之前写好的代码的架构进行调整，代码进行抽离，这无疑是在降低开发效率。</p>
+<p>另一点就是时间一久，突然这个功能出现了一个bug让你去修复，你可能会对自己写的代码有些忘却，此时找到之前自己写的设计方案一看便知，这同样也能作为新入职的小伙伴在熟悉现有代码的重要资源！</p>
+<p>对于第二点我深有感触，到一个新部门总会接手1~2个祖传项目代码，紧接着你就要阅读他们的代码逻辑，这是非常痛苦的，因为你根本不了解这些需求的背景，也不了解他人代码完整的设计思路，这不跟抱着一本厚书在那硬啃一样嘛！</p>
+<p>要是之前的人都写过设计方案，你完全可以在看每个模块的时候，找到相应的文档，这不事半功倍嘛~</p>
+<h3 id="那么如何写设计方案呢？"><a href="#那么如何写设计方案呢？" class="headerlink" title="那么如何写设计方案呢？"></a>那么如何写设计方案呢？</h3><p>整个方案大致分为4个部分：<code>需求相关信息</code>、<code>方案调研</code>、<code>具体方案</code>、<code>其它</code></p>
+<h4 id="一、需求相关信息"><a href="#一、需求相关信息" class="headerlink" title="一、需求相关信息"></a>一、需求相关信息</h4><p>作为一个开发工程师，一定要有工程师的精神，需要对自己所接手的需求有清晰的认识，这包括：负责这个需求的其它相关人员分别是谁（产品、测试、UI、后端等）、我这个需求的出现背景是什么、需求何时提测，何时上线…</p>
+<p>格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一、需求相关信息</span><br><span class="line">​</span><br><span class="line">  需求背景：因为我们要做线下推广，提高xxxxxxxxx</span><br><span class="line">  PRD：文档链接</span><br><span class="line">  产品：小华</span><br><span class="line">  UI：小明</span><br><span class="line">  测试：小红</span><br><span class="line">  前端：零一</span><br><span class="line">  服务端：小张</span><br><span class="line">  联调时间：2021.07.30</span><br><span class="line">  提测时间：2021.07.31</span><br><span class="line">  上线时间：2021.08.10</span><br></pre></td></tr></table></figure>
+<p>把这些内容写在设计方案的开头，让跟这个需求相关、不相关的人都能一目了然，如果遇到问题也可以立马精准地找到相应的人</p>
+<p><img src="/images/page/fangan/0.png" alt></p>
+<h4 id="二、方案调研"><a href="#二、方案调研" class="headerlink" title="二、方案调研"></a>二、方案调研</h4><p>这一部分主要是需要我们在考虑功能实现的技术选型时，对比很多不同的方案，综合考虑每一种方案的优缺点，可以适当地取舍和改进，形成一套适合当前场景的技术方案。</p>
+<p>举个比较简单的例子吧，假设你此次接的需求中有一个复杂的动画要实现，那么你以下这几种考虑的方向</p>
+<ul>
+<li>以前我有没有做过类似的动画，可以借鉴的？</li>
+<li>公司内部有没有什么现成的库或者代码能用？</li>
+<li>业界有没有现成的库或者比较不错的实现思路？</li>
+<li>如果不用别的库，用原生实现，我会怎么做？有没有什么兼容性等其它问题？</li>
+</ul>
+<p>在了解了这四种场景以后，我们此时需要思考别人的方案和我自己的方案哪一个更好，优缺点分别是什么？别人的方案是否适用于我们当前的场景？ 在综合考虑了众多因素后，我们选择一套相对比较靠谱的方案用于实行。</p>
+<p>通过以上几个步骤来支撑我们接下来敲出来的代码的可靠性与质量！</p>
+<h4 id="三、具体方案"><a href="#三、具体方案" class="headerlink" title="三、具体方案"></a>三、具体方案</h4><p>这部分是最重要的了，它几乎涵盖了你所有需要思考的东西：<code>业务的完整流程</code>、<code>数据结构的设计</code>、<code>关键功能的逻辑描述</code>、<code>异常的处理</code>、<code>安全性</code>、<code>性能</code>、<code>与现有业务的耦合情况</code>、<code>组件复用</code></p>
+<p>起码要保证其他人以及你自己，在看到具体的方案介绍时，可以很清楚地明白你的设计思路、写代码的思路、模块的划分。你可以用任何形式去表达你的思路，例如伪代码、流程图或者纯文字等等.</p>
+<p><code>流程图</code><br><img src="/images/page/fangan/1.png" alt></p>
+<p>流程图的设计能让你对自己的需求有更清楚的了解，也能让他人对这个需求有一个直观的认识</p>
+<p><code>伪代码</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSomeData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data; </span><br><span class="line">  <span class="keyword">if</span>(无缓存) &#123;</span><br><span class="line">    <span class="comment">// 请求数据</span></span><br><span class="line">    <span class="keyword">if</span>(请求异常) <span class="comment">// 展示错误页面;</span></span><br><span class="line">    data = 请求到的数据;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 展示页面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>伪代码可以在你不写具体代码实现前，展示大致的编码思路，那么在大家一起过你的设计方案时，就可以很清楚得知道你的代码想怎么实现，因为是伪代码，所以非技术的同学说不定也能看懂，然后给你提点意见呢！</p>
+<p><img src="/images/page/fangan/2.png" alt></p>
+<p>模块的划分也是考验你架构设计的一个点，你需要考虑清楚你的代码中，哪些需要单独抽离出来作为一个单独的模块，哪些可以作为公共组件，哪些是跟业务高耦合的</p>
+<p><img src="/images/page/fangan/3.png" alt></p>
+<p>用例图的话，能帮助你整理需求中每一个大大小小的场景，这个光靠脑子想可能没有太大的作用，当你列出来时，你可能会发现这个流程好像少了点什么东西，也就是有助于你考虑更全，关注到一些犄角旮旯的边界。插播个小彩蛋，我有个前端同事写用例写的特别好，有一次leader调侃说他这个写的也太太太详细了，每一处考虑得都特别周全，甚至都可以直接原封不动得给测试当测试用例了，hhhh</p>
+<p>我所列举的例子都比较简单，大家根据自己实际情况进行操作就好。<br>还有一些别的就是，你还需要考虑一下你的<code>某些接口需不需要考虑安全问题</code>，比如点击submit会增加抽奖次数，那不会被别人恶意伪造一些信息进行刷抽奖次数呢？还有<code>你的页面会不会存在一些性能问题</code>？如果以后要在这个需求上扩展别的功能，<code>你觉得你的代码可扩展性如何</code>？当然，你要考虑的肯定远不止这些，希望每个工程师都能对自己的方案考虑周全，做到精益求精，这样才是一个合格的工程师！</p>
+<h4 id="四、其它"><a href="#四、其它" class="headerlink" title="四、其它"></a>四、其它</h4><p>最后一部分完全可以留给你自己自由发挥，可以记录下与这个需求相关的一切，我个人觉得可以写的有这些：</p>
+<ul>
+<li>你在写设计方案时遇到的问题以及解决办法</li>
+<li>你的代码上线以后，用户的反馈如何，如果好，好在哪里；如果不好，到底是哪里出了问题，该如何解决</li>
+<li>你在方案调研时，有没有发现别人的方案哪里做的不好，或者有哪些值得学习的地方</li>
+<li>在此次整个开发流程中，有觉得哪个流程不太好的（低效、无用的沟通等等），可以记录在此，然后找相关人员讨论改进</li>
+<li>more…</li>
+</ul>
+<p>总之，这里随心所欲发挥<br><img src="/images/page/fangan/4.png" alt></p>
+<h3 id="实践感受"><a href="#实践感受" class="headerlink" title="实践感受"></a>实践感受</h3><p>一开始让我写设计方案时我略微有些抗拒，就心里想着为啥写个代码还要先写文档，这不是在增加我的工作量嘛？<br>后来leader告诉我，写设计方案的时间不会算在我的开发时间内的，而是在开发时间之前，给我3~4天专门用来写设计方案（内心os：woc？这么爽！我写！我写！），这不香的要死嘛，于是我也就开始尝试写设计方案了</p>
+<p><img src="/images/page/fangan/5.png" alt></p>
+<p>在写的过程中发现，流程上我可能会发现一些同事们都没有考虑到的问题，这是站在开发的视角去看的，所以产品同学难免会遗漏一些点；而在case的梳理上我又偶尔会发现大家都没有考虑到的边界问题，可能是真的大家都没考虑到，也有可能是我的想法比较独特，但这都ok，在后面所有相关人员统一过我的设计方案的时候可以一起讨论出个对错。嗯，这些都是光凭脑袋想不一定能想到的，或者哪个瞬间想到了却来不及记录，到了开发的时候又给忘了！</p>
+<p>等我设计方案写完以后，相关人员会约一个时间一起听我讲一遍我的设计方案，不同岗位的同学有不同的视角去看问题，每个人也有不同的想法，所以这里能暴露出很多问题，也能把很多不ok的点处理掉，例如我的leader经验比较丰富，每次过设计方案时他都会提醒我哪一块儿地方可能会存在安全问题，记得考虑一下。</p>
+<p>再后来测试同学会整理一些测试用例，拉大家case评审，你之前做过了设计方案，对自己的需求非常熟悉了，那么在测试过你的需求的case时你会更加的明白，也许测试考虑到了你没考虑到的点，也许是他遗漏了某些点而你考虑到了，这些都是可以互补的。</p>
+<p>完成了以上内容，基本上我写代码的思路就通了，确实也节省了不少的时间！等我开发完以后，还会再自测一遍，怎么测？直接拿我设计方案和测试给出来的测试用例对照着自测就好啦，总不能说你自己这里都还没跑通就拿过去给测试测吧？</p>
+<p>总之收获还是很大，但设计方案的实施还是需要有一个不那么短的开发周期的，那种需求刚提，5天上线的情况哪有时间给你写设计方案啊，就更别说考虑这么多东西了，你自己个人也很难沉淀下东西<br>不过哦~我突然又发现了写设计方案的另外一个隐藏好处！我们的简历上不是会写上自己过往项目经验和工作经历嘛，这些都跟我们做过的项目需求紧密相关，你如果之前每个需求都写设计方案，那么写简历还用愁嘛，妥妥的筛选一下 + 复制粘贴啊</p>
+<p><img src="/images/page/fangan/6.png" alt></p>
 
       
     </div>
@@ -400,6 +471,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/08/20/node文件上传oss/" rel="prev" title="node文件上传oss">
+                node文件上传oss <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -445,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
@@ -459,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">85</span>
+                <span class="site-state-item-count">86</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -568,6 +652,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计方案，拿来吧你"><span class="nav-number">1.</span> <span class="nav-text">设计方案，拿来吧你</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们为什么要写设计方案呢"><span class="nav-number">2.</span> <span class="nav-text">我们为什么要写设计方案呢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那么如何写设计方案呢？"><span class="nav-number">3.</span> <span class="nav-text">那么如何写设计方案呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、需求相关信息"><span class="nav-number">3.1.</span> <span class="nav-text">一、需求相关信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、方案调研"><span class="nav-number">3.2.</span> <span class="nav-text">二、方案调研</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、具体方案"><span class="nav-number">3.3.</span> <span class="nav-text">三、具体方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、其它"><span class="nav-number">3.4.</span> <span class="nav-text">四、其它</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践感受"><span class="nav-number">4.</span> <span class="nav-text">实践感受</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
