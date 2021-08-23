@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.html-js.site/"/>
-  <updated>2021-08-20T06:32:19.699Z</updated>
+  <updated>2021-08-23T06:27:15.875Z</updated>
   <id>http://blog.html-js.site/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git commit前检测husky与pre-commit</title>
+    <link href="http://blog.html-js.site/2021/08/23/git-commit%E5%89%8D%E6%A3%80%E6%B5%8Bhusky%E4%B8%8Epre-commit/"/>
+    <id>http://blog.html-js.site/2021/08/23/git-commit前检测husky与pre-commit/</id>
+    <published>2021-08-23T06:27:15.000Z</published>
+    <updated>2021-08-23T06:27:15.875Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>node文件上传oss</title>
@@ -471,29 +485,6 @@
     
     
       <category term="javascript" scheme="http://blog.html-js.site/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CleanMyMac3.9.4(支持10.13HighSierra)</title>
-    <link href="http://blog.html-js.site/2018/04/10/CleanMyMac3-9-4-%E6%94%AF%E6%8C%8110-13HighSierra/"/>
-    <id>http://blog.html-js.site/2018/04/10/CleanMyMac3-9-4-支持10-13HighSierra/</id>
-    <published>2018-04-10T07:20:02.000Z</published>
-    <updated>2018-04-10T07:25:16.097Z</updated>
-    
-    <content type="html"><![CDATA[<p>[已更新最新版3.9.4]macOS 10.13 High Sierra 系统垃圾清理神器CleanMyMac 3.9.4最新TNT破解版，对于经济实力允许的用户，请<a href="https://macpaw.com/zh/store/cleanmymac?cs=c" target="_blank" rel="noopener">支持正版</a>。中文版每年￥99，也还算是挺划算的。</p><hr><h3 id="应用介绍"><a href="#应用介绍" class="headerlink" title="应用介绍"></a>应用介绍</h3><p><img src="/images/page/CleanMyMac/1.png" alt><br>Mac OS X 系统下知名清理软件 CleanMyMac，这种垃圾清理类的软件似乎始终无法上架 Mac App Store，CleanMyMac 3 的宣传力度似乎并不如CleanMyMac 2，想当年 CleanMyMac 2 在MacPaw 网站上得倒计时挂了很久。这次，CleanMyMac 3 作为在 OS X Yosemite 系统下的软件，视觉风格上自然要满足扁平化和简约的设计路线。当然，版本号大升级，也需要拿出一点诚意，增加一些新功能。CleanMyMac 3 优化了清理体验，将复杂的操作和内容隐藏的更好，实际的操作流畅性更好一些。</p><h3 id="文件已损坏解决方法"><a href="#文件已损坏解决方法" class="headerlink" title="文件已损坏解决方法"></a>文件已损坏解决方法</h3><p>如果显示文件已损坏，打开终端键入sudo spctl –master-disable</p><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>CleanMyMac 3.9.4 By TNT<br>百度云下载链接: <a href="https://pan.baidu.com/s/1brjQKhD" target="_blank" rel="noopener">https://pan.baidu.com/s/1brjQKhD</a> 密码: awja</p><p>CleanMyMac 3.9.3 By TNT<br>百度云下载链接: <a href="https://pan.baidu.com/s/1pLOexdD" target="_blank" rel="noopener">https://pan.baidu.com/s/1pLOexdD</a> 密码: aepm</p><p>CleanMyMac 3.9.2<br>百度云下载链接: <a href="https://pan.baidu.com/s/1eSAPg10" target="_blank" rel="noopener">https://pan.baidu.com/s/1eSAPg10</a> 密码: bcge</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;[已更新最新版3.9.4]macOS 10.13 High Sierra 系统垃圾清理神器CleanMyMac 3.9.4最新TNT破解版，对于经济实力允许的用户，请&lt;a href=&quot;https://macpaw.com/zh/store/cleanmymac?cs=c&quot; 
-      
-    
-    </summary>
-    
-    
-      <category term="other" scheme="http://blog.html-js.site/tags/other/"/>
     
   </entry>
   
