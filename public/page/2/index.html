@@ -269,7 +269,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/17/React组件库开发-多层嵌套弹层组件-1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/05/react-router-dom简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大洋">
@@ -288,7 +288,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/17/React组件库开发-多层嵌套弹层组件-1/" itemprop="url">React组件库开发:多层嵌套弹层组件</a></h1>
+                <a class="post-title-link" href="/2021/08/05/react-router-dom简介/" itemprop="url">react-router-dom简介</a></h1>
         
 
         <div class="post-meta">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-17T14:24:59+08:00">
-                2021-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T13:47:32+08:00">
+                2021-08-05
               </time>
             
 
@@ -336,20 +336,622 @@
 
       
         
-          <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>UI 组件中有很多弹出式组件，常见的如 <code>Dialog</code>，<code>Tooltip</code> 以及 <code>Select</code> 等。这些组件都有一个特点，它们的弹出层通常不是渲染在当前的 <code>DOM</code> 树中，而是直接插入在 <code>body</code> （或者其它类似的地方）上的。这么做的主要目的是方便控制这些弹出层的 <code>z-index</code> ，确保它们能够处于合适的层级上，不至于被遮挡。</p>
-<p>我们都知道 React App 的顶层某个地方肯定有这么一行代码：<code>ReactDOM.render(&lt;App /&gt;, mountNode)</code>，这个 API 调用的作用是在 <code>mountNode</code> 的位置创建一棵 React 的渲染树，React 会接管 <code>mountNode</code> 开始的这棵 DOM 树。</p>
-<p>在 React 的这种管理模式下，会发现使用弹层似乎不太方便，因为组件树是逐层往下生长的，但React 的 API 中并没有直接提供跳出这棵组件树的方法。</p>
-<p>所以，为了实现弹层组件，我们需要先实现一个 <code>Portal</code> 组件，这个组件只做一件事：将组件树中某些节点移出当前的DOM 树，并且渲染到指定的 DOM 节点中, 并且可以维持组件的上下文和事件冒泡。<br>
+          <p><a href="https://codesandbox.io/s/misty-haze-eq546?file=/example.js" target="_blank" rel="noopener">https://codesandbox.io/s/misty-haze-eq546?file=/example.js</a></p>
+<p>react-router-dom</p>
+<blockquote>
+<p>react-router-dom文档地址： <a href="https://reactrouter.com/web/guides/quick-start/" target="_blank" rel="noopener">https://reactrouter.com/web/guides/quick-start/</a></p>
+</blockquote>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><blockquote>
+<p>react-router提供多个包可以单独使用</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">package</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">react-router</td>
+<td style="text-align:center">路由核心功能</td>
+</tr>
+<tr>
+<td style="text-align:center">react-router-dom</td>
+<td style="text-align:center">基于react-router提供在浏览器运行环境下功能</td>
+</tr>
+<tr>
+<td style="text-align:center">react-router-native</td>
+<td style="text-align:center">for React Native</td>
+</tr>
+<tr>
+<td style="text-align:center">react-router-config</td>
+<td style="text-align:center">static route congif helpers</td>
+</tr>
+</tbody>
+</table>
+<p>在浏览器中运行只需要安装react-router-dom，reac-router-dom依赖react-router会自动安装依赖，所以不需要再手动安装react-router</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom -S</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/03/17/React组件库开发-多层嵌套弹层组件-1/#more" rel="contents">
+            <a class="btn" href="/2021/08/05/react-router-dom简介/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/05/react-router-深入学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/05/react-router-深入学习/" itemprop="url">react-router 深入学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T11:37:30+08:00">
+                2021-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近期针对react-router的原理以及适用的场景有新的认知，会重新温习一遍react-router的使用方式以及适用场景，同时会延伸出一些实用的解决方案来解决项目中遇到的问题；</p>
+<h3 id="思考的点"><a href="#思考的点" class="headerlink" title="思考的点"></a>思考的点</h3><ul>
+<li>react-router的使用方式</li>
+<li>react-router的原理</li>
+<li>react一切皆组件 的理念</li>
+<li>redux的实现原理</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/" itemprop="url">module.exports和exports和export和export default的区别，import和require的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-26T14:09:08+08:00">
+                2021-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/26/module-exports和exports的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/26/module-exports和exports的区别/" itemprop="url">module.exports和exports的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-26T14:08:57+08:00">
+                2021-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/22/判断数据类型的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/22/判断数据类型的方法/" itemprop="url">判断数据类型的方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-22T20:16:12+08:00">
+                2021-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Object-prototype-toString-call"><a href="#1-Object-prototype-toString-call" class="headerlink" title="1. Object.prototype.toString.call()"></a>1. Object.prototype.toString.call()</h3><p>每一个继承 Object 的对象都有 <code>toString</code> 方法，如果 <code>toString</code> 方法没有重写的话，会返回 <code>[Object type]</code>，其中 type 为对象的类型。但当除了 Object 类型的对象外，其他类型直接使用 <code>toString</code> 方法时，会直接返回都是内容的字符串，所以我们需要使用call或者apply方法来改变toString方法的执行上下文。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> an = [<span class="string">'Hello'</span>,<span class="string">'An'</span>];</span><br><span class="line">an.toString(); <span class="comment">// "Hello,An"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(an); <span class="comment">// "[object Array]"</span></span><br></pre></td></tr></table></figure></p>
+<p>这种方法对于所有基本的数据类型都能进行判断，即使是 null 和 undefined 。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">'An'</span>) <span class="comment">// "[object String]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">1</span>) <span class="comment">// "[object Number]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">Symbol</span>(<span class="number">1</span>)) <span class="comment">// "[object Symbol]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>) <span class="comment">// "[object Null]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>) <span class="comment">// "[object Undefined]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="comment">// "[object Function]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;<span class="attr">name</span>: <span class="string">'An'</span>&#125;) <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure></p>
+<p>更多实现可见 <a href="https://juejin.im/post/591647550ce4630069df1c4a" target="_blank" rel="noopener">谈谈 Object.prototype.toString</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/03/22/判断数据类型的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/18/浏览器输入-URL-后发生了什么/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/18/浏览器输入-URL-后发生了什么/" itemprop="url">浏览器输入 URL 后发生了什么</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-18T10:58:43+08:00">
+                2021-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://zhuanlan.zhihu.com/p/43369093" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/43369093</a></p>
+
+          
+        
+      
+    </div>
 
     <div>
       
@@ -860,607 +1462,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/06/15/webpack优化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/15/webpack优化/" itemprop="url">webpack优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T17:31:37+08:00">
-                2018-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><a href="https://www.jianshu.com/p/b9bf995f3712" target="_blank" rel="noopener">webpack优化之HappyPack 实战</a></li>
-<li><a href="https://jeffjade.com/2017/08/06/124-webpack-packge-optimization-for-volume/" target="_blank" rel="noopener">Webpack 打包优化之体积篇</a></li>
-<li><a href="https://jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/" target="_blank" rel="noopener">Webpack 打包优化之速度篇</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/06/15/webpack优化之HappyPack-实战/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/15/webpack优化之HappyPack-实战/" itemprop="url">webpack优化之HappyPack 实战</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T17:28:26+08:00">
-                2018-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/b9bf995f3712" target="_blank" rel="noopener">https://www.jianshu.com/p/b9bf995f3712</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/06/14/webpack1升2踩坑记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/14/webpack1升2踩坑记/" itemprop="url">webpack1升2踩坑记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T16:56:44+08:00">
-                2018-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="webpack-从-v1-升级到-v2"><a href="#webpack-从-v1-升级到-v2" class="headerlink" title="webpack 从 v1 升级到 v2"></a>webpack 从 v1 升级到 v2</h3><p>从 v1 升级到 v2，总体来讲比较简单，跟着官方升级文档做就行了，主要是 <code>module</code> 和 <code>ExtractTextWebpackPlugin</code> 变化比较大</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/cb8343020833" target="_blank" rel="noopener">https://www.jianshu.com/p/cb8343020833</a></li>
-<li><a href="http://www.css88.com/doc/webpack2/guides/migrating/" target="_blank" rel="noopener">http://www.css88.com/doc/webpack2/guides/migrating/</a></li>
-</ul>
-<h3 id="升级后-模块热替换-HMR-失效"><a href="#升级后-模块热替换-HMR-失效" class="headerlink" title="升级后 模块热替换(HMR)失效"></a>升级后 模块热替换(HMR)失效</h3><p>直接看文档</p>
-<ul>
-<li><a href="http://www.css88.com/doc/webpack2/guides/hmr-react/" target="_blank" rel="noopener">http://www.css88.com/doc/webpack2/guides/hmr-react/</a></li>
-<li><a href="https://github.com/gaearon/react-hot-loader" target="_blank" rel="noopener">https://github.com/gaearon/react-hot-loader</a></li>
-<li><a href="https://www.jianshu.com/p/07c0666e87c7" target="_blank" rel="noopener">https://www.jianshu.com/p/07c0666e87c7</a></li>
-<li><a href="https://segmentfault.com/a/1190000009244530" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009244530</a></li>
-<li><a href="https://github.com/gaearon/react-hot-loader/issues/249" target="_blank" rel="noopener">https://github.com/gaearon/react-hot-loader/issues/249</a>  这个issue非常有用！！！！</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/05/21/React性能优化军规/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/React性能优化军规/" itemprop="url">React性能优化军规</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T17:54:21+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我们在开发的过程中，将上面所论述的内容，总结成一个基本的军规，铭记于心，就可以保证React应用的性能不至于太差。</p>
-<h3 id="渲染相关"><a href="#渲染相关" class="headerlink" title="渲染相关"></a>渲染相关</h3><ul>
-<li>提升级项目性能，请使用immutable(props、state、store)</li>
-<li>请pure-render-decorator与immutablejs搭配使用</li>
-<li>请慎用setState，因其容易导致重新渲染</li>
-<li>谨慎将component当作props传入</li>
-<li>请将方法的bind一律置于constructor</li>
-<li>请只传递component需要的props，避免其它props变化导致重新渲染（慎用spread attributes）</li>
-<li>请在你希望发生重新渲染的dom上设置可被react识别的同级唯一key，否则react在某些情况可能不会重新渲染。</li>
-<li>请尽量使用const element</li>
-</ul>
-<h3 id="tap事件"><a href="#tap事件" class="headerlink" title="tap事件"></a>tap事件</h3><ul>
-<li>简单的tap事件，请使用react-tap-event-plugin<br>开发环境时，最好引入webpack的环境变量（仅在开发环境中初始化），在container中初始化。生产环境的时候，请将plugin跟react打包到一起（需要打包在一起才能正常使用，因为plugin对react有好多依赖），外链引入。</li>
-</ul>
-<p>目前参考了这个项目的打包方案：<br><a href="https://github.com/hartmamt/react-with-tap-events" target="_blank" rel="noopener">https://github.com/hartmamt/react-with-tap-events</a><br>Facebook官方issue: <a href="https://github.com/facebook/react/blob/bef45b0b1a98ea9b472ba664d955a039cf2f8068/src/renderers/dom/client/eventPlugins/TapEventPlugin.js" target="_blank" rel="noopener">https://github.com/facebook/react/blob/bef45b0b1a98ea9b472ba664d955a039cf2f8068/src/renderers/dom/client/eventPlugins/TapEventPlugin.js</a><br>React-tap-event-plugin github:<br><a href="https://github.com/zilverline/react-tap-event-plugin" target="_blank" rel="noopener">https://github.com/zilverline/react-tap-event-plugin</a></p>
-<ul>
-<li>复杂的tap事件，建议使用tap component<br>家校群列表页的每个作业的tap交互都比较复杂，出了普通的tap之外，还需要long tap和swipe。因此我们只好自己封装了一个tap component</li>
-</ul>
-<h3 id="Debug相关"><a href="#Debug相关" class="headerlink" title="Debug相关"></a>Debug相关</h3><ul>
-<li>移动端请慎用redux-devtools，易造成卡顿</li>
-<li>Webpack慎用devtools的inline-source-map模式<br>使用此模式会内联一大段便于定位bug的字符串，查错时可以开启，不是查错时建议关闭，否则开发时加载的包会非常大。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/11/JavaScript事件循环-event-loop/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/11/JavaScript事件循环-event-loop/" itemprop="url">JavaScript事件循环-event loop</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T16:33:47+08:00">
-                2018-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1503,7 +1509,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">87</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1516,7 +1522,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
