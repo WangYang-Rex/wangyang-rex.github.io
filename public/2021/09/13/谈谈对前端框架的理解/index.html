@@ -104,7 +104,7 @@
 <meta property="og:description" content="最早的时候页面是服务端渲染的，也就是 PHP、JSP 那些技术，服务端通过模版引擎填充数据，返回生成的 html，交给浏览器渲染。那时候表单会同步提交，服务端返回结果页面的 html。 后来浏览器有了 ajax 技术，可以异步的请求，服务端返回 xml 或者 json。ajax 最早是基于 xml 的，这也是它名字的由来。因为 xml 多了很多没必要的标签，内容比较多，所以后来 json 流行开来">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://blog.html-js.site/images/page/20210914/1.png">
-<meta property="og:updated_time" content="2021-09-14T02:36:03.589Z">
+<meta property="og:updated_time" content="2021-09-18T08:43:38.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈对前端框架的理解">
 <meta name="twitter:description" content="最早的时候页面是服务端渲染的，也就是 PHP、JSP 那些技术，服务端通过模版引擎填充数据，返回生成的 html，交给浏览器渲染。那时候表单会同步提交，服务端返回结果页面的 html。 后来浏览器有了 ajax 技术，可以异步的请求，服务端返回 xml 或者 json。ajax 最早是基于 xml 的，这也是它名字的由来。因为 xml 多了很多没必要的标签，内容比较多，所以后来 json 流行开来">
@@ -343,7 +343,8 @@
 <p>网页做的事情基本就是拿到数据渲染 dom，并且数据改变之后更新 dom，这个流程是通用的，后来逐渐出现了 mvvm 框架，来自动把数据的变更映射到 dom，不再需要手动操作 dom。也就是 vue、react 等现代的前端框架。我把这一层叫做逻辑层。</p>
 <p>前端框架除了提供了数据驱动视图变化的功能以外，还支持了 dom 的逻辑划分，可以把一部分 dom 封装成组件，组件和组件之间相互组合，构成整个界面。物理层依然是 dom，只是实现了数据到 dom 的自动映射之后，我们只需要在逻辑层写组件就可以了。</p>
 <p>现在前端入门也不会再学物理层的操作 dom 的 jquery 了，而是直接从 vue、react 这种逻辑层的前端框架开始。</p>
-<a id="more"></a>
+<p><a href="https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz</a><br>wget <a href="https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</a></p>
+<p>tar xvf node-v12.22.4-linux-x64.tar.xz<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/node /usr/local/bin/node<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/npm /usr/local/bin/npm<br><a id="more"></a></p>
 <p>但是也不是说完全不需要 jquery，前端框架主要解决的是数据到 dom 的绑定，可以变化以后自动更新 dom。如果不需要更新，那么直接操作 dom 即可，比如各种活动页，没啥数据更新，用 jquery 操作 dom 还是很方便。</p>
 <p>前端框架是 UI = f(state) 这种声明式的思想，只需要声明组件的视图、组件的状态数据、组件之间的依赖关系，那么状态改变就会自动的更新 dom。而 jquery 那种直接操作 dom 的工具函数库则是命令式的。</p>
 <p>对于视图的描述这件事 react 和 vue 用了不同的方案，react 是给 js 扩展了 jsx 的语法，由 babel 实现，可以在描述视图的时候直接用 js 来写逻辑，没啥新语法。而 vue 是实现了一套 template 的 DSL，引入了插值、指令、过滤器等模版语法，相对于 jsx 来说更简洁，template 的编译器由 vue 实现。</p>
@@ -486,6 +487,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/09/23/探究setState的执行机制/" rel="prev" title="探究setState的执行机制">
+                探究setState的执行机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -545,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-count">93</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
