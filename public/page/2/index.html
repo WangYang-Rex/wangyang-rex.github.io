@@ -269,6 +269,364 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/23/git-commit前检测husky与pre-commit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/23/git-commit前检测husky与pre-commit/" itemprop="url">git commit前检测husky与pre-commit</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-23T14:27:15+08:00">
+                2021-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>现在最流行的版本管理工具非<code>git</code>莫属，而良好的代码规范有助于项目的维护，为了防止一些不规范的代码 <code>commit</code>并<code>push</code>到远端,我们可以在<code>git</code>命令执行前用一些钩子来检测并阻止。现在大前端主要有两种<code>git</code>钩子插件：<code>husky</code>（<code>jquery</code>与<code>next.js</code>都在用），<code>pre-commit</code>(antd在用)。<br>下面我将现介绍一个<code>git</code>钩子，再介绍下<code>husky</code>与<code>pre-commit</code>的用法</p>
+<h3 id="二、git钩子"><a href="#二、git钩子" class="headerlink" title="二、git钩子"></a>二、git钩子</h3><p>用过<code>git</code>的小伙伴们都知道<code>git</code>有很多命令<code>commit</code>、<code>push</code>、<code>rebase</code>等等。那这些命令主要是在执行<code>.git</code>文件夹中的东西，那么<code>git</code> 钩子目录就是在<code>.git</code>文件夹的<code>hooks</code>下，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .git/hooks</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p><img src="/images/page/husky/1.jpeg" alt></p>
+<p>上图为各个钩子的案例脚本，可以把<code>sample</code>去掉，直接编写<code>shell</code>脚本来执行。<br>而前端的小伙伴们则可以用插件<code>husky</code>与<code>pre-commit</code>，来使钩子生效。<br>注意： 一般<code>.git</code>为隐藏文件，可以把项目拖入IDE中查看,<code>.git</code>文件里的内容一般不允许手动更改的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/08/23/git-commit前检测husky与pre-commit/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/20/node文件上传oss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/20/node文件上传oss/" itemprop="url">node文件上传oss</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-20T14:32:19+08:00">
+                2021-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>闲话不多说，直接上代码<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/08/20/node文件上传oss/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/18/设计方案-写了才知道多香/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/18/设计方案-写了才知道多香/" itemprop="url">设计方案,写了才知道多香</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-18T16:04:43+08:00">
+                2021-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="设计方案，拿来吧你"><a href="#设计方案，拿来吧你" class="headerlink" title="设计方案，拿来吧你"></a>设计方案，拿来吧你</h3><p>今天要跟大家聊聊开发流程中不起眼的环节——<code>设计方案</code>。你们可能没听过，也可能只是简单得走过过场，别划走，这非常重要！</p>
+<p>更完善、更规范、更高效的开发流程：<code>产品需求设计</code> =&gt; <code>需求粗评</code> =&gt; <code>做设计方案</code> =&gt; <code>粗估时</code> =&gt; <code>需求细评</code> =&gt; <code>排期</code> =&gt; <code>开发</code> =&gt; <code>提测、修bug</code> =&gt; <code>code review</code> =&gt; <code>上线</code></p>
+<p>平常工作中，比较少接触的可能就是1和<code>code review</code>了，这两者分别是干什么的？</p>
+<ul>
+<li><code>设计方案</code>：在拿到需求后，写一个文档，来描述自己对于该需求的实现思路、模块划分等相关考虑的点，可供今后自己或他人查阅。</li>
+<li><code>Code review</code>：代码提交合并前给mentor或leader检查一下你的代码，让别人作为旁观者来看你的代码，集思广益，完善代码，发现未考虑到的边界问题。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/08/18/设计方案-写了才知道多香/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/10/React-Router源码解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1105,360 +1463,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/16/AntD-Modal组件的实现原理-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/16/AntD-Modal组件的实现原理-1/" itemprop="url">AntD Modal组件的实现原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-16T11:37:50+08:00">
-                2021-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Ant Design(AntD)是React的一种UI组件。开发中使用AntD的Modal,在处理用户处理事务,在当前页面弹出一个对话框,承载相应的操作。现在来看看AntD的实现原理</p>
-<p>先写列出部分Modal基本用法:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.showModal&#125;&gt;Open a modal dialog&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Modal title="Basic Modal" visible=&#123;this.state.visible&#125;</span></span><br><span class="line"><span class="regexp">          onOk=&#123;this.handleOk&#125; onCancel=&#123;this.handleCancel&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">          &lt;p&gt;some contents...&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">        &lt;<span class="regexp">/Modal&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//----------------</span></span><br><span class="line">ReactDOM.render(&lt;App /&gt;,mountNode)</span><br></pre></td></tr></table></figure>
-<p>这样即可使用模态对话框组件。<br>打开浏览器的开发者功能可以看到对话框的div始终在body内层中，而不是在mountNode内部。当然模态对话框本就应该存在body内存中，而不是任意其他组件元素内部,否则嵌套效果不好，添加动画会招来性能问题。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/03/16/AntD-Modal组件的实现原理-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/11/前端实现公式解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/11/前端实现公式解析/" itemprop="url">前端实现公式解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-11T21:15:07+08:00">
-                2021-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-认识-Function"><a href="#1-认识-Function" class="headerlink" title="1.认识 Function"></a>1.认识 Function</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank" rel="noopener">mdn-Function介绍</a></p>
-<p>我们先来看一行代码<br>这是js最基本的用法，用函数来输出表达式<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'哈哈哈'</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() <span class="comment">// 哈哈哈</span></span><br></pre></td></tr></table></figure></p>
-<p>我们稍微变一下形<br>在之前的js函数篇分析中我有提过函数也是可以用构造函数Function 来创建<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">` console.log('哈哈哈') `</span>)</span><br><span class="line">fn() <span class="comment">// 哈哈哈</span></span><br></pre></td></tr></table></figure></p>
-<p>看到这里也行你明白了点什么，如果没有也没关系，我们接着向下看<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'哈哈哈'</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">` console.log(str) `</span>)</span><br><span class="line">fn() <span class="comment">// 哈哈哈</span></span><br></pre></td></tr></table></figure></p>
-<p>再来复杂一点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'哈哈哈'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cons</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(s)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">` cons(str) `</span>)</span><br><span class="line">fn() <span class="comment">// 哈哈哈</span></span><br></pre></td></tr></table></figure></p>
-<p>结合项目中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> codemirrorText = <span class="string">'LEN(text_1)'</span> <span class="comment">// 设置的公司表达式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text_1 = <span class="string">'哈哈哈'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LEN</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(s.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">`return <span class="subst">$&#123;codemirrorText&#125;</span> `</span>)</span><br><span class="line">fn() <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
-<p>github 公式解析库<br><a href="https://github.com/WangYang-Rex/formula" target="_blank" rel="noopener">formula</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/03/11/前端实现公式解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2019/07/04/在线调试工具-eruda/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/04/在线调试工具-eruda/" itemprop="url">在线调试工具-eruda</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T20:30:56+08:00">
-                2019-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Eruda-一个被人遗忘的调试神器"><a href="#Eruda-一个被人遗忘的调试神器" class="headerlink" title="Eruda 一个被人遗忘的调试神器"></a>Eruda 一个被人遗忘的调试神器</h3><p>项目中如何引入？直接上代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debugInit</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debugInit'</span>)</span><br><span class="line">	<span class="keyword">var</span> debug = sessionStorage.getItem(<span class="string">'debug'</span>) || type || <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(location.href &amp;&amp; (location.href.includes(<span class="string">'debug'</span>) || location.href.includes(<span class="string">'dingnianhuiapp.superboss.cc'</span>))) &#123;</span><br><span class="line">		debug = <span class="literal">true</span>;</span><br><span class="line">		<span class="built_in">window</span>._debug = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(debug) &#123;</span><br><span class="line">		<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>); </span><br><span class="line">    <span class="comment">// script.src="https://dingtalkcdn.superboss.cc/nianhui/front/pc/vconsole.min.js"; </span></span><br><span class="line">    script.src=<span class="string">"//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"</span>; </span><br><span class="line">		<span class="built_in">document</span>.body.appendChild(script); </span><br><span class="line">		script.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">      <span class="comment">// window.vConsole = new VConsole();</span></span><br><span class="line">      eruda.init();</span><br><span class="line">		&#125;</span><br><span class="line">		sessionStorage.setItem(<span class="string">'debug'</span>, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">debugInit()</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://my.oschina.net/u/4293553/blog/3708333" target="_blank" rel="noopener">Eruda 一个被人遗忘的调试神器</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1506,7 +1510,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

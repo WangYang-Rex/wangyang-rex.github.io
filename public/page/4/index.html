@@ -269,6 +269,444 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/09/eslintrc文件配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/09/eslintrc文件配置/" itemprop="url">.eslintrc文件配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T10:34:14+08:00">
+                2018-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 环境定义了预定义的全局变量。</span></span><br><span class="line">    <span class="string">"env"</span>: &#123;</span><br><span class="line">        <span class="comment">//环境定义了预定义的全局变量。更多在官网查看</span></span><br><span class="line">        <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"node"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"commonjs"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"amd"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"mocha"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// JavaScript 语言选项</span></span><br><span class="line">    <span class="string">"parserOptions"</span>: &#123;</span><br><span class="line">        <span class="comment">// ECMAScript 版本</span></span><br><span class="line">        <span class="string">"ecmaVersion"</span>: <span class="number">6</span>,</span><br><span class="line">        <span class="string">"sourceType"</span>: <span class="string">"module"</span>, <span class="comment">//设置为 "script" (默认) 或 "module"（如果你的代码是 ECMAScript 模块)。</span></span><br><span class="line">        <span class="comment">//想使用的额外的语言特性:</span></span><br><span class="line">        <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">            <span class="comment">// 允许在全局作用域下使用 return 语句</span></span><br><span class="line">            <span class="string">"globalReturn"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">// impliedStric</span></span><br><span class="line">            <span class="string">"impliedStrict"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">// 启用 JSX</span></span><br><span class="line">            <span class="string">"jsx"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"modules"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//-----让eslint支持 JSX start</span></span><br><span class="line">    <span class="string">"plugins"</span>: [</span><br><span class="line">        <span class="string">"react"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"extends"</span>: [</span><br><span class="line">        <span class="string">"eslint:recommended"</span>,</span><br><span class="line">        <span class="string">"plugin:react/recommended"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//-----让eslint支持 JSX end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * "off" 或 0 - 关闭规则</span></span><br><span class="line"><span class="comment">     * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),</span></span><br><span class="line"><span class="comment">     * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="string">"rules"</span>: &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">////////////////</span></span><br><span class="line">        <span class="comment">// 可能的错误 //</span></span><br><span class="line">        <span class="comment">////////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 禁止条件表达式中出现赋值操作符</span></span><br><span class="line">        <span class="string">"no-cond-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用 console</span></span><br><span class="line">        <span class="string">"no-console"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止在条件中使用常量表达式</span></span><br><span class="line">        <span class="comment">// if (false) &#123;</span></span><br><span class="line">        <span class="comment">// doSomethingUnfinished();</span></span><br><span class="line">        <span class="comment">// &#125; //cuowu</span></span><br><span class="line">        <span class="string">"no-constant-condition"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在正则表达式中使用控制字符 ：new RegExp("\x1f")</span></span><br><span class="line">        <span class="string">"no-control-regex"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，</span></span><br><span class="line">        <span class="comment">// always-multiline：多行模式必须带逗号，单行模式不能带逗号</span></span><br><span class="line">        <span class="string">"comma-dangle"</span>: [<span class="number">1</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">// 禁用 debugger</span></span><br><span class="line">        <span class="string">"no-debugger"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止 function 定义中出现重名参数</span></span><br><span class="line">        <span class="string">"no-dupe-args"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对象字面量中出现重复的 key</span></span><br><span class="line">        <span class="string">"no-dupe-keys"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止重复的 case 标签</span></span><br><span class="line">        <span class="string">"no-duplicate-case"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止空语句块</span></span><br><span class="line">        <span class="string">"no-empty"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在正则表达式中使用空字符集 (/^abc[]/)</span></span><br><span class="line">        <span class="string">"no-empty-character-class"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对 catch 子句的参数重新赋值</span></span><br><span class="line">        <span class="string">"no-ex-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的布尔转换</span></span><br><span class="line">        <span class="string">"no-extra-boolean-cast"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的括号 //(a * b) + c;//报错</span></span><br><span class="line">        <span class="string">"no-extra-parens"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的分号</span></span><br><span class="line">        <span class="string">"no-extra-semi"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对 function 声明重新赋值</span></span><br><span class="line">        <span class="string">"no-func-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在嵌套的块中出现 function 或 var 声明</span></span><br><span class="line">        <span class="string">"no-inner-declarations"</span>: [<span class="number">2</span>, <span class="string">"functions"</span>],</span><br><span class="line">        <span class="comment">// 禁止 RegExp 构造函数中无效的正则表达式字符串</span></span><br><span class="line">        <span class="string">"no-invalid-regexp"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在字符串和注释之外不规则的空白</span></span><br><span class="line">        <span class="string">"no-irregular-whitespace"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在 in 表达式中出现否定的左操作数</span></span><br><span class="line">        <span class="string">"no-negated-in-lhs"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止把全局对象 (Math 和 JSON) 作为函数调用 错误：var math = Math();</span></span><br><span class="line">        <span class="string">"no-obj-calls"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止直接使用 Object.prototypes 的内置属性</span></span><br><span class="line">        <span class="string">"no-prototype-builtins"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止正则表达式字面量中出现多个空格</span></span><br><span class="line">        <span class="string">"no-regex-spaces"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用稀疏数组</span></span><br><span class="line">        <span class="string">"no-sparse-arrays"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止出现令人困惑的多行表达式</span></span><br><span class="line">        <span class="string">"no-unexpected-multiline"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在return、throw、continue 和 break语句之后出现不可达代码</span></span><br><span class="line">        <span class="string">"no-unreachable"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 要求使用 isNaN() 检查 NaN</span></span><br><span class="line">        <span class="string">"use-isnan"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制使用有效的 JSDoc 注释</span></span><br><span class="line">        <span class="string">"valid-jsdoc"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 强制 typeof 表达式与有效的字符串进行比较</span></span><br><span class="line">        <span class="comment">// typeof foo === "undefimed" 错误</span></span><br><span class="line">        <span class="string">"valid-typeof"</span>: <span class="number">2</span>,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line">        <span class="comment">// 最佳实践 //</span></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义对象的set存取器属性时，强制定义get</span></span><br><span class="line">        <span class="string">"accessor-pairs"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制数组方法的回调函数中有 return 语句</span></span><br><span class="line">        <span class="string">"array-callback-return"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制把变量的使用限制在其定义的作用域范围内</span></span><br><span class="line">        <span class="string">"block-scoped-var"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 限制圈复杂度，也就是类似if else能连续接多少个</span></span><br><span class="line">        <span class="string">"complexity"</span>: [<span class="number">2</span>, <span class="number">9</span>],</span><br><span class="line">        <span class="comment">// 要求 return 语句要么总是指定返回的值，要么不指定</span></span><br><span class="line">        <span class="string">"consistent-return"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制所有控制语句使用一致的括号风格</span></span><br><span class="line">        <span class="string">"curly"</span>: [<span class="number">2</span>, <span class="string">"all"</span>],</span><br><span class="line">        <span class="comment">// switch 语句强制 default 分支，也可添加 // no default 注释取消此次警告</span></span><br><span class="line">        <span class="string">"default-case"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制object.key 中 . 的位置，参数:</span></span><br><span class="line">        <span class="comment">// property，'.'号应与属性在同一行</span></span><br><span class="line">        <span class="comment">// object, '.' 号应与对象名在同一行</span></span><br><span class="line">        <span class="string">"dot-location"</span>: [<span class="number">2</span>, <span class="string">"property"</span>],</span><br><span class="line">        <span class="comment">// 强制使用.号取属性</span></span><br><span class="line">        <span class="comment">// 参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性</span></span><br><span class="line">        <span class="comment">// false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, &#123;"allowKeywords": false&#125;]</span></span><br><span class="line">        <span class="comment">// allowPattern: 当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, &#123;"allowPattern": "^[a-z]+(_[a-z]+)+$"&#125;]</span></span><br><span class="line">        <span class="string">"dot-notation"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"allowKeywords"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 使用 === 替代 == allow-null允许null和undefined==</span></span><br><span class="line">        <span class="string">"eqeqeq"</span>: [<span class="number">2</span>, <span class="string">"allow-null"</span>],</span><br><span class="line">        <span class="comment">// 要求 for-in 循环中有一个 if 语句</span></span><br><span class="line">        <span class="string">"guard-for-in"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用 alert、confirm 和 prompt</span></span><br><span class="line">        <span class="string">"no-alert"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 arguments.caller 或 arguments.callee</span></span><br><span class="line">        <span class="string">"no-caller"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许在 case 子句中使用词法声明</span></span><br><span class="line">        <span class="string">"no-case-declarations"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止除法操作符显式的出现在正则表达式开始的位置</span></span><br><span class="line">        <span class="string">"no-div-regex"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止 if 语句中有 return 之后有 else</span></span><br><span class="line">        <span class="string">"no-else-return"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止出现空函数.如果一个函数包含了一条注释，它将不会被认为有问题。</span></span><br><span class="line">        <span class="string">"no-empty-function"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止使用空解构模式no-empty-pattern</span></span><br><span class="line">        <span class="string">"no-empty-pattern"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在没有类型检查操作符的情况下与 null 进行比较</span></span><br><span class="line">        <span class="string">"no-eq-null"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 禁用 eval()</span></span><br><span class="line">        <span class="string">"no-eval"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止扩展原生类型</span></span><br><span class="line">        <span class="string">"no-extend-native"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的 .bind() 调用</span></span><br><span class="line">        <span class="string">"no-extra-bind"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用不必要的标签</span></span><br><span class="line">        <span class="string">"no-extra-label:"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止 case 语句落空</span></span><br><span class="line">        <span class="string">"no-fallthrough"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止数字字面量中使用前导和末尾小数点</span></span><br><span class="line">        <span class="string">"no-floating-decimal"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止使用短符号进行类型转换(!!fOO)</span></span><br><span class="line">        <span class="string">"no-implicit-coercion"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止在全局范围内使用 var 和命名的 function 声明</span></span><br><span class="line">        <span class="string">"no-implicit-globals"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 禁止使用类似 eval() 的方法</span></span><br><span class="line">        <span class="string">"no-implied-eval"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止 this 关键字出现在类和类对象之外</span></span><br><span class="line">        <span class="string">"no-invalid-this"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 __iterator__ 属性</span></span><br><span class="line">        <span class="string">"no-iterator"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用标签语句</span></span><br><span class="line">        <span class="string">"no-labels"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用不必要的嵌套块</span></span><br><span class="line">        <span class="string">"no-lone-blocks"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在循环中出现 function 声明和表达式</span></span><br><span class="line">        <span class="string">"no-loop-func"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 禁用魔术数字(3.14什么的用常量代替)</span></span><br><span class="line">        <span class="string">"no-magic-numbers"</span>: [<span class="number">1</span>, &#123;</span><br><span class="line">            <span class="string">"ignore"</span>: [<span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 禁止使用多个空格</span></span><br><span class="line">        <span class="string">"no-multi-spaces"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止使用多行字符串，在 JavaScript 中，可以在新行之前使用斜线创建多行字符串</span></span><br><span class="line">        <span class="string">"no-multi-str"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对原生对象赋值</span></span><br><span class="line">        <span class="string">"no-native-reassign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在非赋值或条件语句中使用 new 操作符</span></span><br><span class="line">        <span class="string">"no-new"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对 Function 对象使用 new 操作符</span></span><br><span class="line">        <span class="string">"no-new-func"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止对 String，Number 和 Boolean 使用 new 操作符</span></span><br><span class="line">        <span class="string">"no-new-wrappers"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用八进制字面量</span></span><br><span class="line">        <span class="string">"no-octal"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止在字符串中使用八进制转义序列</span></span><br><span class="line">        <span class="string">"no-octal-escape"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许对 function 的参数进行重新赋值</span></span><br><span class="line">        <span class="string">"no-param-reassign"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 __proto__ 属性</span></span><br><span class="line">        <span class="string">"no-proto"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止使用 var 多次声明同一变量</span></span><br><span class="line">        <span class="string">"no-redeclare"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用指定的通过 require 加载的模块</span></span><br><span class="line">        <span class="string">"no-return-assign"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止使用 javascript: url</span></span><br><span class="line">        <span class="string">"no-script-url"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止自我赋值</span></span><br><span class="line">        <span class="string">"no-self-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止自身比较</span></span><br><span class="line">        <span class="string">"no-self-compare"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用逗号操作符</span></span><br><span class="line">        <span class="string">"no-sequences"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止抛出非异常字面量</span></span><br><span class="line">        <span class="string">"no-throw-literal"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用一成不变的循环条件</span></span><br><span class="line">        <span class="string">"no-unmodified-loop-condition"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止出现未使用过的表达式</span></span><br><span class="line">        <span class="string">"no-unused-expressions"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用未使用过的标签</span></span><br><span class="line">        <span class="string">"no-unused-labels"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的 .call() 和 .apply()</span></span><br><span class="line">        <span class="string">"no-useless-call"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的字符串字面量或模板字面量的连接</span></span><br><span class="line">        <span class="string">"no-useless-concat"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用不必要的转义字符</span></span><br><span class="line">        <span class="string">"no-useless-escape"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 void 操作符</span></span><br><span class="line">        <span class="string">"no-void"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止在注释中使用特定的警告术语</span></span><br><span class="line">        <span class="string">"no-warning-comments"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 with 语句</span></span><br><span class="line">        <span class="string">"no-with"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制在parseInt()使用基数参数</span></span><br><span class="line">        <span class="string">"radix"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 要求所有的 var 声明出现在它们所在的作用域顶部</span></span><br><span class="line">        <span class="string">"vars-on-top"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求 IIFE 使用括号括起来</span></span><br><span class="line">        <span class="string">"wrap-iife"</span>: [<span class="number">2</span>, <span class="string">"any"</span>],</span><br><span class="line">        <span class="comment">// 要求或禁止 “Yoda” 条件</span></span><br><span class="line">        <span class="string">"yoda"</span>: [<span class="number">2</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">// 要求或禁止使用严格模式指令</span></span><br><span class="line">        <span class="string">"strict"</span>: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line">        <span class="comment">// 变量声明 //</span></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 要求或禁止 var 声明中的初始化(初值)</span></span><br><span class="line">        <span class="string">"init-declarations"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 不允许 catch 子句的参数与外层作用域中的变量同名</span></span><br><span class="line">        <span class="string">"no-catch-shadow"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止删除变量</span></span><br><span class="line">        <span class="string">"no-delete-var"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许标签与变量同名</span></span><br><span class="line">        <span class="string">"no-label-var"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用特定的全局变量</span></span><br><span class="line">        <span class="string">"no-restricted-globals"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止 var 声明 与外层作用域的变量同名</span></span><br><span class="line">        <span class="string">"no-shadow"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止覆盖受限制的标识符</span></span><br><span class="line">        <span class="string">"no-shadow-restricted-names"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用未声明的变量，除非它们在 /*global */ 注释中被提到</span></span><br><span class="line">        <span class="string">"no-undef"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止将变量初始化为 undefined</span></span><br><span class="line">        <span class="string">"no-undef-init"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止将 undefined 作为标识符</span></span><br><span class="line">        <span class="string">"no-undefined"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止出现未使用过的变量</span></span><br><span class="line">        <span class="string">"no-unused-vars"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"vars"</span>: <span class="string">"all"</span>,</span><br><span class="line">            <span class="string">"args"</span>: <span class="string">"none"</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 不允许在变量定义之前使用它们</span></span><br><span class="line">        <span class="string">"no-use-before-define"</span>: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">        <span class="comment">//////////////////////////</span></span><br><span class="line">        <span class="comment">// Node.js and CommonJS //</span></span><br><span class="line">        <span class="comment">//////////////////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// require return statements after callbacks</span></span><br><span class="line">        <span class="string">"callback-return"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求 require() 出现在顶层模块作用域中</span></span><br><span class="line">        <span class="string">"global-require"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 要求回调函数中有容错处理</span></span><br><span class="line">        <span class="string">"handle-callback-err"</span>: [<span class="number">2</span>, <span class="string">"^(err|error)$"</span>],</span><br><span class="line">        <span class="comment">// 禁止混合常规 var 声明和 require 调用</span></span><br><span class="line">        <span class="string">"no-mixed-requires"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止调用 require 时使用 new 操作符</span></span><br><span class="line">        <span class="string">"no-new-require"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止对 __dirname 和 __filename进行字符串连接</span></span><br><span class="line">        <span class="string">"no-path-concat"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 process.env</span></span><br><span class="line">        <span class="string">"no-process-env"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用 process.exit()</span></span><br><span class="line">        <span class="string">"no-process-exit"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用同步方法</span></span><br><span class="line">        <span class="string">"no-sync"</span>: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line">        <span class="comment">// 风格指南 //</span></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格</span></span><br><span class="line">        <span class="string">"array-bracket-spacing"</span>: [<span class="number">2</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">// 禁止或强制在单行代码块中使用空格(禁用)</span></span><br><span class="line">        <span class="string">"block-spacing"</span>: [<span class="number">1</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">//强制使用一致的缩进 第二个参数为 "tab" 时，会使用tab，</span></span><br><span class="line">        <span class="comment">// if while function 后面的&#123;必须与if在同一行，java风格。</span></span><br><span class="line">        <span class="string">"brace-style"</span>: [<span class="number">2</span>, <span class="string">"1tbs"</span>, &#123;</span><br><span class="line">            <span class="string">"allowSingleLine"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 双峰驼命名格式</span></span><br><span class="line">        <span class="string">"camelcase"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 控制逗号前后的空格</span></span><br><span class="line">        <span class="string">"comma-spacing"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"before"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"after"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 控制逗号在行尾出现还是在行首出现 (默认行尾)</span></span><br><span class="line">        <span class="comment">// http://eslint.org/docs/rules/comma-style</span></span><br><span class="line">        <span class="string">"comma-style"</span>: [<span class="number">2</span>, <span class="string">"last"</span>],</span><br><span class="line">        <span class="comment">//"SwitchCase" (默认：0) 强制 switch 语句中的 case 子句的缩进水平</span></span><br><span class="line">        <span class="comment">// 以方括号取对象属性时，[ 后面和 ] 前面是否需要空格, 可选参数 never, always</span></span><br><span class="line">        <span class="string">"computed-property-spacing"</span>: [<span class="number">2</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">// 用于指统一在回调函数中指向this的变量名，箭头函数中的this已经可以指向外层调用者，应该没卵用了</span></span><br><span class="line">        <span class="comment">// e.g [0,"that"] 指定只能 var that = this. that不能指向其他任何值，this也不能赋值给that以外的其他值</span></span><br><span class="line">        <span class="string">"consistent-this"</span>: [<span class="number">1</span>, <span class="string">"that"</span>],</span><br><span class="line">        <span class="comment">// 强制使用命名的 function 表达式</span></span><br><span class="line">        <span class="string">"func-names"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 文件末尾强制换行</span></span><br><span class="line">        <span class="string">"eol-last"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">"indent"</span>: [<span class="number">2</span>, <span class="number">4</span>, &#123;</span><br><span class="line">            <span class="string">"SwitchCase"</span>: <span class="number">1</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 强制在对象字面量的属性中键和值之间使用一致的间距</span></span><br><span class="line">        <span class="string">"key-spacing"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"beforeColon"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"afterColon"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 强制使用一致的换行风格</span></span><br><span class="line">        <span class="string">"linebreak-style"</span>: [<span class="number">1</span>, <span class="string">"unix"</span>],</span><br><span class="line">        <span class="comment">// 要求在注释周围有空行 ( 要求在块级注释之前有一空行)</span></span><br><span class="line">        <span class="string">"lines-around-comment"</span>: [<span class="number">1</span>, &#123;</span><br><span class="line">            <span class="string">"beforeBlockComment"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 强制一致地使用函数声明或函数表达式，方法定义风格，参数：</span></span><br><span class="line">        <span class="comment">// declaration: 强制使用方法声明的方式，function f()&#123;&#125; e.g [2, "declaration"]</span></span><br><span class="line">        <span class="comment">// expression：强制使用方法表达式的方式，var f = function() &#123;&#125; e.g [2, "expression"]</span></span><br><span class="line">        <span class="comment">// allowArrowFunctions: declaration风格中允许箭头函数。 e.g [2, "declaration", &#123; "allowArrowFunctions": true &#125;]</span></span><br><span class="line">        <span class="string">"func-style"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制回调函数最大嵌套深度 5层</span></span><br><span class="line">        <span class="string">"max-nested-callbacks"</span>: [<span class="number">1</span>, <span class="number">5</span>],</span><br><span class="line">        <span class="comment">// 禁止使用指定的标识符</span></span><br><span class="line">        <span class="string">"id-blacklist"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制标识符的最新和最大长度</span></span><br><span class="line">        <span class="string">"id-length"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求标识符匹配一个指定的正则表达式</span></span><br><span class="line">        <span class="string">"id-match"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制在 JSX 属性中一致地使用双引号或单引号</span></span><br><span class="line">        <span class="string">"jsx-quotes"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制在关键字前后使用一致的空格 (前后腰需要)</span></span><br><span class="line">        <span class="string">"keyword-spacing"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制一行的最大长度</span></span><br><span class="line">        <span class="string">"max-len"</span>: [<span class="number">1</span>, <span class="number">200</span>],</span><br><span class="line">        <span class="comment">// 强制最大行数</span></span><br><span class="line">        <span class="string">"max-lines"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制 function 定义中最多允许的参数数量</span></span><br><span class="line">        <span class="string">"max-params"</span>: [<span class="number">1</span>, <span class="number">7</span>],</span><br><span class="line">        <span class="comment">// 强制 function 块最多允许的的语句数量</span></span><br><span class="line">        <span class="string">"max-statements"</span>: [<span class="number">1</span>, <span class="number">200</span>],</span><br><span class="line">        <span class="comment">// 强制每一行中所允许的最大语句数量</span></span><br><span class="line">        <span class="string">"max-statements-per-line"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求构造函数首字母大写 （要求调用 new 操作符时有首字母大小的函数，允许调用首字母大写的函数时没有 new 操作符。）</span></span><br><span class="line">        <span class="string">"new-cap"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"newIsCap"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"capIsNew"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 要求调用无参构造函数时有圆括号</span></span><br><span class="line">        <span class="string">"new-parens"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 要求或禁止 var 声明语句后有一行空行</span></span><br><span class="line">        <span class="string">"newline-after-var"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止使用 Array 构造函数</span></span><br><span class="line">        <span class="string">"no-array-constructor"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁用按位运算符</span></span><br><span class="line">        <span class="string">"no-bitwise"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求 return 语句之前有一空行</span></span><br><span class="line">        <span class="string">"newline-before-return"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求方法链中每个调用都有一个换行符</span></span><br><span class="line">        <span class="string">"newline-per-chained-call"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 禁用 continue 语句</span></span><br><span class="line">        <span class="string">"no-continue"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止在代码行后使用内联注释</span></span><br><span class="line">        <span class="string">"no-inline-comments"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止 if 作为唯一的语句出现在 else 语句中</span></span><br><span class="line">        <span class="string">"no-lonely-if"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止混合使用不同的操作符</span></span><br><span class="line">        <span class="string">"no-mixed-operators"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 不允许空格和 tab 混合缩进</span></span><br><span class="line">        <span class="string">"no-mixed-spaces-and-tabs"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许多个空行</span></span><br><span class="line">        <span class="string">"no-multiple-empty-lines"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"max"</span>: <span class="number">2</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 不允许否定的表达式</span></span><br><span class="line">        <span class="string">"no-negated-condition"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 不允许使用嵌套的三元表达式</span></span><br><span class="line">        <span class="string">"no-nested-ternary"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止使用 Object 的构造函数</span></span><br><span class="line">        <span class="string">"no-new-object"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止使用一元操作符 ++ 和 --</span></span><br><span class="line">        <span class="string">"no-plusplus"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止使用特定的语法</span></span><br><span class="line">        <span class="string">"no-restricted-syntax"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止 function 标识符和括号之间出现空格</span></span><br><span class="line">        <span class="string">"no-spaced-func"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许使用三元操作符</span></span><br><span class="line">        <span class="string">"no-ternary"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁用行尾空格</span></span><br><span class="line">        <span class="string">"no-trailing-spaces"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止标识符中有悬空下划线_bar</span></span><br><span class="line">        <span class="string">"no-underscore-dangle"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止可以在有更简单的可替代的表达式时使用三元操作符</span></span><br><span class="line">        <span class="string">"no-unneeded-ternary"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止属性前有空白</span></span><br><span class="line">        <span class="string">"no-whitespace-before-property"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制花括号内换行符的一致性</span></span><br><span class="line">        <span class="string">"object-curly-newline"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制在花括号中使用一致的空格</span></span><br><span class="line">        <span class="string">"object-curly-spacing"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制将对象的属性放在不同的行上</span></span><br><span class="line">        <span class="string">"object-property-newline"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制函数中的变量要么一起声明要么分开声明</span></span><br><span class="line">        <span class="string">"one-var"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"initialized"</span>: <span class="string">"never"</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 要求或禁止在 var 声明周围换行</span></span><br><span class="line">        <span class="string">"one-var-declaration-per-line"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求或禁止在可能的情况下要求使用简化的赋值操作符</span></span><br><span class="line">        <span class="string">"operator-assignment"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制操作符使用一致的换行符</span></span><br><span class="line">        <span class="string">"operator-linebreak"</span>: [<span class="number">2</span>, <span class="string">"after"</span>, &#123;</span><br><span class="line">            <span class="string">"overrides"</span>: &#123;</span><br><span class="line">                <span class="string">"?"</span>: <span class="string">"before"</span>,</span><br><span class="line">                <span class="string">":"</span>: <span class="string">"before"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 要求或禁止块内填充</span></span><br><span class="line">        <span class="string">"padded-blocks"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求对象字面量属性名称用引号括起来</span></span><br><span class="line">        <span class="string">"quote-props"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制使用一致的反勾号、双引号或单引号</span></span><br><span class="line">        <span class="string">"quotes"</span>: [<span class="number">2</span>, <span class="string">"double"</span>, <span class="string">"avoid-escape"</span>],</span><br><span class="line">        <span class="comment">// 要求使用 JSDoc 注释</span></span><br><span class="line">        <span class="string">"require-jsdoc"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 要求或禁止使用分号而不是 ASI（这个才是控制行尾部分号的，）</span></span><br><span class="line">        <span class="string">"semi"</span>: [<span class="number">2</span>, <span class="string">"always"</span>],</span><br><span class="line">        <span class="comment">// 强制分号之前和之后使用一致的空格</span></span><br><span class="line">        <span class="string">"semi-spacing"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求同一个声明块中的变量按顺序排列</span></span><br><span class="line">        <span class="string">"sort-vars"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制在块之前使用一致的空格</span></span><br><span class="line">        <span class="string">"space-before-blocks"</span>: [<span class="number">2</span>, <span class="string">"always"</span>],</span><br><span class="line">        <span class="comment">// 强制在 function的左括号之前使用一致的空格</span></span><br><span class="line">        <span class="string">"space-before-function-paren"</span>: [<span class="number">0</span>, <span class="string">"always"</span>],</span><br><span class="line">        <span class="comment">// 强制在圆括号内使用一致的空格</span></span><br><span class="line">        <span class="string">"space-in-parens"</span>: [<span class="number">2</span>, <span class="string">"never"</span>],</span><br><span class="line">        <span class="comment">// 要求操作符周围有空格</span></span><br><span class="line">        <span class="string">"space-infix-ops"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 强制在一元操作符前后使用一致的空格</span></span><br><span class="line">        <span class="string">"space-unary-ops"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"words"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"nonwords"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 强制在注释中 // 或 /* 使用一致的空格</span></span><br><span class="line">        <span class="string">"spaced-comment"</span>: [<span class="number">2</span>, <span class="string">"always"</span>, &#123;</span><br><span class="line">            <span class="string">"markers"</span>: [<span class="string">"global"</span>, <span class="string">"globals"</span>, <span class="string">"eslint"</span>, <span class="string">"eslint-disable"</span>, <span class="string">"*package"</span>, <span class="string">"!"</span>]</span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 要求或禁止 Unicode BOM</span></span><br><span class="line">        <span class="string">"unicode-bom"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求正则表达式被括号括起来</span></span><br><span class="line">        <span class="string">"wrap-regex"</span>: <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line">        <span class="comment">// ES6.相关 //</span></span><br><span class="line">        <span class="comment">//////////////</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 要求箭头函数体使用大括号</span></span><br><span class="line">        <span class="string">"arrow-body-style"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 要求箭头函数的参数使用圆括号</span></span><br><span class="line">        <span class="string">"arrow-parens"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">"arrow-spacing"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"before"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"after"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示</span></span><br><span class="line">        <span class="string">"constructor-super"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制 generator 函数中 * 号周围使用一致的空格</span></span><br><span class="line">        <span class="string">"generator-star-spacing"</span>: [<span class="number">2</span>, &#123;</span><br><span class="line">            <span class="string">"before"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"after"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="comment">// 禁止修改类声明的变量</span></span><br><span class="line">        <span class="string">"no-class-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许箭头功能，在那里他们可以混淆的比较</span></span><br><span class="line">        <span class="string">"no-confusing-arrow"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止修改 const 声明的变量</span></span><br><span class="line">        <span class="string">"no-const-assign"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止类成员中出现重复的名称</span></span><br><span class="line">        <span class="string">"no-dupe-class-members"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 不允许复制模块的进口</span></span><br><span class="line">        <span class="string">"no-duplicate-imports"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止 Symbol 的构造函数</span></span><br><span class="line">        <span class="string">"no-new-symbol"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 允许指定模块加载时的进口</span></span><br><span class="line">        <span class="string">"no-restricted-imports"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 禁止在构造函数中，在调用 super() 之前使用 this 或 super</span></span><br><span class="line">        <span class="string">"no-this-before-super"</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 禁止不必要的计算性能键对象的文字</span></span><br><span class="line">        <span class="string">"no-useless-computed-key"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求使用 let 或 const 而不是 var</span></span><br><span class="line">        <span class="string">"no-var"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求或禁止对象字面量中方法和属性使用简写语法</span></span><br><span class="line">        <span class="string">"object-shorthand"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求使用箭头函数作为回调</span></span><br><span class="line">        <span class="string">"prefer-arrow-callback"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求使用 const 声明那些声明后不再被修改的变量</span></span><br><span class="line">        <span class="string">"prefer-const"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求在合适的地方使用 Reflect 方法</span></span><br><span class="line">        <span class="string">"prefer-reflect"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求使用扩展运算符而非 .apply()</span></span><br><span class="line">        <span class="string">"prefer-spread"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求使用模板字面量而非字符串连接</span></span><br><span class="line">        <span class="string">"prefer-template"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// Suggest using the rest parameters instead of arguments</span></span><br><span class="line">        <span class="string">"prefer-rest-params"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求generator 函数内有 yield</span></span><br><span class="line">        <span class="string">"require-yield"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// enforce spacing between rest and spread operators and their expressions</span></span><br><span class="line">        <span class="string">"rest-spread-spacing"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 强制模块内的 import 排序</span></span><br><span class="line">        <span class="string">"sort-imports"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="comment">// 要求或禁止模板字符串中的嵌入表达式周围空格的使用</span></span><br><span class="line">        <span class="string">"template-curly-spacing"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 强制在 yield* 表达式中 * 周围使用空格</span></span><br><span class="line">        <span class="string">"yield-star-spacing"</span>: <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/08/Fetch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/Fetch/" itemprop="url">Fetch</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T20:18:01+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于 Fetch API 是基于 Promise 设计，有必要先学习一下 Promise，推荐阅读 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN Promise</a> 教程。旧浏览器不支持 Promise，需要使用 polyfill <a href="https://github.com/jakearchibald/es6-promise" target="_blank" rel="noopener">es6-promise</a> 。</p>
+<p>本文不是 Fetch API 科普贴，其实是讲异步处理和 Promise 的。Fetch API 很简单，看文档很快就学会了。推荐 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener">MDN Fetch</a> 教程 和 万能的<a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">WHATWG Fetch</a> 规范</p>
+<h3 id="Why-Fetch"><a href="#Why-Fetch" class="headerlink" title="Why Fetch"></a>Why Fetch</h3><p>XMLHttpRequest 是一个设计粗糙的 API，不符合关注分离（Separation of Concerns）的原则，配置和调用方式非常混乱，而且基于事件的异步模型写起来也没有现代的 Promise，generator/yield，async/await 友好。</p>
+<p>Fetch 的出现就是为了解决 XHR 的问题，拿例子说明：</p>
+<p>使用 XHR 发送一个 json 请求一般是这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'GET'</span>, url);</span><br><span class="line">xhr.responseType = <span class="string">'json'</span>;</span><br><span class="line"></span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.response);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure></p>
+<p>使用 Fetch 后，顿时看起来好一点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(url).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>使用 ES6 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">箭头函数</a> 后：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fetch(url).then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data))</span><br><span class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e))</span><br></pre></td></tr></table></figure></p>
+<p>现在看起来好很多了，但这种 Promise 的写法还是有 Callback 的影子，而且 promise 使用 catch 方法来进行错误处理的方式有点奇怪。不用急，下面使用 async/await 来做最终优化：</p>
+<blockquote>
+<p>注：async/await 是非常新的 API，属于 ES7，目前尚在 Stage 1(提议) 阶段，这是它的<a href="https://github.com/lukehoban/ecmascript-asyncawait。使用 [Babel](https://babeljs.io/" target="_blank" rel="noopener">完整规范</a> 开启 <a href="https://babeljs.io/docs/usage/runtime/" target="_blank" rel="noopener">runtime</a> 模式后可以把 async/await 无痛编译成 ES5 代码。也可以直接使用 <a href="https://github.com/facebook/regenerator" target="_blank" rel="noopener">regenerator</a> 来编译到 ES5。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">    <span class="keyword">let</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>, e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注：这段代码如果想运行，外面需要包一个 async function</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>duang~~ 的一声，使用 <code>await</code> 后，<b>写异步代码就像写同步代码一样爽</b>。<code>await</code> 后面可以跟 <code>Promise</code> 对象，表示等待 <code>Promise resolve()</code> 才会继续向下执行，如果 Promise 被 <code>reject()</code> 或抛出异常则会被外面的 <code>try...catch</code> 捕获。</p>
+<p>Promise，generator/yield，await/async 都是现在和未来 JS 解决异步的标准做法，可以完美搭配使用。这也是使用标准 Promise 一大好处。最近也把项目中使用第三方 Promise 库的代码全部转成标准 Promise，为以后全面使用 async/await 做准备。</p>
+<p>另外，Fetch 也很适合做现在流行的同构应用，有人基于 Fetch 的语法，在 Node 端基于 http 库实现了 <a href="https://github.com/bitinn/node-fetch" target="_blank" rel="noopener">node-fetch</a>，又有人封装了用于同构应用的 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="noopener">isomorphic-fetch</a>。</p>
+<blockquote>
+<p>注：同构(isomorphic/universal)就是使前后端运行同一套代码的意思，后端一般是指 NodeJS 环境。</p>
+</blockquote>
+<p>总结一下，Fetch 优点主要有：</p>
+<ul>
+<li>语法简洁，更加语义化</li>
+<li>基于标准 Promise 实现，支持 async/await</li>
+<li>同构方便，使用 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="noopener">isomorphic-fetch</a></li>
+</ul>
+<h3 id="Fetch-启用方法"><a href="#Fetch-启用方法" class="headerlink" title="Fetch 启用方法"></a>Fetch 启用方法</h3><p>下面是重点↓↓↓</p>
+<p>先看一下 Fetch 原生支持率：<br><img src="/images/page/fetch/1.png" alt></p>
+<p>原生支持率并不高，幸运的是，引入下面这些 polyfill 后可以完美支持 IE8+ ：</p>
+<ul>
+<li>由于 IE8 是 ES3，需要引入 ES5 的 polyfill: <a href="https://github.com/es-shims/es5-shim" target="_blank" rel="noopener">es5-shim, es5-sham</a></li>
+<li>引入 Promise 的 polyfill: <a href="https://github.com/jakearchibald/es6-promise" target="_blank" rel="noopener">es6-promise</a></li>
+<li>引入 fetch 探测库：<a href="https://github.com/camsong/fetch-detector" target="_blank" rel="noopener">fetch-detector</a></li>
+<li>引入 fetch 的 polyfill: <a href="https://github.com/camsong/fetch-ie8" target="_blank" rel="noopener">fetch-ie8</a></li>
+<li>可选：如果你还使用了 jsonp，引入 <a href="https://github.com/camsong/fetch-jsonp" target="_blank" rel="noopener">fetch-jsonp</a></li>
+<li>可选：开启 Babel 的 runtime 模式，现在就使用 async/await</li>
+</ul>
+<p>Fetch polyfill 的基本原理是探测是否存在 <code>window.fetch</code> 方法，如果没有则用 XHR 实现。这也是 <a href="https://github.com/github/fetch" target="_blank" rel="noopener">github/fetch</a> 的做法，但是有些浏览器（Chrome 45）原生支持 Fetch，但响应中有中文时会乱码，老外又不太关心这种问题，所以我自己才封装了 <code>fetch-detector</code> 和 <code>fetch-ie8</code> 只在浏览器稳定支持 Fetch 情况下才使用原生 Fetch。这些库现在 <b>每天有几千万个请求都在使用，绝对靠谱</b> ！</p>
+<p>终于，引用了这一堆 polyfill 后，可以愉快地使用 Fetch 了。但要小心，下面有坑：</p>
+<h3 id="Fetch-常见坑"><a href="#Fetch-常见坑" class="headerlink" title="Fetch 常见坑"></a>Fetch 常见坑</h3><ul>
+<li>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: ‘include’})</li>
+<li>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。</li>
+</ul>
+<h3 id="IE-使用策略"><a href="#IE-使用策略" class="headerlink" title="IE 使用策略"></a>IE 使用策略</h3><p>所有版本的 IE 均不支持原生 Fetch，fetch-ie8 会自动使用 XHR 做 polyfill。但在跨域时有个问题需要处理。</p>
+<p>IE8, 9 的 XHR 不支持 CORS 跨域，虽然提供 <code>XDomainRequest</code>，但这个东西就是玩具，不支持传 Cookie！如果接口需要权限验证，还是乖乖地使用 jsonp 吧，推荐使用 <a href="https://github.com/camsong/fetch-jsonp" target="_blank" rel="noopener">fetch-jsonp</a>。如果有问题直接提 issue，我会第一时间解决。</p>
+<h3 id="Fetch-和标准-Promise-的不足"><a href="#Fetch-和标准-Promise-的不足" class="headerlink" title="Fetch 和标准 Promise 的不足"></a>Fetch 和标准 Promise 的不足</h3><p>由于 Fetch 是典型的异步场景，所以大部分遇到的问题不是 Fetch 的，其实是 Promise 的。ES6 的 Promise 是基于 <a href="https://promisesaplus.com/" target="_blank" rel="noopener">Promises/A+ </a>标准，为了保持 简单简洁 ，只提供极简的几个 API。如果你用过一些牛 X 的异步库，如 jQuery(不要笑) 、Q.js 或者 RSVP.js，可能会感觉 Promise 功能太少了。</p>
+<h4 id="没有-Deferred"><a href="#没有-Deferred" class="headerlink" title="没有 Deferred"></a>没有 Deferred</h4><p><a href="http://api.jquery.com/category/deferred-object/" target="_blank" rel="noopener">Deferred</a> 可以在创建 Promise 时可以减少一层嵌套，还有就是跨方法使用时很方便。<br>ECMAScript 11 年就有过 <a href="http://wiki.ecmascript.org/doku.php?id=strawman:deferred_functions" target="_blank" rel="noopener">Deferred 提案</a>，但后来没被接受。其实用 Promise 不到十行代码就能实现 Deferred：<a href="https://github.com/seangenabe/es6-deferred/blob/master/deferred.js" target="_blank" rel="noopener">es6-deferred</a>。现在有了 async/await，generator/yield 后，deferred 就没有使用价值了。</p>
+<h4 id="没有获取状态方法：isRejected，isResolved"><a href="#没有获取状态方法：isRejected，isResolved" class="headerlink" title="没有获取状态方法：isRejected，isResolved"></a>没有获取状态方法：isRejected，isResolved</h4><p>标准 Promise 没有提供获取当前状态 rejected 或者 resolved 的方法。只允许外部传入成功或失败后的回调。我认为这其实是优点，这是一种声明式的接口，更简单。</p>
+<h4 id="缺少其它一些方法：always，progress，finally"><a href="#缺少其它一些方法：always，progress，finally" class="headerlink" title="缺少其它一些方法：always，progress，finally"></a>缺少其它一些方法：always，progress，finally</h4><p>always 可以通过在 then 和 catch 里重复调用方法实现。finally 也类似。progress 这种进度通知的功能还没有用过，暂不知道如何替代。</p>
+<h4 id="不能中断，没有-abort、terminate、onTimeout-或-cancel-方法"><a href="#不能中断，没有-abort、terminate、onTimeout-或-cancel-方法" class="headerlink" title="不能中断，没有 abort、terminate、onTimeout 或 cancel 方法"></a>不能中断，没有 abort、terminate、onTimeout 或 cancel 方法</h4><p>Fetch 和 Promise 一样，一旦发起，不能中断，也不会超时，只能等待被 resolve 或 reject。幸运的是，whatwg 目前正在尝试解决这个问题 <a href="https://github.com/whatwg/fetch/issues/27" target="_blank" rel="noopener">whatwg/fetch#27</a></p>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<li><a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">WHATWG Fetch 规范</a></li>
+<li><a href="http://bubkoo.com/2015/05/08/introduction-to-fetch/" target="_blank" rel="noopener">Fetch API 简介</a></li>
+<li><a href="http://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html" target="_blank" rel="noopener">教你驯服 async</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_blank" rel="noopener">阮一峰介绍 async</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/08/React框架精髓/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/08/React框架精髓/" itemprop="url">React框架精髓</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T14:19:28+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="React-diff-算法"><a href="#React-diff-算法" class="headerlink" title="React diff 算法"></a>React diff 算法</h2><p>React的<code>diff</code>算法是<code>Virtual DOM</code>之所以任性的最大依仗，大家知道页面的性能 一般是由渲染速度和渲染次数决定，如何最大程度地利用<code>diff</code>算法进行开发？我们先看看它的原理。</p>
+<h3 id="传统-diff-算法"><a href="#传统-diff-算法" class="headerlink" title="传统 diff 算法"></a>传统 diff 算法</h3><p>计算一棵树形结构转换成另一棵树形结构的最少操作，传统 <code>diff</code> 算法通过循环递归对节点进行依次对比，效率低下，算法复杂度达到 <code>O(n^3)</code>，其中 <code>n</code> 是树中节点的总数。也就是说如果要展示1000个节点，就要依次执行上十亿次的比较。这个性能消耗对对于前端项目来说是不可接受的。</p>
+<h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p>如上所见，传统 <code>diff</code> 算法的复杂度为 <code>O(n^3)</code>，显然这是无法满足性能要求的。而<code>React</code>通过制定大胆的策略，将 <code>O(n^3)</code> 复杂度的问题转换成 <code>O(n)</code> 复杂度的问题。他是怎么做到的？</p>
+<h3 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h3><p>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。如下图所示：</p>
+<p><img src="/images/page/react/2.png" alt></p>
+<blockquote>
+<p>React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同颜色方框内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tree diff算法实现</span></span><br><span class="line">updateChildren: <span class="function"><span class="keyword">function</span>(<span class="params">nextNestedChildrenElements, transaction, context</span>) </span>&#123;</span><br><span class="line">  updateDepth++;</span><br><span class="line">  <span class="keyword">var</span> errorThrown = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>._updateChildren(nextNestedChildrenElements, transaction, context);</span><br><span class="line">    errorThrown = <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    updateDepth--;</span><br><span class="line">    <span class="keyword">if</span> (!updateDepth) &#123;</span><br><span class="line">      <span class="keyword">if</span> (errorThrown) &#123;</span><br><span class="line">        clearQueue();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        processQueue();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="为什么要减少DOM节点的跨层级操作？"><a href="#为什么要减少DOM节点的跨层级操作？" class="headerlink" title="为什么要减少DOM节点的跨层级操作？"></a>为什么要减少DOM节点的跨层级操作？</h3><p>如下图，A 节点（包括其子节点）整个被移动到 D 节点下，由于 React 只会简单的考虑同层级节点的位置变换，而对于不同层级的节点，只有创建和删除操作。当根节点发现子节点中 A 消失了，就会直接销毁 A；当 D 发现多了一个子节点 A，则会创建新的 A（包括子节点）作为其子节点。此时，<code>React diff</code> 的执行情况：create A -&gt; create B -&gt; create C -&gt; delete A。</p>
+<p><img src="/images/page/react/3.png" alt></p>
+<p>由此可发现，当出现节点跨层级移动时，并不会出现想象中的移动操作，而是以 A 为根节点的树被整个重新创建，这是一种影响 <code>React</code> 性能的操作。</p>
+<h3 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h3><p>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。</p>
+<ul>
+<li>如果是同一类型的组件，按照原策略继续比较 <code>virtual DOM tree</code>。</li>
+<li>如果不是，则将该组件判断为 <code>dirty component</code>，从而替换整个组件下的所有子节点。</li>
+<li>对于同一类型的组件，有可能其 <code>Virtual DOM</code> 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 <code>React</code> 允许用户通过 <code>shouldComponentUpdate()</code> 来判断该组件是否需要进行 diff。</li>
+</ul>
+<p><img src="/images/page/react/4.png" alt></p>
+<p>如上图，当 <code>component D</code> 改变为 <code>component G</code> 时，即使这两个 <code>component</code> 结构相似，一旦 <code>React</code> 判断 D 和 G 是不同类型的组件，就不会比较二者的结构，而是直接删除 <code>component D</code>，重新创建 <code>component G</code> 以及其子节点。虽然当两个 <code>component</code> 是不同类型但结构相似时，<code>React diff</code> 会影响性能，但正如 <code>React</code> 官方博客所言：不同类型的 <code>component</code> 是很少存在相似 <code>DOM tree</code> 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。</p>
+<h3 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h3><p>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。React 提出优化策略：允许开发者对同一层级的同组子节点，添加唯一 key 进行区分，虽然只是小小的改动，性能上却发生了翻天覆地的变化！</p>
+<p>新老集合所包含的节点，如下图所示，新老集合进行 diff 差异化对比，通过 key 发现新老集合中的节点都是相同的节点，因此无需进行节点删除和创建，只需要将老集合中节点的位置进行移动，更新为新集合中节点的位置，此时 React 给出的 diff 结果为：B、D 不做任何操作，A、C 进行移动操作，即可。</p>
+<p><img src="/images/page/react/5.png" alt></p>
+<h3 id="开发建议"><a href="#开发建议" class="headerlink" title="开发建议"></a>开发建议</h3><p>（1）<b>[基于tree diff]</b> 开发组件时，保持稳定的DOM结构有助于维持整体的性能。换而言之，尽可能少地动态操作DOM结构，尤其是移动操作。当节点数过大或者页面更新次数过多时，页面卡顿的现象比较明显。可以通过 CSS 隐藏或显示节点，而不是真的移除或添加 DOM 节点。</p>
+<p>（2）<b>[基于component diff]</b> 开发组件时，注意使用 <code>shouldComponentUpdate()</code> 来减少组件不必要的更新。除此之外，对于类似的结构应该尽量封装成组件，既减少代码量，又能减少<code>component diff</code>的性能消耗。</p>
+<p>（3）<b>[基于element diff]</b> 对于列表结构，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。</p>
+<h2 id="React-Lifecycle"><a href="#React-Lifecycle" class="headerlink" title="React Lifecycle"></a>React Lifecycle</h2><p>React的生命周期具体可分为四种情况：<br><img src="/images/page/react/6.png" alt></p>
+<ul>
+<li><p>当首次装载组件时，按顺序执行 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount；`</p>
+</li>
+<li><p>当卸载组件时，执行 <code>componentWillUnmount</code>；</p>
+</li>
+<li><p>当重新装载组件时，此时按顺序执行 <code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount<code>，但并不执行</code>getDefaultProps`；</p>
+</li>
+<li><p>当再次渲染组件时，组件接受到更新状态，此时按顺序执行 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。</p>
+</li>
+</ul>
+<h2 id="React组件的3种状态"><a href="#React组件的3种状态" class="headerlink" title="React组件的3种状态"></a>React组件的3种状态</h2><h3 id="状态一：MOUNTING"><a href="#状态一：MOUNTING" class="headerlink" title="状态一：MOUNTING"></a>状态一：MOUNTING</h3><p><code>mountComponent</code> 负责管理生命周期中的 <code>getInitialState</code>、<code>componentWillMount`</code>、render<code>和</code>componentDidMount`。<br><img src="/images/page/react/7.png" alt></p>
+<h3 id="状态二：RECEIVE-PROPS"><a href="#状态二：RECEIVE-PROPS" class="headerlink" title="状态二：RECEIVE_PROPS"></a>状态二：RECEIVE_PROPS</h3><p><code>updateComponent</code> 负责管理生命周期中的 <code>componentWillReceiveProps</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentDidUpdate</code>。<br><img src="/images/page/react/8.png" alt></p>
+<h3 id="状态三：UNMOUNTING"><a href="#状态三：UNMOUNTING" class="headerlink" title="状态三：UNMOUNTING"></a>状态三：UNMOUNTING</h3><p><code>unmountComponent</code> 负责管理生命周期中的 <code>componentWillUnmount</code>。</p>
+<p>首先将状态设置为 <code>UNMOUNTING</code>，若存在 <code>componentWillUnmount</code>，则执行；如果此时在 <code>componentWillUnmount</code> 中调用 <code>setState</code>，是不会触发 <code>reRender</code>。更新状态为 <code>NULL</code>，完成组件卸载操作。实现代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 卸载组件</span></span><br><span class="line">unmountComponent: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 设置状态为 UNMOUNTING</span></span><br><span class="line">  <span class="keyword">this</span>._compositeLifeCycleState = CompositeLifeCycle.UNMOUNTING;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果存在 componentWillUnmount，则触发</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.componentWillUnmount) &#123;</span><br><span class="line">    <span class="keyword">this</span>.componentWillUnmount();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新状态为 null</span></span><br><span class="line">  <span class="keyword">this</span>._compositeLifeCycleState = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">this</span>._renderedComponent.unmountComponent();</span><br><span class="line">  <span class="keyword">this</span>._renderedComponent = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  ReactComponent.Mixin.unmountComponent.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="React生命周期总结"><a href="#React生命周期总结" class="headerlink" title="React生命周期总结"></a>React生命周期总结</h2><p><img src="/images/page/react/9.png" alt></p>
+<p><img src="/images/page/react/10.png" alt></p>
+<h2 id="setState实现机制"><a href="#setState实现机制" class="headerlink" title="setState实现机制"></a>setState实现机制</h2><p><code>setState</code>是<code>React</code>框架的核心方法之一，下面介绍一下它的原理：<br><img src="/images/page/react/11.png" alt><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新 state</span></span><br><span class="line">setState: <span class="function"><span class="keyword">function</span>(<span class="params">partialState, callback</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 合并 _pendingState</span></span><br><span class="line">  <span class="keyword">this</span>.replaceState(</span><br><span class="line">    assign(&#123;&#125;, <span class="keyword">this</span>._pendingState || <span class="keyword">this</span>.state, partialState),</span><br><span class="line">    callback</span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>当调用 <code>setState</code> 时，会对 <code>state</code> 以及 <code>_pendingState</code> 更新队列进行合并操作，但其实真正更新 <code>state</code> 的幕后黑手是<code>replaceState</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新 state</span></span><br><span class="line">replaceState: <span class="function"><span class="keyword">function</span>(<span class="params">completeState, callback</span>) </span>&#123;</span><br><span class="line">  validateLifeCycleOnReplaceState(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新队列</span></span><br><span class="line">  <span class="keyword">this</span>._pendingState = completeState;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断状态是否为 MOUNTING，如果不是，即可执行更新</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._compositeLifeCycleState !== CompositeLifeCycle.MOUNTING) &#123;</span><br><span class="line">    ReactUpdates.enqueueUpdate(<span class="keyword">this</span>, callback);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><code>replaceState</code> 会先判断当前状态是否为 MOUNTING，如果不是即会调用 <code>ReactUpdates.enqueueUpdate</code> 执行更新。</p>
+<p>当状态不为 <code>MOUNTING</code> 或 <code>RECEIVING_PROPS</code> <code>时，performUpdateIfNecessary</code> 会获取 <code>_pendingElement</code>、<code>_pendingState</code>、<code>_pendingForceUpdate</code>，并调用 <code>updateComponent</code> 进行组件更新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果存在 _pendingElement、_pendingState、_pendingForceUpdate，则更新组件</span></span><br><span class="line">performUpdateIfNecessary: <span class="function"><span class="keyword">function</span>(<span class="params">transaction</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> compositeLifeCycleState = <span class="keyword">this</span>._compositeLifeCycleState;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当状态为 MOUNTING 或 RECEIVING_PROPS时，则不更新</span></span><br><span class="line">  <span class="keyword">if</span> (compositeLifeCycleState === CompositeLifeCycle.MOUNTING ||</span><br><span class="line">      compositeLifeCycleState === CompositeLifeCycle.RECEIVING_PROPS) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> prevElement = <span class="keyword">this</span>._currentElement;</span><br><span class="line">  <span class="keyword">var</span> nextElement = prevElement;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>._pendingElement != <span class="literal">null</span>) &#123;</span><br><span class="line">    nextElement = <span class="keyword">this</span>._pendingElement;</span><br><span class="line">    <span class="keyword">this</span>._pendingElement = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用 updateComponent</span></span><br><span class="line">  <span class="keyword">this</span>.updateComponent(</span><br><span class="line">    transaction,</span><br><span class="line">    prevElement,</span><br><span class="line">    nextElement</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在 <code>shouldComponentUpdate</code> 或 <code>componentWillUpdate</code> 中调用 <code>setState</code>，此时的状态已经从 <code>RECEIVING_PROPS -&gt; NULL</code>，则 <code>performUpdateIfNecessary</code> 就会调用 <code>updateComponent</code> 进行组件更新，但 <code>updateComponent</code> 又会调用 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>，因此造成循环调用，使得浏览器内存占满后崩溃。</p>
+</blockquote>
+<h3 id="开发建议-1"><a href="#开发建议-1" class="headerlink" title="开发建议"></a>开发建议</h3><p>不建议在 <code>getDefaultProps</code>、<code>getInitialState</code>、<code>shouldComponentUpdate</code>、<code>componentWillUpdate</code>、<code>render</code> 和 <code>componentWillUnmount</code> 中调用 <code>setState</code>，特别注意：不能在 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>中调用 <code>setState</code>，会导致循环调用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/08/JS中的函数劫持/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1158,449 +1596,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/03/08/AntD-Modal组件的实现原理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/AntD-Modal组件的实现原理/" itemprop="url">AntD Modal组件的实现原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T14:06:23+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Ant Design(AntD)是React的一种UI组件。开发中使用AntD的Modal,在处理用户处理事务,在当前页面弹出一个对话框,承载相应的操作。现在来看看AntD的实现原理</p>
-<p>先写列出部分Modal基本用法:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.showModal&#125;&gt;Open a modal dialog&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Modal title="Basic Modal" visible=&#123;this.state.visible&#125;</span></span><br><span class="line"><span class="regexp">          onOk=&#123;this.handleOk&#125; onCancel=&#123;this.handleCancel&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">          &lt;p&gt;some contents...&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">        &lt;<span class="regexp">/Modal&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//----------------</span></span><br><span class="line">ReactDOM.render(&lt;App /&gt;,mountNode)</span><br></pre></td></tr></table></figure>
-<p>这样即可使用模态对话框组件。<br>打开浏览器的开发者功能可以看到对话框的div始终在body内层中，而不是在mountNode内部。当然模态对话框本就应该存在body内存中，而不是任意其他组件元素内部,否则嵌套效果不好，添加动画会招来性能问题。<br>这是为什么？<br>从AntD的Modal组件源码中(components/modal/index.tsx)，可以看到如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> confirm <span class="keyword">from</span> <span class="string">'./confirm'</span>;</span><br><span class="line">Modal.success = <span class="function"><span class="keyword">function</span> (<span class="params">props: ModalFuncProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> config = assign(&#123;&#125;, &#123;</span><br><span class="line">    type: <span class="string">'success'</span>,</span><br><span class="line">    iconType: <span class="string">'check-circle'</span>,</span><br><span class="line">    okCancel: <span class="literal">false</span>,</span><br><span class="line">  &#125;, props);</span><br><span class="line">  <span class="keyword">return</span> confirm(config);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当Modal加载成功后，还需要进一步从confirm(config)获取组件。<br>我们进一步查看confirm,在confirm.tsx(components/modal/confirm.tsx)可以看到如下源码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line"><span class="comment">//......</span></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Dialog</span><br><span class="line">    className=&#123;classString&#125;</span><br><span class="line">    onCancel=&#123;close.bind(<span class="keyword">this</span>, &#123; <span class="attr">triggerCancel</span>: <span class="literal">true</span> &#125;)&#125;</span><br><span class="line">    visible</span><br><span class="line">    title=<span class="string">""</span></span><br><span class="line">    transitionName=<span class="string">"zoom"</span></span><br><span class="line">    footer=<span class="string">""</span></span><br><span class="line">    maskTransitionName=<span class="string">"fade"</span></span><br><span class="line">    maskClosable=&#123;maskClosable&#125;</span><br><span class="line">    style=&#123;style&#125;</span><br><span class="line">    width=&#123;width&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;div className=&#123;<span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-body-wrapper`</span>&#125;&gt;</span><br><span class="line">      &#123;body&#125; &#123;footer&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Dialog&gt;</span><br><span class="line">, div);</span><br></pre></td></tr></table></figure>
-<p>最后再次使用ReactDOM.render()在创建的div内部添加对话框。<br>同时这是说明,ReactDOM.render()并不是只有在顶层要嵌入的div中使用。内部同样可以再次使用。</p>
-<p>！！！但是，ReactDOM.render()方法，虽然可以实现组件的挂载点脱离父组件，但是组件的事件无法通过冒泡机制传递给父组件，也就是说如果挂载点div脱离了顶层root组件(<code>&lt;App /&gt;</code>)，那么挂载在div上面的组件也没办法使用redux。</p>
-<p>那么为什么Antd-Modal到底是怎么实现的呢？ 原因是Antd-Modal里面使用了<a href="https://github.com/react-component/dialog" target="_blank" rel="noopener">rc-dialog</a> 组件，里面的<code>DialogWrap</code>组件使用了<a href="https://github.com/react-component/util" target="_blank" rel="noopener">rc-util</a>这个库的<a href="https://github.com/react-component/util/blob/master/src/ContainerRender.js" target="_blank" rel="noopener">ContainerRender.js</a>和<a href="https://github.com/react-component/util/blob/master/src/Portal.js" target="_blank" rel="noopener">Portal.js</a>方法，这个库解决了 ‘组件的挂载点虽然可以脱离父组件，但组件的事件通过冒泡机制仍可以传给父组件’ 问题</p>
-<p>详情请看下一篇博客&gt;&gt;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/11/29/Webpack-学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/29/Webpack-学习笔记/" itemprop="url">Webpack 学习笔记[精华]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T19:21:34+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色<br><a href="https://webpack.github.io/docs/configuration.html" target="_blank" rel="noopener">https://webpack.github.io/docs/configuration.html</a> //config配置</p>
-<h3 id="cli-参数"><a href="#cli-参数" class="headerlink" title="cli 参数"></a>cli 参数</h3><ul>
-<li>–hot 代码热更新</li>
-<li>–progress 有tab栏</li>
-<li>–watch 实时监控</li>
-<li>-debug 调试</li>
-</ul>
-<h3 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h3><p>加载器的使用, 加载器可以配置query参数并可以链式调用, 本质上是纯函数, 遵循单一职责原则<br><a href="https://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="noopener">https://webpack.github.io/docs/list-of-loaders.html</a><br><a href="https://webpack.github.io/docs/loader-conventions.html" target="_blank" rel="noopener">https://webpack.github.io/docs/loader-conventions.html</a></p>
-<h3 id="devTools"><a href="#devTools" class="headerlink" title="devTools"></a>devTools</h3><p>webpack-dev-server / webpack-dev-middleware / koa-webpack-dev</p>
-<h3 id="codeSplitting-代码分割"><a href="#codeSplitting-代码分割" class="headerlink" title="codeSplitting 代码分割"></a>codeSplitting 代码分割</h3><p>定义分割点<br>CommonJS: require.ensure<br>AMD: require</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([<span class="string">"./file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// is equal to</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>.include(<span class="string">"./file"</span>);</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><h3 id="最小化"><a href="#最小化" class="headerlink" title="最小化"></a>最小化</h3><p>new webpack.optimize.UglifyJsPlugin() // 压缩<br>new webpack.optimize.OccurrenceOrderPlugin() //排序输出</p>
-<h3 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h3><p>new webpack.optimize.DedupePlugin()</p>
-<h3 id="设置分块传输大小和数目"><a href="#设置分块传输大小和数目" class="headerlink" title="设置分块传输大小和数目"></a>设置分块传输大小和数目</h3><p>new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})<br>new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000})</p>
-<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>webpack-dev-server/webpack-dev-middleware/webpack –watch or watch: true</p>
-<h3 id="不解析"><a href="#不解析" class="headerlink" title="不解析"></a>不解析</h3><p>noParse</p>
-<h3 id="SourceMap-使调试更容易）"><a href="#SourceMap-使调试更容易）" class="headerlink" title="SourceMap (使调试更容易）"></a>SourceMap (使调试更容易）</h3><ul>
-<li>devtool: “source-map” 在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的<code>source map</code>，但是它会减慢打包速度；</li>
-<li>devtool: “cheap-module-source-map” 在一个单独的文件中生成一个不带列映射的<code>map</code>，不带列映射提高了打包速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
-<li>devtool: “eval-source-map” 使用<code>eval</code>打包源文件模块，在同一个文件中生成干净的完整的<code>source map</code>。这个选项可以在不影响构建速度的前提下生成完整的<code>sourcemap</code>，但是对打包后输出的JS文件的执行具有性能和安全的隐患。在开发阶段这是一个非常好的选项，在生产阶段则一定不要启用这个选项；</li>
-<li>devtool: “cheap-module-eval-source-map” 这是在打包文件时最快的生成<code>source map</code>的方法，生成的<code>Source Map</code> 会和打包后的<code>JavaScript</code>文件同行显示，没有列映射，和<code>eval-source-map</code>选项具有相似的缺点；</li>
-</ul>
-<p>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的打包速度的后果就是对打包后的文件的的执行有一定影响。</p>
-<blockquote>
-<p><code>cheap-module-eval-source-map</code>方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。</p>
-</blockquote>
-<p>对小到中型的项目中，eval-source-map是一个很好的选项，再次强调你只应该开发阶段使用它</p>
-<h3 id="模块-和-依赖位置"><a href="#模块-和-依赖位置" class="headerlink" title="模块 和 依赖位置"></a>模块 和 依赖位置</h3><p>RESOLVE.ROOT VS RESOLVE.MODULESDIRECTORIES</p>
-<h3 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h3><p>初始加载的应该是路由和首页, 然后再加载其他页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"entry-chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="3.chunk.js" type="text/</span>javascript<span class="string">" charset="</span>utf<span class="number">-8</span><span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="多页应用"><a href="#多页应用" class="headerlink" title="多页应用"></a>多页应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        p3: <span class="string">"./page3"</span>,</span><br><span class="line">        ap1: <span class="string">"./admin/page1"</span>,</span><br><span class="line">        ap2: <span class="string">"./admin/page2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  commons chunk</span></span><br><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        commons: <span class="string">"./entry-for-the-commons-chunk"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="官方建议场景"><a href="#官方建议场景" class="headerlink" title="官方建议场景"></a>官方建议场景</h2><h3 id="应用性能"><a href="#应用性能" class="headerlink" title="应用性能"></a>应用性能</h3><ul>
-<li>尽量使用<code>UglifyJsPlugin</code>减少文件体积</li>
-<li>使用代码分割, 使首次加载尽可能快速</li>
-<li>对于<code>React</code>, 使用 <code>react-proxy-loader</code></li>
-<li>添加 <code>hash</code> 到文件, 并尽可能长时间缓存</li>
-<li>使 <code>module/chunk</code> 的ID尽可能保持一致</li>
-<li>如果有静态页面, 使用 <code>html-webpack-plugin</code></li>
-<li>不要立即删除无用的资源(等待数周), 以免长时间保持浏览器窗口打开的用户 404</li>
-<li>使用<code>DefinePlugin</code>来配置应用(是否内联, 各种条件配置)</li>
-<li>使用<code>EnvironmentPlugin</code>来传递<code>process.env</code>到应用</li>
-<li>使用包分析工具来检查问题, 减小下载时间, 改进内聚性</li>
-<li>使用<code>stats-webpack-plugin</code>获取状态</li>
-<li>使用配置文件<code>option</code>来获取更多性能数据</li>
-<li>提取通用模块到单独的<code>script</code>文件(多页应用)</li>
-<li>使用<code>DedupePlugin</code>来删除与<code>NPM</code>重复的数据</li>
-<li>对<code>CSS</code>做处理</li>
-<li>对静态资源做处理(<code>font/image</code>)</li>
-<li>内联静态资源<code>url-loader</code>,减少加载时间</li>
-<li>用<code>extract-text-webpack-plugin</code>来分割CSS资源(有很多css资源的应用)</li>
-<li><code>LimitChunkCountPlugin</code> <code>MinChunkSizePlugin</code> <code>AggressiveMergingPlugin</code>来改善<code>chunk</code>传输</li>
-<li>通过添加<code>script</code>标签来异步<code>chunk</code>的加载</li>
-</ul>
-<h3 id="开发性能"><a href="#开发性能" class="headerlink" title="开发性能"></a>开发性能</h3><ul>
-<li>使用 <code>webpack.config.js</code> 代替 <code>CLi</code></li>
-<li>不要重写不兼容的<code>JS</code>, 使用 <code>imports-loader/exports-loader</code> 使之兼容, 并且更易升级</li>
-<li>使用 <code>webpack devtools</code> 来在浏览器调试</li>
-<li>尽可能使用 <code>ES6</code> 模块加载方式, 这更易于未来的优化(<code>webpack2</code>支持)</li>
-<li>使用 <code>output.library</code> 来声明依赖</li>
-<li>使用 <code>externals</code> 来对外声明依赖</li>
-<li>使用 <code>HMR</code> 代码热更新</li>
-<li>对于 <code>React</code> 使用 <code>react-hot-loader</code> 或 <code>react-transform</code></li>
-<li>自定义路由, 最好在路由级别更新</li>
-<li>使用<code>Javascript</code>来书写配置文件</li>
-<li>使用<code>resolve.root</code>来配置应用模块的路径, 允许较短的引用关系</li>
-<li>使用<code>karma</code> 通过 <code>karma-webpack</code>来在浏览器测试模块</li>
-<li>面向环境构建, 而不是面向浏览器构建</li>
-<li>使用<code>BannerPlugin</code>来放置<code>Licensing</code></li>
-<li>通过<code>debug</code>来获取更多的出错信息</li>
-<li>在<code>module.loaders</code>中使用<code>include</code>而不是<code>exclude</code>, 这样更不容易出错更加清晰</li>
-</ul>
-<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><ul>
-<li>使用增量备份 如果 <code>watch</code> 网络或<code>VM</code>内部的代码,请使用 <code>watchOptions.poll</code></li>
-<li>使用 <code>web-dev-server</code> 可以快速构建发布</li>
-<li>使用多个 入口点 , 而不是多次运行 <code>webpack</code>(多页应用)</li>
-<li>通过配置一个数组配置, 使<code>webpack</code>可以并行编译(大型配置复杂的应用)</li>
-<li>大型无依赖的模块要配置<code>module.noParse</code>, 可以更快构建</li>
-</ul>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="分割App中的共有模块和代码模块"><a href="#分割App中的共有模块和代码模块" class="headerlink" title="分割App中的共有模块和代码模块"></a>分割App中的共有模块和代码模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">    vendor: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"vendor.bundle.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="bundle.js"&gt;&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="多入口文件分割"><a href="#多入口文件分割" class="headerlink" title="多入口文件分割"></a>多入口文件分割</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123; <span class="attr">a</span>: <span class="string">"./a"</span>, <span class="attr">b</span>: <span class="string">"./b"</span> &#125;,</span><br><span class="line">    output: &#123; <span class="attr">filename</span>: <span class="string">"[name].js"</span> &#125;,</span><br><span class="line">    plugins: [ <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"init.js"</span>) ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"init.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="a.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script src=<span class="string">"b.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS样式单独切成独立文件"><a href="#CSS样式单独切成独立文件" class="headerlink" title="CSS样式单独切成独立文件"></a>CSS样式单独切成独立文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// The standard entry point and output config</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        posts: <span class="string">"./posts"</span>,</span><br><span class="line">        post: <span class="string">"./post"</span>,</span><br><span class="line">        about: <span class="string">"./about"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span>,</span><br><span class="line">        chunkFilename: <span class="string">"[id].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            <span class="comment">// Extract css files</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Optionally extract less files</span></span><br><span class="line">            <span class="comment">// or any other compile-to-css language</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// You could also use other loaders the same way. I. e. the autoprefixer-loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Use the plugin to specify the resulting filename (and add needed behavior to the compiler)</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含嵌入式的样式)</span></span><br></pre></td></tr></table></figure>
-<h3 id="所有的CSS文件合并成1个文件-allChunks设置成true"><a href="#所有的CSS文件合并成1个文件-allChunks设置成true" class="headerlink" title="所有的CSS文件合并成1个文件, allChunks设置成true"></a>所有的CSS文件合并成1个文件, allChunks设置成true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"style.css"</span>, &#123;</span><br><span class="line">            allChunks: <span class="literal">true</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js</span></span><br><span class="line"><span class="comment">// post.js</span></span><br><span class="line"><span class="comment">// about.js</span></span><br><span class="line"><span class="comment">// 1.js 2.js (don’t contain embedded styles)</span></span><br><span class="line"><span class="comment">// style.css</span></span><br></pre></td></tr></table></figure>
-<h3 id="公共样式会被抽出来"><a href="#公共样式会被抽出来" class="headerlink" title="公共样式会被抽出来"></a>公共样式会被抽出来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>),</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// commons.js commons.css</span></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含内置样式)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果 allChunks: true</span></span><br><span class="line"><span class="comment">// 1.js 2.js (不含内置样式)</span></span><br></pre></td></tr></table></figure>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="文件过大"><a href="#文件过大" class="headerlink" title="文件过大"></a>文件过大</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    topic:<span class="string">'./src/components/app/topic.js'</span></span><br><span class="line">    activity: <span class="string">'./src/components/app/activity.js'</span>,</span><br><span class="line">    react: [<span class="string">'react'</span>],</span><br><span class="line">    jquery: [<span class="string">'jquery'</span>]</span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">        name: [<span class="string">'jquery'</span>, <span class="string">'react'</span>], <span class="comment">//提取公共模块</span></span><br><span class="line">        minChunks: <span class="literal">Infinity</span> <span class="comment">//提取所有entry依赖模块</span></span><br><span class="line">        &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJSPlugin(&#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">            warinings: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="文件缓存"><a href="#文件缓存" class="headerlink" title="文件缓存"></a>文件缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/release/'</span>,</span><br><span class="line">    filename: <span class="string">'[chunkFilename:8].[name].js'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].[chunkFilename:8].js'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="自动生成页面"><a href="#自动生成页面" class="headerlink" title="自动生成页面"></a>自动生成页面</h3><p>使用 HtmlWebpackPlugin 和 ExtractTextPlugin 插件可以解决此问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">'topic.html'</span>,</span><br><span class="line">        template: __dirname + <span class="string">'/src/app.html'</span>,</span><br><span class="line">        inject: <span class="literal">true</span>,</span><br><span class="line">        chunks: [<span class="string">'react'</span>, <span class="string">'jquery'</span>, <span class="string">'topic'</span>],</span><br><span class="line">        <span class="comment">//排序</span></span><br><span class="line">        chunksSortModel: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> index = &#123;<span class="string">'topic'</span>: <span class="number">1</span>, <span class="string">'react'</span>: <span class="number">3</span>, <span class="string">'jquery'</span>: <span class="number">2</span>&#125;,</span><br><span class="line">              aI = index[a.origins[<span class="number">0</span>].name],</span><br><span class="line">              bI = index[b.origins[<span class="number">0</span>].name];</span><br><span class="line">            <span class="keyword">return</span> aI &amp;&amp; bI ? bI - aI : <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'comm.[contenthash:8].css'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dialog = <span class="built_in">require</span>(<span class="string">'../../widget/dialog'</span>),</span><br><span class="line">    $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/11/14/React-Router-使用教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/14/React-Router-使用教程/" itemprop="url">React Router 使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T11:38:16+08:00">
-                2017-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>真正学会 <a href="https://facebook.github.io/react/" target="_blank" rel="noopener">React</a> 是一个漫长的过程。<br><img src="/images/page/reactRouter/03.jpg" alt><br>你会发现，它不是一个库，也不是一个框架，而是一个庞大的体系。想要发挥它的威力，整个技术栈都要配合它改造。你要学习一整套解决方案，从后端到前端，都是全新的做法。<br><img src="/images/page/reactRouter/04.png" alt><br>举例来说，React 不使用 HTML，而使用 JSX 。它打算抛弃 DOM，要求开发者不要使用任何 DOM 方法。它甚至还抛弃了 SQL ，自己发明了一套查询语言 GraphQL 。当然，这些你都可以不用，React 照样运行，但是就发挥不出它的最大威力。<br>这样说吧，你只要用了 React，就会发现合理的选择就是，采用它的整个技术栈。<br>本文介绍 React 体系的一个重要部分：路由库<code>[React-Router](https://github.com/reactjs/react-router)</code>。它是官方维护的，事实上也是唯一可选的路由库。它通过管理 URL，实现组件的切换和状态的变化，开发复杂的应用几乎肯定会用到。<br><img src="/images/page/reactRouter/05.png" alt><br>（[说明] 本文写作时，React-router 是 2.x 版，本文的内容只适合这个版本，与最新的 4.x 版不兼容。目前，官方同时维护 2.x 和 4.x 两个版本，所以前者依然可以用在项目中。2017年3月）</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>React Router 安装命令如下。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -S react-router</span><br></pre></td></tr></table></figure></p>
-<p>使用时，路由器<code>Router</code>就是React的一个组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line">render(&lt;Router/&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure></p>
-<p><code>Router</code>组件本身只是一个容器，真正的路由要通过<code>Route</code>组件定义。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router, Route, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line">render((</span><br><span class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">), document.getElementById('app'));</span></span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，用户访问根路由<code>/</code>（比如<code>http://www.example.com/</code>），组件<code>APP</code>就会加载到<code>document.getElementById(&#39;app&#39;)</code>。<br>你可能还注意到，<code>Router</code>组件有一个参数<code>history</code>，它的值<code>hashHistory</code>表示，路由的切换由URL的<code>hash</code>变化决定，即<code>URL</code>的<code>#</code>部分发生变化。举例来说，用户访问<code>http://www.example.com/</code>，实际会看到的是<code>http://www.example.com/#/</code>。</p>
-<p><code>Route</code>组件定义了URL路径与组件的对应关系。你可以同时使用多个<code>Route</code>组件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/repos"</span> component=&#123;Repos&#125;/&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125;/&gt;</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，用户访问<code>/repos</code>（比如<code>http://localhost:8080/#/repos</code>）时，加载<code>Repos</code>组件；访问<code>/about</code>（<code>http://localhost:8080/#/about</code>）时，加载<code>About</code>组件。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/React-Router-使用教程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1648,7 +1643,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
