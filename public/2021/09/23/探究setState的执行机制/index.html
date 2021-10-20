@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://blog.html-js.site/images/page/20210923/1.png">
 <meta property="og:image" content="http://blog.html-js.site/images/page/20210923/2.png">
 <meta property="og:image" content="http://blog.html-js.site/images/page/20210923/3.webp">
-<meta property="og:updated_time" content="2021-09-23T03:49:14.684Z">
+<meta property="og:updated_time" content="2021-10-19T06:10:10.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="探究setState的执行机制">
 <meta name="twitter:description" content="一、几个开发中经常会遇到的问题以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。 1.setState是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?1.1 钩子函数和React合成事件中的 setState现在有两个组件 1234567891011componentDidMount() &amp;#123;  console.log(&apos;parent">
@@ -349,6 +349,7 @@
 <li>2.所有组件使用的是同一套更新机制，当所有组件 <code>didmount</code>后，父组件 <code>didmount</code>，然后执行更新</li>
 <li>3.更新时会把每个组件的更新合并，每个组件只会触发一次更新的生命周期。</li>
 </ul>
+<a id="more"></a>
 <h4 id="1-2-异步函数和原生事件中的-setstate？"><a href="#1-2-异步函数和原生事件中的-setstate？" class="headerlink" title="1.2 异步函数和原生事件中的 setstate？"></a>1.2 异步函数和原生事件中的 <code>setstate</code>？</h4><p>在 <code>setTimeout</code>中调用 <code>setState</code>（例子和在浏览器原生事件以及接口回调中执行效果相同）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount () &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用setState'</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用setState'</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行结果：</p>
@@ -555,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-count">97</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
