@@ -269,6 +269,168 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/" itemprop="url">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-20T11:33:26+08:00">
+                2021-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="浏览器包含哪些进程"><a href="#浏览器包含哪些进程" class="headerlink" title="浏览器包含哪些进程"></a>浏览器包含哪些进程</h3><ol>
+<li>Browser进程：浏览器的主进程（负责协调、主控），只有一个。作用有<ul>
+<li>负责浏览器界面显示，与用户交互。如前进，后退等</li>
+<li>负责各个页面的管理，创建和销毁其他进程</li>
+<li>将Renderer进程得到的内存中的Bitmap，绘制到用户界面上</li>
+<li>网络资源的管理，下载等</li>
+</ul>
+</li>
+<li>第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</li>
+<li>GPU进程：最多一个，用于3D绘制等</li>
+<li>浏览器渲染进程（浏览器内核）（Renderer进程，内部是多线程的）：默认每个Tab页面一个进程，互不影响。主要作用为<ul>
+<li>页面渲染，脚本执行，事件处理等</li>
+</ul>
+</li>
+</ol>
+<h3 id="重点是浏览器内核（渲染进程）"><a href="#重点是浏览器内核（渲染进程）" class="headerlink" title="重点是浏览器内核（渲染进程）"></a>重点是浏览器内核（渲染进程）</h3><p>请牢记，浏览器的渲染进程是多线程的</p>
+<ol>
+<li>GUI渲染线程<ul>
+<li>负责渲染浏览器界面，解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等。</li>
+<li>当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行</li>
+<li>注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于被冻结了），GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。</li>
+</ul>
+</li>
+<li>JS引擎线程<ul>
+<li>也称为JS内核，负责处理Javascript脚本程序。（例如V8引擎）</li>
+<li>JS引擎线程负责解析Javascript脚本，运行代码。</li>
+<li>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（renderer进程）中无论什么时候都只有一个JS线程在运行JS程序</li>
+<li>同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。</li>
+</ul>
+</li>
+<li>事件触发线程<ul>
+<li>归属于浏览器而不是JS引擎，用来控制事件循环（可以理解，JS引擎自己都忙不过来，需要浏览器另开线程协助）</li>
+<li>当JS引擎执行代码块如setTimeOut时（也可来自浏览器内核的其他线程,如鼠标点击、AJAX异步请求等），会将对应任务添加到事件线程中</li>
+<li>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理</li>
+<li>注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）</li>
+</ul>
+</li>
+<li>定时触发器线程<ul>
+<li>传说中的setInterval与setTimeout所在线程</li>
+<li>浏览器定时计数器并不是由JavaScript引擎计数的,（因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确）</li>
+<li>因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）</li>
+<li>注意，W3C在HTML标准中规定，规定要求setTimeout中低于4ms的时间间隔算为4ms。</li>
+</ul>
+</li>
+<li>异步http请求线程<ul>
+<li>在XMLHttpRequest在连接后是通过浏览器新开一个线程请求</li>
+<li>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由JavaScript引擎执行。</li>
+</ul>
+</li>
+</ol>
+<p><a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012925872</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/10/14/前端监控-SDK-的一些技术要点原理分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1373,121 +1535,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/03/程序员怎样保持竞争力/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/03/程序员怎样保持竞争力/" itemprop="url">程序员怎样保持竞争力</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-03T10:07:07+08:00">
-                2021-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>软件工程师最基本的能力就是<code>算法</code>+<code>coding</code>，经常刷题可以让自己保持手感，我已经坚持3年打卡<a href="https://leetcode-cn.com/" target="_blank" rel="noopener">leetcode</a>，一天未拉下，每天解决一道新题</p>
-<p><img src="/images/page/leetcode/1.jpeg" alt></p>
-<p>当然如果你只会刷题，你的竞争力就最多只是做一个合格的额螺丝钉。越高级的软件工程师需要在一个垂直领域有所擅长，比如系统设计。有了 <code>Domain of Expertise</code>，才能更好的升值。</p>
-<p>软件工程师需要有一些能拿得出手的作品，可以是之前公司所贡献或领导的产品，也可以是业余弄的 <code>side project</code>，比如可以是<code>开源</code>，或者是一些<a href="https://justyy.com/archives/31554" target="_blank" rel="noopener">挣钱</a>的项目。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1535,7 +1582,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">98</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
