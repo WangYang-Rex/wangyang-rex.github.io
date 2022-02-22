@@ -269,6 +269,144 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/01/17/前端知识点-前端基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/17/前端知识点-前端基础/" itemprop="url">前端知识点-前端基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-17T15:27:40+08:00">
+                2022-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1、列举你所了解的计算机存储设备类型？"><a href="#1、列举你所了解的计算机存储设备类型？" class="headerlink" title="1、列举你所了解的计算机存储设备类型？"></a>1、列举你所了解的计算机存储设备类型？</h2><p>现代计算机以<code>存储器为中心</code>，主要由 <code>CPU</code>、<code>I / O 设备</code>以及<code>主存储器</code>三大部分组成。各个部分之间通过<code>总线</code>进行连接通信，具体如下图所示：<br><img src="/images/page/knowledge/1.png" alt></p>
+<p>线结构的示意图，CPU、主存以及 I / O 设备之间的所有数据都是通过总线进行并行传输，使用局部总线是为了提高 CPU 的吞吐量（CPU 不需要直接跟 I / O 设备通信），而使用高速总线（更贴近 CPU）和 DMA 总线则是为了提升高速 I / O 设备（外设存储器、局域网以及多媒体等）的执行效率。</p>
+<h2 id="2、一般代码存储在计算机的哪个设备中？代码在-CPU-中是如何运行的？"><a href="#2、一般代码存储在计算机的哪个设备中？代码在-CPU-中是如何运行的？" class="headerlink" title="2、一般代码存储在计算机的哪个设备中？代码在 CPU 中是如何运行的？"></a>2、一般代码存储在计算机的哪个设备中？代码在 CPU 中是如何运行的？</h2><p>高级程序设计语言不能直接被计算机理解并执行，需要通过翻译程序将其转换成特定处理器上可执行的指令，计算机 CPU 的简单工作原理如下所示：<br><img src="/images/page/knowledge/2.png" alt></p>
+<p><code>CPU 主要由控制单元、运算单元和存储单元组成</code>（注意忽略了中断系统），各自的作用如下：</p>
+<ul>
+<li><code>控制单元</code>：在节拍脉冲的作用下，将程序计数器（Program Counter，PC）指向的主存或者多级高速缓存中的指令地址送到地址总线，接着获取指令地址所对应的指令并放入指令寄存器 （Instruction Register，IR）中，然后通过指令译码器（Instruction Decoder，ID）分析指令需要进行的操作，最后通过操作控制器（Operation Controller，OC）向其他设备发出微操作控制信号。</li>
+<li><code>运算单元</code>：如果控制单元发出的控制信号存在算术运算（加、减、乘、除、增 1、减 1、取反等）或者逻辑运算（与、或、非、异或），那么需要通过运算单元获取存储单元的计算数据进行处理。</li>
+<li><code>存储单元</code>：包括片内缓存和寄存器组，是 CPU 中临时数据的存储地方。CPU 直接访问主存数据大概需要花费数百个机器周期，而访问寄存器或者片内缓存只需要若干个或者几十个机器周期，因此会使用内部寄存器或缓存来存储和获取临时数据（即将被运算或者运算之后的数据），从而提高 CPU 的运行效率。</li>
+</ul>
+<h2 id="3、什么是指令和指令集？"><a href="#3、什么是指令和指令集？" class="headerlink" title="3、什么是指令和指令集？"></a>3、什么是指令和指令集？</h2><p>上图右侧主存中的指令是 <code>CPU 可以支持的处理命令</code>，一般包含<code>算术指令</code>（加和减）、<code>逻辑指令</code>（与、或和非）、<code>数据指令</code>（移动、输入、删除、加载和存储）、<code>流程控制指令</code>以及<code>程序结束指令</code>等，由于 CPU 只能识别二进制码，因此指令是由二进制码组成。除此之外，指令的集合称为指令集（例如汇编语言就是指令集的一种表现形式），常见的指令集有精简指令集（ARM）和复杂指令集（Inter X86）。一般指令集决定了 CPU 处理器的硬件架构，规定了处理器的相应操作。</p>
+<h2 id="5、JavaScript-是如何运行的？解释型语言和编译型语言的差异是什么？"><a href="#5、JavaScript-是如何运行的？解释型语言和编译型语言的差异是什么？" class="headerlink" title="5、JavaScript 是如何运行的？解释型语言和编译型语言的差异是什么？"></a>5、JavaScript 是如何运行的？解释型语言和编译型语言的差异是什么？</h2><p>解释器和编译器有很多相似之处，都需要对源程序进行分析，并转换成目标机器可识别的机器语言进行执行。<br><code>编译器</code>：先把源程序全部转换成机器语言并产生目标文件，然后将目标文件写入相应的程序存储器进行执行（转换和执行的过程分离）<br><code>解释器</code>：在转换源程序的同时立马执行对应的机器语言（转换和执行的过程不分离）<br>①JS代码-&gt;解析成 AST (期间伴随词法分析、语法分析)-&gt;生成字节码（V8）-&gt;生成机器码（编译器）</p>
+<p>电脑：CPU+I/O设备+主存储器组成，通过总线进行连接并行传输<br>CPU：控制单元+存储单元+运算单元<br>主存：指令，CPU可以支持的处理命令，一般包含算数指令(加减)、逻辑指令(与、或和非)、数据指令(移动、输入、删除、加载和存储)、流程控制指令、程序结束指令等</p>
+<h2 id="5-简单描述一下-Babel-的编译过程？"><a href="#5-简单描述一下-Babel-的编译过程？" class="headerlink" title="5.简单描述一下 Babel 的编译过程？"></a>5.简单描述一下 Babel 的编译过程？</h2><p>答： 首先，Babel的作用是 从一种源码到另一种源码，充当转换编译器的作用，可以简述为 解析（解析JS代码）-&gt;转换（解析和修改AST）-&gt;重建（将修改后的AST转换成另一种JS代码）</p>
+<h2 id="7-浏览器和-Node-js-中的事件循环机制有什么区别？"><a href="#7-浏览器和-Node-js-中的事件循环机制有什么区别？" class="headerlink" title="7.浏览器和 Node.js 中的事件循环机制有什么区别？"></a>7.浏览器和 Node.js 中的事件循环机制有什么区别？</h2><p>在浏览器里，每当一个被监听的事件发生时，事件监听器绑定的相关任务就会被添加进回调队列。通过事件产生的任务是异步任务，常见的事件任务包括：</p>
+<ul>
+<li>用户交互事件产生的事件任务，比如输入操作；</li>
+<li>计时器产生的事件任务，比如setTimeout；</li>
+<li>异步请求产生的事件任务，比如 HTTP 请求。<br>主线程运行的时候，会产生堆（heap）和栈（stack），其中堆为内存、栈为函数调用栈。我们能看到，Event Loop 负责执行代码、收集和处理事件以及执行队列中的子任务，具体包括以下过程。</li>
+<li>JavaScript 有一个主线程和调用栈，所有的任务最终都会被放到调用栈等待主线程执行。</li>
+<li>同步任务会被放在调用栈中，按照顺序等待主线程依次执行。</li>
+<li>主线程之外存在一个回调队列，回调队列中的异步任务最终会在主线程中以调用栈的方式运行。</li>
+<li>同步任务都在主线程上执行，栈中代码在执行的时候会调用浏览器的 API，此时会产生一些异步任务。</li>
+<li>异步任务会在有了结果（比如被监听的事件发生时）后，将异步任务以及关联的回调函数放入回调队列中。</li>
+<li>调用栈中任务执行完毕后，此时主线程处于空闲状态，会从回调队列中获取任务进行处理。</li>
+<li>上述过程会不断重复，这就是 JavaScript 的运行机制，称为事件循环机制（Event Loop）</li>
+</ul>
+<p><a href="https://juejin.cn/post/6987549240436195364#heading-0" target="_blank" rel="noopener">https://juejin.cn/post/6987549240436195364#heading-0</a><br><a href="https://juejin.cn/post/6987070062490288165?share_token=3904e7be-48e7-44bf-a27c-66ab95dd598c#heading-65" target="_blank" rel="noopener">https://juejin.cn/post/6987070062490288165?share_token=3904e7be-48e7-44bf-a27c-66ab95dd598c#heading-65</a><br><a href="https://juejin.cn/post/6844903843197616136#heading-3" target="_blank" rel="noopener">https://juejin.cn/post/6844903843197616136#heading-3</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/12/20/手写Promise源码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1381,123 +1519,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/Jenkins自动化构建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/09/Jenkins自动化构建/" itemprop="url">Jenkins自动化构建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-09T16:46:46+08:00">
-                2021-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/5f671aca2b5a" target="_blank" rel="noopener">https://www.jianshu.com/p/5f671aca2b5a</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1540,7 +1566,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-count">101</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
