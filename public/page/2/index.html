@@ -269,6 +269,258 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/23/探究setState的执行机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/23/探究setState的执行机制/" itemprop="url">探究setState的执行机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-23T11:15:39+08:00">
+                2021-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一、几个开发中经常会遇到的问题"><a href="#一、几个开发中经常会遇到的问题" class="headerlink" title="一、几个开发中经常会遇到的问题"></a>一、几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
+<h3 id="1-setState是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以"><a href="#1-setState是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以" class="headerlink" title="1.setState是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?"></a>1.setState是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?</h3><h4 id="1-1-钩子函数和React合成事件中的-setState"><a href="#1-1-钩子函数和React合成事件中的-setState" class="headerlink" title="1.1 钩子函数和React合成事件中的 setState"></a>1.1 钩子函数和React合成事件中的 <code>setState</code></h4><p>现在有两个组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parent componentDidMount'</span>);</span><br><span class="line">&#125;</span><br><span class="line">render()&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;SetState1&gt;&lt;<span class="regexp">/SetState1&gt;</span></span><br><span class="line"><span class="regexp">      &lt;SetState2&gt;&lt;/</span>SetState2&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>组件内部放入同样的代码，并在 <code>Setstate1</code>中的 <code>componentDidMount</code>中放入一段同步延时代码，打印延时时间：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">componentWillUpdate()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>)</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentDidUpdate'</span>)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>)</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>);</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state), this.state.index'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是执行结果：<br><img src="/images/page/20210923/1.png" alt></p>
+<p>说明：</p>
+<ul>
+<li>1.调用 setState不会立即更新</li>
+<li>2.所有组件使用的是同一套更新机制，当所有组件 <code>didmount</code>后，父组件 <code>didmount</code>，然后执行更新</li>
+<li>3.更新时会把每个组件的更新合并，每个组件只会触发一次更新的生命周期。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/09/23/探究setState的执行机制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/13/谈谈对前端框架的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/13/谈谈对前端框架的理解/" itemprop="url">谈谈对前端框架的理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-13T14:58:27+08:00">
+                2021-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最早的时候页面是服务端渲染的，也就是 PHP、JSP 那些技术，服务端通过模版引擎填充数据，返回生成的 html，交给浏览器渲染。那时候表单会同步提交，服务端返回结果页面的 html。</p>
+<p>后来浏览器有了 ajax 技术，可以异步的请求，服务端返回 xml 或者 json。ajax 最早是基于 xml 的，这也是它名字的由来。因为 xml 多了很多没必要的标签，内容比较多，所以后来 json 流行开来。</p>
+<p>网页和服务端的数据交互变成了异步的，可以服务端返回 json 数据，浏览器里拼接 html，之后渲染（浏览器里面生成 dom 就等同于渲染）。页面基本没啥刷新的必要了，于是后来就逐渐演变出了单页应用 SPA（single page application）。</p>
+<p>早期开发页面的时候就是基于浏览器的 dom api 操作 dom 来做渲染和交互，但是 dom api 比较啰嗦，而且当时浏览器的兼容性问题也比较麻烦，不同浏览器有不同的写法。为了简化 dom 操作和更方便的兼容各种浏览器，出现了 jquery 并且迅速流行开来，那个时代 jquery 是如日中天的。</p>
+<p>我一直习惯把网页分为物理层和逻辑层，dom 就算是物理层，jquery 是操作 dom 的一系列工具函数，也是工作在物理层。</p>
+<p>网页做的事情基本就是拿到数据渲染 dom，并且数据改变之后更新 dom，这个流程是通用的，后来逐渐出现了 mvvm 框架，来自动把数据的变更映射到 dom，不再需要手动操作 dom。也就是 vue、react 等现代的前端框架。我把这一层叫做逻辑层。</p>
+<p>前端框架除了提供了数据驱动视图变化的功能以外，还支持了 dom 的逻辑划分，可以把一部分 dom 封装成组件，组件和组件之间相互组合，构成整个界面。物理层依然是 dom，只是实现了数据到 dom 的自动映射之后，我们只需要在逻辑层写组件就可以了。</p>
+<p>现在前端入门也不会再学物理层的操作 dom 的 jquery 了，而是直接从 vue、react 这种逻辑层的前端框架开始。</p>
+<p><a href="https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz</a><br>wget <a href="https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</a></p>
+<p>tar xvf node-v12.22.4-linux-x64.tar.xz<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/node /usr/local/bin/node<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/npm /usr/local/bin/npm<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/09/13/谈谈对前端框架的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/Jenkins自动化构建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1237,281 +1489,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/10/React-Router源码解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/08/10/React-Router源码解析/" itemprop="url">React Router源码解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-10T17:06:00+08:00">
-                2021-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我一直认为，会用框架和用好框架是有很大的区别的，当用框架到一定程度的时候，就需要看看框架对应生态中那些不可获取的库，这样能加深在不同框架中同样的功能的优秀实现方案。</p>
-<blockquote>
-<p>了解React Router的实现原理<br>如何监听路有变化以及渲染对应的组件</p>
-</blockquote>
-<h3 id="React-Router是什么？"><a href="#React-Router是什么？" class="headerlink" title="React Router是什么？"></a>React Router是什么？</h3><p>React Router是React团队开发的基于React框架架构所实现的路由库。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//github.com/ReactTraining/react-router" target="_blank" rel="noopener">react-router</a></p>
-<p>React Router有多个版本。</p>
-<p><img src="/images/page/reactRouter2/1.png" alt></p>
-<p><code>react-router-dom</code>是基于<code>react-router</code>再封装的一个带有<code>React DOM</code>组件的库，其中包括了<code>Link</code>、<code>HashRouter</code>、<code>BrowserRouter</code>等组件提供给开发者通过使用标签的方式控制路由跳转。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/08/10/React-Router源码解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/05/react-router-dom简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/08/05/react-router-dom简介/" itemprop="url">react-router-dom简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T13:47:32+08:00">
-                2021-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://codesandbox.io/s/misty-haze-eq546?file=/example.js" target="_blank" rel="noopener">https://codesandbox.io/s/misty-haze-eq546?file=/example.js</a></p>
-<p>react-router-dom</p>
-<blockquote>
-<p>react-router-dom文档地址： <a href="https://reactrouter.com/web/guides/quick-start/" target="_blank" rel="noopener">https://reactrouter.com/web/guides/quick-start/</a></p>
-</blockquote>
-<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><blockquote>
-<p>react-router提供多个包可以单独使用</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">package</th>
-<th style="text-align:center">description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">react-router</td>
-<td style="text-align:center">路由核心功能</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-dom</td>
-<td style="text-align:center">基于react-router提供在浏览器运行环境下功能</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-native</td>
-<td style="text-align:center">for React Native</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-config</td>
-<td style="text-align:center">static route congif helpers</td>
-</tr>
-</tbody>
-</table>
-<p>在浏览器中运行只需要安装react-router-dom，reac-router-dom依赖react-router会自动安装依赖，所以不需要再手动安装react-router</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom -S</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/08/05/react-router-dom简介/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1559,7 +1536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-count">103</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1572,7 +1549,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

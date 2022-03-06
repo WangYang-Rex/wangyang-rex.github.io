@@ -269,6 +269,259 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/08/25/react事件研究及阻止冒泡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/25/react事件研究及阻止冒泡/" itemprop="url">react事件研究及阻止冒泡</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T22:14:08+08:00">
+                2017-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="React-中的事件处理逻辑"><a href="#React-中的事件处理逻辑" class="headerlink" title="React 中的事件处理逻辑"></a>React 中的事件处理逻辑</h3><p>为了解决跨浏览器兼容性问题，<code>React</code> 会将浏览器原生事件（<code>Browser Native Event</code>）封装为合成事件（<code>SyntheticEvent</code>）传入设置的事件处理器中。这里的合成事件提供了与原生事件相同的接口，不过它们屏蔽了底层浏览器的细节差异，保证了行为的一致性。另外有意思的是，<code>React</code> 并没有直接将事件附着到子元素上，而是以单一事件监听器的方式将所有的事件发送到顶层进行处理。这样 <code>React</code> 在更新 <code>DOM</code> 的时候就不需要考虑如何去处理附着在 <code>DOM</code> 上的事件监听器，最终达到优化性能的目的。</p>
+<h3 id="合成事件-SyntheticEvent"><a href="#合成事件-SyntheticEvent" class="headerlink" title="合成事件 SyntheticEvent"></a>合成事件 SyntheticEvent</h3><p><code>SyntheticEvent</code> 是浏览器原生事件跨浏览器的封装。<code>SyntheticEvent</code> 和浏览器原生事件一样有 <code>stopPropagation()</code>、<code>preventDefault()</code> 接口，而且这些接口夸浏览器兼容。</p>
+<p>如果出于某些原因想使用浏览器原生事件，可以使用 <code>nativeEvent</code> 属性获取。每个和成事件（<code>SyntheticEvent</code>）对象都有以下属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">boolean bubbles</span><br><span class="line">boolean cancelable</span><br><span class="line">DOMEventTarget currentTarget</span><br><span class="line">boolean defaultPrevented</span><br><span class="line">Number eventPhase</span><br><span class="line">boolean isTrusted</span><br><span class="line">DOMEvent nativeEvent</span><br><span class="line">void preventDefault()</span><br><span class="line">void stopPropagation()</span><br><span class="line">DOMEventTarget target</span><br><span class="line">Date timeStamp</span><br><span class="line">String type</span><br></pre></td></tr></table></figure></p>
+<h3 id="支持的事件"><a href="#支持的事件" class="headerlink" title="支持的事件"></a>支持的事件</h3><p>React 将事件统一化，使事件在不同浏览器上有一致的属性。</p>
+<p>事件处理程序在事件冒泡阶段被触发。如果要注册事件捕获处理程序，应该使用 <code>Capture</code> 事件，例如使用 <code>onClickCapture</code> 处理点击事件的捕获阶段，而不是 <code>onClick</code>。</p>
+<h3 id="阻止冒泡事件分三种情况"><a href="#阻止冒泡事件分三种情况" class="headerlink" title="阻止冒泡事件分三种情况"></a>阻止冒泡事件分三种情况</h3><p>A、阻止合成事件间的冒泡，用e.stopPropagation();<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            count:<span class="number">0</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick(e)&#123;</span><br><span class="line">        <span class="comment">// 阻止合成事件间的冒泡</span></span><br><span class="line">        e.stopPropagation();</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    testClick()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'test'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span>(</span><br><span class="line">            &lt;div ref=<span class="string">"test"</span> onClick=&#123;()=&gt;<span class="keyword">this</span>.testClick()&#125;&gt;</span><br><span class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/</span>a&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var div1 = document.getElementById('content');</span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;Counter/</span>&gt;,div1,()=&gt;&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>B、阻止合成事件与最外层<code>document</code>上的事件间的冒泡，用<code>e.nativeEvent.stopImmediatePropagation()</code>;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            count:<span class="number">0</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick(e)&#123;</span><br><span class="line">        <span class="comment">// 阻止合成事件与最外层document上的事件间的冒泡</span></span><br><span class="line">        e.nativeEvent.stopImmediatePropagation();</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span>(</span><br><span class="line">            &lt;div ref=<span class="string">"test"</span>&gt;</span><br><span class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/</span>a&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    componentDidMount() &#123;</span></span><br><span class="line"><span class="regexp">        document.addEventListener('click', () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            console.log('document');</span></span><br><span class="line"><span class="regexp">        &#125;);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var div1 = document.getElementById('content');</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;Counter/</span>&gt;,div1,()=&gt;&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>C、阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM,&#123;findDOMNode&#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            count:<span class="number">0</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick(e)&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>:++<span class="keyword">this</span>.state.count&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span>(</span><br><span class="line">            &lt;div ref=<span class="string">"test"</span>&gt;</span><br><span class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">                &lt;a ref="update" onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;更新&lt;/</span>a&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    componentDidMount() &#123;</span></span><br><span class="line"><span class="regexp">        document.body.addEventListener('click',e=&gt;&#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 通过e.target判断阻止冒泡</span></span><br><span class="line"><span class="regexp">            if(e.target&amp;&amp;e.target.matches('a'))&#123;</span></span><br><span class="line"><span class="regexp">                return;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">            console.log('body');</span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var div1 = document.getElementById('content');</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;Counter/</span>&gt;,div1,()=&gt;&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="stackoverflow"><a href="#stackoverflow" class="headerlink" title="stackoverflow"></a>stackoverflow</h3><p><a href="https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events" target="_blank" rel="noopener">https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events</a></p>
+<p>React uses event delegation with a single event listener on document for events that bubble, like ‘click’ in this example, which means stopping propagation is not possible; the real event has already propagated by the time you interact with it in React. stopPropagation on React’s synthetic event is possible because React handles propagation of synthetic events internally.</p>
+<p>Working JSFiddle with the fixes from below: <a href="http://jsfiddle.net/7LEDT/6/" target="_blank" rel="noopener">http://jsfiddle.net/7LEDT/6/</a></p>
+<p>React Stop Propagation on jQuery Event</p>
+<p>Use <code>Event.stopImmediatePropagation</code> to prevent your other (jQuery in this case) listeners on the root from being called. It is supported in IE9+ and modern browsers.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.nativeEvent.stopImmediatePropagation();</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Caveat: Listeners are called in the order in which they are bound. React must be initialized before other code (jQuery here) for this to work.</li>
+</ul>
+<p>jQuery Stop Propagation on React Event</p>
+<p>Your jQuery code uses event delegation as well, which means calling stopPropagation in the handler is not stopping anything; the event has already propagated to document, and React’s listener will be triggered.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Listener bound to `document`, event delegation</span></span><br><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.stop-propagation'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>To prevent propagation beyond the element, the listener must be bound to the element itself:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Listener bound to `.stop-propagation`, no delegation</span></span><br><span class="line">$(<span class="string">'.stop-propagation'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Clarified that delegation is necessarily only used for events that bubble. For more details on event handling, React’s source has descriptive comments: <a href="https://github.com/facebook/react/blob/3b96650e39ddda5ba49245713ef16dbc52d25e9e/src/renderers/dom/client/ReactBrowserEventEmitter.js#L23" target="_blank" rel="noopener">https://github.com/facebook/react/blob/3b96650e39ddda5ba49245713ef16dbc52d25e9e/src/renderers/dom/client/ReactBrowserEventEmitter.js#L23</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/08/17/JavaScript-中的匿名递归/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/17/JavaScript-中的匿名递归/" itemprop="url">JavaScript 中的匿名递归</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T14:12:47+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>代码如果这么写，过一段时间之后自己还能明白？</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">  (</span><br><span class="line">    (f) =&gt; f(f)</span><br><span class="line">  )</span><br><span class="line">  (</span><br><span class="line">    (f) =&gt;</span><br><span class="line">      (l) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(l)</span><br><span class="line">        <span class="keyword">if</span> (l.length) f(f)(l.slice(<span class="number">1</span>))</span><br><span class="line">        <span class="built_in">console</span>.log(l)</span><br><span class="line">      &#125;</span><br><span class="line">  )</span><br><span class="line">)</span><br><span class="line">(</span><br><span class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>是的，这就是想要分享给大家的一个有趣的示例。这个例子包含以下特性：闭包)，自执行函数，箭头函数，函数式编程 和 匿名递归。</p>
+<p>你可以复制粘贴上述代码到浏览器控制台，会看到打印结果如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line">[ <span class="number">3</span> ]</span><br><span class="line">[]</span><br><span class="line">[]</span><br><span class="line">[ <span class="number">3</span> ]</span><br><span class="line">[ <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line">[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/17/JavaScript-中的匿名递归/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/08/01/八段代码彻底掌握-Promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1204,239 +1457,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/" itemprop="url">commander.js-node.js 命令行接口的完整解决方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T09:52:17+08:00">
-                2017-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Commander-js"><a href="#Commander-js" class="headerlink" title="Commander.js"></a>Commander.js</h1><p><a href="http://nodejs.org" target="_blank" rel="noopener">node.js</a> 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。<br><a href="http://tj.github.com/commander.js/" target="_blank" rel="noopener">API 文档</a><br>本文所有的例子都可以用 <code>node name.js &lt;command/option&gt;</code> 执行<br>吐槽：commander.js中文文档真的好难找哇<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/05/22/当你不知道干什么的时候，可以看看这些/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/22/当你不知道干什么的时候，可以看看这些/" itemprop="url">当你不知道干什么的时候，可以看看这些</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T17:15:38+08:00">
-                2017-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="可以看看电影视频"><a href="#可以看看电影视频" class="headerlink" title="可以看看电影视频"></a>可以看看电影视频</h2><p><a href="https://movie.douban.com/top250" target="_blank" rel="noopener">豆瓣电影250</a> 随便挑一个都是百看不厌<br><a href="http://open.163.com/" target="_blank" rel="noopener">网易公开课</a> 不带目的随便看几个ted<br><a href="http://letshareba.com/movie" target="_blank" rel="noopener">最近正在热映电影</a> 可以看看评分，然后去电影院看看</p>
-<h2 id="可以看看知乎"><a href="#可以看看知乎" class="headerlink" title="可以看看知乎"></a>可以看看知乎</h2><p><a href="https://www.zhihu.com/collection/37406996" target="_blank" rel="noopener">知乎5000斩</a> 都是5K赞以上的回答</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/22/当你不知道干什么的时候，可以看看这些/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1484,7 +1504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-count">103</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1497,7 +1517,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
