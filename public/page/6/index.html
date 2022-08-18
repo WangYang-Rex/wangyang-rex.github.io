@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -74,10 +75,10 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javascript,洋仔,洋洋,wangyang">
 
 
 
@@ -88,23 +89,23 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
 
 
 
-<meta name="description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta name="description" content="Stay Hungry！ Stay Young！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="大洋">
 <meta property="og:url" content="http://blog.html-js.site/page/6/index.html">
 <meta property="og:site_name" content="大洋">
-<meta property="og:description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta property="og:description" content="Stay Hungry！ Stay Young！">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大洋">
-<meta name="twitter:description" content="成功道路并不拥挤，因为坚持的人不多">
+<meta name="twitter:description" content="Stay Hungry！ Stay Young！">
 
 
 
@@ -112,9 +113,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -128,16 +130,6 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
-</script>
-
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?a7c71e140bbb888f55ad26943955ca83";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
 </script>
 
 
@@ -154,6 +146,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -176,8 +178,12 @@
   <div class="container sidebar-position-left 
    page-home 
  ">
-    <div class="headband"></div>
-    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <div class="headband">
+      <a target="_blank" href="https://github.com/WangYang-Rex">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical->
+      </a>
+    </div>
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -217,6 +223,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -268,7 +284,368 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/03/08/AntD-Modal组件的实现原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/08/AntD-Modal组件的实现原理/" itemprop="url">AntD Modal组件的实现原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T14:06:23+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/08/AntD-Modal组件的实现原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/08/AntD-Modal组件的实现原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Ant Design(AntD)是React的一种UI组件。开发中使用AntD的Modal,在处理用户处理事务,在当前页面弹出一个对话框,承载相应的操作。现在来看看AntD的实现原理</p>
+<p>先写列出部分Modal基本用法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.showModal&#125;&gt;Open a modal dialog&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Modal title="Basic Modal" visible=&#123;this.state.visible&#125;</span></span><br><span class="line"><span class="regexp">          onOk=&#123;this.handleOk&#125; onCancel=&#123;this.handleCancel&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">          &lt;p&gt;some contents...&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">          &lt;p&gt;some contents...&lt;/</span>p&gt;</span><br><span class="line">        &lt;<span class="regexp">/Modal&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//----------------</span></span><br><span class="line">ReactDOM.render(&lt;App /&gt;,mountNode)</span><br></pre></td></tr></table></figure>
+<p>这样即可使用模态对话框组件。<br>打开浏览器的开发者功能可以看到对话框的div始终在body内层中，而不是在mountNode内部。当然模态对话框本就应该存在body内存中，而不是任意其他组件元素内部,否则嵌套效果不好，添加动画会招来性能问题。<br>这是为什么？<br>从AntD的Modal组件源码中(components/modal/index.tsx)，可以看到如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> confirm <span class="keyword">from</span> <span class="string">'./confirm'</span>;</span><br><span class="line">Modal.success = <span class="function"><span class="keyword">function</span> (<span class="params">props: ModalFuncProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> config = assign(&#123;&#125;, &#123;</span><br><span class="line">    type: <span class="string">'success'</span>,</span><br><span class="line">    iconType: <span class="string">'check-circle'</span>,</span><br><span class="line">    okCancel: <span class="literal">false</span>,</span><br><span class="line">  &#125;, props);</span><br><span class="line">  <span class="keyword">return</span> confirm(config);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当Modal加载成功后，还需要进一步从confirm(config)获取组件。<br>我们进一步查看confirm,在confirm.tsx(components/modal/confirm.tsx)可以看到如下源码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line"><span class="comment">//......</span></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Dialog</span><br><span class="line">    className=&#123;classString&#125;</span><br><span class="line">    onCancel=&#123;close.bind(<span class="keyword">this</span>, &#123; <span class="attr">triggerCancel</span>: <span class="literal">true</span> &#125;)&#125;</span><br><span class="line">    visible</span><br><span class="line">    title=<span class="string">""</span></span><br><span class="line">    transitionName=<span class="string">"zoom"</span></span><br><span class="line">    footer=<span class="string">""</span></span><br><span class="line">    maskTransitionName=<span class="string">"fade"</span></span><br><span class="line">    maskClosable=&#123;maskClosable&#125;</span><br><span class="line">    style=&#123;style&#125;</span><br><span class="line">    width=&#123;width&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;div className=&#123;<span class="string">`<span class="subst">$&#123;prefixCls&#125;</span>-body-wrapper`</span>&#125;&gt;</span><br><span class="line">      &#123;body&#125; &#123;footer&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Dialog&gt;</span><br><span class="line">, div);</span><br></pre></td></tr></table></figure>
+<p>最后再次使用ReactDOM.render()在创建的div内部添加对话框。<br>同时这是说明,ReactDOM.render()并不是只有在顶层要嵌入的div中使用。内部同样可以再次使用。</p>
+<p>！！！但是，ReactDOM.render()方法，虽然可以实现组件的挂载点脱离父组件，但是组件的事件无法通过冒泡机制传递给父组件，也就是说如果挂载点div脱离了顶层root组件(<code>&lt;App /&gt;</code>)，那么挂载在div上面的组件也没办法使用redux。</p>
+<p>那么为什么Antd-Modal到底是怎么实现的呢？ 原因是Antd-Modal里面使用了<a href="https://github.com/react-component/dialog" target="_blank" rel="noopener">rc-dialog</a> 组件，里面的<code>DialogWrap</code>组件使用了<a href="https://github.com/react-component/util" target="_blank" rel="noopener">rc-util</a>这个库的<a href="https://github.com/react-component/util/blob/master/src/ContainerRender.js" target="_blank" rel="noopener">ContainerRender.js</a>和<a href="https://github.com/react-component/util/blob/master/src/Portal.js" target="_blank" rel="noopener">Portal.js</a>方法，这个库解决了 ‘组件的挂载点虽然可以脱离父组件，但组件的事件通过冒泡机制仍可以传给父组件’ 问题</p>
+<p>详情请看下一篇博客&gt;&gt;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/11/29/Webpack-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/29/Webpack-学习笔记/" itemprop="url">Webpack 学习笔记[精华]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T19:21:34+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/29/Webpack-学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/29/Webpack-学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>webpack 是模块打包系统, 代码分割, 加载器, 聪明的解析, 以及插件系统是它的特色<br><a href="https://webpack.github.io/docs/configuration.html" target="_blank" rel="noopener">https://webpack.github.io/docs/configuration.html</a> //config配置</p>
+<h3 id="cli-参数"><a href="#cli-参数" class="headerlink" title="cli 参数"></a>cli 参数</h3><ul>
+<li>–hot 代码热更新</li>
+<li>–progress 有tab栏</li>
+<li>–watch 实时监控</li>
+<li>-debug 调试</li>
+</ul>
+<h3 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h3><p>加载器的使用, 加载器可以配置query参数并可以链式调用, 本质上是纯函数, 遵循单一职责原则<br><a href="https://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="noopener">https://webpack.github.io/docs/list-of-loaders.html</a><br><a href="https://webpack.github.io/docs/loader-conventions.html" target="_blank" rel="noopener">https://webpack.github.io/docs/loader-conventions.html</a></p>
+<h3 id="devTools"><a href="#devTools" class="headerlink" title="devTools"></a>devTools</h3><p>webpack-dev-server / webpack-dev-middleware / koa-webpack-dev</p>
+<h3 id="codeSplitting-代码分割"><a href="#codeSplitting-代码分割" class="headerlink" title="codeSplitting 代码分割"></a>codeSplitting 代码分割</h3><p>定义分割点<br>CommonJS: require.ensure<br>AMD: require</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([<span class="string">"./file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// is equal to</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>.include(<span class="string">"./file"</span>);</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"./file2"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><h3 id="最小化"><a href="#最小化" class="headerlink" title="最小化"></a>最小化</h3><p>new webpack.optimize.UglifyJsPlugin() // 压缩<br>new webpack.optimize.OccurrenceOrderPlugin() //排序输出</p>
+<h3 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h3><p>new webpack.optimize.DedupePlugin()</p>
+<h3 id="设置分块传输大小和数目"><a href="#设置分块传输大小和数目" class="headerlink" title="设置分块传输大小和数目"></a>设置分块传输大小和数目</h3><p>new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})<br>new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000})</p>
+<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>webpack-dev-server/webpack-dev-middleware/webpack –watch or watch: true</p>
+<h3 id="不解析"><a href="#不解析" class="headerlink" title="不解析"></a>不解析</h3><p>noParse</p>
+<h3 id="SourceMap-使调试更容易）"><a href="#SourceMap-使调试更容易）" class="headerlink" title="SourceMap (使调试更容易）"></a>SourceMap (使调试更容易）</h3><ul>
+<li>devtool: “source-map” 在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的<code>source map</code>，但是它会减慢打包速度；</li>
+<li>devtool: “cheap-module-source-map” 在一个单独的文件中生成一个不带列映射的<code>map</code>，不带列映射提高了打包速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；</li>
+<li>devtool: “eval-source-map” 使用<code>eval</code>打包源文件模块，在同一个文件中生成干净的完整的<code>source map</code>。这个选项可以在不影响构建速度的前提下生成完整的<code>sourcemap</code>，但是对打包后输出的JS文件的执行具有性能和安全的隐患。在开发阶段这是一个非常好的选项，在生产阶段则一定不要启用这个选项；</li>
+<li>devtool: “cheap-module-eval-source-map” 这是在打包文件时最快的生成<code>source map</code>的方法，生成的<code>Source Map</code> 会和打包后的<code>JavaScript</code>文件同行显示，没有列映射，和<code>eval-source-map</code>选项具有相似的缺点；</li>
+</ul>
+<p>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的打包速度的后果就是对打包后的文件的的执行有一定影响。</p>
+<blockquote>
+<p><code>cheap-module-eval-source-map</code>方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。</p>
+</blockquote>
+<p>对小到中型的项目中，eval-source-map是一个很好的选项，再次强调你只应该开发阶段使用它</p>
+<h3 id="模块-和-依赖位置"><a href="#模块-和-依赖位置" class="headerlink" title="模块 和 依赖位置"></a>模块 和 依赖位置</h3><p>RESOLVE.ROOT VS RESOLVE.MODULESDIRECTORIES</p>
+<h3 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h3><p>初始加载的应该是路由和首页, 然后再加载其他页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"entry-chunk.js"</span> type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="3.chunk.js" type="text/</span>javascript<span class="string">" charset="</span>utf<span class="number">-8</span><span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="多页应用"><a href="#多页应用" class="headerlink" title="多页应用"></a>多页应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        p3: <span class="string">"./page3"</span>,</span><br><span class="line">        ap1: <span class="string">"./admin/page1"</span>,</span><br><span class="line">        ap2: <span class="string">"./admin/page2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"admin-commons.js"</span>, [<span class="string">"ap1"</span>, <span class="string">"ap2"</span>]),</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons.js"</span>, [<span class="string">"p1"</span>, <span class="string">"p2"</span>, <span class="string">"admin-commons.js"</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  commons chunk</span></span><br><span class="line"><span class="keyword">var</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">"webpack/lib/optimize/CommonsChunkPlugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        p1: <span class="string">"./page1"</span>,</span><br><span class="line">        p2: <span class="string">"./page2"</span>,</span><br><span class="line">        commons: <span class="string">"./entry-for-the-commons-chunk"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="官方建议场景"><a href="#官方建议场景" class="headerlink" title="官方建议场景"></a>官方建议场景</h2><h3 id="应用性能"><a href="#应用性能" class="headerlink" title="应用性能"></a>应用性能</h3><ul>
+<li>尽量使用<code>UglifyJsPlugin</code>减少文件体积</li>
+<li>使用代码分割, 使首次加载尽可能快速</li>
+<li>对于<code>React</code>, 使用 <code>react-proxy-loader</code></li>
+<li>添加 <code>hash</code> 到文件, 并尽可能长时间缓存</li>
+<li>使 <code>module/chunk</code> 的ID尽可能保持一致</li>
+<li>如果有静态页面, 使用 <code>html-webpack-plugin</code></li>
+<li>不要立即删除无用的资源(等待数周), 以免长时间保持浏览器窗口打开的用户 404</li>
+<li>使用<code>DefinePlugin</code>来配置应用(是否内联, 各种条件配置)</li>
+<li>使用<code>EnvironmentPlugin</code>来传递<code>process.env</code>到应用</li>
+<li>使用包分析工具来检查问题, 减小下载时间, 改进内聚性</li>
+<li>使用<code>stats-webpack-plugin</code>获取状态</li>
+<li>使用配置文件<code>option</code>来获取更多性能数据</li>
+<li>提取通用模块到单独的<code>script</code>文件(多页应用)</li>
+<li>使用<code>DedupePlugin</code>来删除与<code>NPM</code>重复的数据</li>
+<li>对<code>CSS</code>做处理</li>
+<li>对静态资源做处理(<code>font/image</code>)</li>
+<li>内联静态资源<code>url-loader</code>,减少加载时间</li>
+<li>用<code>extract-text-webpack-plugin</code>来分割CSS资源(有很多css资源的应用)</li>
+<li><code>LimitChunkCountPlugin</code> <code>MinChunkSizePlugin</code> <code>AggressiveMergingPlugin</code>来改善<code>chunk</code>传输</li>
+<li>通过添加<code>script</code>标签来异步<code>chunk</code>的加载</li>
+</ul>
+<h3 id="开发性能"><a href="#开发性能" class="headerlink" title="开发性能"></a>开发性能</h3><ul>
+<li>使用 <code>webpack.config.js</code> 代替 <code>CLi</code></li>
+<li>不要重写不兼容的<code>JS</code>, 使用 <code>imports-loader/exports-loader</code> 使之兼容, 并且更易升级</li>
+<li>使用 <code>webpack devtools</code> 来在浏览器调试</li>
+<li>尽可能使用 <code>ES6</code> 模块加载方式, 这更易于未来的优化(<code>webpack2</code>支持)</li>
+<li>使用 <code>output.library</code> 来声明依赖</li>
+<li>使用 <code>externals</code> 来对外声明依赖</li>
+<li>使用 <code>HMR</code> 代码热更新</li>
+<li>对于 <code>React</code> 使用 <code>react-hot-loader</code> 或 <code>react-transform</code></li>
+<li>自定义路由, 最好在路由级别更新</li>
+<li>使用<code>Javascript</code>来书写配置文件</li>
+<li>使用<code>resolve.root</code>来配置应用模块的路径, 允许较短的引用关系</li>
+<li>使用<code>karma</code> 通过 <code>karma-webpack</code>来在浏览器测试模块</li>
+<li>面向环境构建, 而不是面向浏览器构建</li>
+<li>使用<code>BannerPlugin</code>来放置<code>Licensing</code></li>
+<li>通过<code>debug</code>来获取更多的出错信息</li>
+<li>在<code>module.loaders</code>中使用<code>include</code>而不是<code>exclude</code>, 这样更不容易出错更加清晰</li>
+</ul>
+<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><ul>
+<li>使用增量备份 如果 <code>watch</code> 网络或<code>VM</code>内部的代码,请使用 <code>watchOptions.poll</code></li>
+<li>使用 <code>web-dev-server</code> 可以快速构建发布</li>
+<li>使用多个 入口点 , 而不是多次运行 <code>webpack</code>(多页应用)</li>
+<li>通过配置一个数组配置, 使<code>webpack</code>可以并行编译(大型配置复杂的应用)</li>
+<li>大型无依赖的模块要配置<code>module.noParse</code>, 可以更快构建</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="分割App中的共有模块和代码模块"><a href="#分割App中的共有模块和代码模块" class="headerlink" title="分割App中的共有模块和代码模块"></a>分割App中的共有模块和代码模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">    vendor: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"vendor.bundle.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="bundle.js"&gt;&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="多入口文件分割"><a href="#多入口文件分割" class="headerlink" title="多入口文件分割"></a>多入口文件分割</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123; <span class="attr">a</span>: <span class="string">"./a"</span>, <span class="attr">b</span>: <span class="string">"./b"</span> &#125;,</span><br><span class="line">    output: &#123; <span class="attr">filename</span>: <span class="string">"[name].js"</span> &#125;,</span><br><span class="line">    plugins: [ <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"init.js"</span>) ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"init.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="a.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script src=<span class="string">"b.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS样式单独切成独立文件"><a href="#CSS样式单独切成独立文件" class="headerlink" title="CSS样式单独切成独立文件"></a>CSS样式单独切成独立文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// The standard entry point and output config</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        posts: <span class="string">"./posts"</span>,</span><br><span class="line">        post: <span class="string">"./post"</span>,</span><br><span class="line">        about: <span class="string">"./about"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">"[name].js"</span>,</span><br><span class="line">        chunkFilename: <span class="string">"[id].js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            <span class="comment">// Extract css files</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Optionally extract less files</span></span><br><span class="line">            <span class="comment">// or any other compile-to-css language</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                loader: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader!less-loader"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// You could also use other loaders the same way. I. e. the autoprefixer-loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Use the plugin to specify the resulting filename (and add needed behavior to the compiler)</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含嵌入式的样式)</span></span><br></pre></td></tr></table></figure>
+<h3 id="所有的CSS文件合并成1个文件-allChunks设置成true"><a href="#所有的CSS文件合并成1个文件-allChunks设置成true" class="headerlink" title="所有的CSS文件合并成1个文件, allChunks设置成true"></a>所有的CSS文件合并成1个文件, allChunks设置成true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"style.css"</span>, &#123;</span><br><span class="line">            allChunks: <span class="literal">true</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// posts.js</span></span><br><span class="line"><span class="comment">// post.js</span></span><br><span class="line"><span class="comment">// about.js</span></span><br><span class="line"><span class="comment">// 1.js 2.js (don’t contain embedded styles)</span></span><br><span class="line"><span class="comment">// style.css</span></span><br></pre></td></tr></table></figure>
+<h3 id="公共样式会被抽出来"><a href="#公共样式会被抽出来" class="headerlink" title="公共样式会被抽出来"></a>公共样式会被抽出来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"commons"</span>, <span class="string">"commons.js"</span>),</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You’ll get these output files:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// commons.js commons.css</span></span><br><span class="line"><span class="comment">// posts.js posts.css</span></span><br><span class="line"><span class="comment">// post.js post.css</span></span><br><span class="line"><span class="comment">// about.js about.css</span></span><br><span class="line"><span class="comment">// 1.js 2.js (包含内置样式)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果 allChunks: true</span></span><br><span class="line"><span class="comment">// 1.js 2.js (不含内置样式)</span></span><br></pre></td></tr></table></figure>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="文件过大"><a href="#文件过大" class="headerlink" title="文件过大"></a>文件过大</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    topic:<span class="string">'./src/components/app/topic.js'</span></span><br><span class="line">    activity: <span class="string">'./src/components/app/activity.js'</span>,</span><br><span class="line">    react: [<span class="string">'react'</span>],</span><br><span class="line">    jquery: [<span class="string">'jquery'</span>]</span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">        name: [<span class="string">'jquery'</span>, <span class="string">'react'</span>], <span class="comment">//提取公共模块</span></span><br><span class="line">        minChunks: <span class="literal">Infinity</span> <span class="comment">//提取所有entry依赖模块</span></span><br><span class="line">        &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJSPlugin(&#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">            warinings: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="文件缓存"><a href="#文件缓存" class="headerlink" title="文件缓存"></a>文件缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/release/'</span>,</span><br><span class="line">    filename: <span class="string">'[chunkFilename:8].[name].js'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].[chunkFilename:8].js'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自动生成页面"><a href="#自动生成页面" class="headerlink" title="自动生成页面"></a>自动生成页面</h3><p>使用 HtmlWebpackPlugin 和 ExtractTextPlugin 插件可以解决此问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">'topic.html'</span>,</span><br><span class="line">        template: __dirname + <span class="string">'/src/app.html'</span>,</span><br><span class="line">        inject: <span class="literal">true</span>,</span><br><span class="line">        chunks: [<span class="string">'react'</span>, <span class="string">'jquery'</span>, <span class="string">'topic'</span>],</span><br><span class="line">        <span class="comment">//排序</span></span><br><span class="line">        chunksSortModel: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> index = &#123;<span class="string">'topic'</span>: <span class="number">1</span>, <span class="string">'react'</span>: <span class="number">3</span>, <span class="string">'jquery'</span>: <span class="number">2</span>&#125;,</span><br><span class="line">              aI = index[a.origins[<span class="number">0</span>].name],</span><br><span class="line">              bI = index[b.origins[<span class="number">0</span>].name];</span><br><span class="line">            <span class="keyword">return</span> aI &amp;&amp; bI ? bI - aI : <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'comm.[contenthash:8].css'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>))</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dialog = <span class="built_in">require</span>(<span class="string">'../../widget/dialog'</span>),</span><br><span class="line">    $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/11/14/React-Router-使用教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -314,6 +691,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/14/React-Router-使用教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/14/React-Router-使用教程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -329,6 +716,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -353,18 +743,15 @@
         
       
     </p></div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -378,6 +765,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -390,7 +781,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/11/13/npm-scripts-使用指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -436,6 +831,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/13/npm-scripts-使用指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/13/npm-scripts-使用指南/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -451,6 +856,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -500,18 +908,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -525,6 +930,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -537,7 +946,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -583,6 +996,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/25/JavaScript数字精度丢失问题总结及解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/25/JavaScript数字精度丢失问题总结及解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -598,6 +1021,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -631,18 +1057,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -656,6 +1079,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -668,7 +1095,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/10/20/使用-webpack-优化资源/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -714,6 +1145,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/20/使用-webpack-优化资源/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/20/使用-webpack-优化资源/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -729,6 +1170,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -749,18 +1193,15 @@
         
       
     </p></div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -774,6 +1215,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -786,7 +1231,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/10/18/webpack-postcss配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -832,6 +1281,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/18/webpack-postcss配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/18/webpack-postcss配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -847,6 +1306,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -866,18 +1328,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -891,6 +1350,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -903,7 +1366,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/10/11/lodash学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -949,6 +1416,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/11/lodash学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/11/lodash学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -964,6 +1441,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -994,18 +1474,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -1019,6 +1496,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1031,7 +1512,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/10/11/函数柯里化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1077,6 +1562,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/11/函数柯里化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/11/函数柯里化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1092,6 +1587,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1111,18 +1609,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -1136,6 +1631,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1148,7 +1647,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/09/13/git学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1194,6 +1697,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/13/git学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/13/git学习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1209,6 +1722,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1236,18 +1752,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -1261,282 +1774,10 @@
         <div class="post-eof"></div>
       
     </footer>
-  </article>
-
-
-    
-      
-
-  
-
+  </div>
   
   
   
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/09/09/javascript进阶-惰性函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/javascript进阶-惰性函数/" itemprop="url">javascript进阶-惰性函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T15:15:03+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>函数是js世界的一等公民，js的动态性、易变性在函数的应用上，体现的淋漓尽致。做为参数，做为返回值等，正是函数这些特性，使得js开发变的有趣。</p>
-</blockquote>
-<p>下面就阐述一下，js一个有趣的应用–惰性函数定义（Lazy Function Definition）。</p>
-<p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。</p>
-<p>下面我们看几个典型的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">        element.addEventListener(type, fun, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</span><br><span class="line">        element.attachEvent(<span class="string">'on'</span> + type, fun);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        element[<span class="string">'on'</span> + type] = fun;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面是注册函数监听的各浏览器兼容函数。由于，各浏览之间的差异，不得不在用的时候做能力检测。显然，单从功能上讲，已经做到了兼容浏览器。美中不足，每次绑定监听，都会对能力做一次检测。然而，真正的应用中，这显然是多余的，同一个应用环境中，其实只需要检测一次即可。</p>
-<p>下面我们重写上面的addEvent：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, element, fun</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</span><br><span class="line">            element.addEventListener(type, fun, <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</span><br><span class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</span><br><span class="line">            element.attachEvent(<span class="string">'on'</span> + type, fun);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, element, fun</span>) </span>&#123;</span><br><span class="line">            element[<span class="string">'on'</span> + type] = fun;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    addEvent(type, element, fun);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>由上，第一次调用addEvent会对浏览器做能力检测，然后，重写了addEvent。下次再调用的时候，由于函数被重写，不会再做能力检测。</p>
-<p>同样的应用，javascript高级程序设计里的一例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString != <span class="string">"string"</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</span><br><span class="line">                            <span class="string">"MSXML2.XMLHttp"</span>];</span><br><span class="line">    </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>,len=versions.length; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</span><br><span class="line">                    <span class="built_in">arguments</span>.callee.activeXString = versions[i];</span><br><span class="line">                    <span class="keyword">return</span> xhr;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ex)&#123;</span><br><span class="line">                    <span class="comment">//skip</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>很显然，惰性函数在这里优势更加明显，因为这里有更多的分支。下面我们看一下重写后台的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> curxhr;</span><br><span class="line">        <span class="keyword">var</span> versions = [<span class="string">"MSXML2.XMLHttp.6.0"</span>, <span class="string">"MSXML2.XMLHttp.3.0"</span>,</span><br><span class="line">            <span class="string">"MSXML2.XMLHttp"</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = versions.length; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(versions[i]);</span><br><span class="line">                curxhr = versions[i];</span><br><span class="line">                createXHR = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(curxhr);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> xhr;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ex) &#123;</span><br><span class="line">                <span class="comment">//skip</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"No XHR object available."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>浏览器之间最大的差异，莫过于Dom操作，Dom操作也是前端应用 中最频繁的操作，前端的大多性能提升，均体现在Dom操作方面。下面看一个Dom操作方面的惰性函数定义例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.pageYOffset == <span class="string">'number'</span>) &#123;</span><br><span class="line"></span><br><span class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">window</span>.pageYOffset;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">typeof</span> <span class="built_in">document</span>.compatMode == <span class="string">'string'</span>) &amp;&amp;</span><br><span class="line">               (<span class="built_in">document</span>.compatMode.indexOf(<span class="string">'CSS'</span>) &gt;= <span class="number">0</span>) &amp;&amp;</span><br><span class="line">               (<span class="built_in">document</span>.documentElement) &amp;&amp;</span><br><span class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.documentElement.scrollTop == <span class="string">'number'</span>)) &#123;</span><br><span class="line"></span><br><span class="line">        getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="built_in">document</span>.body) &amp;&amp;</span><br><span class="line">               (<span class="keyword">typeof</span> <span class="built_in">document</span>.body.scrollTop == <span class="string">'number'</span>)) &#123;</span><br><span class="line"></span><br><span class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">      getScrollY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">NaN</span>;</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> getScrollY();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>惰性函数定义应用还体现在创建单例上：(目前还不清楚创建单例的话有什么好处)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">unction Universe() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缓存的实例</span></span><br><span class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其它内容</span></span><br><span class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重写构造函数</span></span><br><span class="line">    Universe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当然，像上面这种例子有很多。惰性函数定义，应用场景我们可以总结一下：</p>
-<p>1 应用频繁，如果只用一次，是体现不出它的优点出来的，用的次数越多，越能体现这种模式的优势所在；</p>
-<p>2 固定不变，一次判定，在固定的应用环境中不会发生改变；</p>
-<p>3 复杂的分支判断，没有差异性，不需要应用这种模式；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/09/09/react-router-按需加载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/react-router-按需加载/" itemprop="url">react-router 按需加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T00:54:49+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>注：本文使用的 react-router 版本为 2.8.1</p>
-</blockquote>
-<p>React Router 是一个非常出色的路由解决方案，同时也非常容易上手。但是当网站规模越来越大的时候，首先出现的问题是 Javascript 文件变得巨大，这导致首页渲染的时间让人难以忍受。实际上程序应当只加载当前渲染页所需的 JavaScript，也就是大家说的“代码分拆” — 将所有的代码分拆成多个小包，在用户浏览过程中按需加载。</p>
-<p>效果：<br>以前是这样：<br><img src="/images/page/reactRouter/01.png" alt></p>
-<p>现在是这样：<img src="/images/page/reactRouter/02.png" alt></p>
-<p>实际上就是将一个大 javascript 文件拆分成了若干个 chunk file。</p>
-<p>下面是改造过程</p>
-<h2 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h2><p>首先在 <code>webpack.config.js</code> 的 <code>output</code> 内加上 <code>chunkFilename</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'/../dist/assets'</span>),</span><br><span class="line">    filename: <span class="string">'app.js'</span>,</span><br><span class="line">    publicPath: defaultSettings.publicPath,</span><br><span class="line">    <span class="comment">// 添加 chunkFilename</span></span><br><span class="line">    chunkFilename: <span class="string">'[name].[chunkhash:5].chunk.js'</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p><code>name</code> 是在代码里为创建的 <code>chunk</code> 指定的名字，如果代码中没指定则 <code>webpack</code> 默认分配 <code>id</code> 作为 <code>name</code>。</p>
-<p><code>chunkhash</code> 是文件的 <code>hash</code> 码，这里只使用前五位。</p>
-<h2 id="添加首页"><a href="#添加首页" class="headerlink" title="添加首页"></a>添加首页</h2><p>以前你的路由大概应该是这样的：（作为需要按需加载的大型应用，路由肯定是相当复杂，这里只列举部分路由举例）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  (</span><br><span class="line">    &lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">      &#123;<span class="comment">/* 主页 */</span>&#125;</span><br><span class="line">      &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">        &#123;<span class="comment">/* 默认 */</span>&#125;</span><br><span class="line">        &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</span><br><span class="line"></span><br><span class="line">        &#123;<span class="comment">/* baidu */</span>&#125;</span><br><span class="line">        &lt;Route path=<span class="string">"/baidu"</span> component=&#123;BaiduPage&#125;&gt;</span><br><span class="line">          &lt;Route path=<span class="string">"result"</span> component=&#123;BaiduResultPage&#125; /&gt;</span><br><span class="line">          &lt;Route path=<span class="string">"frequency"</span> component=&#123;BaiduFrequencyPage&#125; /&gt;</span><br><span class="line">        &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        &#123;/</span>* <span class="number">404</span> *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">        &lt;Route path='/</span><span class="number">404</span><span class="string">' component=&#123;NotFoundPage&#125; /&gt;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        &#123;/* 其他重定向到 404 */&#125;</span></span><br><span class="line"><span class="string">        &lt;Redirect from='</span>*<span class="string">' to='</span>/<span class="number">404</span><span class="string">' /&gt;</span></span><br><span class="line"><span class="string">      &lt;/Route&gt;</span></span><br><span class="line"><span class="string">    &lt;/Router&gt;</span></span><br><span class="line"><span class="string">  ), document.getElementById('</span>app<span class="string">')</span></span><br><span class="line"><span class="string">);</span></span><br></pre></td></tr></table></figure></p>
-<p>按需加载之后，我们需要让路由动态加载组件，需要将 <code>component</code> 换成 <code>getComponent</code>。首先将路由拆出来（因为路由庞大之后全部写在一起会很难看），创建一个根路由 <code>rootRoute</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rootRoute = &#123;</span><br><span class="line">  path: <span class="string">'/'</span>,</span><br><span class="line">  indexRoute: &#123;</span><br><span class="line">    getComponent(nextState, cb) &#123;</span><br><span class="line">      <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/HomePage'</span>))</span><br><span class="line">      &#125;, <span class="string">'HomePage'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  getComponent(nextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/Main'</span>))</span><br><span class="line">    &#125;, <span class="string">'Main'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  childRoutes: [</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'./routes/baidu'</span>),</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'./routes/404'</span>),</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'./routes/redirect'</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  (</span><br><span class="line">    &lt;Router</span><br><span class="line">      history=&#123;browserHistory&#125;</span><br><span class="line">      routes=&#123;rootRoute&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">  ), <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p><code>history</code> 不变，在 <code>Router</code> 中添加 <code>routes</code> 属性，将创建的路由传递进去。</p>
-<p>这里有四个属性：</p>
-<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>将匹配的路由，也就是以前的 path。</p>
-<h3 id="getComponent"><a href="#getComponent" class="headerlink" title="getComponent"></a>getComponent</h3><p>对应于以前的 component 属性，但是这个方法是异步的，也就是当路由匹配时，才会调用这个方法。</p>
-<p>这里面有个 <strong>require.ensure</strong> 方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.ensure(dependencies, callback, chunkName)</span><br></pre></td></tr></table></figure></p>
-<p>这是 <code>webpack</code> 提供的方法，这也是按需加载的核心方法。第一个参数是依赖，第二个是回调函数，第三个就是上面提到的 <code>chunkName</code>，用来指定这个 <code>chunk file</code> 的 <code>name</code>。</p>
-<p>如果需要返回多个子组件，则使用 <code>getComponents</code> 方法，将多个组件作为一个对象的属性通过 <code>cb</code> 返回出去即可。这个在官方示例也有，但是我们这里并不需要，而且根组件是不能返回多个子组件的，所以使用 <code>getComponent</code>。</p>
-<h3 id="indexRoute"><a href="#indexRoute" class="headerlink" title="indexRoute"></a>indexRoute</h3><p>用来设置主页，对应于以前的 <code>&lt;IndexRoute&gt;</code>。</p>
-<p>注意这里的 <code>indexRoute</code> 写法， <strong>这是个对象，在对象里面使用 getComponent</strong>。</p>
-<h3 id="childRoutes"><a href="#childRoutes" class="headerlink" title="childRoutes"></a>childRoutes</h3><p>这里面放置的就是子路由的配置，对应于以前的子路由们。我们将以前的 <code>/baidu</code>、<code>/404</code> 和 <code>*</code> 都拆了出来，接下来将分别为他们创建路由配置。</p>
-<h2 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h2><p>上面的 <code>childRoutes</code> 里面，我们 <code>require</code> 了三个子路由，在目录下创建 <code>routes</code> 目录，将这三个路由放置进去。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">routes/</span><br><span class="line">├── <span class="number">404</span></span><br><span class="line">│   └── index.js</span><br><span class="line">├── baidu</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── routes</span><br><span class="line">│       ├── frequency</span><br><span class="line">│       │   └── index.js</span><br><span class="line">│       └── result</span><br><span class="line">│           └── index.js</span><br><span class="line">└── redirect</span><br><span class="line">    └── index.js</span><br></pre></td></tr></table></figure>
-<p>和 rootRoute 类似，里面的每个 index.js 都是一个路由对象：</p>
-<h3 id="404-index-js"><a href="#404-index-js" class="headerlink" title="/404/index.js"></a>/404/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  path: <span class="string">'404'</span>,</span><br><span class="line"></span><br><span class="line">  getComponent(nextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/NotFoundPage'</span>))</span><br><span class="line">    &#125;, <span class="string">'NotFoundPage'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>/baidu/index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  path: <span class="string">'baidu'</span>,</span><br><span class="line"></span><br><span class="line">  getChildRoutes(partialNextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      cb(<span class="literal">null</span>, [</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'./routes/result'</span>),</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'./routes/frequency'</span>)</span><br><span class="line">      ])</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  getComponent(nextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduPage'</span>))</span><br><span class="line">    &#125;, <span class="string">'BaiduPage'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="baidu-routes-frequency-index-js"><a href="#baidu-routes-frequency-index-js" class="headerlink" title="/baidu/routes/frequency/index.js"></a>/baidu/routes/frequency/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  path: <span class="string">'frequency'</span>,</span><br><span class="line"></span><br><span class="line">  getComponent(nextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/BaiduFrequencyPage'</span>))</span><br><span class="line">    &#125;, <span class="string">'BaiduFrequencyPage'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>举这几个例子应该就差不多了，其他都是一样的，稍微有点特别的是 redirect。</p>
-<h2 id="设置-Redirect"><a href="#设置-Redirect" class="headerlink" title="设置 Redirect"></a>设置 Redirect</h2><p>之前我们在根路由下是这么设置重定向的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">    &#123;<span class="comment">/* home */</span>&#125;</span><br><span class="line">    &lt;IndexRoute component=&#123;HomePage&#125; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Route path=<span class="string">"/baidu"</span> component=&#123;BaiduPage&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"result"</span> component=&#123;BaiduResultPage&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"frequency"</span> component=&#123;BaiduFrequencyPage&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;Route path='/</span><span class="number">404</span><span class="string">' component=&#123;NotFoundPage&#125; /&gt;</span></span><br><span class="line"><span class="string">    &#123;/* 如果都不匹配，重定向到 404 */&#125;</span></span><br><span class="line"><span class="string">    &lt;Redirect from='</span>*<span class="string">' to='</span>/<span class="number">404</span><span class="string">' /&gt;</span></span><br><span class="line"><span class="string">    &lt;/Route&gt;</span></span><br><span class="line"><span class="string">&lt;/Router&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>当改写之后，我们需要把这个重定向的路由单独拆出来，也就是 * 这个路由，我们上面已经为他创建了一个 <code>redirect</code> 目录。这里使用到 <code>onEnter</code> 方法，然后在这个方法里改变路由状态，调到另外的路由，实现 <code>redirect</code> ：</p>
-<h3 id="redirect-index-js"><a href="#redirect-index-js" class="headerlink" title="/redirect/index.js"></a>/redirect/index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  path: <span class="string">'*'</span>,</span><br><span class="line">  onEnter: <span class="function">(<span class="params">_, replaceState</span>) =&gt;</span> replaceState(<span class="literal">null</span>, <span class="string">"/404"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="The-root-route-must-render-a-single-element"><a href="#The-root-route-must-render-a-single-element" class="headerlink" title="The root route must render a single element"></a>The root route must render a single element</h2><p>跟着官方示例和上面码出来之后，可能页面并没有渲染出来，而是报 <strong>The root route must render a single element</strong> 这个异常，这是因为 <code>module.exports</code> 和 ES6 里的 <code>export default</code> 有区别。</p>
-<p>如果你是使用 <code>es6</code> 的写法，也就是你的组件都是通过 <code>export default</code> 导出的，那么在 <code>getComponent</code> 方法里面需要加入 <code>.default</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getComponent(nextState, cb) &#123;</span><br><span class="line">    <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>) =&gt; &#123;</span><br><span class="line">      <span class="comment">// 在后面加 .default</span></span><br><span class="line">      cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'components/layer/ReportPage'</span>)).default</span><br><span class="line">    &#125;, <span class="string">'ReportPage'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果你是使用 <code>CommonJS</code> 的写法，也就是通过 <code>module.exports</code> 导出的，那就无须加 <code>.default</code> 了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </article>
 
 
@@ -1569,6 +1810,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -1580,7 +1822,7 @@
           <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
            
-              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
+              <p class="site-description motion-element" itemprop="description">Stay Hungry！ Stay Young！</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1588,7 +1830,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1626,34 +1868,42 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="617418875" target="_blank" title="QQ">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  微博
+                    
+                      QQ
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
+                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
                   
-                    <i class="fa fa-fw fa-twitter"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
-                  Twitter
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
-                  
-                    <i class="fa fa-fw fa-facebook"></i>
-                  
-                  Facebook
+                    
+                      Mail
+                    
                 </a>
               </span>
             
@@ -1668,24 +1918,20 @@
           <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              Links
+              友链
             </div>
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
+                  <a href="http://http://moshui.site/" title="moxhuis" target="_blank">moxhuis</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                  <a href="http://indexof.site/" title="indexof" target="_blank">indexof</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://blog.guowenfh.com/" title="国文" target="_blank">国文</a>
+                  <a href="http://xiaoqiang730730.github.io/" title="xiaoqiang" target="_blank">xiaoqiang</a>
                 </li>
               
             </ul>
@@ -1713,7 +1959,7 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1729,34 +1975,33 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
-</div>
-
-<div class="theme-info" style="margin-left:20px;">
-  <a class="theme-link" href="https://coding.net/pages">
-  「Hosted by Coding Pages」
-  </a>
-</div>
-
-
-<div class="busuanzi-count">
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  
-  <span class="site-uv">
-    <i class="fa fa-user"></i>
-    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-  </span>
-  
-  <span class="site-pv">
-    <i class="fa fa-eye"></i>
-    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-  </span>
-  
 </div>
 
 
         
+<div class="busuanzi-count">
+  <!--<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
         
       </div>
@@ -1790,6 +2035,8 @@
   
 
 
+  
+
 
 
 
@@ -1818,83 +2065,91 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-
   
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-  
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"html-js"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

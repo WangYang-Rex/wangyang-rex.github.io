@@ -5,7 +5,7 @@
 # Site
 title: 大洋
 subtitle: 专注于前端
-description: 成功道路并不拥挤，因为坚持的人不多
+description: Stay Hungry！ Stay Young！
 author: 大洋
 language: zh-Hans
 timezone:
@@ -64,8 +64,8 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: yilia
-# theme: next
-theme: hexo-theme-next
+# theme: next 
+theme: hexo-theme-next # git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/hexo-theme-next
 # theme: concise
 
 # Deployment
