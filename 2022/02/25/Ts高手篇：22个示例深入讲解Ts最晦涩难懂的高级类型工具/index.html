@@ -1,0 +1,1028 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="ts,typescript,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="本文基本分为三部分：第一部分讲解一些基本的关键词的特性（比如索引查询、索引访问、映射、extends等），但是该部分更多的讲解小伙伴们不清晰的一些特性，而基本功能则不再赘述。更多的关键词及技巧将包含在后续的例子演示中再具体讲述； 第二部分讲解Ts内置的类型工具以及实现原理，比如Pick、Omit等； 第三部分讲解自定义的工具类型，该部分也是最难的部分，将通过一些复杂的类型工具示例进行逐步剖析，对于">
+<meta name="keywords" content="ts,typescript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具">
+<meta property="og:url" content="http://blog.html-js.site/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/index.html">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="本文基本分为三部分：第一部分讲解一些基本的关键词的特性（比如索引查询、索引访问、映射、extends等），但是该部分更多的讲解小伙伴们不清晰的一些特性，而基本功能则不再赘述。更多的关键词及技巧将包含在后续的例子演示中再具体讲述； 第二部分讲解Ts内置的类型工具以及实现原理，比如Pick、Omit等； 第三部分讲解自定义的工具类型，该部分也是最难的部分，将通过一些复杂的类型工具示例进行逐步剖析，对于">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-02-25T09:26:09.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具">
+<meta name="twitter:description" content="本文基本分为三部分：第一部分讲解一些基本的关键词的特性（比如索引查询、索引访问、映射、extends等），但是该部分更多的讲解小伙伴们不清晰的一些特性，而基本功能则不再赘述。更多的关键词及技巧将包含在后续的例子演示中再具体讲述； 第二部分讲解Ts内置的类型工具以及实现原理，比如Pick、Omit等； 第三部分讲解自定义的工具类型，该部分也是最难的部分，将通过一些复杂的类型工具示例进行逐步剖析，对于">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a7c71e140bbb888f55ad26943955ca83";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.html-js.site/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/">
+
+
+
+
+
+  <title>Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具 | 大洋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-25T12:32:06+08:00">
+                2022-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="本文基本分为三部分："><a href="#本文基本分为三部分：" class="headerlink" title="本文基本分为三部分："></a>本文基本分为三部分：</h2><p>第一部分讲解一些基本的关键词的特性（比如索引查询、索引访问、映射、extends等），但是该部分更多的讲解小伙伴们不清晰的一些特性，而基本功能则不再赘述。更多的关键词及技巧将包含在后续的例子演示中再具体讲述；</p>
+<p>第二部分讲解Ts内置的类型工具以及实现原理，比如Pick、Omit等；</p>
+<p>第三部分讲解自定义的工具类型，该部分也是最难的部分，将通过一些复杂的类型工具示例进行逐步剖析，对于其中的晦涩的地方以及涉及的知识点逐步讲解。此部分也会包含大量Ts类型工具的编程技巧，也希望通过此部分的讲解，小伙伴的Ts功底可以进一步提升！</p>
+<h2 id="第一部分-前置内容"><a href="#第一部分-前置内容" class="headerlink" title="第一部分 前置内容"></a>第一部分 前置内容</h2><ul>
+<li><code>keyof</code> 索引查询</li>
+</ul>
+<p>对应任何类型<code>T</code>,<code>keyof T</code>的结果为该类型上所有共有属性key的联合：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  readonly age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// T1的类型实则是name | age</span></span><br><span class="line"><span class="keyword">type</span> T1 = keyof Eg1</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Eg2 &#123;</span><br><span class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> readonly age: <span class="built_in">number</span>;</span><br><span class="line">  <span class="keyword">protected</span> home: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// T2实则被约束为 age</span></span><br><span class="line"><span class="comment">// 而name和home不是公有属性，所以不能被keyof获取到</span></span><br><span class="line"><span class="keyword">type</span> T2 = keyof Eg2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>T[K]</code> 索引访问</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  readonly age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// string</span></span><br><span class="line"><span class="keyword">type</span> V1 = Eg1[<span class="string">'name'</span>]</span><br><span class="line"><span class="comment">// string | number</span></span><br><span class="line"><span class="keyword">type</span> V2 = Eg1[<span class="string">'name'</span> | <span class="string">'age'</span>]</span><br><span class="line"><span class="comment">// any</span></span><br><span class="line"><span class="keyword">type</span> V2 = Eg1[<span class="string">'name'</span> | <span class="string">'age2222'</span>]</span><br><span class="line"><span class="comment">// string | number</span></span><br><span class="line"><span class="keyword">type</span> V3 = Eg1[keyof Eg1]</span><br></pre></td></tr></table></figure>
+<p><code>T[keyof T]</code>的方式，可以获取到T所有key的类型组成的联合类型；<br><code>T[keyof K]</code>的方式，获取到的是T中的key且同时存在于K时的类型组成的联合类型；<br>注意：如果[]中的key有不存在T中的，则是any；因为ts也不知道该key最终是什么类型，所以是any；且也会报错；</p>
+<ul>
+<li><code>&amp;</code> 交叉类型注意点<br>交叉类型取的多个类型的并集，但是如果相同<code>key</code>但是类型不同，则该<code>key</code>为<code>never</code>。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Eg2 &#123;</span><br><span class="line">  color: <span class="built_in">string</span>,</span><br><span class="line">  age: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * T的类型为 &#123;name: string; age: number; age: never&#125;</span></span><br><span class="line"><span class="comment"> * 注意，age因为Eg1和Eg2中的类型不一致，所以交叉后age的类型是never</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> T = Eg1 &amp; Eg2</span><br><span class="line"><span class="comment">// 可通过如下示例验证</span></span><br><span class="line"><span class="keyword">const</span> val: T = &#123;</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  color: <span class="string">''</span>,</span><br><span class="line">  age: (<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;)(),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="extends关键词特性（重点）"><a href="#extends关键词特性（重点）" class="headerlink" title="extends关键词特性（重点）"></a>extends关键词特性（重点）</h3><ul>
+<li>用于接口，表示继承</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> T1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> T2 &#123;</span><br><span class="line">  sex: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * T3 = &#123;name: string, sex: number, age: number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">interface</span> T3 <span class="keyword">extends</span> T1, T2 &#123;</span><br><span class="line">  age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，接口支持多重继承，语法为逗号隔开。如果是type实现继承，则可以使用交叉类型<code>type A = B &amp; C &amp; D</code>。</p>
+<ul>
+<li>表示条件类型，可用于条件判断<br>表示条件判断，如果前面的条件满足，则返回问号后的第一个参数，否则第二个。类似于js的三元运算。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A1 = 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> A1 = <span class="string">'x'</span> <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A2 = 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> A2 = <span class="string">'x'</span> | <span class="string">'y'</span> <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A3 = 1 | 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> P&lt;T&gt; = T <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"><span class="keyword">type</span> A3 = P&lt;<span class="string">'x'</span> | <span class="string">'y'</span>&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>提问：为什么A2和A3的值不一样？</strong></p>
+<ul>
+<li>如果用于简单的条件判断，则是直接判断前面的类型是否可分配给后面的类型</li>
+<li>若extends前面的类型是泛型，且泛型传入的是联合类型时，则会依次判断该联合类型的所有子类型是否可分配给extends后面的类型（是一个分发的过程）。</li>
+</ul>
+<p><strong>总结，就是extends前面的参数为联合类型时则会分解（依次遍历所有的子类型进行条件判断）联合类型进行判断。然后将最终的结果组成新的联合类型。</strong></p>
+<p><strong>阻止extends关键词对于联合类型的分发特性</strong><br>如果不想被分解（分发），做法也很简单，可以通过简单的元组类型包裹以下：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> P&lt;T&gt; = [T] <span class="keyword">extends</span> [<span class="string">'x'</span>] ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * type A4 = 2;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> A4 = P&lt;<span class="string">'x'</span> | <span class="string">'y'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types" target="_blank" rel="noopener">条件类型的分布式特性文档</a></p>
+<h3 id="类型兼容性-重要！重要！重要"><a href="#类型兼容性-重要！重要！重要" class="headerlink" title="类型兼容性 重要！重要！重要"></a>类型兼容性 重要！重要！重要</h3><blockquote>
+<p>集合论中，如果一个集合的所有元素在集合B中都存在，则A是B的子集；<br>类型系统中，如果一个类型的属性更具体，则该类型是子类型。（因为属性更少则说明该类型约束的更宽泛，是父类型）</p>
+</blockquote>
+<p><strong>因此，我们可以得出基本的结论：子类型比父类型更加具体,父类型比子类型更宽泛。</strong> 下面我们也将基于类型的可复制性（可分配性）、协变、逆变、双向协变等进行进一步的讲解。</p>
+<ul>
+<li>可赋值性</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Animal &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Dog <span class="keyword">extends</span> Animal &#123;</span><br><span class="line">  <span class="keyword">break</span>(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a: Animal;</span><br><span class="line"><span class="keyword">let</span> b: Dog;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以赋值，子类型更佳具体，可以赋值给更佳宽泛的父类型</span></span><br><span class="line">a = b;</span><br><span class="line"><span class="comment">// 反过来不行</span></span><br><span class="line">b = a;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可赋值性在联合类型中的特性</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> A = <span class="number">1</span> | <span class="number">2</span> | <span class="number">3</span>;</span><br><span class="line"><span class="keyword">type</span> B = <span class="number">2</span> | <span class="number">3</span>;</span><br><span class="line"><span class="keyword">let</span> a: A;</span><br><span class="line"><span class="keyword">let</span> b: B;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不可赋值</span></span><br><span class="line">b = a;</span><br><span class="line"><span class="comment">// 可以赋值</span></span><br><span class="line">a = b;</span><br></pre></td></tr></table></figure>
+<p>是不是A的类型更多，A就是子类型呢？恰恰相反，A此处类型更多但是其表达的类型更宽泛，所以A是父类型，B是子类型。</p>
+<p>因此b = a不成立（父类型不能赋值给子类型），而a = b成立（子类型可以赋值给父类型）</p>
+<ul>
+<li>协变</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Animal &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Dog <span class="keyword">extends</span> Animal &#123;</span><br><span class="line">  <span class="keyword">break</span>(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Eg1: Animal;</span><br><span class="line"><span class="keyword">let</span> Eg2: Dog;</span><br><span class="line"><span class="comment">// 兼容，可以赋值</span></span><br><span class="line">Eg1 = Eg2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Eg3: <span class="built_in">Array</span>&lt;Animal&gt;</span><br><span class="line"><span class="keyword">let</span> Eg4: <span class="built_in">Array</span>&lt;Dog&gt;</span><br><span class="line"><span class="comment">// 兼容，可以赋值</span></span><br><span class="line">Eg3 = Eg4</span><br></pre></td></tr></table></figure>
+<p>通过Eg3和Eg4来看，在Animal和Dog在变成数组后，Array<dog>依旧可以赋值给Array<animal>，因此对于type MakeArray = Array<any>来说就是协变的。</any></animal></dog></p>
+<p>最后引用维基百科中的定义：</p>
+<blockquote>
+<p>协变与逆变(Covariance and contravariance )是在计算机科学中，描述具有父/子型别关系的多个型别通过型别构造器、构造出的多个复杂型别之间是否有父/子型别关系的用语。</p>
+</blockquote>
+<p>简单说就是，具有父子关系的多个类型，在通过某种构造关系构造成的新的类型，如果还具有父子关系则是协变的，而关系逆转了（子变父，父变子）就是逆变的。可能听起来有些抽象，下面我们将用更具体的例子进行演示说明：</p>
+<ul>
+<li>逆变</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Animal &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Dog <span class="keyword">extends</span> Animal &#123;</span><br><span class="line">  <span class="keyword">break</span>(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> AnimalFn = <span class="function">(<span class="params">arg: Animal</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line"><span class="keyword">type</span> DogFn = <span class="function">(<span class="params">arg: Dog</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Eg1: AnimalFn;</span><br><span class="line"><span class="keyword">let</span> Eg2: DogFn;</span><br><span class="line"><span class="comment">// 不再可以赋值了，</span></span><br><span class="line"><span class="comment">// AnimalFn = DogFn不可以赋值了, Animal = Dog是可以的</span></span><br><span class="line">Eg1 = Eg2;</span><br><span class="line"><span class="comment">// 反过来可以</span></span><br><span class="line">Eg2 = Eg1;</span><br></pre></td></tr></table></figure>
+<p>理论上，<code>Animal = Dog</code>是类型安全的，那么<code>AnimalFn = DogFn</code>也应该类型安全才对，为什么Ts认为不安全呢？看下面的例子：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> animal: AnimalFn = <span class="function">(<span class="params">arg: Animal</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> dog: DogFn = <span class="function">(<span class="params">arg: Dog</span>) =&gt;</span> &#123;</span><br><span class="line">  arg.break();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设类型安全可以赋值</span></span><br><span class="line">animal = dog;</span><br><span class="line"><span class="comment">// 那么animal在调用时约束的参数，缺少dog所需的参数，此时会导致错误</span></span><br><span class="line">animal(&#123;name: <span class="string">'cat'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>从这个例子看到，如果dog函数赋值给animal函数，那么animal函数在调用时，约束的是参数必须要为Animal类型（而不是Dog），但是animal实际为dog的调用，此时就会出现错误。<br>因此，<code>Animal</code>和<code>Dog</code>在进行<code>type Fn&lt;T&gt; = (arg: T) =&gt; void</code>构造器构造后，父子关系逆转了，此时成为“逆变”。</p>
+<ul>
+<li>双向协变</li>
+</ul>
+<p>Ts在函数参数的比较中实际上默认采取的策略是双向协变：只有当源函数参数能够赋值给目标函数或者反过来时才能赋值成功。</p>
+<p>这是不稳定的，因为调用者可能传入了一个具有更精确类型信息的函数，但是调用这个传入的函数的时候却使用了不是那么精确的类型信息（典型的就是上述的逆变）。 但是实际上，这极少会发生错误，并且能够实现很多JavaScript里的常见模式：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib.dom.d.ts中EventListener的接口定义</span></span><br><span class="line"><span class="keyword">interface</span> EventListener &#123;</span><br><span class="line">  (evt: Event): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简化后的Event</span></span><br><span class="line"><span class="keyword">interface</span> Event &#123;</span><br><span class="line">  readonly target: EventTarget | <span class="literal">null</span>;</span><br><span class="line">  preventDefault(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简化合并后的MouseEvent</span></span><br><span class="line"><span class="keyword">interface</span> MouseEvent <span class="keyword">extends</span> Event &#123;</span><br><span class="line">  readonly x: <span class="built_in">number</span>;</span><br><span class="line">  readonly y: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简化后的Window接口</span></span><br><span class="line"><span class="keyword">interface</span> Window &#123;</span><br><span class="line">  <span class="comment">// 简化后的addEventListener</span></span><br><span class="line">  addEventListener(<span class="keyword">type</span>: <span class="built_in">string</span>, listener: EventListener)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 日常使用</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, <span class="function">(<span class="params">e: Event</span>) =&gt;</span> &#123;&#125;);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'mouseover'</span>, <span class="function">(<span class="params">e: MouseEvent</span>) =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以看到<code>Window</code>的<code>listener</code>函数要求参数是<code>Event</code>，但是日常使用时更多时候传入的是<code>Event</code>子类型。但是这里可以正常使用，正是其默认行为是双向协变的原因。可以通过<code>tsconfig.js</code>中修改<code>strictFunctionType</code>属性来严格控制协变和逆变。</p>
+<h4 id="infer-关键词-敲重点！！！敲重点！！！敲重点！！！"><a href="#infer-关键词-敲重点！！！敲重点！！！敲重点！！！" class="headerlink" title="infer 关键词 敲重点！！！敲重点！！！敲重点！！！"></a>infer 关键词 <strong>敲重点！！！敲重点！！！敲重点！！！</strong></h4><p><code>infer</code>关键词的功能暂时先不做太详细的说明了，主要是用于<code>extends</code>的条件类型中让Ts自己推导类型，具体的可以查阅官网。但是关于<code>infer</code>的一些容易让人忽略但是非常重要的特性，这里必须要提及一下：</p>
+<ul>
+<li><code>infer</code>推导的名称相同并且都处于逆变的位置，则推导的结果将会是交叉类型。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Bar&lt;T&gt; = T <span class="keyword">extends</span> &#123;</span><br><span class="line">  a: <span class="function">(<span class="params">x: infer U</span>) =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">  b: <span class="function">(<span class="params">x: infer U</span>) =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125; ? U : never;</span><br><span class="line"></span><br><span class="line"><span class="comment">// type T1 = string</span></span><br><span class="line"><span class="keyword">type</span> T1 = Bar&lt;&#123; a: <span class="function">(<span class="params">x: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">void</span>; b: <span class="function">(<span class="params">x: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">void</span> &#125;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// type T2 = never</span></span><br><span class="line"><span class="keyword">type</span> T2 = Bar&lt;&#123; a: <span class="function">(<span class="params">x: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">void</span>; b: <span class="function">(<span class="params">x: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span> &#125;&gt;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>infer</code>推导的名称相同并且都处于协变的位置，则推导的结果将会是联合类型。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Foo&lt;T&gt; = T <span class="keyword">extends</span> &#123;</span><br><span class="line">  a: infer U;</span><br><span class="line">  b: infer U;</span><br><span class="line">&#125; ? U : never;</span><br><span class="line"></span><br><span class="line"><span class="comment">// type T1 = string</span></span><br><span class="line"><span class="keyword">type</span> T1 = Foo&lt;&#123; a: <span class="built_in">string</span>; b: <span class="built_in">string</span> &#125;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// type T2 = string | number</span></span><br><span class="line"><span class="keyword">type</span> T2 = Foo&lt;&#123; a: <span class="built_in">string</span>; b: <span class="built_in">number</span> &#125;&gt;;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types" target="_blank" rel="noopener">inter与协变逆变的参考文档点击这里</a></p>
+<h2 id="第二部分-Ts内置类型工具原理解析"><a href="#第二部分-Ts内置类型工具原理解析" class="headerlink" title="第二部分 Ts内置类型工具原理解析"></a>第二部分 Ts内置类型工具原理解析</h2><h3 id="Partial实现原理解析"><a href="#Partial实现原理解析" class="headerlink" title="Partial实现原理解析"></a>Partial实现原理解析</h3><p><code>Partial&lt;T&gt;</code>将<code>T</code>的所有属性变成可选的。<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 核心实现就是通过映射类型遍历T上所有的属性，</span></span><br><span class="line"><span class="comment"> * 然后将每个属性设置为可选属性</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Partial&lt;T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> keyof T]?: T[P];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>[P in keyof T]</code>通过映射类型，遍历T上的所有属性</li>
+<li><code>?:</code>设置为属性为可选的</li>
+<li><code>T[P]</code>设置类型为原来的类型</li>
+</ul>
+<p>扩展一下，将制定的key变成可选类型:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 主要通过K extends keyof T约束K必须为keyof T的子类型</span></span><br><span class="line"><span class="comment"> * keyof T得到的是T的所有key组成的联合类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> PartialOptional&lt;T, K <span class="keyword">extends</span> keyof T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> K]?: T[P];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> *     type Eg1 = &#123; key1?: string; key2?: number &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = PartialOptional&lt;&#123;</span><br><span class="line">  key1: <span class="built_in">string</span>,</span><br><span class="line">  key2: <span class="built_in">number</span>,</span><br><span class="line">  key3: <span class="string">''</span></span><br><span class="line">&#125;, <span class="string">'key1'</span> | <span class="string">'key2'</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h3 id="Readonly原理解析"><a href="#Readonly原理解析" class="headerlink" title="Readonly原理解析"></a>Readonly原理解析</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 主要实现是通过映射遍历所有key，</span></span><br><span class="line"><span class="comment"> * 然后给每个key增加一个readonly修饰符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Readonly&lt;T&gt; = &#123;</span><br><span class="line">  readonly [P <span class="keyword">in</span> keyof T]: T[P]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = &#123;</span></span><br><span class="line"><span class="comment"> *   readonly key1: string;</span></span><br><span class="line"><span class="comment"> *   readonly key2: number;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Readonly&lt;&#123;</span><br><span class="line">  key1: <span class="built_in">string</span>,</span><br><span class="line">  key2: <span class="built_in">number</span>,</span><br><span class="line">&#125;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Pick"><a href="#Pick" class="headerlink" title="Pick"></a>Pick</h3><p>挑选一组属性并组成一个新的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Pick&lt;T, K <span class="keyword">extends</span> keyof T&gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> K]: T[P];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Record"><a href="#Record" class="headerlink" title="Record"></a>Record</h3><p>构造一个<code>type</code>，<code>key</code>为联合类型中的每个子类型，类型为<code>T</code>。文字不好理解，先看例子：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg1 = &#123;</span></span><br><span class="line"><span class="comment"> *   a: &#123; key1: string; &#125;;</span></span><br><span class="line"><span class="comment"> *   b: &#123; key1: string; &#125;;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> * @desc 就是遍历第一个参数'a' | 'b'的每个子类型，然后将值设置为第二参数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = Record&lt;<span class="string">'a'</span> | <span class="string">'b'</span>, &#123;key1: <span class="built_in">string</span>&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>Record具体实现：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 核心实现就是遍历K，将值设置为T</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Record&lt;K <span class="keyword">extends</span> keyof <span class="built_in">any</span>, T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> K]: T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg2 = &#123;a: B, b: B&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">  a: <span class="built_in">string</span>,</span><br><span class="line">  b: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> B &#123;</span><br><span class="line">  key1: <span class="built_in">number</span>,</span><br><span class="line">  key2: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Eg2 = Record&lt;keyof A, B&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>值得注意的是<code>keyof any</code>得到的是<code>string | number | symbol</code></li>
+<li>原因在于类型<code>key</code>的类型只能为<code>string | number | symbol</code></li>
+</ul>
+<h3 id="扩展-同态与非同态。划重点！！！-划重点！！！-划重点！！！"><a href="#扩展-同态与非同态。划重点！！！-划重点！！！-划重点！！！" class="headerlink" title="扩展: 同态与非同态。划重点！！！ 划重点！！！ 划重点！！！"></a>扩展: 同态与非同态。划重点！！！ 划重点！！！ 划重点！！！</h3><ul>
+<li>Partial、Readonly和Pick都属于同态的，即其实现需要输入类型T来拷贝属性，因此属性修饰符（例如readonly、?:）都会被拷贝。可从下面例子验证：</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = &#123;readonly a?: string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Pick&lt;&#123;readonly a?: <span class="built_in">string</span>&#125;, <span class="string">'a'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>从Eg的结果可以看到，<code>Pick</code>在拷贝属性时，连带拷贝了<code>readonly</code>和<code>?:</code>的修饰符。</p>
+<ul>
+<li><code>Record</code>是非同态的，不需要拷贝属性，因此不会拷贝属性修饰符</li>
+</ul>
+<p>可以看到<code>Pick</code>的实现中，注意<code>P in K</code>（本质是<code>P in keyof T</code>），<code>T</code>为输入的类型，而<code>keyof T</code>则遍历了输入类型；而<code>Record</code>的实现中，并没有遍历所有输入的类型，<code>K</code>只是约束为<code>keyof any</code>的子类型即可。<br>最后再类比一下<code>Pick</code>、<code>Partial</code>、<code>readonly</code>这几个类型工具，无一例外，都是使用到了<code>keyof T</code>来辅助拷贝传入类型的属性。</p>
+<h3 id="Exclude原理解析"><a href="#Exclude原理解析" class="headerlink" title="Exclude原理解析"></a>Exclude原理解析</h3><p>Exclude&lt;T, U&gt;提取存在于T，但不存在于U的类型组成的联合类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 遍历T中的所有子类型，如果该子类型约束于U（存在于U、兼容于U），</span></span><br><span class="line"><span class="comment"> * 则返回never类型，否则返回该子类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Exclude&lt;T, U&gt; = T <span class="keyword">extends</span> U ? never : T;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = 'key1'</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Exclude&lt;<span class="string">'key1'</span> | <span class="string">'key2'</span>, <span class="string">'key2'</span>&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="never敲重点！！！"><a href="#never敲重点！！！" class="headerlink" title="never敲重点！！！"></a>never敲重点！！！</h4><ul>
+<li>never表示一个不存在的类型</li>
+<li>never与其他类型的联合后，是没有never的</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg2 = string | number</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg2 = <span class="built_in">string</span> | <span class="built_in">number</span> | never</span><br></pre></td></tr></table></figure>
+<p>因此上述<code>Eg</code>其实就等于<code>key1 | never</code>,也就是<code>type Eg = key1</code></p>
+<h3 id="Extract"><a href="#Extract" class="headerlink" title="Extract"></a>Extract</h3><p>Extract&lt;T, U&gt;提取联合类型T和联合类型U的所有交集。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Extract&lt;T, U&gt; = T <span class="keyword">extends</span> U ? T : never;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> *  type Eg = 'key1'</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Extract&lt;<span class="string">'key1'</span> | <span class="string">'key2'</span>, <span class="string">'key1'</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Omit原理解析"><a href="#Omit原理解析" class="headerlink" title="Omit原理解析"></a>Omit原理解析</h3><p><code>Omit&lt;T, K&gt;</code>从类型T中剔除K中的所有属性。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 利用Pick实现Omit</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Omit = Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>换种思路想一下，其实现可以是利用<code>Pick</code>提取我们需要的<code>keys</code>组成的类型</li>
+<li>因此也就是 <code>Omit = Pick&lt;T, 我们需要的属性联合&gt;</code></li>
+<li>而我们需要的属性联合就是，从<code>T</code>的属性联合中排出存在于联合类型K中的</li>
+<li>因此也就是<code>Exclude&lt;keyof T, K&gt;</code>;</li>
+</ul>
+<p>如果不利用Pick实现呢?</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 利用映射类型Omit</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Omit2&lt;T, K <span class="keyword">extends</span> keyof <span class="built_in">any</span>&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> Exclude&lt;keyof T, K&gt;]: T[P]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其实现类似于<code>Pick</code>的原理实现</li>
+<li>区别在于是遍历的我们需要的属性不一样</li>
+<li>我们需要的属性和上面的例子一样，就是<code>Exclude&lt;keyof T, K&gt;</code></li>
+<li>因此，遍历就是<code>[P in Exclude&lt;keyof T, K&gt;]</code></li>
+</ul>
+<h3 id="Parameters-和-ReturnType"><a href="#Parameters-和-ReturnType" class="headerlink" title="Parameters 和 ReturnType"></a>Parameters 和 ReturnType</h3><p>Parameters 获取函数的参数类型，将每个参数类型放在一个元组中。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 具体实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Parameters&lt;T <span class="keyword">extends</span> (...args: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (...args: infer P) =&gt; <span class="built_in">any</span> ? P : never;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = [arg1: string, arg2: number];</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Parameters&lt;<span class="function">(<span class="params">arg1: <span class="built_in">string</span>, arg2: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span>&gt;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Parameters</code>首先约束参数<code>T</code>必须是个函数类型，所以<code>(...args: any) =&gt; any&gt;</code>替换成<code>Function</code>也是可以的</li>
+<li>具体实现就是，判断<code>T</code>是否是函数类型，如果是则使用<code>inter P让ts</code>自己推导出函数的参数类型，并将推导的结果存到类型<code>P</code>上，否则就返回<code>never</code>；</li>
+</ul>
+<h4 id="敲重点！！！敲重点！！！敲重点！！！"><a href="#敲重点！！！敲重点！！！敲重点！！！" class="headerlink" title="敲重点！！！敲重点！！！敲重点！！！"></a>敲重点！！！敲重点！！！敲重点！！！</h4><ul>
+<li><code>infer</code>关键词作用是让<code>Ts</code>自己推导类型，并将推导结果存储在其参数绑定的类型上。<code>Eg:infer P</code> 就是将结果存在类型<code>P</code>上，供使用。</li>
+<li><code>infer</code>关键词只能在<code>extends</code>条件类型上使用，不能在其他地方使用。</li>
+</ul>
+<h4 id="再敲重点！！！再敲重点！！！再敲重点！！！"><a href="#再敲重点！！！再敲重点！！！再敲重点！！！" class="headerlink" title="再敲重点！！！再敲重点！！！再敲重点！！！"></a>再敲重点！！！再敲重点！！！再敲重点！！！</h4><ul>
+<li><p><code>type Eg = [arg1: string, arg2: number]</code>这是一个元组，但是和我们常见的元组<code>type tuple = [string, number]</code>。官网未提到该部分文档说明，其实可以把这个作为类似命名元组，或者具名元组的意思去理解。实质上没有什么特殊的作用，比如无法通过这个具名去取值不行的。但是从语义化的角度，个人觉得多了语义化的表达罢了。</p>
+</li>
+<li><p>定义元祖的可选项，只能是最后的选项</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 普通方式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Tuple1 = [<span class="built_in">string</span>, <span class="built_in">number</span>?];</span><br><span class="line"><span class="keyword">const</span> a: Tuple1 = [<span class="string">'aa'</span>, <span class="number">11</span>];</span><br><span class="line"><span class="keyword">const</span> a2: Tuple1 = [<span class="string">'aa'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 具名方式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Tuple2 = [name: <span class="built_in">string</span>, age?: <span class="built_in">number</span>];</span><br><span class="line"><span class="keyword">const</span> b: Tuple2 = [<span class="string">'aa'</span>, <span class="number">11</span>];</span><br><span class="line"><span class="keyword">const</span> b2: Tuple2 = [<span class="string">'aa'</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>扩展：<code>infer</code>实现一个推导数组所有元素的类型：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 约束参数T为数组类型，</span></span><br><span class="line"><span class="comment"> * 判断T是否为数组，如果是数组类型则推导数组元素的类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> FalttenArray&lt;T <span class="keyword">extends</span> <span class="built_in">Array</span>&lt;<span class="built_in">any</span>&gt;&gt; = T <span class="keyword">extends</span> <span class="built_in">Array</span>&lt;infer P&gt; ? P : never;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * type Eg1 = number | string;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = FalttenArray&lt;[<span class="built_in">number</span>, <span class="built_in">string</span>]&gt;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * type Eg2 = 1 | 'asd';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg2 = FalttenArray&lt;[<span class="number">1</span>, <span class="string">'asd'</span>]&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="ReturnType-获取函数的返回值类型。"><a href="#ReturnType-获取函数的返回值类型。" class="headerlink" title="ReturnType 获取函数的返回值类型。"></a>ReturnType 获取函数的返回值类型。</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc ReturnType的实现其实和Parameters的基本一样</span></span><br><span class="line"><span class="comment"> * 无非是使用infer R的位置不一样。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> ReturnType&lt;T <span class="keyword">extends</span> (...args: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (</span><br><span class="line">  ...args: <span class="built_in">any</span></span><br><span class="line">) =&gt; infer R</span><br><span class="line">  ? R</span><br><span class="line">  : <span class="built_in">any</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Ts-compiler内部实现的类型"><a href="#Ts-compiler内部实现的类型" class="headerlink" title="Ts compiler内部实现的类型"></a>Ts compiler内部实现的类型</h3><h4 id="Uppercase"><a href="#Uppercase" class="headerlink" title="Uppercase"></a>Uppercase</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 构造一个将字符串转大写的类型</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg1 = 'ABCD';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = Uppercase&lt;<span class="string">'abcd'</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="Lowercase"><a href="#Lowercase" class="headerlink" title="Lowercase"></a>Lowercase</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 构造一个将字符串转小大写的类型</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg2 = 'abcd';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg2 = Lowercase&lt;<span class="string">'ABCD'</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="Capitalize"><a href="#Capitalize" class="headerlink" title="Capitalize"></a>Capitalize</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 构造一个将字符串首字符转大写的类型</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg3 = 'Abcd';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg3 = Capitalize&lt;<span class="string">'abcd'</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="Uncapitalize"><a href="#Uncapitalize" class="headerlink" title="Uncapitalize"></a>Uncapitalize</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 构造一个将字符串首字符转小写的类型</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg3 = 'aBCD';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg3 = Uncapitalize&lt;<span class="string">'ABCD'</span>&gt;;</span><br></pre></td></tr></table></figure>
+<p>这些类型工具，在lib.es5.d.ts文件中是看不到具体定义的：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Uppercase&lt;S <span class="keyword">extends</span> <span class="built_in">string</span>&gt; = intrinsic;</span><br><span class="line"><span class="keyword">type</span> Lowercase&lt;S <span class="keyword">extends</span> <span class="built_in">string</span>&gt; = intrinsic;</span><br><span class="line"><span class="keyword">type</span> Capitalize&lt;S <span class="keyword">extends</span> <span class="built_in">string</span>&gt; = intrinsic;</span><br><span class="line"><span class="keyword">type</span> Uncapitalize&lt;S <span class="keyword">extends</span> <span class="built_in">string</span>&gt; = intrinsic;</span><br></pre></td></tr></table></figure>
+<h2 id="第三部分-自定义Ts高级类型工具及类型编程技巧"><a href="#第三部分-自定义Ts高级类型工具及类型编程技巧" class="headerlink" title="第三部分 自定义Ts高级类型工具及类型编程技巧"></a>第三部分 自定义Ts高级类型工具及类型编程技巧</h2><h3 id="SymmetricDifference"><a href="#SymmetricDifference" class="headerlink" title="SymmetricDifference"></a>SymmetricDifference</h3><p><code>SymmetricDifference&lt;T, U&gt;</code>获取没有同时存在于<code>T</code>和<code>U</code>内的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 核心实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> SymmetricDifference&lt;A, B&gt; = SetDifference&lt;A | B, A &amp; B&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * SetDifference的实现和Exclude一样</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> SymmetricDifference&lt;T, U&gt; = Exclude&lt;T | U, T &amp; U&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = '1' | '4';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = SymmetricDifference&lt;<span class="string">'1'</span> | <span class="string">'2'</span> | <span class="string">'3'</span>, <span class="string">'2'</span> | <span class="string">'3'</span> | <span class="string">'4'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>其核心实现利用了3点：分发式联合类型、交叉类型和<code>Exclude</code>。</p>
+<ul>
+<li>首先利用Exclude从获取存在于第一个参数但是不存在于第二个参数的类型</li>
+<li>Exclude第2个参数是T &amp; U获取的是所有类型的交叉类型</li>
+<li>Exclude第一个参数则是T | U，这是利用在联合类型在extends中的分发特性，可以理解为Exclude&lt;T, T &amp; U&gt; | Exclude&lt;U, T &amp; U&gt;;</li>
+</ul>
+<p>总结一下就是，提取存在于<code>T</code>但不存在于<code>T &amp; U</code>的类型，然后再提取存在于<code>U</code>但不存在于<code>T &amp; U</code>的，最后进行联合。</p>
+<h3 id="FunctionKeys"><a href="#FunctionKeys" class="headerlink" title="FunctionKeys"></a>FunctionKeys</h3><p>获取T中所有类型为函数的key组成的联合类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc NonUndefined判断T是否为undefined</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> NonUndefined&lt;T&gt; = T <span class="keyword">extends</span> <span class="literal">undefined</span> ? never : T;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 核心实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> FunctionKeys&lt;T <span class="keyword">extends</span> object&gt; = &#123;</span><br><span class="line">  [K <span class="keyword">in</span> keyof T]: NonUndefined&lt;T[K]&gt; <span class="keyword">extends</span> <span class="built_in">Function</span> ? K : never;</span><br><span class="line">&#125;[keyof T];</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = 'key2' | 'key3';</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> AType = &#123;</span><br><span class="line">    key1: <span class="built_in">string</span>,</span><br><span class="line">    key2: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">void</span>,</span><br><span class="line">    key3: <span class="built_in">Function</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">type</span> Eg = FunctionKeys&lt;AType&gt;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先约束参数T类型为<code>object</code></li>
+<li>通过映射类型<code>K in keyof T</code>遍历所有的<code>key</code>，先通过<code>NonUndefined&lt;T[K]&gt;</code>过滤<code>T[K]</code>为<code>undefined | null</code>的类型，不符合的返回<code>never</code></li>
+<li>若<code>T[K]</code>为有效类型，则判断是否为<code>Function</code>类型，是的话返回<code>K</code>,否则<code>never</code>；此时可以得到的类型，例如：</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 上述的Eg在此时应该是如下类型，伪代码：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> TempType = &#123;</span><br><span class="line">    key1: never,</span><br><span class="line">    key2: <span class="string">'key2'</span>,</span><br><span class="line">    key3: <span class="string">'key3'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后经过<code>{省略}[keyof T]</code>索引访问，取到的为值类型的联合类型<code>never | key2 | key3</code>,计算后就是<code>key2 | key3</code>;</p>
+<p>#### </p>
+<ul>
+<li><code>T[]</code>是索引访问操作，可以取到值的类型</li>
+<li><code>T[&#39;a&#39; | &#39;b&#39;]</code>若<code>[]</code>内参数是联合类型，则也是分发索引的特性，依次取到值的类型进行联合</li>
+<li><code>T[keyof T]</code>则是获取T所有值的类型类型；</li>
+<li><code>never</code>和其他类型进行联合时，<code>never</code>是不存在的。例如：<code>never | number | string</code>等同于<code>number | string</code></li>
+</ul>
+<h4 id="再敲重点！！！再敲重点！！！再敲重点！！！-1"><a href="#再敲重点！！！再敲重点！！！再敲重点！！！-1" class="headerlink" title="再敲重点！！！再敲重点！！！再敲重点！！！"></a>再敲重点！！！再敲重点！！！再敲重点！！！</h4><ul>
+<li>null和undefined可以赋值给其他类型（开始该类型的严格赋值检测除外）,所以上述实现中需要使用`NonUndefined先行判断。</li>
+<li>NonUndefined中的实现，只判断了T extends undefined，其实也是因为两者可以互相兼容的。所以你换成T extends null或者T extends null | undefined都是可以的。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A = 1</span></span><br><span class="line"><span class="keyword">type</span> A = <span class="literal">undefined</span> <span class="keyword">extends</span> <span class="literal">null</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"><span class="comment">// B = 1</span></span><br><span class="line"><span class="keyword">type</span> B = <span class="literal">null</span> <span class="keyword">extends</span> <span class="literal">undefined</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="增强Pick"><a href="#增强Pick" class="headerlink" title="增强Pick"></a>增强Pick</h3><p>PickByValue提取指定值的类型</p>
+<p>// 辅助函数，用于获取T中类型不为never的类型组成的联合类型</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TypeKeys&lt;T&gt; = T[keyof T];</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 核心实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> PickByValue&lt;T, V&gt; = Pick&lt;T,</span><br><span class="line">  TypeKeys&lt;&#123;[P <span class="keyword">in</span> keyof T]: T[P] <span class="keyword">extends</span> V ? P : never&#125;&gt;</span><br><span class="line">&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> *  type Eg = &#123;</span></span><br><span class="line"><span class="comment"> *    key1: number;</span></span><br><span class="line"><span class="comment"> *    key3: number;</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = PickByValue&lt;&#123;key1: <span class="built_in">number</span>, key2: <span class="built_in">string</span>, key3: <span class="built_in">number</span>&#125;, <span class="built_in">number</span>&gt;;</span><br></pre></td></tr></table></figure>
+<p>Ts的类型兼容特性，所以类似string是可以分配给string | number的，因此上述并不是精准的提取方式。如果实现精准的方式，则可以考虑下面个这个类型工具。</p>
+<p>PickByValueExact精准的提取指定值的类型</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 核心实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> PickByValueExact&lt;T, V&gt; = Pick&lt;T,</span><br><span class="line">  TypeKeys&lt;&#123;[P <span class="keyword">in</span> keyof T]: [T[P]] <span class="keyword">extends</span> [V]</span><br><span class="line">    ? ([V] <span class="keyword">extends</span> [T[P]] ? P : never)</span><br><span class="line">    : never;</span><br><span class="line">  &#125;&gt;</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// type Eg1 = &#123; b: number &#125;;</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = PickByValueExact&lt;&#123;a: <span class="built_in">string</span>, b: <span class="built_in">number</span>&#125;, <span class="built_in">number</span>&gt;</span><br><span class="line"><span class="comment">// type Eg2 = &#123; b: number; c: number | undefined &#125;</span></span><br><span class="line"><span class="keyword">type</span> Eg2 = PickByValueExact&lt;&#123;a: <span class="built_in">string</span>, b: <span class="built_in">number</span>, c: <span class="built_in">number</span> | <span class="literal">undefined</span>&#125;, <span class="built_in">number</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>PickByValueExact的核心实现主要有三点：<br>一是利用Pick提取我们需要的key对应的类型<br>二是利用给泛型套一层元组规避extends的分发式联合类型的特性<br>三是利用两个类型互相兼容的方式判断是否相同。<br>具体可以看下下面例子：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Eq1&lt;X, Y&gt; = X <span class="keyword">extends</span> Y ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">type</span> Eq2&lt;X, Y&gt; = [X] <span class="keyword">extends</span> [Y] ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">type</span> Eq3&lt;X, Y&gt; = [X] <span class="keyword">extends</span> [Y]</span><br><span class="line">  ? ([Y] <span class="keyword">extends</span> [X] ? <span class="literal">true</span> : <span class="literal">false</span>)</span><br><span class="line">  : <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// boolean, 期望是false</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = Eq1&lt;<span class="built_in">string</span> | <span class="built_in">number</span>, <span class="built_in">string</span>&gt;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="keyword">type</span> Eg2 = Eq2&lt;<span class="built_in">string</span> | <span class="built_in">number</span>, <span class="built_in">string</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// true，期望是false</span></span><br><span class="line"><span class="keyword">type</span> Eg3 = Eq2&lt;<span class="built_in">string</span>, <span class="built_in">string</span> | <span class="built_in">number</span>&gt;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="keyword">type</span> Eg4 = Eq3&lt;<span class="built_in">string</span>, <span class="built_in">string</span> | <span class="built_in">number</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// true，非strictNullChecks模式下的结果</span></span><br><span class="line"><span class="keyword">type</span> Eg5 = Eq3&lt;<span class="built_in">number</span> | <span class="literal">undefined</span>, <span class="built_in">number</span>&gt;</span><br><span class="line"><span class="comment">// false，strictNullChecks模式下的结果</span></span><br><span class="line"><span class="keyword">type</span> Eg6 = Eq3&lt;<span class="built_in">number</span> | <span class="literal">undefined</span>, <span class="built_in">number</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>从Eg1和Eg2对比可以看出，给extends参数套上元组可以避免分发的特性，从而得到期望的结果；</li>
+<li>从Eg3和Eg4对比可以看出，通过判断两个类型互相是否兼容的方式，可以得到从属类型的正确相等判断。</li>
+<li>从Eg5和Eg6对比可以看出，非strictNullChecks模式下，undefined和null可以赋值给其他类型的特性，导致number | undefined, number是兼容的，因为是非strictNullChecks模式，所以有这个结果也是符合预期。如果不需要此兼容结果，完全可以开启strictNullChecks模式。</li>
+</ul>
+<p>最后，同理想得到OmitByValue和OmitByValueExact基本一样的思路就不多说了，大家可以自己思考实现。</p>
+<h3 id="Overwrite-和-Assign"><a href="#Overwrite-和-Assign" class="headerlink" title="Overwrite 和 Assign"></a>Overwrite 和 Assign</h3><p><code>Overwrite&lt;T, U&gt;</code>从U中的同名属性的类型覆盖T中的同名属性类型。(后者中的同名属性覆盖前者)</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Overwrite实现</span></span><br><span class="line"><span class="comment"> * 获取前者独有的key和类型，再取两者共有的key和该key在后者中的类型，最后合并。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Overwrite&lt;</span><br><span class="line">  T <span class="keyword">extends</span> object,</span><br><span class="line">  U <span class="keyword">extends</span> object,</span><br><span class="line">  I = Diff&lt;T, U&gt; &amp; Intersection&lt;U, T&gt;</span><br><span class="line">&gt; = Pick&lt;I, keyof I&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg1 = &#123; key1: number; &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg1 = Overwrite&lt;&#123;key1: <span class="built_in">string</span>&#125;, &#123;key1: <span class="built_in">number</span>, other: <span class="built_in">boolean</span>&#125;&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先约束T和U这两个参数都是object</li>
+<li>借助一个参数I的默认值作为实现过程，使用的时候不需要传递I参数（只是辅助实现的）</li>
+<li>通过Diff&lt;T, U&gt;获取到存在于T但是不存在于U中的key和其类型。（即获取T自己特有key和类型）。</li>
+<li>通过Intersection&lt;U, T&gt;获取U和T共有的key已经该key在U中的类型。即获取后者同名key已经类型。</li>
+<li>最后通过交叉类型进行合并，从而曲线救国实现了覆盖操作。</li>
+</ul>
+<p>扩展：如何实现一个Assign&lt;T, U&gt;（类似于Object.assign()）用于合并呢？</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现</span></span><br><span class="line"><span class="keyword">type</span> Assign&lt;</span><br><span class="line">  T <span class="keyword">extends</span> object,</span><br><span class="line">  U <span class="keyword">extends</span> object,</span><br><span class="line">  I = Diff&lt;T, U&gt; &amp; U</span><br><span class="line">&gt; = Pick&lt;I, keyof I&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type Eg = &#123;</span></span><br><span class="line"><span class="comment"> *   name: string;</span></span><br><span class="line"><span class="comment"> *   age: string;</span></span><br><span class="line"><span class="comment"> *   other: string;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> Eg = Assign&lt;</span><br><span class="line">  &#123; name: <span class="built_in">string</span>; age: <span class="built_in">number</span>; &#125;,</span><br><span class="line">  &#123; age: <span class="built_in">string</span>; other: <span class="built_in">string</span>; &#125;</span><br><span class="line">&gt;;</span><br></pre></td></tr></table></figure>
+<p>想一下，是不是就是先找到前者独有的key和类型，再和U交叉。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ts/" rel="tag"># ts</a>
+          
+            <a href="/tags/typescript/" rel="tag"># typescript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/01/17/前端知识点-前端基础/" rel="next" title="前端知识点-前端基础">
+                <i class="fa fa-chevron-left"></i> 前端知识点-前端基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/03/06/微前端-乾坤/" rel="prev" title="微前端 乾坤">
+                微前端 乾坤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
+          <p class="site-author-name" itemprop="name">大洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.guowenfh.com/" title="国文" target="_blank">国文</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文基本分为三部分："><span class="nav-number">1.</span> <span class="nav-text">本文基本分为三部分：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分-前置内容"><span class="nav-number">2.</span> <span class="nav-text">第一部分 前置内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extends关键词特性（重点）"><span class="nav-number">2.1.</span> <span class="nav-text">extends关键词特性（重点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型兼容性-重要！重要！重要"><span class="nav-number">2.2.</span> <span class="nav-text">类型兼容性 重要！重要！重要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#infer-关键词-敲重点！！！敲重点！！！敲重点！！！"><span class="nav-number">2.2.1.</span> <span class="nav-text">infer 关键词 敲重点！！！敲重点！！！敲重点！！！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分-Ts内置类型工具原理解析"><span class="nav-number">3.</span> <span class="nav-text">第二部分 Ts内置类型工具原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partial实现原理解析"><span class="nav-number">3.1.</span> <span class="nav-text">Partial实现原理解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Readonly原理解析"><span class="nav-number">3.2.</span> <span class="nav-text">Readonly原理解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pick"><span class="nav-number">3.3.</span> <span class="nav-text">Pick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Record"><span class="nav-number">3.4.</span> <span class="nav-text">Record</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展-同态与非同态。划重点！！！-划重点！！！-划重点！！！"><span class="nav-number">3.5.</span> <span class="nav-text">扩展: 同态与非同态。划重点！！！ 划重点！！！ 划重点！！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exclude原理解析"><span class="nav-number">3.6.</span> <span class="nav-text">Exclude原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#never敲重点！！！"><span class="nav-number">3.6.1.</span> <span class="nav-text">never敲重点！！！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extract"><span class="nav-number">3.7.</span> <span class="nav-text">Extract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Omit原理解析"><span class="nav-number">3.8.</span> <span class="nav-text">Omit原理解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameters-和-ReturnType"><span class="nav-number">3.9.</span> <span class="nav-text">Parameters 和 ReturnType</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#敲重点！！！敲重点！！！敲重点！！！"><span class="nav-number">3.9.1.</span> <span class="nav-text">敲重点！！！敲重点！！！敲重点！！！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再敲重点！！！再敲重点！！！再敲重点！！！"><span class="nav-number">3.9.2.</span> <span class="nav-text">再敲重点！！！再敲重点！！！再敲重点！！！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReturnType-获取函数的返回值类型。"><span class="nav-number">3.10.</span> <span class="nav-text">ReturnType 获取函数的返回值类型。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ts-compiler内部实现的类型"><span class="nav-number">3.11.</span> <span class="nav-text">Ts compiler内部实现的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Uppercase"><span class="nav-number">3.11.1.</span> <span class="nav-text">Uppercase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lowercase"><span class="nav-number">3.11.2.</span> <span class="nav-text">Lowercase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Capitalize"><span class="nav-number">3.11.3.</span> <span class="nav-text">Capitalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uncapitalize"><span class="nav-number">3.11.4.</span> <span class="nav-text">Uncapitalize</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三部分-自定义Ts高级类型工具及类型编程技巧"><span class="nav-number">4.</span> <span class="nav-text">第三部分 自定义Ts高级类型工具及类型编程技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SymmetricDifference"><span class="nav-number">4.1.</span> <span class="nav-text">SymmetricDifference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FunctionKeys"><span class="nav-number">4.2.</span> <span class="nav-text">FunctionKeys</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#再敲重点！！！再敲重点！！！再敲重点！！！-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">再敲重点！！！再敲重点！！！再敲重点！！！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强Pick"><span class="nav-number">4.3.</span> <span class="nav-text">增强Pick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overwrite-和-Assign"><span class="nav-number">4.4.</span> <span class="nav-text">Overwrite 和 Assign</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
+  </a>
+</div>
+
+
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv">
+    <i class="fa fa-user"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+  </span>
+  
+  <span class="site-pv">
+    <i class="fa fa-eye"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+  </span>
+  
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>

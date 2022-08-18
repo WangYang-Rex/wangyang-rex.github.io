@@ -1,0 +1,841 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="node,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="前言源码：https://github.com/Unitech/pm2  这里的pm2并不是大气污染物啊  事实上，pm2 是一个带有负载均衡功能的Node应用的进程管理器，Node实现进程管理的库有很多，forever也是其中一个很强大但是也相对较老的进程管理器。 为什么要使用pm2对于这个问题，先说说我的看法，最基本的原因是因为node本身是一个单线程应用，它的特点就是所有方法都是串行一次执行">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pm2实现负载均衡">
+<meta property="og:url" content="http://blog.html-js.site/2018/04/08/pm2实现负载均衡/index.html">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="前言源码：https://github.com/Unitech/pm2  这里的pm2并不是大气污染物啊  事实上，pm2 是一个带有负载均衡功能的Node应用的进程管理器，Node实现进程管理的库有很多，forever也是其中一个很强大但是也相对较老的进程管理器。 为什么要使用pm2对于这个问题，先说说我的看法，最基本的原因是因为node本身是一个单线程应用，它的特点就是所有方法都是串行一次执行">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.html-js.site/images/page/pm2/1.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/pm2/2.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/pm2/3.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/pm2/4.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/pm2/5.jpeg">
+<meta property="og:updated_time" content="2018-04-08T03:36:47.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pm2实现负载均衡">
+<meta name="twitter:description" content="前言源码：https://github.com/Unitech/pm2  这里的pm2并不是大气污染物啊  事实上，pm2 是一个带有负载均衡功能的Node应用的进程管理器，Node实现进程管理的库有很多，forever也是其中一个很强大但是也相对较老的进程管理器。 为什么要使用pm2对于这个问题，先说说我的看法，最基本的原因是因为node本身是一个单线程应用，它的特点就是所有方法都是串行一次执行">
+<meta name="twitter:image" content="http://blog.html-js.site/images/page/pm2/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a7c71e140bbb888f55ad26943955ca83";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.html-js.site/2018/04/08/pm2实现负载均衡/">
+
+
+
+
+
+  <title>pm2实现负载均衡 | 大洋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/04/08/pm2实现负载均衡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">pm2实现负载均衡</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T11:16:03+08:00">
+                2018-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>源码：<a href="https://github.com/Unitech/pm2" target="_blank" rel="noopener">https://github.com/Unitech/pm2</a></p>
+<blockquote>
+<p>这里的pm2并不是大气污染物啊</p>
+</blockquote>
+<p>事实上，pm2 是一个带有负载均衡功能的Node应用的进程管理器，Node实现进程管理的库有很多，forever也是其中一个很强大但是也相对较老的进程管理器。</p>
+<h3 id="为什么要使用pm2"><a href="#为什么要使用pm2" class="headerlink" title="为什么要使用pm2"></a>为什么要使用pm2</h3><p>对于这个问题，先说说我的看法，最基本的原因是因为node本身是一个单线程应用，它的特点就是所有方法都是串行一次执行，并且node并没有能力像Java一样独自去创建一个新的线程来实现异步操作，如果在执行I/O中遇到了阻塞就会降低整个应用的执行效率，导致CPU使用率高等不利原因。</p>
+<p>因此在这种模式下，一个线程只能处理一个任务，要想提高吞吐量必须通过多线程。虽然单线程的好处有很多比如避免了线程同步或者死锁、状态同步等等之类的问题，但是在应用和计算能力要求日益倍增的今天，单线程最大的弊端就是无法利用多核CPU带来的优势来提升运行效率。</p>
+<p>我们知道node可以利用异步I/O来避免线程阻塞，提高利用率等优点:<br><img src="/images/page/pm2/1.png" alt></p>
+<p>同时为了弥补单线程无法利用多核CPU的问题，提供了“子进程”这个概念，Node.js 实际上是 Javascript 执行线程的单线程，真正的的 I/O 操作，底层 API 调用都是通过多线程执行的。当然在这里我只是指出了这一背景，那么为什么我们要用pm2？</p>
+<p>我总结了两个比较简洁的答案：1、pm2可以把你的应用部署到服务器所有的CPU上（$ pm2 start app.js -i max），有效的解决了之前背景里提出的问题。 2、同样是进程管理器，为什么不用forever？我认为最大的区别是在监控欠缺，进程和集群管理有限。在监控以及log方面可以认为forever完败于pm2，为什么，一张图你就知道答案。<br><img src="/images/page/pm2/2.png" alt></p>
+<p>这是pm2官网给出的Demo，我们可以清晰地看见整个集群的模式、状态，CPU利用率甚至是内存大小，而forever给出的是什么呢？null</p>
+<p>如果我要实时监控所有的进程状态呢？<br><img src="/images/page/pm2/3.png" alt></p>
+<p>这就是pm2的强大之处，多进程管理、监控、负载均衡……</p>
+<h3 id="pm2主要特点"><a href="#pm2主要特点" class="headerlink" title="pm2主要特点"></a>pm2主要特点</h3><ul>
+<li>内建负载均衡（使用Node cluster 集群模块、子进程，可以参考朴灵的《深入浅出node.js》一书第九章）</li>
+<li>线程守护，keep alive</li>
+<li>0秒停机重载，维护升级的时候不需要停机.</li>
+<li>现在 Linux (stable) &amp; MacOSx (stable) &amp; Windows (stable).多平台支持</li>
+<li>停止不稳定的进程（避免无限循环）</li>
+<li>控制台检测</li>
+<li>提供 HTTP API</li>
+<li>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ npm install pm2 -g     # 命令行安装 pm2</span><br><span class="line">$ pm2 start app.js -i 4  #后台运行pm2，启动4个app.js</span><br><span class="line">                         # 也可以把'max' 参数传递给 start</span><br><span class="line">                         # 正确的进程数目依赖于Cpu的核心数目</span><br><span class="line">$ pm2 start app.js --name my-api # 命名进程</span><br><span class="line">$ pm2 list               # 显示所有进程状态</span><br><span class="line">$ pm2 monit              # 监视所有进程</span><br><span class="line">$ pm2 logs               #  显示所有进程日志</span><br><span class="line">$ pm2 stop all           # 停止所有进程</span><br><span class="line">$ pm2 restart all        # 重启所有进程</span><br><span class="line">$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)</span><br><span class="line">$ pm2 stop 0             # 停止指定的进程</span><br><span class="line">$ pm2 restart 0          # 重启指定的进程</span><br><span class="line">$ pm2 startup            # 产生 init 脚本 保持进程活着</span><br><span class="line">$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)</span><br><span class="line">$ pm2 delete 0           # 杀死指定的进程</span><br><span class="line">$ pm2 delete all         # 杀死全部进程</span><br><span class="line"></span><br><span class="line">运行进程的不同方式：</span><br><span class="line">$ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目</span><br><span class="line">$ pm2 start app.js -i 3      # 启动3个进程</span><br><span class="line">$ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster</span><br><span class="line">$ pm2 start app.js -x -- -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)</span><br><span class="line">$ pm2 start app.js --name serverone  # 启动一个进程并把它命名为 serverone</span><br><span class="line">$ pm2 stop serverone       # 停止 serverone 进程</span><br><span class="line">$ pm2 start app.json        # 启动进程, 在 app.json里设置选项</span><br><span class="line">$ pm2 start app.js -i max -- -a 23                   #在--之后给 app.js 传递参数</span><br><span class="line">$ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件</span><br><span class="line">你也可以执行用其他语言编写的app  ( fork 模式):</span><br><span class="line">$ pm2 start my-bash-script.sh    -x --interpreter bash</span><br><span class="line">$ pm2 start my-python-script.py -x --interpreter python</span><br></pre></td></tr></table></figure>
+<h3 id="附上keymetrics实时监控"><a href="#附上keymetrics实时监控" class="headerlink" title="附上keymetrics实时监控"></a>附上keymetrics实时监控</h3><p>地址：<a href="https://app.keymetrics.io/#/register" target="_blank" rel="noopener">https://app.keymetrics.io/#/register</a></p>
+<p>pm2官方也结合pm2管理提供了一套可视化在线监控平台，有多牛？上图：<br><img src="/images/page/pm2/4.png" alt></p>
+<p>注册完毕后创建自己的第一个项目工程成功后会得到如图所示口令：<br><img src="/images/page/pm2/5.jpeg" alt></p>
+<p>系统分配的public key 和secret key。然后，在安装有pm2的服务器端输入以下命令<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 interact your-secret-key your-public-key</span><br></pre></td></tr></table></figure></p>
+<p>接下来的事情就交给可视化去做吧。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/ajax-hook原理解析/" rel="next" title="ajax-hook原理解析">
+                <i class="fa fa-chevron-left"></i> ajax-hook原理解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/08/nvm管理不同版本的node与npm/" rel="prev" title="nvm管理不同版本的node与npm">
+                nvm管理不同版本的node与npm <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
+          <p class="site-author-name" itemprop="name">大洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.guowenfh.com/" title="国文" target="_blank">国文</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用pm2"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用pm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2主要特点"><span class="nav-number">3.</span> <span class="nav-text">pm2主要特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">4.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附上keymetrics实时监控"><span class="nav-number">5.</span> <span class="nav-text">附上keymetrics实时监控</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
+  </a>
+</div>
+
+
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv">
+    <i class="fa fa-user"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+  </span>
+  
+  <span class="site-pv">
+    <i class="fa fa-eye"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+  </span>
+  
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,837 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="git,前端工程化,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="一、前言现在最流行的版本管理工具非git莫属，而良好的代码规范有助于项目的维护，为了防止一些不规范的代码 commit并push到远端,我们可以在git命令执行前用一些钩子来检测并阻止。现在大前端主要有两种git钩子插件：husky（jquery与next.js都在用），pre-commit(antd在用)。下面我将现介绍一个git钩子，再介绍下husky与pre-commit的用法 二、git钩">
+<meta name="keywords" content="git,前端工程化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git commit前检测husky与pre-commit">
+<meta property="og:url" content="http://blog.html-js.site/2021/08/23/git-commit前检测husky与pre-commit/index.html">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="一、前言现在最流行的版本管理工具非git莫属，而良好的代码规范有助于项目的维护，为了防止一些不规范的代码 commit并push到远端,我们可以在git命令执行前用一些钩子来检测并阻止。现在大前端主要有两种git钩子插件：husky（jquery与next.js都在用），pre-commit(antd在用)。下面我将现介绍一个git钩子，再介绍下husky与pre-commit的用法 二、git钩">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.html-js.site/images/page/husky/1.jpeg">
+<meta property="og:image" content="http://blog.html-js.site/images/page/husky/2.jpeg">
+<meta property="og:updated_time" content="2021-09-10T08:50:46.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git commit前检测husky与pre-commit">
+<meta name="twitter:description" content="一、前言现在最流行的版本管理工具非git莫属，而良好的代码规范有助于项目的维护，为了防止一些不规范的代码 commit并push到远端,我们可以在git命令执行前用一些钩子来检测并阻止。现在大前端主要有两种git钩子插件：husky（jquery与next.js都在用），pre-commit(antd在用)。下面我将现介绍一个git钩子，再介绍下husky与pre-commit的用法 二、git钩">
+<meta name="twitter:image" content="http://blog.html-js.site/images/page/husky/1.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a7c71e140bbb888f55ad26943955ca83";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.html-js.site/2021/08/23/git-commit前检测husky与pre-commit/">
+
+
+
+
+
+  <title>git commit前检测husky与pre-commit | 大洋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/23/git-commit前检测husky与pre-commit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git commit前检测husky与pre-commit</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-23T14:27:15+08:00">
+                2021-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>现在最流行的版本管理工具非<code>git</code>莫属，而良好的代码规范有助于项目的维护，为了防止一些不规范的代码 <code>commit</code>并<code>push</code>到远端,我们可以在<code>git</code>命令执行前用一些钩子来检测并阻止。现在大前端主要有两种<code>git</code>钩子插件：<code>husky</code>（<code>jquery</code>与<code>next.js</code>都在用），<code>pre-commit</code>(antd在用)。<br>下面我将现介绍一个<code>git</code>钩子，再介绍下<code>husky</code>与<code>pre-commit</code>的用法</p>
+<h3 id="二、git钩子"><a href="#二、git钩子" class="headerlink" title="二、git钩子"></a>二、git钩子</h3><p>用过<code>git</code>的小伙伴们都知道<code>git</code>有很多命令<code>commit</code>、<code>push</code>、<code>rebase</code>等等。那这些命令主要是在执行<code>.git</code>文件夹中的东西，那么<code>git</code> 钩子目录就是在<code>.git</code>文件夹的<code>hooks</code>下，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .git/hooks</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p><img src="/images/page/husky/1.jpeg" alt></p>
+<p>上图为各个钩子的案例脚本，可以把<code>sample</code>去掉，直接编写<code>shell</code>脚本来执行。<br>而前端的小伙伴们则可以用插件<code>husky</code>与<code>pre-commit</code>，来使钩子生效。<br>注意： 一般<code>.git</code>为隐藏文件，可以把项目拖入IDE中查看,<code>.git</code>文件里的内容一般不允许手动更改的。</p>
+<a id="more"></a>
+<h3 id="三、husky"><a href="#三、husky" class="headerlink" title="三、husky"></a>三、husky</h3><p><code>husky</code>能够防止不规范代码被<code>commit</code>、<code>push</code>、<code>merge</code>等等。</p>
+<p>首先安装<code>husky</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install husky --save-dev</span><br></pre></td></tr></table></figure>
+<p>编辑<code>package.json</code>文件，如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"precommit"</span>: <span class="string">"webpack  --config ./web/webpack.config.js"</span>,</span><br><span class="line">    <span class="string">"..."</span>: <span class="string">"..."</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当你<code>git commit</code>的时候，将会现现执行<code>precommit</code>里的脚本，没有问题了再提交。</p>
+<p><img src="/images/page/husky/2.jpeg" alt></p>
+<p>具体案例可查看<a href="https://link.zhihu.com/?target=https%3A//github.com/raoenhui/create-img" target="_blank" rel="noopener">https://link.zhihu.com/?target=https%3A//github.com/raoenhui/create-img</a></p>
+<h3 id="四、pre-commit"><a href="#四、pre-commit" class="headerlink" title="四、pre-commit"></a>四、pre-commit</h3><p><code>pre-commit</code>能够防止不规范代码被<code>commit</code>，没有<code>husky</code>这么全面，但是你可以接着安装<code>pre-push</code>等插件来防止对应的git操作。下面以<code>pre-commit</code>为例：<br>首先安装<code>pre-commit</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pre-commit --save-dev</span><br></pre></td></tr></table></figure>
+<p>编辑<code>package.json</code>文件，如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" &amp;&amp; exit 1"</span>,</span><br><span class="line">  <span class="string">"foo"</span>: <span class="string">"echo \"fooo\" &amp;&amp; exit 0"</span>,</span><br><span class="line">  <span class="string">"bar"</span>: <span class="string">"echo \"bar\" &amp;&amp; exit 0"</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"pre-commit"</span>: [</span><br><span class="line">  <span class="string">"foo"</span>,</span><br><span class="line">  <span class="string">"bar"</span>,</span><br><span class="line">  <span class="string">"test"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><code>pre-commit</code>的配置项非常灵活，还可以下面这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"precommit"</span>: <span class="string">"foo, bar, test"</span></span><br><span class="line">  <span class="string">"pre-commit"</span>: <span class="string">"foo, bar, test"</span></span><br><span class="line">  <span class="string">"pre-commit"</span>: [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"test"</span>]</span><br><span class="line">  <span class="string">"precommit"</span>: [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"test"</span>],</span><br><span class="line">  <span class="string">"precommit"</span>: &#123;</span><br><span class="line">    <span class="string">"run"</span>: <span class="string">"foo, bar, test"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"pre-commit"</span>: &#123;</span><br><span class="line">    <span class="string">"run"</span>: [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"test"</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"precommit"</span>: &#123;</span><br><span class="line">    <span class="string">"run"</span>: [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"test"</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"pre-commit"</span>: &#123;</span><br><span class="line">    <span class="string">"run"</span>: <span class="string">"foo, bar, test"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你配置好后，执行<code>git commit</code>命令，它将会依次执行<code>foo</code>、<code>bar</code>、<code>test</code>来检测完善代码。</p>
+<h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><p>我们已经怎么用<code>git</code>钩子插件了，那么我们一般用它来做什么呢。</p>
+<p><code>prevent commit</code>时，我们可以把<code>eslint</code>以及<code>test</code>命令加上，检测代码规范：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"precommit"</span>: <span class="string">"lint-staged &amp;&amp; npm run test"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>prevent publish</code> 主干分支时，我们可以把<code>tag</code>打上：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"precommit"</span>: <span class="string">"npm run tag"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体怎么自动化打tag标签，可以参考<br><a href="https://raoenhui.github.io/nodejs/git/2018/03/30/nodejs%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90tag/" target="_blank" rel="noopener">https://raoenhui.github.io/nodejs/git/2018/03/30/nodejs%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90tag/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/前端工程化/" rel="tag"># 前端工程化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/20/node文件上传oss/" rel="next" title="node文件上传oss">
+                <i class="fa fa-chevron-left"></i> node文件上传oss
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/09/02/windows下nginx的安装及使用/" rel="prev" title="windows下nginx的安装及使用">
+                windows下nginx的安装及使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
+          <p class="site-author-name" itemprop="name">大洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.guowenfh.com/" title="国文" target="_blank">国文</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、git钩子"><span class="nav-number">2.</span> <span class="nav-text">二、git钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、husky"><span class="nav-number">3.</span> <span class="nav-text">三、husky</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、pre-commit"><span class="nav-number">4.</span> <span class="nav-text">四、pre-commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、总结"><span class="nav-number">5.</span> <span class="nav-text">五、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
+  </a>
+</div>
+
+
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv">
+    <i class="fa fa-user"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+  </span>
+  
+  <span class="site-pv">
+    <i class="fa fa-eye"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+  </span>
+  
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="node,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="Commander.jsnode.js 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。API 文档本文所有的例子都可以用 node name.js &amp;lt;command/option&amp;gt; 执行吐槽：commander.js中文文档真的好难找哇">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="commander.js-node.js 命令行接口的完整解决方案">
+<meta property="og:url" content="http://blog.html-js.site/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/index.html">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="Commander.jsnode.js 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。API 文档本文所有的例子都可以用 node name.js &amp;lt;command/option&amp;gt; 执行吐槽：commander.js中文文档真的好难找哇">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-06T06:55:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="commander.js-node.js 命令行接口的完整解决方案">
+<meta name="twitter:description" content="Commander.jsnode.js 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。API 文档本文所有的例子都可以用 node name.js &amp;lt;command/option&amp;gt; 执行吐槽：commander.js中文文档真的好难找哇">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a7c71e140bbb888f55ad26943955ca83";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.html-js.site/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/">
+
+
+
+
+
+  <title>commander.js-node.js 命令行接口的完整解决方案 | 大洋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a target="_blank" href="https://github.com/WangYang-Rex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2017/05/26/commander-js-node-js-命令行接口的完整解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">commander.js-node.js 命令行接口的完整解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T09:52:17+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Commander-js"><a href="#Commander-js" class="headerlink" title="Commander.js"></a>Commander.js</h1><p><a href="http://nodejs.org" target="_blank" rel="noopener">node.js</a> 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。<br><a href="http://tj.github.com/commander.js/" target="_blank" rel="noopener">API 文档</a><br>本文所有的例子都可以用 <code>node name.js &lt;command/option&gt;</code> 执行<br>吐槽：commander.js中文文档真的好难找哇<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install commander</span><br></pre></td></tr></table></figure>
+<h2 id="参数解析"><a href="#参数解析" class="headerlink" title="参数解析"></a>参数解析</h2><p>定义并使用 commander 的选项功能 <code>.option()</code> 方法。作为这些选项的文档，下面的例子会解析来自 <code>progress.argv</code> 指定的参数和选项，留下剩余未被选择的参数放到 <code>program.args</code> 数组中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Module dependencies.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .option(<span class="string">'-p, --peppers'</span>, <span class="string">'Add peppers'</span>)</span><br><span class="line">  .option(<span class="string">'-P, --pineapple'</span>, <span class="string">'Add pineapple'</span>)</span><br><span class="line">  .option(<span class="string">'-b, --bbq-sauce'</span>, <span class="string">'Add bbq sauce'</span>)</span><br><span class="line">  .option(<span class="string">'-c, --cheese [type]'</span>, <span class="string">'Add the specified type of cheese [marble]'</span>, <span class="string">'marble'</span>)</span><br><span class="line">  .parse(process.argv);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'you ordered a pizza with:'</span>);</span><br><span class="line"><span class="keyword">if</span> (program.peppers) <span class="built_in">console</span>.log(<span class="string">'  - peppers'</span>);</span><br><span class="line"><span class="keyword">if</span> (program.pineapple) <span class="built_in">console</span>.log(<span class="string">'  - pineapple'</span>);</span><br><span class="line"><span class="keyword">if</span> (program.bbqSauce) <span class="built_in">console</span>.log(<span class="string">'  - bbq'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'  - %s cheese'</span>, program.cheese);</span><br></pre></td></tr></table></figure></p>
+<p>短标志可以作为单独的参数传递。像 <code>-abc</code> 等于 <code>-a -b -c</code>。多词组成的选项，像“–template-engine”会变成 <code>program.templateEngine</code> 等。</p>
+<h2 id="强制多态"><a href="#强制多态" class="headerlink" title="强制多态"></a>强制多态</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">range</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val.split(<span class="string">'..'</span>).map(<span class="built_in">Number</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val.split(<span class="string">','</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">collect</span>(<span class="params">val, memo</span>) </span>&#123;</span><br><span class="line">  memo.push(val);</span><br><span class="line">  <span class="keyword">return</span> memo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increaseVerbosity</span>(<span class="params">v, total</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> total + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .usage(<span class="string">'[options] &lt;file ...&gt;'</span>)</span><br><span class="line">  .option(<span class="string">'-i, --integer &lt;n&gt;'</span>, <span class="string">'An integer argument'</span>, <span class="built_in">parseInt</span>)</span><br><span class="line">  .option(<span class="string">'-f, --float &lt;n&gt;'</span>, <span class="string">'A float argument'</span>, <span class="built_in">parseFloat</span>)</span><br><span class="line">  .option(<span class="string">'-r, --range &lt;a&gt;..&lt;b&gt;'</span>, <span class="string">'A range'</span>, range)</span><br><span class="line">  .option(<span class="string">'-l, --list &lt;items&gt;'</span>, <span class="string">'A list'</span>, list)</span><br><span class="line">  .option(<span class="string">'-o, --optional [value]'</span>, <span class="string">'An optional value'</span>)</span><br><span class="line">  .option(<span class="string">'-c, --collect [value]'</span>, <span class="string">'A repeatable value'</span>, collect, [])</span><br><span class="line">  .option(<span class="string">'-v, --verbose'</span>, <span class="string">'A value that can be increased'</span>, increaseVerbosity, <span class="number">0</span>)</span><br><span class="line">  .parse(process.argv);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' int: %j'</span>, program.integer);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' float: %j'</span>, program.float);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' optional: %j'</span>, program.optional);</span><br><span class="line">program.range = program.range || [];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' range: %j..%j'</span>, program.range[<span class="number">0</span>], program.range[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' list: %j'</span>, program.list);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' collect: %j'</span>, program.collect);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' verbosity: %j'</span>, program.verbose);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' args: %j'</span>, program.args);</span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .option(<span class="string">'-s --size &lt;size&gt;'</span>, <span class="string">'Pizza size'</span>, /^(large|medium|small)$/i, <span class="string">'medium'</span>)</span><br><span class="line">  .option(<span class="string">'-d --drink [drink]'</span>, <span class="string">'Drink'</span>, /^(coke|pepsi|izze)$/i)</span><br><span class="line">  .parse(process.argv);</span><br><span class="line">  </span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' size: %j'</span>, program.size);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' drink: %j'</span>, program.drink);</span><br></pre></td></tr></table></figure>
+<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p>一个命令的最后一个参数可以是可变参数, 并且只能是最后一个参数。为了使参数可变，你需要在参数名后面追加 …。 下面是个示例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Module dependencies.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .command(<span class="string">'rmdir &lt;dir&gt; [otherDirs...]'</span>)</span><br><span class="line">  .action(<span class="function"><span class="keyword">function</span> (<span class="params">dir, otherDirs</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'rmdir %s'</span>, dir);</span><br><span class="line">    <span class="keyword">if</span> (otherDirs) &#123;</span><br><span class="line">      otherDirs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">oDir</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'rmdir %s'</span>, oDir);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">program.parse(process.argv);</span><br></pre></td></tr></table></figure></p>
+<p>数组 是可以用于给可变参数传值的。 这适用于 <code>program.args</code> 以及参数传递，以你的行动证明上述。 你可以如上所示的去尝试。</p>
+<h2 id="指定参数的语法"><a href="#指定参数的语法" class="headerlink" title="指定参数的语法"></a>指定参数的语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'../'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .arguments(<span class="string">'&lt;cmd&gt; [env]'</span>)</span><br><span class="line">  .action(<span class="function"><span class="keyword">function</span> (<span class="params">cmd, env</span>) </span>&#123;</span><br><span class="line">     cmdValue = cmd;</span><br><span class="line">     envValue = env;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">program.parse(process.argv);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> cmdValue === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">   <span class="built_in">console</span>.error(<span class="string">'no command given!'</span>);</span><br><span class="line">   process.exit(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'command:'</span>, cmdValue);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'environment:'</span>, envValue || <span class="string">"no environment given"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Git-风格的子命令"><a href="#Git-风格的子命令" class="headerlink" title="Git 风格的子命令"></a>Git 风格的子命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file: ./examples/pm</span></span><br><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'..'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .command(<span class="string">'install [name]'</span>, <span class="string">'install one or more packages'</span>)</span><br><span class="line">  .command(<span class="string">'search [query]'</span>, <span class="string">'search with optional query'</span>)</span><br><span class="line">  .command(<span class="string">'list'</span>, <span class="string">'list packages installed'</span>, &#123;<span class="attr">isDefault</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">  .parse(process.argv);</span><br></pre></td></tr></table></figure>
+<p>当说明参数调用 <code>.command()</code> 时，没有 <code>.action(callback)</code> 应调用来处理子命令，否则会出错。这告诉 <code>commander</code>，你要使用单独的可执行文件的子命令，就像 <code>git(1)</code> 和其他流行工具一样。 <code>Commander</code> 将尝试在入口脚本的目录中搜索可执行文件，（像<code>./examples/pm</code>）与名称 <code>program-command</code>，像 <code>pm-install</code>，<code>pm-search</code>。</p>
+<p>对 <code>.command()</code> 的调用，可以传递选项。指定 <code>opts.noHelp</code> 为 <code>true</code> 将从生成的帮助输出中删除选项。如果没有其他子命令指定，指定 <code>opts.isDefault</code> 为 <code>true</code> 将运行子命令。</p>
+<p>如果打算全局<code>（--global）</code>安装该命令，请确保可执行文件有适当的模式，如 <code>&#39;755&#39;</code>。</p>
+<h3 id="–harmony"><a href="#–harmony" class="headerlink" title="–harmony"></a>–harmony</h3><p>您可以启用 <code>--harmoney</code> 选项在两个方面：</p>
+<ul>
+<li>用 #!/usr/bin/env node –harmony 在子命令脚本中。注意一些系统版本不支持此模式。</li>
+<li>用 –harmoney 选项时调用的命令，像 node –harmony examples/pm publish。–harmoney 选项当产生一个子命令进程时保留选项。</li>
+</ul>
+<h2 id="自动化帮助信息-–help"><a href="#自动化帮助信息-–help" class="headerlink" title="自动化帮助信息 –help"></a>自动化帮助信息 –help</h2><p>帮助信息是 commander 基于你的程序自动生成的，下面是 <code>--help</code> 生成的帮助信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ ./examples/pizza --help</span><br><span class="line"></span><br><span class="line">   Usage: pizza [options]</span><br><span class="line"></span><br><span class="line">   An application <span class="keyword">for</span> pizzas ordering</span><br><span class="line"></span><br><span class="line">   Options:</span><br><span class="line"></span><br><span class="line">     -h, --help           output usage information</span><br><span class="line">     -V, --version        output the version number</span><br><span class="line">     -p, --peppers        Add peppers</span><br><span class="line">     -P, --pineapple      Add pineapple</span><br><span class="line">     -b, --bbq            Add bbq sauce</span><br><span class="line">     -c, --cheese &lt;type&gt;  Add the specified type <span class="keyword">of</span> cheese [marble]</span><br><span class="line">     -C, --no-cheese      You <span class="keyword">do</span> not want any cheese</span><br></pre></td></tr></table></figure></p>
+<h2 id="自定义帮助"><a href="#自定义帮助" class="headerlink" title="自定义帮助"></a>自定义帮助</h2><p>你可以显示任何 <code>-h</code>, <code>--help</code> 信息，通过监听 <code>--help</code> 。一旦你完成了 Commander 将自动退出，你的程序的其余部分不会展示。例如在下面的 “stuff” 将不会在执行 <code>--help</code> 时输出。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Module dependencies.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .option(<span class="string">'-f, --foo'</span>, <span class="string">'enable some foo'</span>)</span><br><span class="line">  .option(<span class="string">'-b, --bar'</span>, <span class="string">'enable some bar'</span>)</span><br><span class="line">  .option(<span class="string">'-B, --baz'</span>, <span class="string">'enable some baz'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// must be before .parse() since</span></span><br><span class="line"><span class="comment">// node's emit() is immediate</span></span><br><span class="line"></span><br><span class="line">program.on(<span class="string">'--help'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'  Examples:'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">''</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'    $ custom-help --help'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'    $ custom-help -h'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">''</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">program.parse(process.argv);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'stuff'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>下列帮助信息是运行 <code>node script-name.js -h</code> or <code>node script-name.js --help</code> 时输出的:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Usage: custom-help [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">  -h, --help     output usage information</span><br><span class="line">  -V, --version  output the version number</span><br><span class="line">  -f, --foo      enable some foo</span><br><span class="line">  -b, --bar      enable some bar</span><br><span class="line">  -B, --baz      enable some baz</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line"></span><br><span class="line">  $ custom-help --help</span><br><span class="line">  $ custom-help -h</span><br></pre></td></tr></table></figure></p>
+<h3 id="outputHelp-cb"><a href="#outputHelp-cb" class="headerlink" title=".outputHelp(cb)"></a>.outputHelp(cb)</h3><p>不退出输出帮助信息。 可选的回调可在显示帮助文本后处理。 如果你想显示默认的帮助（例如，如果没有提供命令），你可以使用类似的东西：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"><span class="keyword">var</span> colors = <span class="built_in">require</span>(<span class="string">'colors'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .command(<span class="string">'getstream [url]'</span>, <span class="string">'get stream URL'</span>)</span><br><span class="line">  .parse(process.argv);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!process.argv.slice(<span class="number">2</span>).length) &#123;</span><br><span class="line">    program.outputHelp(make_red);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">make_red</span>(<span class="params">txt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> colors.red(txt); <span class="comment">// 在控制台上显示红色的帮助文本</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="help-cb"><a href="#help-cb" class="headerlink" title=".help(cb)"></a>.help(cb)</h3><p>输出帮助信息并立即退出。 可选的回调可在显示帮助文本后处理。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">  .option(<span class="string">'-C, --chdir &lt;path&gt;'</span>, <span class="string">'change the working directory'</span>)</span><br><span class="line">  .option(<span class="string">'-c, --config &lt;path&gt;'</span>, <span class="string">'set config path. defaults to ./deploy.conf'</span>)</span><br><span class="line">  .option(<span class="string">'-T, --no-tests'</span>, <span class="string">'ignore test hook'</span>)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .command(<span class="string">'setup [env]'</span>)</span><br><span class="line">  .description(<span class="string">'run setup commands for all envs'</span>)</span><br><span class="line">  .option(<span class="string">"-s, --setup_mode [mode]"</span>, <span class="string">"Which setup mode to use"</span>)</span><br><span class="line">  .action(<span class="function"><span class="keyword">function</span>(<span class="params">env, options</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mode = options.setup_mode || <span class="string">"normal"</span>;</span><br><span class="line">    env = env || <span class="string">'all'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setup for %s env(s) with %s mode'</span>, env, mode);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .command(<span class="string">'exec &lt;cmd&gt;'</span>)</span><br><span class="line">  .alias(<span class="string">'ex'</span>)</span><br><span class="line">  .description(<span class="string">'execute the given remote cmd'</span>)</span><br><span class="line">  .option(<span class="string">"-e, --exec_mode &lt;mode&gt;"</span>, <span class="string">"Which exec mode to use"</span>)</span><br><span class="line">  .action(<span class="function"><span class="keyword">function</span>(<span class="params">cmd, options</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'exec "%s" using %s mode'</span>, cmd, options.exec_mode);</span><br><span class="line">  &#125;).on(<span class="string">'--help'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'  Examples:'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'    $ deploy exec sequential'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'    $ deploy exec async'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .command(<span class="string">'*'</span>)</span><br><span class="line">  .action(<span class="function"><span class="keyword">function</span>(<span class="params">env</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'deploying "%s"'</span>, env);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">program.parse(process.argv);</span><br></pre></td></tr></table></figure>
+<p>更多的 <a href="https://github.com/tj/commander.js/tree/master/examples" target="_blank" rel="noopener">演示 </a>可以在这里找到.</p>
+<p>参考链接：<br><a href="https://github.com/tj/commander.js" target="_blank" rel="noopener">commander.js github项目地址</a><br><a href="https://github.com/tj/commander.js/blob/master/Readme_zh-CN.md" target="_blank" rel="noopener">commander.js 中文文档</a><br><a href="http://tj.github.io/commander.js/" target="_blank" rel="noopener">commander.js api</a><br><a href="http://zhiye.li/2015-01-15-intro-to-commander.js-zh-cn.html" target="_blank" rel="noopener">使用commander.js创建nodejs命令行工具 by zhiyelee</a><br><a href="http://blog.fens.me/nodejs-commander/" target="_blank" rel="noopener">Commander写自己的Nodejs命令</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/22/当你不知道干什么的时候，可以看看这些/" rel="next" title="当你不知道干什么的时候，可以看看这些">
+                <i class="fa fa-chevron-left"></i> 当你不知道干什么的时候，可以看看这些
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/31/inquirer-js-常见的交互式命令行用户接口的集合/" rel="prev" title="inquirer.js-常见的交互式命令行用户接口的集合">
+                inquirer.js-常见的交互式命令行用户接口的集合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
+          <p class="site-author-name" itemprop="name">大洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">成功道路并不拥挤，因为坚持的人不多</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Wangyang1119" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100008985793678" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="墨水" target="_blank">墨水</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="小强" target="_blank">小强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.guowenfh.com/" title="国文" target="_blank">国文</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Commander-js"><span class="nav-number">1.</span> <span class="nav-text">Commander.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析"><span class="nav-number">1.2.</span> <span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制多态"><span class="nav-number">1.3.</span> <span class="nav-text">强制多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.4.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可变参数"><span class="nav-number">1.5.</span> <span class="nav-text">可变参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定参数的语法"><span class="nav-number">1.6.</span> <span class="nav-text">指定参数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-风格的子命令"><span class="nav-number">1.7.</span> <span class="nav-text">Git 风格的子命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#–harmony"><span class="nav-number">1.7.1.</span> <span class="nav-text">–harmony</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化帮助信息-–help"><span class="nav-number">1.8.</span> <span class="nav-text">自动化帮助信息 –help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义帮助"><span class="nav-number">1.9.</span> <span class="nav-text">自定义帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#outputHelp-cb"><span class="nav-number">1.9.1.</span> <span class="nav-text">.outputHelp(cb)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#help-cb"><span class="nav-number">1.9.2.</span> <span class="nav-text">.help(cb)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">1.10.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="theme-info" style="margin-left:20px;">
+  <a class="theme-link" href="https://coding.net/pages">
+  「Hosted by Coding Pages」
+  </a>
+</div>
+
+
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv">
+    <i class="fa fa-user"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+  </span>
+  
+  <span class="site-pv">
+    <i class="fa fa-eye"></i>
+    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+  </span>
+  
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>
