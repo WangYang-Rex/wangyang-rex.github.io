@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.html-js.site/"/>
-  <updated>2022-08-23T03:41:31.712Z</updated>
+  <updated>2022-10-31T07:14:51.924Z</updated>
   <id>http://blog.html-js.site/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手把手教你如何配置SSL证书开启https</title>
+    <link href="http://blog.html-js.site/2022/10/28/https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/"/>
+    <id>http://blog.html-js.site/2022/10/28/https证书配置教程/</id>
+    <published>2022-10-28T03:31:31.000Z</published>
+    <updated>2022-10-31T07:14:51.924Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h2><p><img src="/images/page/20221031/ssl2.png" alt></p><p>自2021年01月01日起，每个实名认证的阿里云主账号可以在一个自然年内，通过数字证书管理服务一次性领取20张免费DV单域名试用证书（以下简称免费证书）。获取免费证书后，您需要通过数字证书管理服务控制台提交证书申请。CA中心审核通过证书申请后，将为您签发免费证书。</p><h3 id="步骤一：领取免费证书额度"><a href="#步骤一：领取免费证书额度" class="headerlink" title="步骤一：领取免费证书额度"></a>步骤一：领取免费证书额度</h3><p>每个自然年内，您都可以使用已完成实名认证的阿里云账号，通过数字证书管理服务一次性申领20张免费证书。如果一个自然年内20张免费证书的额度已用完，您可以付费购买和免费证书同类型的证书。</p><ol><li><a href="https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.40cf4724805YgY&amp;commodityCode=cas_dv_public_cn&amp;request=%7B%22product%22%3A%22free_product%22%7D" target="_blank" rel="noopener">访问免费证书购买页</a>。</li><li>选择您需要的购买数量，单击<strong>立即购买</strong>并完成支付。<br>阿里云账号只有在一个自然年内首次购买<strong>数量</strong>为<strong>20</strong>的<strong>DV单域名证书（免费试用）</strong>时，可以免费领取。<br>如果您的阿里云账号在当前自然年内已经领取过20张免费证书，则再次选购<strong>DV单域名证书（免费试用）</strong>时，需要支付对应的费用。</li></ol><h3 id="步骤二：提交免费证书申请"><a href="#步骤二：提交免费证书申请" class="headerlink" title="步骤二：提交免费证书申请"></a>步骤二：提交免费证书申请</h3><p>参考：<a href="https://help.aliyun.com/document_detail/156645.htm?spm=5176.smartservice_service_robot_chat_new.0.0.46493f1bVjZpqO#section-z1b-xa0-5tj" target="_blank" rel="noopener">申请免费DV单域名试用证书</a></p><h2 id="部署-SSL-证书"><a href="#部署-SSL-证书" class="headerlink" title="部署 SSL 证书"></a>部署 SSL 证书</h2><h3 id="SSL证书安装指南"><a href="#SSL证书安装指南" class="headerlink" title="SSL证书安装指南"></a>SSL证书安装指南</h3><p>参考文档：<br><a href="https://help.aliyun.com/document_detail/109827.htm?spm=a2c4g.11186623.0.0.40cf4724805YgY#concept-95505-zh" target="_blank" rel="noopener">SSL证书安装指南</a><br><a href="https://help.aliyun.com/document_detail/98575.htm?spm=a2c4g.11186623.0.0.d13b4724180SLs#task-2512206" target="_blank" rel="noopener">部署证书到阿里云产品</a></p><h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p>1、安全组添加443端口</p><h3 id="nginx配置添加ssl相关配置"><a href="#nginx配置添加ssl相关配置" class="headerlink" title="nginx配置添加ssl相关配置"></a>nginx配置添加ssl相关配置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#以下属性中，以ssl开头的属性表示与证书配置有关。</span><br><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">443</span> ssl;</span><br><span class="line">    #配置HTTPS的默认访问端口为443。</span><br><span class="line">    #如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。</span><br><span class="line">    #如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。</span><br><span class="line">    server_name yourdomain;</span><br><span class="line">    root html;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    ssl_certificate cert/cert-file-name.pem;  </span><br><span class="line">    ssl_certificate_key cert/cert-file-name.key; </span><br><span class="line">    ssl_session_timeout <span class="number">5</span>m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    #表示使用的加密套件的类型。</span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3; #表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root html;  #Web网站程序存放目录。</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><p><img src="/images/page/20221031/ssl1.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;申请-SSL-证书&quot;&gt;&lt;a href=&quot;#申请-SSL-证书&quot; class=&quot;headerlink&quot; title=&quot;申请 SSL 证书&quot;&gt;&lt;/a&gt;申请 SSL 证书&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/page/20221031/ssl2.png&quot; 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何在大型代码仓库中删掉废弃的文件和 exports</title>
+    <link href="http://blog.html-js.site/2022/09/07/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%A4%A7%E5%9E%8B%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E4%B8%AD%E5%88%A0%E6%8E%89%E5%BA%9F%E5%BC%83%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C-exports/"/>
+    <id>http://blog.html-js.site/2022/09/07/如何在大型代码仓库中删掉废弃的文件和-exports/</id>
+    <published>2022-09-07T08:28:09.000Z</published>
+    <updated>2022-09-07T08:34:48.732Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>CRM项目历史悠久，其中很多 文件或是 export 出去的变量 已经不再使用，非常影响维护迭代。举个例子来说，后端问你：“某某接口统计一下某接口是否还有使用？”你在项目里一搜，好家伙，还有好几处使用呢，结果那些定义或文件是从未被引入的，这就会误导你们去继续维护这个文件或接口，影响迭代效率。</p></blockquote><h2 id="unimported"><a href="#unimported" class="headerlink" title="unimported"></a>unimported</h2><p><a href="https://github.com/smeijer/unimported" target="_blank" rel="noopener">unimported</a> ： Find unused source files in javascript / typescript projects.</p><h3 id="原理解析："><a href="#原理解析：" class="headerlink" title="原理解析："></a>原理解析：</h3><p>思路1：</p><ul><li>与webpack打包类似，遍历整个项目的所有文件，找出所有的文件目录及依赖关系</li><li>找出没有被其他文件所引用的文件，就表示是unused source files</li></ul><p>思路2：</p><ul><li>与webpack打包类似，遍历整个项目的所有文件，找出所有的文件目录及依赖关系 treeA</li><li>通过入口文件 index.tsx 开始查找所有用到的文件及依赖关系 treeB</li><li>比较treeA 与 treeB，找出 unused source files</li></ul><h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><img src="/images/page/2022/0927/1.png" alt></p><p>1、当前文件是否被 imported，同理 引用当前文件的文件是否 被 imported<br>2、当前文件中 import 的文件 是否需要同时被 注释/删除？<br>3、确认当前文件 及 相关联的文件都处理完成之后，决定是否需要注释/删除</p><h2 id="deadfile"><a href="#deadfile" class="headerlink" title="deadfile"></a>deadfile</h2><p><a href="https://www.npmjs.com/package/deadfile" target="_blank" rel="noopener">deadfile</a>   Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, …)</p><p>实际使用感受：没有正确找出 deadcode and unused files，可能是使用的姿势不对…有待研究…</p><h2 id="ts-unused-exports"><a href="#ts-unused-exports" class="headerlink" title="ts-unused-exports"></a>ts-unused-exports</h2><p><a href="https://www.npmjs.com/package/ts-unused-exports" target="_blank" rel="noopener">ts-unused-exports</a>   finds unused exported symbols in your Typescript project.</p><h2 id="no-unused-export"><a href="#no-unused-export" class="headerlink" title="no-unused-export"></a>no-unused-export</h2><p><a href="https://www.npmjs.com/package/no-unused-export" target="_blank" rel="noopener">no-unused-export</a>  A CLI tool to check whether exported things in a module is used by other modules.</p><h2 id="ts-prune"><a href="#ts-prune" class="headerlink" title="ts-prune"></a>ts-prune</h2><p><a href="https://github.com/nadeesha/ts-prune#readme" target="_blank" rel="noopener">ts-prune</a>  Find potentially unused exports in your Typescript project with zero configuration.</p><h2 id="depcheck"><a href="#depcheck" class="headerlink" title="depcheck"></a>depcheck</h2><p><a href="https://www.npmjs.com/package/depcheck" target="_blank" rel="noopener">depcheck</a> Depcheck is a tool for analyzing the dependencies in a project to see: how each dependency is used, which dependencies are useless, and which dependencies are missing from package.json.</p><h2 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h2><p>写一个工具，能够自动甄别 unused source files 并进行注释 或者 删除</p><p>参考：<a href="https://juejin.cn/post/6995371411019710500#comment" target="_blank" rel="noopener">如何在大型代码仓库中删掉 6w 行废弃的文件和 exports？</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;CRM项目历史悠久，其中很多 文件或是 export 出去的变量 已经不再使用，非常影响维护迭代。举个例子来说，后
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>应用性能-前端监控</title>
@@ -462,56 +505,6 @@
     
     
       <category term="前端工程化" scheme="http://blog.html-js.site/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云ECS-CentOs(linux)</title>
-    <link href="http://blog.html-js.site/2021/09/05/%E9%98%BF%E9%87%8C%E4%BA%91ECS-CentOs-linux/"/>
-    <id>http://blog.html-js.site/2021/09/05/阿里云ECS-CentOs-linux/</id>
-    <published>2021-09-05T13:16:35.000Z</published>
-    <updated>2022-08-19T02:24:34.490Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="linux文件目录"><a href="#linux文件目录" class="headerlink" title="linux文件目录"></a>linux文件目录</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/       - 根</span><br><span class="line">/bin    - 用户二进制文件</span><br><span class="line">/sbin   - 系统二进制文件</span><br><span class="line">/etc    - 配置文件，比如nginx配置文件</span><br><span class="line">/dev    - 设备文件</span><br><span class="line">/proc   - 进程信息</span><br><span class="line">/<span class="keyword">var</span>    - 变量文件</span><br><span class="line">/tmp    - 临时文件</span><br><span class="line">/usr    - 用户程序</span><br><span class="line">/home   - HOME目录，所有用户用home目录来存储他们的个人档案。</span><br><span class="line">/boot   - 引导加载程序文件</span><br><span class="line">/lib    - 系统库</span><br><span class="line">/opt    - 可选的附加应用程序</span><br><span class="line">/mnt    - 挂载目录</span><br><span class="line">/media  - 可移动媒体设备</span><br><span class="line">/srv    - 服务数据</span><br></pre></td></tr></table></figure><h3 id="linux搭建环境"><a href="#linux搭建环境" class="headerlink" title="linux搭建环境"></a>linux搭建环境</h3><ul><li><a href="https://help.aliyun.com/document_detail/173042.html?spm=5176.21213303.J_6028563670.7.572a3edaz0dICA&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40173042.S_hot%2Bos0.ID_173042-RL_centos%E5%AE%89%E8%A3%85nginx-OR_helpmain-V_2-P0_0" target="_blank" rel="noopener">linux安及配置装nginx</a></li><li><a href="https://help.aliyun.com/document_detail/50775.html" target="_blank" rel="noopener">linux安装git</a></li><li><a href="https://help.aliyun.com/document_detail/50775.html" target="_blank" rel="noopener">CentOs安装node</a></li></ul><a id="more"></a><h3 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h3><h4 id="1、运行以下命令查看Nginx配置文件的默认路径"><a href="#1、运行以下命令查看Nginx配置文件的默认路径" class="headerlink" title="1、运行以下命令查看Nginx配置文件的默认路径"></a>1、运行以下命令查看Nginx配置文件的默认路径</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure><h4 id="2、进入对应目录"><a href="#2、进入对应目录" class="headerlink" title="2、进入对应目录"></a>2、进入对应目录</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/conf.d  <span class="comment">// 进入相关目录</span></span><br></pre></td></tr></table></figure><h4 id="3、运行一下命令打开默认配置文件"><a href="#3、运行一下命令打开默认配置文件" class="headerlink" title="3、运行一下命令打开默认配置文件"></a>3、运行一下命令打开默认配置文件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="keyword">default</span>.conf <span class="comment">// 编辑配置文件</span></span><br></pre></td></tr></table></figure><h4 id="4、按i进入编辑模式。"><a href="#4、按i进入编辑模式。" class="headerlink" title="4、按i进入编辑模式。"></a>4、按<code>i</code>进入编辑模式。</h4><h4 id="5、在location大括号内，修改以下内容。"><a href="#5、在location大括号内，修改以下内容。" class="headerlink" title="5、在location大括号内，修改以下内容。"></a>5、在<code>location</code>大括号内，修改以下内容。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    #将该路径替换为您的网站根目录。</span><br><span class="line">    root   /usr/share/nginx/html;</span><br><span class="line">    #添加默认首页信息index.php。</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="6、去掉被注释的location-php-大括号内容前的-，并修改大括号的内容。"><a href="#6、去掉被注释的location-php-大括号内容前的-，并修改大括号的内容。" class="headerlink" title="6、去掉被注释的location ~ \.php$大括号内容前的#，并修改大括号的内容。"></a>6、去掉被注释的<code>location ~ \.php$</code>大括号内容前的<code>#</code>，并修改大括号的内容。</h4><p>修改完成如下所示。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    #将该路径替换为您的网站根目录。</span><br><span class="line">    root           /usr/share/nginx/html;</span><br><span class="line">    #Nginx通过unix套接字与PHP-FPM建立联系，该配置与/etc/php-fpm.d/www.conf文件内的listen配置一致。</span><br><span class="line">    fastcgi_pass   unix:<span class="regexp">/run/</span>php-fpm/www.sock;</span><br><span class="line">    fastcgi_index  index.php;</span><br><span class="line">    #将/scripts$fastcgi_script_name修改为$document_root$fastcgi_script_name。</span><br><span class="line">    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">    #Nginx调用fastcgi接口处理PHP请求。</span><br><span class="line">    include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="7、按下esc，并输入-wq保存退出文件"><a href="#7、按下esc，并输入-wq保存退出文件" class="headerlink" title="7、按下esc，并输入:wq保存退出文件"></a>7、按下<code>esc</code>，并输入<code>:wq</code>保存退出文件</h4><h4 id="8、运行以下命令启动Nginx服务。"><a href="#8、运行以下命令启动Nginx服务。" class="headerlink" title="8、运行以下命令启动Nginx服务。"></a>8、运行以下命令启动Nginx服务。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure><h4 id="9、运行以下命令设置Nginx服务开机自启动。"><a href="#9、运行以下命令设置Nginx服务开机自启动。" class="headerlink" title="9、运行以下命令设置Nginx服务开机自启动。"></a>9、运行以下命令设置Nginx服务开机自启动。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;linux文件目录&quot;&gt;&lt;a href=&quot;#linux文件目录&quot; class=&quot;headerlink&quot; title=&quot;linux文件目录&quot;&gt;&lt;/a&gt;linux文件目录&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/       - 根&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin    - 用户二进制文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/sbin   - 系统二进制文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc    - 配置文件，比如nginx配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/dev    - 设备文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/proc   - 进程信息&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;    - 变量文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/tmp    - 临时文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/usr    - 用户程序&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/home   - HOME目录，所有用户用home目录来存储他们的个人档案。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/boot   - 引导加载程序文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/lib    - 系统库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/opt    - 可选的附加应用程序&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/mnt    - 挂载目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/media  - 可移动媒体设备&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/srv    - 服务数据&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;linux搭建环境&quot;&gt;&lt;a href=&quot;#linux搭建环境&quot; class=&quot;headerlink&quot; title=&quot;linux搭建环境&quot;&gt;&lt;/a&gt;linux搭建环境&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://help.aliyun.com/document_detail/173042.html?spm=5176.21213303.J_6028563670.7.572a3edaz0dICA&amp;amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40173042.S_hot%2Bos0.ID_173042-RL_centos%E5%AE%89%E8%A3%85nginx-OR_helpmain-V_2-P0_0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;linux安及配置装nginx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://help.aliyun.com/document_detail/50775.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;linux安装git&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://help.aliyun.com/document_detail/50775.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CentOs安装node&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://blog.html-js.site/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>程序员怎样保持竞争力</title>
-    <link href="http://blog.html-js.site/2021/09/03/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%80%8E%E6%A0%B7%E4%BF%9D%E6%8C%81%E7%AB%9E%E4%BA%89%E5%8A%9B/"/>
-    <id>http://blog.html-js.site/2021/09/03/程序员怎样保持竞争力/</id>
-    <published>2021-09-03T02:07:07.000Z</published>
-    <updated>2022-08-19T02:24:34.490Z</updated>
-    
-    <content type="html"><![CDATA[<p>软件工程师最基本的能力就是<code>算法</code>+<code>coding</code>，经常刷题可以让自己保持手感，我已经坚持3年打卡<a href="https://leetcode-cn.com/" target="_blank" rel="noopener">leetcode</a>，一天未拉下，每天解决一道新题</p><p><img src="/images/page/leetcode/1.jpeg" alt></p><p>当然如果你只会刷题，你的竞争力就最多只是做一个合格的额螺丝钉。越高级的软件工程师需要在一个垂直领域有所擅长，比如系统设计。有了 <code>Domain of Expertise</code>，才能更好的升值。</p><p>软件工程师需要有一些能拿得出手的作品，可以是之前公司所贡献或领导的产品，也可以是业余弄的 <code>side project</code>，比如可以是<code>开源</code>，或者是一些<a href="https://justyy.com/archives/31554" target="_blank" rel="noopener">挣钱</a>的项目。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;软件工程师最基本的能力就是&lt;code&gt;算法&lt;/code&gt;+&lt;code&gt;coding&lt;/code&gt;，经常刷题可以让自己保持手感，我已经坚持3年打卡&lt;a href=&quot;https://leetcode-cn.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="职场" scheme="http://blog.html-js.site/tags/%E8%81%8C%E5%9C%BA/"/>
-    
-      <category term="程序员" scheme="http://blog.html-js.site/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
   </entry>
   
