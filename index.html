@@ -289,6 +289,301 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/10/28/https证书配置教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/10/28/https证书配置教程/" itemprop="url">手把手教你如何配置SSL证书开启https</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-28T11:31:31+08:00">
+                2022-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/10/28/https证书配置教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2022/10/28/https证书配置教程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h2><p><img src="/images/page/20221031/ssl2.png" alt></p>
+<p>自2021年01月01日起，每个实名认证的阿里云主账号可以在一个自然年内，通过数字证书管理服务一次性领取20张免费DV单域名试用证书（以下简称免费证书）。获取免费证书后，您需要通过数字证书管理服务控制台提交证书申请。CA中心审核通过证书申请后，将为您签发免费证书。</p>
+<h3 id="步骤一：领取免费证书额度"><a href="#步骤一：领取免费证书额度" class="headerlink" title="步骤一：领取免费证书额度"></a>步骤一：领取免费证书额度</h3><p>每个自然年内，您都可以使用已完成实名认证的阿里云账号，通过数字证书管理服务一次性申领20张免费证书。如果一个自然年内20张免费证书的额度已用完，您可以付费购买和免费证书同类型的证书。</p>
+<ol>
+<li><a href="https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.40cf4724805YgY&amp;commodityCode=cas_dv_public_cn&amp;request=%7B%22product%22%3A%22free_product%22%7D" target="_blank" rel="noopener">访问免费证书购买页</a>。</li>
+<li>选择您需要的购买数量，单击<strong>立即购买</strong>并完成支付。<br>阿里云账号只有在一个自然年内首次购买<strong>数量</strong>为<strong>20</strong>的<strong>DV单域名证书（免费试用）</strong>时，可以免费领取。<br>如果您的阿里云账号在当前自然年内已经领取过20张免费证书，则再次选购<strong>DV单域名证书（免费试用）</strong>时，需要支付对应的费用。</li>
+</ol>
+<h3 id="步骤二：提交免费证书申请"><a href="#步骤二：提交免费证书申请" class="headerlink" title="步骤二：提交免费证书申请"></a>步骤二：提交免费证书申请</h3><p>参考：<a href="https://help.aliyun.com/document_detail/156645.htm?spm=5176.smartservice_service_robot_chat_new.0.0.46493f1bVjZpqO#section-z1b-xa0-5tj" target="_blank" rel="noopener">申请免费DV单域名试用证书</a></p>
+<h2 id="部署-SSL-证书"><a href="#部署-SSL-证书" class="headerlink" title="部署 SSL 证书"></a>部署 SSL 证书</h2><h3 id="SSL证书安装指南"><a href="#SSL证书安装指南" class="headerlink" title="SSL证书安装指南"></a>SSL证书安装指南</h3><p>参考文档：<br><a href="https://help.aliyun.com/document_detail/109827.htm?spm=a2c4g.11186623.0.0.40cf4724805YgY#concept-95505-zh" target="_blank" rel="noopener">SSL证书安装指南</a><br><a href="https://help.aliyun.com/document_detail/98575.htm?spm=a2c4g.11186623.0.0.d13b4724180SLs#task-2512206" target="_blank" rel="noopener">部署证书到阿里云产品</a></p>
+<h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p>1、安全组添加443端口</p>
+<h3 id="nginx配置添加ssl相关配置"><a href="#nginx配置添加ssl相关配置" class="headerlink" title="nginx配置添加ssl相关配置"></a>nginx配置添加ssl相关配置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#以下属性中，以ssl开头的属性表示与证书配置有关。</span><br><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">443</span> ssl;</span><br><span class="line">    #配置HTTPS的默认访问端口为443。</span><br><span class="line">    #如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。</span><br><span class="line">    #如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。</span><br><span class="line">    server_name yourdomain;</span><br><span class="line">    root html;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    ssl_certificate cert/cert-file-name.pem;  </span><br><span class="line">    ssl_certificate_key cert/cert-file-name.key; </span><br><span class="line">    ssl_session_timeout <span class="number">5</span>m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    #表示使用的加密套件的类型。</span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3; #表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root html;  #Web网站程序存放目录。</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><p><img src="/images/page/20221031/ssl1.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/09/07/如何在大型代码仓库中删掉废弃的文件和-exports/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/09/07/如何在大型代码仓库中删掉废弃的文件和-exports/" itemprop="url">如何在大型代码仓库中删掉废弃的文件和 exports</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-09-07T16:28:09+08:00">
+                2022-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/09/07/如何在大型代码仓库中删掉废弃的文件和-exports/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2022/09/07/如何在大型代码仓库中删掉废弃的文件和-exports/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>CRM项目历史悠久，其中很多 文件或是 export 出去的变量 已经不再使用，非常影响维护迭代。举个例子来说，后端问你：“某某接口统计一下某接口是否还有使用？”你在项目里一搜，好家伙，还有好几处使用呢，结果那些定义或文件是从未被引入的，这就会误导你们去继续维护这个文件或接口，影响迭代效率。</p>
+</blockquote>
+<h2 id="unimported"><a href="#unimported" class="headerlink" title="unimported"></a>unimported</h2><p><a href="https://github.com/smeijer/unimported" target="_blank" rel="noopener">unimported</a> ： Find unused source files in javascript / typescript projects.</p>
+<h3 id="原理解析："><a href="#原理解析：" class="headerlink" title="原理解析："></a>原理解析：</h3><p>思路1：</p>
+<ul>
+<li>与webpack打包类似，遍历整个项目的所有文件，找出所有的文件目录及依赖关系</li>
+<li>找出没有被其他文件所引用的文件，就表示是unused source files</li>
+</ul>
+<p>思路2：</p>
+<ul>
+<li>与webpack打包类似，遍历整个项目的所有文件，找出所有的文件目录及依赖关系 treeA</li>
+<li>通过入口文件 index.tsx 开始查找所有用到的文件及依赖关系 treeB</li>
+<li>比较treeA 与 treeB，找出 unused source files</li>
+</ul>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><img src="/images/page/2022/0927/1.png" alt></p>
+<p>1、当前文件是否被 imported，同理 引用当前文件的文件是否 被 imported<br>2、当前文件中 import 的文件 是否需要同时被 注释/删除？<br>3、确认当前文件 及 相关联的文件都处理完成之后，决定是否需要注释/删除</p>
+<h2 id="deadfile"><a href="#deadfile" class="headerlink" title="deadfile"></a>deadfile</h2><p><a href="https://www.npmjs.com/package/deadfile" target="_blank" rel="noopener">deadfile</a>   Simple util to find deadcode and unused files in any JavaScript project (ES5, ES6, React, Vue, …)</p>
+<p>实际使用感受：没有正确找出 deadcode and unused files，可能是使用的姿势不对…有待研究…</p>
+<h2 id="ts-unused-exports"><a href="#ts-unused-exports" class="headerlink" title="ts-unused-exports"></a>ts-unused-exports</h2><p><a href="https://www.npmjs.com/package/ts-unused-exports" target="_blank" rel="noopener">ts-unused-exports</a>   finds unused exported symbols in your Typescript project.</p>
+<h2 id="no-unused-export"><a href="#no-unused-export" class="headerlink" title="no-unused-export"></a>no-unused-export</h2><p><a href="https://www.npmjs.com/package/no-unused-export" target="_blank" rel="noopener">no-unused-export</a>  A CLI tool to check whether exported things in a module is used by other modules.</p>
+<h2 id="ts-prune"><a href="#ts-prune" class="headerlink" title="ts-prune"></a>ts-prune</h2><p><a href="https://github.com/nadeesha/ts-prune#readme" target="_blank" rel="noopener">ts-prune</a>  Find potentially unused exports in your Typescript project with zero configuration.</p>
+<h2 id="depcheck"><a href="#depcheck" class="headerlink" title="depcheck"></a>depcheck</h2><p><a href="https://www.npmjs.com/package/depcheck" target="_blank" rel="noopener">depcheck</a> Depcheck is a tool for analyzing the dependencies in a project to see: how each dependency is used, which dependencies are useless, and which dependencies are missing from package.json.</p>
+<h2 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h2><p>写一个工具，能够自动甄别 unused source files 并进行注释 或者 删除</p>
+<p>参考：<a href="https://juejin.cn/post/6995371411019710500#comment" target="_blank" rel="noopener">如何在大型代码仓库中删掉 6w 行废弃的文件和 exports？</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/08/23/应用性能-前端监控/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1400,322 +1695,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/11/15/阿里云服务器搭建前端服务流程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/11/15/阿里云服务器搭建前端服务流程/" itemprop="url">阿里云服务器搭建前端服务流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-15T16:04:14+08:00">
-                2021-11-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/11/15/阿里云服务器搭建前端服务流程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/11/15/阿里云服务器搭建前端服务流程/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="重置实例密码"><a href="#重置实例密码" class="headerlink" title="重置实例密码"></a>重置实例密码</h3><p><img src="/images/page/aliyun/1.png" alt></p>
-<p>重置实例密码之后可以在阿里云后台进行远程连接Workbench，或者试用ssh进行远程连接</p>
-<p>这里也可以重置VPC连接，这样就可以在阿里云后台进行远程连接VPC</p>
-<h3 id="安装git-和-node"><a href="#安装git-和-node" class="headerlink" title="安装git 和 node"></a>安装git 和 node</h3><p><a href="https://help.aliyun.com/document_detail/50775.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/50775.html</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git</span><br></pre></td></tr></table></figure>
-<p>注意：使用yum安装的git在/usr/bin/git下</p>
-<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p><a href="https://help.aliyun.com/document_detail/173042.html?spm=5176.21213303.J_6028563670.7.572a3edaz0dICA&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40173042.S_hot%2Bos0.ID_173042-RL_centos%E5%AE%89%E8%A3%85nginx-OR_helpmain-V_2-P0_0" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/173042.html?spm=5176.21213303.J_6028563670.7.572a3edaz0dICA&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40173042.S_hot%2Bos0.ID_173042-RL_centos%E5%AE%89%E8%A3%85nginx-OR_helpmain-V_2-P0_0</a></p>
-<h3 id="绑定域名，进行访问"><a href="#绑定域名，进行访问" class="headerlink" title="绑定域名，进行访问"></a>绑定域名，进行访问</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/" itemprop="url">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-20T11:33:26+08:00">
-                2021-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/10/20/从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="浏览器包含哪些进程"><a href="#浏览器包含哪些进程" class="headerlink" title="浏览器包含哪些进程"></a>浏览器包含哪些进程</h3><ol>
-<li>Browser进程：浏览器的主进程（负责协调、主控），只有一个。作用有<ul>
-<li>负责浏览器界面显示，与用户交互。如前进，后退等</li>
-<li>负责各个页面的管理，创建和销毁其他进程</li>
-<li>将Renderer进程得到的内存中的Bitmap，绘制到用户界面上</li>
-<li>网络资源的管理，下载等</li>
-</ul>
-</li>
-<li>第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</li>
-<li>GPU进程：最多一个，用于3D绘制等</li>
-<li>浏览器渲染进程（浏览器内核）（Renderer进程，内部是多线程的）：默认每个Tab页面一个进程，互不影响。主要作用为<ul>
-<li>页面渲染，脚本执行，事件处理等</li>
-</ul>
-</li>
-</ol>
-<h3 id="重点是浏览器内核（渲染进程）"><a href="#重点是浏览器内核（渲染进程）" class="headerlink" title="重点是浏览器内核（渲染进程）"></a>重点是浏览器内核（渲染进程）</h3><p>请牢记，浏览器的渲染进程是多线程的</p>
-<ol>
-<li>GUI渲染线程<ul>
-<li>负责渲染浏览器界面，解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等。</li>
-<li>当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行</li>
-<li>注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于被冻结了），GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。</li>
-</ul>
-</li>
-<li>JS引擎线程<ul>
-<li>也称为JS内核，负责处理Javascript脚本程序。（例如V8引擎）</li>
-<li>JS引擎线程负责解析Javascript脚本，运行代码。</li>
-<li>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（renderer进程）中无论什么时候都只有一个JS线程在运行JS程序</li>
-<li>同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。</li>
-</ul>
-</li>
-<li>事件触发线程<ul>
-<li>归属于浏览器而不是JS引擎，用来控制事件循环（可以理解，JS引擎自己都忙不过来，需要浏览器另开线程协助）</li>
-<li>当JS引擎执行代码块如setTimeOut时（也可来自浏览器内核的其他线程,如鼠标点击、AJAX异步请求等），会将对应任务添加到事件线程中</li>
-<li>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理</li>
-<li>注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）</li>
-</ul>
-</li>
-<li>定时触发器线程<ul>
-<li>传说中的setInterval与setTimeout所在线程</li>
-<li>浏览器定时计数器并不是由JavaScript引擎计数的,（因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确）</li>
-<li>因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）</li>
-<li>注意，W3C在HTML标准中规定，规定要求setTimeout中低于4ms的时间间隔算为4ms。</li>
-</ul>
-</li>
-<li>异步http请求线程<ul>
-<li>在XMLHttpRequest在连接后是通过浏览器新开一个线程请求</li>
-<li>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由JavaScript引擎执行。</li>
-</ul>
-</li>
-</ol>
-<p><a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012925872</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1764,7 +1743,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-count">109</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
