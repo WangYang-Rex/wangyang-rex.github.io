@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="大洋" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="最近github上出现了一个神器ajax-hook，它可以拦截所有ajax请求并允许修改请求数据和响应数据！实际项目中它可以用于请求添加统一签名、协议自动解析、接口调用统计等。本文主要分析其源码实现，抛砖引玉了。  如果你还不知道ajax-hook，请先了解一下：github : https://github.com/wendux/Ajax-hook中文介绍：http://www.jianshu">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax-hook原理解析">
+<meta property="og:url" content="http://blog.html-js.site/2018/03/31/ajax-hook原理解析/index.html">
+<meta property="og:site_name" content="大洋">
+<meta property="og:description" content="最近github上出现了一个神器ajax-hook，它可以拦截所有ajax请求并允许修改请求数据和响应数据！实际项目中它可以用于请求添加统一签名、协议自动解析、接口调用统计等。本文主要分析其源码实现，抛砖引玉了。  如果你还不知道ajax-hook，请先了解一下：github : https://github.com/wendux/Ajax-hook中文介绍：http://www.jianshu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.html-js.site/images/page/ajaxhook/1.png">
+<meta property="og:updated_time" content="2022-08-19T02:24:34.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax-hook原理解析">
+<meta name="twitter:description" content="最近github上出现了一个神器ajax-hook，它可以拦截所有ajax请求并允许修改请求数据和响应数据！实际项目中它可以用于请求添加统一签名、协议自动解析、接口调用统计等。本文主要分析其源码实现，抛砖引玉了。  如果你还不知道ajax-hook，请先了解一下：github : https://github.com/wendux/Ajax-hook中文介绍：http://www.jianshu">
+<meta name="twitter:image" content="http://blog.html-js.site/images/page/ajaxhook/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.html-js.site/2018/03/31/ajax-hook原理解析/">
+
+
+
+
+
+  <title>ajax-hook原理解析 | 大洋</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ca98d1db5559cb59848d14443c7fa5dd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband">
+      <a target="_blank" href="https://github.com/WangYang-Rex">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical->
+      </a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大洋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">专注于前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2018/03/31/ajax-hook原理解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ajax-hook原理解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T22:07:45+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/31/ajax-hook原理解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/31/ajax-hook原理解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近github上出现了一个神器ajax-hook，它可以拦截所有ajax请求并允许修改请求数据和响应数据！实际项目中它可以用于请求添加统一签名、协议自动解析、接口调用统计等。本文主要分析其源码实现，抛砖引玉了。</p>
+</blockquote>
+<p>如果你还不知道ajax-hook，请先了解一下：<br>github : <a href="https://github.com/wendux/Ajax-hook" target="_blank" rel="noopener">https://github.com/wendux/Ajax-hook</a><br>中文介绍：<a href="http://www.jianshu.com/p/9b634f1c9615" target="_blank" rel="noopener">http://www.jianshu.com/p/9b634f1c9615</a></p>
+<h3 id="整体思路－代理模式"><a href="#整体思路－代理模式" class="headerlink" title="整体思路－代理模式"></a>整体思路－代理模式</h3><p>Ajax-hook实现的整体思路是实现一个XMLHttpRequest的代理对象，然后覆盖全局的XMLHttpRequest，这样一但上层调用 new XMLHttpRequest这样的代码时，其实创建的是Ajax-hook的代理对象实例。具体原理图如下：</p>
+<p><img src="/images/page/ajaxhook/1.png" alt></p>
+<p>上图中青色部分为Ajax-hook实现的代理XMLHttpRequest，内部会调用真正的XMLHttpRequest。我们看一下hookAjax的部分源码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ob.hookAjax = <span class="function"><span class="keyword">function</span> (<span class="params">funs</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//保存真正的XMLHttpRequest对象</span></span><br><span class="line">  <span class="built_in">window</span>._ahrealxhr = <span class="built_in">window</span>._ahrealxhr || XMLHttpRequest</span><br><span class="line">  <span class="comment">//1.覆盖全局XMLHttpRequest，代理对象</span></span><br><span class="line">  XMLHttpRequest = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建真正的XMLHttpRequest实例</span></span><br><span class="line">    <span class="keyword">this</span>.xhr = <span class="keyword">new</span> <span class="built_in">window</span>._ahrealxhr;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> <span class="keyword">this</span>.xhr) &#123;</span><br><span class="line">      <span class="keyword">var</span> type = <span class="string">""</span>;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        type = <span class="keyword">typeof</span> <span class="keyword">this</span>.xhr[attr]</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="keyword">if</span> (type === <span class="string">"function"</span>) &#123;</span><br><span class="line">        <span class="comment">//2.代理方法</span></span><br><span class="line">        <span class="keyword">this</span>[attr] = hookfun(attr);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//3.代理属性</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, attr, &#123;</span><br><span class="line">          <span class="keyword">get</span>: getFactory(attr),</span><br><span class="line">          <span class="keyword">set</span>: setFactory(attr)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure></p>
+<p>Ajax-hook 一开始先保存了真正的XMLHttpRequest对象到一个全局对象，然后在注释1处，Ajax-hook覆盖了全局的XMLHttpRequest对象，这就是代理对象的具体实现。在代理对象内部，首先创建真正的XMLHttpRequest实例,记为xhr,然后遍历xhr所有属性和方法，在2处hookfun为xhr的每一个方法生成一个代理方法，在3处，通过defineProperty为每一个属性生成一个代理属性。下面我们重点看一看代理方法和代理属性的实现。</p>
+<h3 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h3><p>代理方法通过hookfun函数生成，我们看看hookfun的具体实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hookfun</span>(<span class="params">fun</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">//1.如果fun拦截函数存在，则先调用拦截函数</span></span><br><span class="line">    <span class="keyword">if</span> (funs[fun] &amp;&amp; funs[fun].call(<span class="keyword">this</span>, args, <span class="keyword">this</span>.xhr)) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">//2.调用真正的xhr方法</span></span><br><span class="line">   <span class="keyword">this</span>.xhr[fun].apply(<span class="keyword">this</span>.xhr, args);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>为了叙述清晰，我们假设fun为 send函数，其中funs为用户提供的拦截函数对象。代码很简单，首先会根据用户提供的funs判断用户是否要拦截send, 如果提供了send的拦截方法，记为send_hook, 则上层调用代理对象send方法时，则会先调用send_hook，同时将调用参数和当前的xhr对象传递给send_hook，如果send_hook返回了true, 则调用终止，直接返回，相当于调用被终止了，如果没有返回或返回的是false,则会走到注释2处，此处调用了xhr的send方法，至此ajax send被调用成功。 所以，我们在send_hook中可以拿到调用的参数并修改，因为参数是以数组形式传递，改变会被记录，当然，我们也可以返回true直接终止调用。</p>
+<h3 id="代理属性"><a href="#代理属性" class="headerlink" title="代理属性"></a>代理属性</h3><p>属性如onload、onreadystatechange等，上层在调用ajax时通常要设置这些回调以处理请求到的数据，Ajax-hook也能够实现在请求返回时先拿到数据第一个进行处理，然后将处理过的数据传递给用户提供的回调。要实现这个功能，直接的思路就是用户设置回调时将用户提供的回调保存起来，然后设置成代理回调，当数据返回时，代理回调会被调用，然后在代理回调中首先将返回的数据提供给拦截函数处理，然后再将处理后的数据传递给用户真正的回调。那么问题来了，如何捕获用户设置回调的动作？一段典型的用户调用代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xh=<span class="keyword">new</span> XMLHttpRequest;</span><br><span class="line">xh.open(<span class="string">"https://xxx"</span>)</span><br><span class="line">xh.onload=<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123; <span class="comment">//1</span></span><br><span class="line">  <span class="comment">//处理请求到的数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也就是说上面代码1处的赋值时机代理对象怎么捕获？如果在赋值的时候有机会执行代码就好了。我们回过头来看看上面原理图，有没有注意到proxy props后面的小括号里的 es5，答案就在这里！ es5中对于属性引入了setter、getter,详细内容请参考：<br>Javascript getter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get</a><br>Javascript setter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set</a></p>
+<p>Ajax-hook通过getFactory和setFactory生成setter、getter方法。我们来看看它们的实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFactory</span>(<span class="params">attr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[attr + <span class="string">"_"</span>] || <span class="keyword">this</span>.xhr[attr]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setFactory</span>(<span class="params">attr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">f</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="keyword">this</span>.xhr;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        <span class="comment">//区分是否回调属性</span></span><br><span class="line">        <span class="keyword">if</span> (attr.indexOf(<span class="string">"on"</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>[attr + <span class="string">"_"</span>] = f;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (funs[attr]) &#123;</span><br><span class="line">            xhr[attr] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                funs[attr](that) || f.apply(xhr, <span class="built_in">arguments</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            xhr[attr] = f;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码比较简单，值得注意的是里面的属性加下划线是什么意思？请继续往下看。</p>
+<h3 id="属性修改"><a href="#属性修改" class="headerlink" title="属性修改"></a>属性修改</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.responseText = <span class="built_in">JSON</span>.parse(xhr.responseText)</span><br></pre></td></tr></table></figure>
+<p>但是，这里有坑，因为xhr的responseText属性并不是writeable的（详情请移步 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</a> ),这也就意味着你无法直接更改xhr.responseText的值，而Ajax-hook也代理了这些原始属性，内部生成了一下原始属性名＋下滑线的代理属性。</p>
+<p>至此，Ajax-hook源码分析完毕。下面我们总结一下：</p>
+<p>Ajax-hook使用代理的方式对原生XMLHttpRequest的方法及属性进行代理，然后覆盖全局XMLHttpRequest，实现拦截所有Ajax-hook的功能。从代码角度来看，逻辑清晰，思维巧妙，简洁优雅，值得学习。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wechat.jpg" alt="大洋 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="大洋 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/26/前端面试/" rel="next" title="前端面试">
+                <i class="fa fa-chevron-left"></i> 前端面试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/08/pm2实现负载均衡/" rel="prev" title="pm2实现负载均衡">
+                pm2实现负载均衡 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/03/31/ajax-hook原理解析/" data-title="ajax-hook原理解析" data-url="http://blog.html-js.site/2018/03/31/ajax-hook原理解析/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
+          <p class="site-author-name" itemprop="name">大洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry！ Stay Young！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WangYang-Rex" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2690568063/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="617418875" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      QQ
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:617418875@qq.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://http://moshui.site/" title="moxhuis" target="_blank">moxhuis</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="indexof" target="_blank">indexof</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiaoqiang730730.github.io/" title="xiaoqiang" target="_blank">xiaoqiang</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体思路－代理模式"><span class="nav-number">1.</span> <span class="nav-text">整体思路－代理模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理方法"><span class="nav-number">2.</span> <span class="nav-text">代理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理属性"><span class="nav-number">3.</span> <span class="nav-text">代理属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性修改"><span class="nav-number">4.</span> <span class="nav-text">属性修改</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <!--<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"html-js"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
