@@ -67,4 +67,20 @@ server {
 
 ## FAQ
 
-![](/images/page/20221031/ssl1.png)
+![](/images/page/20221031/ssl3.png)
+
+### 配置了HTTPS之后，有可能证书链不完整 解决方案：
+
+![](/images/page/20221031/ssl4.png)
+
+[【缺少证书链的问题和解决办法】](https://blog.myssl.com/faq-miss-ca-certificate/)
+
+![](/images/page/20221031/ssl5.png)
+
+将证书放到服务器的指定位置
+
+![](/images/page/20221031/ssl6.png)
+
+在nginx中修改完整ssl证书的配置
+
+![](/images/page/20221031/ssl7.png)

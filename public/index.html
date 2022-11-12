@@ -289,6 +289,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/11/09/【2022年】五分钟注册美区Apple-ID，手把手教，稳定且耐用！/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/09/【2022年】五分钟注册美区Apple-ID，手把手教，稳定且耐用！/" itemprop="url">【2022年】五分钟注册美区Apple ID，手把手教，稳定且耐用！</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-09T09:59:21+08:00">
+                2022-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/11/09/【2022年】五分钟注册美区Apple-ID，手把手教，稳定且耐用！/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2022/11/09/【2022年】五分钟注册美区Apple-ID，手把手教，稳定且耐用！/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>很多时候，中国大陆没法下载一些APP，比如Panda Vpn，需要使用美国的Apple ID，下面是教程，亲测可用</p>
+<p><a href="https://zhuanlan.zhihu.com/p/367821925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/367821925</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/10/28/https证书配置教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -381,7 +512,14 @@
 <h2 id="部署-SSL-证书"><a href="#部署-SSL-证书" class="headerlink" title="部署 SSL 证书"></a>部署 SSL 证书</h2><h3 id="SSL证书安装指南"><a href="#SSL证书安装指南" class="headerlink" title="SSL证书安装指南"></a>SSL证书安装指南</h3><p>参考文档：<br><a href="https://help.aliyun.com/document_detail/109827.htm?spm=a2c4g.11186623.0.0.40cf4724805YgY#concept-95505-zh" target="_blank" rel="noopener">SSL证书安装指南</a><br><a href="https://help.aliyun.com/document_detail/98575.htm?spm=a2c4g.11186623.0.0.d13b4724180SLs#task-2512206" target="_blank" rel="noopener">部署证书到阿里云产品</a></p>
 <h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p>1、安全组添加443端口</p>
 <h3 id="nginx配置添加ssl相关配置"><a href="#nginx配置添加ssl相关配置" class="headerlink" title="nginx配置添加ssl相关配置"></a>nginx配置添加ssl相关配置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#以下属性中，以ssl开头的属性表示与证书配置有关。</span><br><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">443</span> ssl;</span><br><span class="line">    #配置HTTPS的默认访问端口为443。</span><br><span class="line">    #如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。</span><br><span class="line">    #如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。</span><br><span class="line">    server_name yourdomain;</span><br><span class="line">    root html;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    ssl_certificate cert/cert-file-name.pem;  </span><br><span class="line">    ssl_certificate_key cert/cert-file-name.key; </span><br><span class="line">    ssl_session_timeout <span class="number">5</span>m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    #表示使用的加密套件的类型。</span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3; #表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root html;  #Web网站程序存放目录。</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><p><img src="/images/page/20221031/ssl1.png" alt></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><p><img src="/images/page/20221031/ssl3.png" alt></p>
+<h3 id="配置了HTTPS之后，有可能证书链不完整-解决方案："><a href="#配置了HTTPS之后，有可能证书链不完整-解决方案：" class="headerlink" title="配置了HTTPS之后，有可能证书链不完整 解决方案："></a>配置了HTTPS之后，有可能证书链不完整 解决方案：</h3><p><img src="/images/page/20221031/ssl4.png" alt></p>
+<p><a href="https://blog.myssl.com/faq-miss-ca-certificate/" target="_blank" rel="noopener">【缺少证书链的问题和解决办法】</a></p>
+<p><img src="/images/page/20221031/ssl5.png" alt></p>
+<p>将证书放到服务器的指定位置</p>
+<p><img src="/images/page/20221031/ssl6.png" alt></p>
+<p>在nginx中修改完整ssl证书的配置</p>
+<p><img src="/images/page/20221031/ssl7.png" alt></p>
 
           
         
@@ -1565,136 +1703,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/12/20/手写Promise源码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/12/20/手写Promise源码/" itemprop="url">手写Promise源码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-20T21:05:44+08:00">
-                2021-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/12/20/手写Promise源码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/12/20/手写Promise源码/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://juejin.cn/post/6994594642280857630" target="_blank" rel="noopener">https://juejin.cn/post/6994594642280857630</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPromise</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(fn) &#123;</span><br><span class="line">    <span class="keyword">this</span>.PromiseResult = <span class="literal">null</span>; <span class="comment">// 终值</span></span><br><span class="line">    <span class="keyword">this</span>.PromiseState = <span class="string">'pending'</span>; <span class="comment">// 状态</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.onFulfiledCallbacks = []; <span class="comment">// 保存成功回调</span></span><br><span class="line">    <span class="keyword">this</span>.onRejectedCallbacks = []; <span class="comment">// 保存失败回调</span></span><br><span class="line">    <span class="comment">// 绑定this</span></span><br><span class="line">    <span class="keyword">this</span>.resolve = <span class="keyword">this</span>.resolve.bind(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.reject = <span class="keyword">this</span>.reject.bind(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      fn(<span class="keyword">this</span>.resolve, <span class="keyword">this</span>.reject);</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">      <span class="keyword">this</span>.reject(e)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  resolve (value) &#123;</span><br><span class="line">    <span class="comment">// 状态不可变</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.PromiseState !== <span class="string">'pending'</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">this</span>.PromiseState = <span class="string">'fulfiled'</span>;</span><br><span class="line">    <span class="keyword">this</span>.PromiseResult = value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.onFulfiledCallbacks.length) &#123;</span><br><span class="line">      <span class="keyword">this</span>.onFulfilledCallbacks.shift()(<span class="keyword">this</span>.PromiseResult)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  reject (reason) &#123;</span><br><span class="line">    <span class="comment">// 状态不可变</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.PromiseState !== <span class="string">'pending'</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">this</span>.PromiseState = <span class="string">'rejected'</span>;</span><br><span class="line">    <span class="keyword">this</span>.PromiseResult = reason;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.onRejectedCallbacks.length) &#123;</span><br><span class="line">      <span class="keyword">this</span>.onRejectedCallbacks.shift()(<span class="keyword">this</span>.PromiseResult)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 接受两个参数</span></span><br><span class="line">  <span class="comment">// 1、then方法本身会返回一个新的Promise对象</span></span><br><span class="line">  <span class="comment">// 2、如果返回值是promise对象，返回值为成功，新promise就是成功</span></span><br><span class="line">  <span class="comment">// 3、如果返回值是promise对象，返回值为失败，新promise就是失败</span></span><br><span class="line">  <span class="comment">// 4、如果返回值非promise对象，新promise对象就是成功，值为此返回值</span></span><br><span class="line">  then (onFulfilled, onRejected) &#123;</span><br><span class="line">    <span class="comment">// 返回 Promise 对象</span></span><br><span class="line">    onFulfilled = <span class="keyword">typeof</span> onFulfilled === <span class="string">'function'</span> ? onFulfilled : <span class="function"><span class="params">val</span> =&gt;</span> val;</span><br><span class="line">    onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">'function'</span> ? onRejected : <span class="function"><span class="params">reason</span> =&gt;</span> &#123; <span class="keyword">throw</span> reason &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> thenPromise = <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> resolvePromise = <span class="function"><span class="params">cb</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> x = cb(<span class="keyword">this</span>.PromiseResult);</span><br><span class="line">            <span class="keyword">if</span>(x === thenPromise) &#123;</span><br><span class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'不能返回自身'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(x <span class="keyword">instanceof</span> MyPromise) &#123;</span><br><span class="line">              <span class="comment">// 如果返回值是Promise</span></span><br><span class="line">              <span class="comment">// 如果返回值是promise对象，返回值为成功，新promise就是成功</span></span><br><span class="line">              <span class="comment">// 如果返回值是promise对象，返回值为失败，新promise就是失败</span></span><br><span class="line">              <span class="comment">// 谁知道返回的promise是失败成功？只有then知道</span></span><br><span class="line">              x.then(resolve, reject)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 非Promise就直接成功</span></span><br><span class="line">              resolve(x)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(err)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.PromiseState == <span class="string">'fulfiled'</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果当前为成功状态，执行第一个回调</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// let x = onFulfilled(this.PromiseResult);</span></span><br><span class="line">        <span class="comment">// if(x instanceof MyPromise) &#123;</span></span><br><span class="line">        <span class="comment">//   x.then(resolve, reject);</span></span><br><span class="line">        <span class="comment">// &#125; else &#123;</span></span><br><span class="line">        <span class="comment">//   resolve(x)</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        resolvePromise(onFulfilled)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.PromiseState == <span class="string">'rejected'</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果当前为失败状态，执行第二个回调</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// let x = onRejected(this.PromiseResult);</span></span><br><span class="line">        <span class="comment">// if(x instanceof MyPromise) &#123;</span></span><br><span class="line">        <span class="comment">//   x.then(reject, reject)</span></span><br><span class="line">        <span class="comment">// &#125; else &#123;</span></span><br><span class="line">        <span class="comment">//   reject(x);</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        resolvePromise(onRejected)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.PromiseState == <span class="string">'pending'</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果状态为待定状态，暂时保存两个回调</span></span><br><span class="line">        <span class="comment">// this.onFulfilledCallbacks.push(onFulfilled.bind(this))</span></span><br><span class="line">        <span class="comment">// this.onRejectedCallbacks.push(onRejected.bind(this))</span></span><br><span class="line">        <span class="keyword">this</span>.onFulfilledCallbacks.push(resolvePromise.bind(<span class="keyword">this</span>, onFulfilled))</span><br><span class="line">        <span class="keyword">this</span>.onRejectedCallbacks.push(resolvePromise.bind(<span class="keyword">this</span>, onRejected))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> thenPromise;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1743,7 +1751,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">110</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

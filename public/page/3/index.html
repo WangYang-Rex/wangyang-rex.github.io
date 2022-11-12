@@ -289,6 +289,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/前端工程化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/09/前端工程化/" itemprop="url">前端工程化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-09T16:45:27+08:00">
+                2021-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/09/09/前端工程化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/09/09/前端工程化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://juejin.cn/post/7017710911443959839?utm_source=gold_browser_extension#heading-18" target="_blank" rel="noopener">前端部署方案</a></p>
+<h2 id="关于部署的总结"><a href="#关于部署的总结" class="headerlink" title="关于部署的总结"></a>关于部署的总结</h2><h3 id="静态资源组织部分"><a href="#静态资源组织部分" class="headerlink" title="静态资源组织部分"></a>静态资源组织部分</h3><ol>
+<li>为了最大程度利用缓存，将页面(HTML)设置为协商缓存，将 JavaScript、CSS 等设置为永久强缓存。</li>
+<li>为了解决强缓存更新问题，将文件摘要（hash）作为资源路径(URL)构成的一部分。</li>
+<li>为了解决覆盖式发布引发的问题，采用 name-hash 而非 query-hash 的组织方式，具体需要配置 webpack 的 output.filename 为 contenthash 方式。</li>
+<li>为了解决 Nginx 目录存储过大 + 结合 CDN 提升访问速度，采用了 Nginx 反向代理+ 将静态资源上传到 CDN。</li>
+<li>为了上传 CDN，我们需要按环境动态构造 publicPath + 按环境构造 CDN 上传目录并上传。</li>
+<li>为了动态构造 publicPath 并且随构建过程插入到 HTML 中，采用 Webpack-HTML-Plugin 等插件，将编译好的带 hash + publicPath 的静态资源插入到 HTML 中。</li>
+<li>为了保证上传 CDN 的安全，我们需要一种机制管控上传 CDN 秘钥，而非简单的将秘钥写到代码 / Dockerfile 等明文文件中。</li>
+</ol>
+<h3 id="自动化部署部分"><a href="#自动化部署部分" class="headerlink" title="自动化部署部分"></a>自动化部署部分</h3><p>为了提升部署效率，100% 避免因部署出错，需要设计 &amp; 搭建自动化部署平台，以 Docker 等保证环境的一致性，以 Jenkins 等保证构建流程的串联。使用es-build等提升构建效率。</p>
+<h3 id="前端部署-amp-静态资源加工"><a href="#前端部署-amp-静态资源加工" class="headerlink" title="前端部署 &amp; 静态资源加工"></a>前端部署 &amp; 静态资源加工</h3><p>关于前端部署，能总结出下面几个原则/要求：</p>
+<ol>
+<li>构建发布后，不应该被覆盖。</li>
+<li>构建发布后，静态资源应当永久保存在服务器/CDN 上，即只可读。</li>
+<li>静态资源组织上，每个版本应该按文件夹存储，做到资源收敛。这样假如真要删除时，可按版本删除。（如某个版本代码泄密）</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> CDN_HOST = process.env.CDN_HOST;<span class="comment">// CDN 域名</span></span><br><span class="line"><span class="keyword">const</span> CDN_PATH = process.env.CDN_PATH<span class="string">''</span>; <span class="comment">// CDN 路径</span></span><br><span class="line"><span class="keyword">const</span> ENV = process.env.ENV; <span class="comment">// 当前的环境等等</span></span><br><span class="line"><span class="keyword">const</span> VERSION = process.env.VERSION; <span class="comment">// 当前发布的版本</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getPublicPath = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// Some code here</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;CDN_HOST&#125;</span>/<span class="subst">$&#123;CDN_PATH&#125;</span>/<span class="subst">$&#123;ENV&#125;</span>/<span class="subst">$&#123;VERSION&#125;</span>/`</span>;<span class="comment">// 依据 ENV 等动态构造 publicPath</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">'bundle.[name][contenthash].js'</span>,</span><br><span class="line">        publicPath: getPublicPath(),</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>故 publicPath 应增加 version 字段</p>
+</blockquote>
+<ol start="4">
+<li>发布过程应该自动化，开发人员不应该直接接触服务器。</li>
+<li>版本切换时，也应当不接触服务器。</li>
+<li>版本切换能秒级生效。（如 v0.2 切换 v0.3，立即生效）。</li>
+<li>线上需要能同时生效多个版本，满足 AB 测试、灰度、PRE 环境等小流量需求。</li>
+</ol>
+<p>上述需求都相对复杂多变，为了应对复杂的线上需求，可以对静态资源做深度加工，如通过服务端直出 HTML、通过配置中心实现按用户 PRE 等等。</p>
+<h3 id="前端发布服务"><a href="#前端发布服务" class="headerlink" title="前端发布服务"></a>前端发布服务</h3><p>面对复杂的商业化需求，方便多前端业务实现版本管理、灰度、PRE、AB 测试等小流量功能，我们设计了一个中间服务 PageConfig Web &amp; PageServer，与 Nginx 和各种后端相结合，达到配置即时生效的能力。</p>
+<h2 id="灵魂拷问的部分答案"><a href="#灵魂拷问的部分答案" class="headerlink" title="灵魂拷问的部分答案"></a>灵魂拷问的部分答案</h2><p>Q: 前端代码从 tsx/jsx 到部署上线被用户访问，中间大致会经历哪些过程？<br>A: 经历本地开发、远程构建打包部署、安全检查、上传CDN、Nginx做流量转发、对静态资源做若干加工处理等过程。<br>Q：可能大部分同学都知道强缓存/协商缓存，那前端各种产物（HTML、JS、CSS、IMAGES 等）应该用什么缓存策略？以及为什么？</p>
+<p>– 若使用协商缓存，但静态资源却不频繁更新，如何避免协商过程的请求浪费？<br>– 若使用强缓存，那静态资源如何更新？</p>
+<p>A：HTML使用协商缓存，静态资源使用强缓存，使用name-hash（非覆盖式发布）解决静态资源更新问题。<br>Q：配套的，前端静态资源应该如何组织？<br>A：搭配 Webpack 的Webpack_HTML-Plugin &amp; 配置 output publicPath等。<br>Q：配套的，自动化构建 &amp; 部署过程如何与 CDN 结合？<br>A：自动化构建打包后，将产物传输到对应环境 URL 的CDN上。<br>Q：如何避免前端上线，影响未刷新页面的用户？<br>A：使用name-hash方式组织静态资源，先上线静态资源，再上线HTML。<br>Q：刚上线的版本发现有阻塞性 bug，如何做到秒级回滚，而非再次部署等 20 分钟甚至更久？<br>A：HTML文件使用非覆盖方式存储在CDN上，搭建前端发布服务，对 HTML 按版本等做缓存加工处理。当需要回滚时，更改发布服务HTMl指向即可。<br>Q: CDN 域名突然挂了，如何实现秒级 CDN 降级修补而非再次全部业务重新部署一次？<br>A1: 将静态资源传输到多个 CDN 上，并开发一个加载Script的SDK集成到HTML中。当发现CDN资源加载失败时，逐步降级CDN域名。<br>A2：在前端发布服务中，增加HTML文本处理环节，如增加CDN域名替换，发生异常时，在发布服务中一键设置即可。<br>Q：如何实现一个预发环境，除了前端资源外都是线上环境，将变量控制前端环境内？<br>A：对静态资源做加工，对HTML入口做小流量。<br>Q：部署环节如何方便配套做 AB 测试等？<br>A：参见前端发布服务<br>Q：如何实现一套前端代码，发布成多套环境产物？<br>A：使用环境变量，将当前环境、CDN、CDN_HOST、Version等注入环境变量中，构建时消费 &amp; 将产物上传不同的CDN即可。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果想深入学习前端部署，下面是一些学习建议。</p>
+<ol>
+<li>学习负载均衡（要求：了解）。<br>学习和了解负载均衡的原理、都有哪些配置玩法。如参考<a href="https://www.jianshu.com/p/215b5575107c" target="_blank" rel="noopener">大型网站架构系列：负载均衡详解</a></li>
+<li>深入学习 HTTP（要求：熟练掌握）<br>如掌握常见的状态码、常见的 Header 及其深度应用、强缓存/协商缓存、HTTP2 的新增功能等等。尤其HTTP 1.1 和 HTTP 2.0。<br>推荐书籍：<br><a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解HTTP</a><br><a href="https://book.douban.com/subject/10746113/" target="_blank" rel="noopener">HTTP 权威指南</a></li>
+<li>深入学习前端工程化 （要求：精通）<br>– 了解前端工程化可以做什么，如 <a href="https://book.douban.com/subject/27605366/" target="_blank" rel="noopener">前端工程化：体系设计与实践</a><br>– 掌握前端工程师的常见实践原理 &amp; 实操<br>– 深度学习 Webpack <a href="https://webpack.docschina.org/guides/" target="_blank" rel="noopener">Webpack 官方文档</a></li>
+<li>学习各种对前端静态资源加工的各种方案（要求：掌握）</li>
+<li>深度学习浏览器原理 （要求：精通）<br>一些资料：<a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/05/阿里云ECS-CentOs-linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1545,136 +1714,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/" itemprop="url">module.exports和exports和export和export default的区别，import和require的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-26T14:09:08+08:00">
-                2021-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/03/26/module-exports和exports和export和export-default的区别，import和require的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/f6c5a646c00b" target="_blank" rel="noopener">https://www.jianshu.com/p/f6c5a646c00b</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1723,7 +1762,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">110</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
