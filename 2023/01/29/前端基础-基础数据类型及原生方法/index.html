@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="javascript,洋仔,洋洋,wangyang">
+  <meta name="keywords" content="前端,前端基础,">
 
 
 
@@ -96,17 +96,21 @@
 
 
 
-<meta name="description" content="Stay Hungry！ Stay Young！">
+<meta name="description" content="JS 基础数据类型 Number String Boolean Null Undefined BigInt Symbol  JS 引用数据类型 Object Array Function  如何判断数据类型？ typeof xxx：能判断出number，string，undefined，boolean，object，function（null是object） Object.prototype.to">
+<meta name="keywords" content="前端,前端基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端基础-基础数据类型及原生方法">
 <meta property="og:url" content="http://blog.html-js.site/2023/01/29/前端基础-基础数据类型及原生方法/index.html">
 <meta property="og:site_name" content="大洋">
-<meta property="og:description" content="Stay Hungry！ Stay Young！">
+<meta property="og:description" content="JS 基础数据类型 Number String Boolean Null Undefined BigInt Symbol  JS 引用数据类型 Object Array Function  如何判断数据类型？ typeof xxx：能判断出number，string，undefined，boolean，object，function（null是object） Object.prototype.to">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2023-01-29T11:11:22.995Z">
+<meta property="og:image" content="http://blog.html-js.site/images/page/20230129/typeof.png">
+<meta property="og:image" content="http://blog.html-js.site/images/page/20230129/object.png">
+<meta property="og:updated_time" content="2023-01-29T11:36:14.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端基础-基础数据类型及原生方法">
-<meta name="twitter:description" content="Stay Hungry！ Stay Young！">
+<meta name="twitter:description" content="JS 基础数据类型 Number String Boolean Null Undefined BigInt Symbol  JS 引用数据类型 Object Array Function  如何判断数据类型？ typeof xxx：能判断出number，string，undefined，boolean，object，function（null是object） Object.prototype.to">
+<meta name="twitter:image" content="http://blog.html-js.site/images/page/20230129/typeof.png">
 
 
 
@@ -370,7 +374,30 @@
       
 
       
-        
+        <h3 id="JS-基础数据类型"><a href="#JS-基础数据类型" class="headerlink" title="JS 基础数据类型"></a>JS 基础数据类型</h3><ul>
+<li>Number</li>
+<li>String</li>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>BigInt</li>
+<li>Symbol</li>
+</ul>
+<h3 id="JS-引用数据类型"><a href="#JS-引用数据类型" class="headerlink" title="JS 引用数据类型"></a>JS 引用数据类型</h3><ul>
+<li>Object</li>
+<li>Array</li>
+<li>Function</li>
+</ul>
+<h3 id="如何判断数据类型？"><a href="#如何判断数据类型？" class="headerlink" title="如何判断数据类型？"></a>如何判断数据类型？</h3><ul>
+<li>typeof xxx：能判断出number，string，undefined，boolean，object，function（null是object）</li>
+<li>Object.prototype.toString.call(xxx)：能判断出大部分类型</li>
+<li>Array.isArray(xxx)：判断是否为数组</li>
+</ul>
+<h4 id="typeof-xxx-正常够用"><a href="#typeof-xxx-正常够用" class="headerlink" title="typeof xxx 正常够用"></a>typeof xxx 正常够用</h4><p>能判断出number，string，undefined，boolean，object，function, BigInt, Synmol,<br>null判断为object: 因为底层存储为二进制 null 为000开头，与object类型一致，导致判断出错<br>array 判断为 object: 原因同上</p>
+<p><img src="/images/page/20230129/typeof.png" alt></p>
+<h4 id="Object-prototype-toString-call-xxx-强烈建议"><a href="#Object-prototype-toString-call-xxx-强烈建议" class="headerlink" title="Object.prototype.toString.call(xxx) 强烈建议"></a>Object.prototype.toString.call(xxx) 强烈建议</h4><p><img src="/images/page/20230129/object.png" alt></p>
+<h4 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray"></a>Array.isArray</h4><p>Array.isArray 可以判断数组</p>
+
       
     </div>
     
@@ -413,6 +440,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+        </div>
       
 
       
@@ -486,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/default_avatar.jpg" alt="大洋">
           <p class="site-author-name" itemprop="name">大洋</p>
@@ -513,7 +557,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -613,6 +657,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-基础数据类型"><span class="nav-number">1.</span> <span class="nav-text">JS 基础数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-引用数据类型"><span class="nav-number">2.</span> <span class="nav-text">JS 引用数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断数据类型？"><span class="nav-number">3.</span> <span class="nav-text">如何判断数据类型？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#typeof-xxx-正常够用"><span class="nav-number">3.1.</span> <span class="nav-text">typeof xxx 正常够用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-prototype-toString-call-xxx-强烈建议"><span class="nav-number">3.2.</span> <span class="nav-text">Object.prototype.toString.call(xxx) 强烈建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-isArray"><span class="nav-number">3.3.</span> <span class="nav-text">Array.isArray</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

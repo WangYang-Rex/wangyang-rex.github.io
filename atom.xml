@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.html-js.site/"/>
-  <updated>2023-01-29T11:11:22.995Z</updated>
+  <updated>2023-01-29T11:36:14.061Z</updated>
   <id>http://blog.html-js.site/</id>
   
   <author>
@@ -21,12 +21,26 @@
     <link href="http://blog.html-js.site/2023/01/29/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80-%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/"/>
     <id>http://blog.html-js.site/2023/01/29/前端基础-基础数据类型及原生方法/</id>
     <published>2023-01-29T11:11:22.000Z</published>
-    <updated>2023-01-29T11:11:22.995Z</updated>
+    <updated>2023-01-29T11:36:14.061Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="JS-基础数据类型"><a href="#JS-基础数据类型" class="headerlink" title="JS 基础数据类型"></a>JS 基础数据类型</h3><ul><li>Number</li><li>String</li><li>Boolean</li><li>Null</li><li>Undefined</li><li>BigInt</li><li>Symbol</li></ul><h3 id="JS-引用数据类型"><a href="#JS-引用数据类型" class="headerlink" title="JS 引用数据类型"></a>JS 引用数据类型</h3><ul><li>Object</li><li>Array</li><li>Function</li></ul><h3 id="如何判断数据类型？"><a href="#如何判断数据类型？" class="headerlink" title="如何判断数据类型？"></a>如何判断数据类型？</h3><ul><li>typeof xxx：能判断出number，string，undefined，boolean，object，function（null是object）</li><li>Object.prototype.toString.call(xxx)：能判断出大部分类型</li><li>Array.isArray(xxx)：判断是否为数组</li></ul><h4 id="typeof-xxx-正常够用"><a href="#typeof-xxx-正常够用" class="headerlink" title="typeof xxx 正常够用"></a>typeof xxx 正常够用</h4><p>能判断出number，string，undefined，boolean，object，function, BigInt, Synmol,<br>null判断为object: 因为底层存储为二进制 null 为000开头，与object类型一致，导致判断出错<br>array 判断为 object: 原因同上</p><p><img src="/images/page/20230129/typeof.png" alt></p><h4 id="Object-prototype-toString-call-xxx-强烈建议"><a href="#Object-prototype-toString-call-xxx-强烈建议" class="headerlink" title="Object.prototype.toString.call(xxx) 强烈建议"></a>Object.prototype.toString.call(xxx) 强烈建议</h4><p><img src="/images/page/20230129/object.png" alt></p><h4 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray"></a>Array.isArray</h4><p>Array.isArray 可以判断数组</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h3 id=&quot;JS-基础数据类型&quot;&gt;&lt;a href=&quot;#JS-基础数据类型&quot; class=&quot;headerlink&quot; title=&quot;JS 基础数据类型&quot;&gt;&lt;/a&gt;JS 基础数据类型&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Number&lt;/li&gt;
+&lt;li&gt;String&lt;/li&gt;
+&lt;li&gt;Bool
+      
+    
     </summary>
     
+    
+      <category term="前端" scheme="http://blog.html-js.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="前端基础" scheme="http://blog.html-js.site/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
