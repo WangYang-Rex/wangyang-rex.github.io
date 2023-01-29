@@ -289,6 +289,279 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/13/谈谈对前端框架的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/13/谈谈对前端框架的理解/" itemprop="url">谈谈对前端框架的理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-13T14:58:27+08:00">
+                2021-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/09/13/谈谈对前端框架的理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/09/13/谈谈对前端框架的理解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最早的时候页面是服务端渲染的，也就是 PHP、JSP 那些技术，服务端通过模版引擎填充数据，返回生成的 html，交给浏览器渲染。那时候表单会同步提交，服务端返回结果页面的 html。</p>
+<p>后来浏览器有了 ajax 技术，可以异步的请求，服务端返回 xml 或者 json。ajax 最早是基于 xml 的，这也是它名字的由来。因为 xml 多了很多没必要的标签，内容比较多，所以后来 json 流行开来。</p>
+<p>网页和服务端的数据交互变成了异步的，可以服务端返回 json 数据，浏览器里拼接 html，之后渲染（浏览器里面生成 dom 就等同于渲染）。页面基本没啥刷新的必要了，于是后来就逐渐演变出了单页应用 SPA（single page application）。</p>
+<p>早期开发页面的时候就是基于浏览器的 dom api 操作 dom 来做渲染和交互，但是 dom api 比较啰嗦，而且当时浏览器的兼容性问题也比较麻烦，不同浏览器有不同的写法。为了简化 dom 操作和更方便的兼容各种浏览器，出现了 jquery 并且迅速流行开来，那个时代 jquery 是如日中天的。</p>
+<p>我一直习惯把网页分为物理层和逻辑层，dom 就算是物理层，jquery 是操作 dom 的一系列工具函数，也是工作在物理层。</p>
+<p>网页做的事情基本就是拿到数据渲染 dom，并且数据改变之后更新 dom，这个流程是通用的，后来逐渐出现了 mvvm 框架，来自动把数据的变更映射到 dom，不再需要手动操作 dom。也就是 vue、react 等现代的前端框架。我把这一层叫做逻辑层。</p>
+<p>前端框架除了提供了数据驱动视图变化的功能以外，还支持了 dom 的逻辑划分，可以把一部分 dom 封装成组件，组件和组件之间相互组合，构成整个界面。物理层依然是 dom，只是实现了数据到 dom 的自动映射之后，我们只需要在逻辑层写组件就可以了。</p>
+<p>现在前端入门也不会再学物理层的操作 dom 的 jquery 了，而是直接从 vue、react 这种逻辑层的前端框架开始。</p>
+<p><a href="https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz</a><br>wget <a href="https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</a></p>
+<p>tar xvf node-v12.22.4-linux-x64.tar.xz<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/node /usr/local/bin/node<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/npm /usr/local/bin/npm<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/09/13/谈谈对前端框架的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/Jenkins自动化构建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/09/Jenkins自动化构建/" itemprop="url">Jenkins自动化构建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-09T16:46:46+08:00">
+                2021-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/09/09/Jenkins自动化构建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/09/09/Jenkins自动化构建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.jianshu.com/p/5f671aca2b5a" target="_blank" rel="noopener">https://www.jianshu.com/p/5f671aca2b5a</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/前端工程化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1409,316 +1682,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/05/react-router-dom简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/08/05/react-router-dom简介/" itemprop="url">react-router-dom简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T13:47:32+08:00">
-                2021-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/08/05/react-router-dom简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/08/05/react-router-dom简介/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://codesandbox.io/s/misty-haze-eq546?file=/example.js" target="_blank" rel="noopener">https://codesandbox.io/s/misty-haze-eq546?file=/example.js</a></p>
-<p>react-router-dom</p>
-<blockquote>
-<p>react-router-dom文档地址： <a href="https://reactrouter.com/web/guides/quick-start/" target="_blank" rel="noopener">https://reactrouter.com/web/guides/quick-start/</a></p>
-</blockquote>
-<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><blockquote>
-<p>react-router提供多个包可以单独使用</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">package</th>
-<th style="text-align:center">description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">react-router</td>
-<td style="text-align:center">路由核心功能</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-dom</td>
-<td style="text-align:center">基于react-router提供在浏览器运行环境下功能</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-native</td>
-<td style="text-align:center">for React Native</td>
-</tr>
-<tr>
-<td style="text-align:center">react-router-config</td>
-<td style="text-align:center">static route congif helpers</td>
-</tr>
-</tbody>
-</table>
-<p>在浏览器中运行只需要安装react-router-dom，reac-router-dom依赖react-router会自动安装依赖，所以不需要再手动安装react-router</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom -S</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/08/05/react-router-dom简介/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/08/05/react-router-深入学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/08/05/react-router-深入学习/" itemprop="url">react-router 深入学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T11:37:30+08:00">
-                2021-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/08/05/react-router-深入学习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/08/05/react-router-深入学习/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>近期针对react-router的原理以及适用的场景有新的认知，会重新温习一遍react-router的使用方式以及适用场景，同时会延伸出一些实用的解决方案来解决项目中遇到的问题；</p>
-<h3 id="思考的点"><a href="#思考的点" class="headerlink" title="思考的点"></a>思考的点</h3><ul>
-<li>react-router的使用方式</li>
-<li>react-router的原理</li>
-<li>react一切皆组件 的理念</li>
-<li>redux的实现原理</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1762,7 +1730,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">110</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1775,7 +1743,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1892,7 +1860,7 @@
         <div class="copyright">
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

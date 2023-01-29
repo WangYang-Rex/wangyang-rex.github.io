@@ -289,6 +289,321 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/" itemprop="url">Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-25T12:32:06+08:00">
+                2022-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="本文基本分为三部分："><a href="#本文基本分为三部分：" class="headerlink" title="本文基本分为三部分："></a>本文基本分为三部分：</h2><p>第一部分讲解一些基本的关键词的特性（比如索引查询、索引访问、映射、extends等），但是该部分更多的讲解小伙伴们不清晰的一些特性，而基本功能则不再赘述。更多的关键词及技巧将包含在后续的例子演示中再具体讲述；</p>
+<p>第二部分讲解Ts内置的类型工具以及实现原理，比如Pick、Omit等；</p>
+<p>第三部分讲解自定义的工具类型，该部分也是最难的部分，将通过一些复杂的类型工具示例进行逐步剖析，对于其中的晦涩的地方以及涉及的知识点逐步讲解。此部分也会包含大量Ts类型工具的编程技巧，也希望通过此部分的讲解，小伙伴的Ts功底可以进一步提升！</p>
+<h2 id="第一部分-前置内容"><a href="#第一部分-前置内容" class="headerlink" title="第一部分 前置内容"></a>第一部分 前置内容</h2><ul>
+<li><code>keyof</code> 索引查询</li>
+</ul>
+<p>对应任何类型<code>T</code>,<code>keyof T</code>的结果为该类型上所有共有属性key的联合：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  readonly age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// T1的类型实则是name | age</span></span><br><span class="line"><span class="keyword">type</span> T1 = keyof Eg1</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Eg2 &#123;</span><br><span class="line">  <span class="keyword">private</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> readonly age: <span class="built_in">number</span>;</span><br><span class="line">  <span class="keyword">protected</span> home: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// T2实则被约束为 age</span></span><br><span class="line"><span class="comment">// 而name和home不是公有属性，所以不能被keyof获取到</span></span><br><span class="line"><span class="keyword">type</span> T2 = keyof Eg2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>T[K]</code> 索引访问</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  readonly age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// string</span></span><br><span class="line"><span class="keyword">type</span> V1 = Eg1[<span class="string">'name'</span>]</span><br><span class="line"><span class="comment">// string | number</span></span><br><span class="line"><span class="keyword">type</span> V2 = Eg1[<span class="string">'name'</span> | <span class="string">'age'</span>]</span><br><span class="line"><span class="comment">// any</span></span><br><span class="line"><span class="keyword">type</span> V2 = Eg1[<span class="string">'name'</span> | <span class="string">'age2222'</span>]</span><br><span class="line"><span class="comment">// string | number</span></span><br><span class="line"><span class="keyword">type</span> V3 = Eg1[keyof Eg1]</span><br></pre></td></tr></table></figure>
+<p><code>T[keyof T]</code>的方式，可以获取到T所有key的类型组成的联合类型；<br><code>T[keyof K]</code>的方式，获取到的是T中的key且同时存在于K时的类型组成的联合类型；<br>注意：如果[]中的key有不存在T中的，则是any；因为ts也不知道该key最终是什么类型，所以是any；且也会报错；</p>
+<ul>
+<li><code>&amp;</code> 交叉类型注意点<br>交叉类型取的多个类型的并集，但是如果相同<code>key</code>但是类型不同，则该<code>key</code>为<code>never</code>。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Eg1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">  age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Eg2 &#123;</span><br><span class="line">  color: <span class="built_in">string</span>,</span><br><span class="line">  age: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * T的类型为 &#123;name: string; age: number; age: never&#125;</span></span><br><span class="line"><span class="comment"> * 注意，age因为Eg1和Eg2中的类型不一致，所以交叉后age的类型是never</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> T = Eg1 &amp; Eg2</span><br><span class="line"><span class="comment">// 可通过如下示例验证</span></span><br><span class="line"><span class="keyword">const</span> val: T = &#123;</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  color: <span class="string">''</span>,</span><br><span class="line">  age: (<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;)(),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="extends关键词特性（重点）"><a href="#extends关键词特性（重点）" class="headerlink" title="extends关键词特性（重点）"></a>extends关键词特性（重点）</h3><ul>
+<li>用于接口，表示继承</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> T1 &#123;</span><br><span class="line">  name: <span class="built_in">string</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> T2 &#123;</span><br><span class="line">  sex: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * T3 = &#123;name: string, sex: number, age: number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">interface</span> T3 <span class="keyword">extends</span> T1, T2 &#123;</span><br><span class="line">  age: <span class="built_in">number</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，接口支持多重继承，语法为逗号隔开。如果是type实现继承，则可以使用交叉类型<code>type A = B &amp; C &amp; D</code>。</p>
+<ul>
+<li>表示条件类型，可用于条件判断<br>表示条件判断，如果前面的条件满足，则返回问号后的第一个参数，否则第二个。类似于js的三元运算。</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A1 = 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> A1 = <span class="string">'x'</span> <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A2 = 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> A2 = <span class="string">'x'</span> | <span class="string">'y'</span> <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @example</span></span><br><span class="line"><span class="comment"> * type A3 = 1 | 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> P&lt;T&gt; = T <span class="keyword">extends</span> <span class="string">'x'</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br><span class="line"><span class="keyword">type</span> A3 = P&lt;<span class="string">'x'</span> | <span class="string">'y'</span>&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/02/25/Ts高手篇：22个示例深入讲解Ts最晦涩难懂的高级类型工具/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2022/01/17/前端知识点-前端基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/default_avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大洋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/17/前端知识点-前端基础/" itemprop="url">前端知识点-前端基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-17T15:27:40+08:00">
+                2022-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/01/17/前端知识点-前端基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2022/01/17/前端知识点-前端基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1、列举你所了解的计算机存储设备类型？"><a href="#1、列举你所了解的计算机存储设备类型？" class="headerlink" title="1、列举你所了解的计算机存储设备类型？"></a>1、列举你所了解的计算机存储设备类型？</h2><p>现代计算机以<code>存储器为中心</code>，主要由 <code>CPU</code>、<code>I / O 设备</code>以及<code>主存储器</code>三大部分组成。各个部分之间通过<code>总线</code>进行连接通信，具体如下图所示：<br><img src="/images/page/knowledge/1.png" alt></p>
+<p>线结构的示意图，CPU、主存以及 I / O 设备之间的所有数据都是通过总线进行并行传输，使用局部总线是为了提高 CPU 的吞吐量（CPU 不需要直接跟 I / O 设备通信），而使用高速总线（更贴近 CPU）和 DMA 总线则是为了提升高速 I / O 设备（外设存储器、局域网以及多媒体等）的执行效率。</p>
+<h2 id="2、一般代码存储在计算机的哪个设备中？代码在-CPU-中是如何运行的？"><a href="#2、一般代码存储在计算机的哪个设备中？代码在-CPU-中是如何运行的？" class="headerlink" title="2、一般代码存储在计算机的哪个设备中？代码在 CPU 中是如何运行的？"></a>2、一般代码存储在计算机的哪个设备中？代码在 CPU 中是如何运行的？</h2><p>高级程序设计语言不能直接被计算机理解并执行，需要通过翻译程序将其转换成特定处理器上可执行的指令，计算机 CPU 的简单工作原理如下所示：<br><img src="/images/page/knowledge/2.png" alt></p>
+<p><code>CPU 主要由控制单元、运算单元和存储单元组成</code>（注意忽略了中断系统），各自的作用如下：</p>
+<ul>
+<li><code>控制单元</code>：在节拍脉冲的作用下，将程序计数器（Program Counter，PC）指向的主存或者多级高速缓存中的指令地址送到地址总线，接着获取指令地址所对应的指令并放入指令寄存器 （Instruction Register，IR）中，然后通过指令译码器（Instruction Decoder，ID）分析指令需要进行的操作，最后通过操作控制器（Operation Controller，OC）向其他设备发出微操作控制信号。</li>
+<li><code>运算单元</code>：如果控制单元发出的控制信号存在算术运算（加、减、乘、除、增 1、减 1、取反等）或者逻辑运算（与、或、非、异或），那么需要通过运算单元获取存储单元的计算数据进行处理。</li>
+<li><code>存储单元</code>：包括片内缓存和寄存器组，是 CPU 中临时数据的存储地方。CPU 直接访问主存数据大概需要花费数百个机器周期，而访问寄存器或者片内缓存只需要若干个或者几十个机器周期，因此会使用内部寄存器或缓存来存储和获取临时数据（即将被运算或者运算之后的数据），从而提高 CPU 的运行效率。</li>
+</ul>
+<h2 id="3、什么是指令和指令集？"><a href="#3、什么是指令和指令集？" class="headerlink" title="3、什么是指令和指令集？"></a>3、什么是指令和指令集？</h2><p>上图右侧主存中的指令是 <code>CPU 可以支持的处理命令</code>，一般包含<code>算术指令</code>（加和减）、<code>逻辑指令</code>（与、或和非）、<code>数据指令</code>（移动、输入、删除、加载和存储）、<code>流程控制指令</code>以及<code>程序结束指令</code>等，由于 CPU 只能识别二进制码，因此指令是由二进制码组成。除此之外，指令的集合称为指令集（例如汇编语言就是指令集的一种表现形式），常见的指令集有精简指令集（ARM）和复杂指令集（Inter X86）。一般指令集决定了 CPU 处理器的硬件架构，规定了处理器的相应操作。</p>
+<h2 id="5、JavaScript-是如何运行的？解释型语言和编译型语言的差异是什么？"><a href="#5、JavaScript-是如何运行的？解释型语言和编译型语言的差异是什么？" class="headerlink" title="5、JavaScript 是如何运行的？解释型语言和编译型语言的差异是什么？"></a>5、JavaScript 是如何运行的？解释型语言和编译型语言的差异是什么？</h2><p>解释器和编译器有很多相似之处，都需要对源程序进行分析，并转换成目标机器可识别的机器语言进行执行。<br><code>编译器</code>：先把源程序全部转换成机器语言并产生目标文件，然后将目标文件写入相应的程序存储器进行执行（转换和执行的过程分离）<br><code>解释器</code>：在转换源程序的同时立马执行对应的机器语言（转换和执行的过程不分离）<br>①JS代码-&gt;解析成 AST (期间伴随词法分析、语法分析)-&gt;生成字节码（V8）-&gt;生成机器码（编译器）</p>
+<p>电脑：CPU+I/O设备+主存储器组成，通过总线进行连接并行传输<br>CPU：控制单元+存储单元+运算单元<br>主存：指令，CPU可以支持的处理命令，一般包含算数指令(加减)、逻辑指令(与、或和非)、数据指令(移动、输入、删除、加载和存储)、流程控制指令、程序结束指令等</p>
+<h2 id="5-简单描述一下-Babel-的编译过程？"><a href="#5-简单描述一下-Babel-的编译过程？" class="headerlink" title="5.简单描述一下 Babel 的编译过程？"></a>5.简单描述一下 Babel 的编译过程？</h2><p>答： 首先，Babel的作用是 从一种源码到另一种源码，充当转换编译器的作用，可以简述为 解析（解析JS代码）-&gt;转换（解析和修改AST）-&gt;重建（将修改后的AST转换成另一种JS代码）</p>
+<h2 id="7-浏览器和-Node-js-中的事件循环机制有什么区别？"><a href="#7-浏览器和-Node-js-中的事件循环机制有什么区别？" class="headerlink" title="7.浏览器和 Node.js 中的事件循环机制有什么区别？"></a>7.浏览器和 Node.js 中的事件循环机制有什么区别？</h2><p>在浏览器里，每当一个被监听的事件发生时，事件监听器绑定的相关任务就会被添加进回调队列。通过事件产生的任务是异步任务，常见的事件任务包括：</p>
+<ul>
+<li>用户交互事件产生的事件任务，比如输入操作</li>
+<li>计时器产生的事件任务，比如setTimeout；</li>
+<li>异步请求产生的事件任务，比如 HTTP 请求。<br>主线程运行的时候，会产生堆（heap）和栈（stack），其中堆为内存、栈为函数调用栈。我们能看到，Event Loop 负责执行代码、收集和处理事件以及执行队列中的子任务，具体包括以下过程。</li>
+<li>JavaScript 有一个主线程和调用栈，所有的任务最终都会被放到调用栈等待主线程执行。</li>
+<li>同步任务会被放在调用栈中，按照顺序等待主线程依次执行。</li>
+<li>主线程之外存在一个回调队列，回调队列中的异步任务最终会在主线程中以调用栈的方式运行。</li>
+<li>同步任务都在主线程上执行，栈中代码在执行的时候会调用浏览器的 API，此时会产生一些异步任务。</li>
+<li>异步任务会在有了结果（比如被监听的事件发生时）后，将异步任务以及关联的回调函数放入回调队列中。</li>
+<li>调用栈中任务执行完毕后，此时主线程处于空闲状态，会从回调队列中获取任务进行处理。</li>
+<li>上述过程会不断重复，这就是 JavaScript 的运行机制，称为事件循环机制（Event Loop）</li>
+</ul>
+<p><a href="https://juejin.cn/post/6987549240436195364#heading-0" target="_blank" rel="noopener">https://juejin.cn/post/6987549240436195364#heading-0</a><br><a href="https://juejin.cn/post/6987070062490288165?share_token=3904e7be-48e7-44bf-a27c-66ab95dd598c#heading-65" target="_blank" rel="noopener">https://juejin.cn/post/6987070062490288165?share_token=3904e7be-48e7-44bf-a27c-66ab95dd598c#heading-65</a><br><a href="https://juejin.cn/post/6844903843197616136#heading-3" target="_blank" rel="noopener">https://juejin.cn/post/6844903843197616136#heading-3</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/12/20/手写Promise源码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1416,284 +1731,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/13/谈谈对前端框架的理解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/13/谈谈对前端框架的理解/" itemprop="url">谈谈对前端框架的理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-13T14:58:27+08:00">
-                2021-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/09/13/谈谈对前端框架的理解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/09/13/谈谈对前端框架的理解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最早的时候页面是服务端渲染的，也就是 PHP、JSP 那些技术，服务端通过模版引擎填充数据，返回生成的 html，交给浏览器渲染。那时候表单会同步提交，服务端返回结果页面的 html。</p>
-<p>后来浏览器有了 ajax 技术，可以异步的请求，服务端返回 xml 或者 json。ajax 最早是基于 xml 的，这也是它名字的由来。因为 xml 多了很多没必要的标签，内容比较多，所以后来 json 流行开来。</p>
-<p>网页和服务端的数据交互变成了异步的，可以服务端返回 json 数据，浏览器里拼接 html，之后渲染（浏览器里面生成 dom 就等同于渲染）。页面基本没啥刷新的必要了，于是后来就逐渐演变出了单页应用 SPA（single page application）。</p>
-<p>早期开发页面的时候就是基于浏览器的 dom api 操作 dom 来做渲染和交互，但是 dom api 比较啰嗦，而且当时浏览器的兼容性问题也比较麻烦，不同浏览器有不同的写法。为了简化 dom 操作和更方便的兼容各种浏览器，出现了 jquery 并且迅速流行开来，那个时代 jquery 是如日中天的。</p>
-<p>我一直习惯把网页分为物理层和逻辑层，dom 就算是物理层，jquery 是操作 dom 的一系列工具函数，也是工作在物理层。</p>
-<p>网页做的事情基本就是拿到数据渲染 dom，并且数据改变之后更新 dom，这个流程是通用的，后来逐渐出现了 mvvm 框架，来自动把数据的变更映射到 dom，不再需要手动操作 dom。也就是 vue、react 等现代的前端框架。我把这一层叫做逻辑层。</p>
-<p>前端框架除了提供了数据驱动视图变化的功能以外，还支持了 dom 的逻辑划分，可以把一部分 dom 封装成组件，组件和组件之间相互组合，构成整个界面。物理层依然是 dom，只是实现了数据到 dom 的自动映射之后，我们只需要在逻辑层写组件就可以了。</p>
-<p>现在前端入门也不会再学物理层的操作 dom 的 jquery 了，而是直接从 vue、react 这种逻辑层的前端框架开始。</p>
-<p><a href="https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/download/release/v12.22.4/node-v12.22.4-linux-x64.tar.xz</a><br>wget <a href="https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz" target="_blank" rel="noopener">https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz</a></p>
-<p>tar xvf node-v12.22.4-linux-x64.tar.xz<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/node /usr/local/bin/node<br>ln -sf /opt/node/node-v12.22.4-linux-x64/bin/npm /usr/local/bin/npm<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/09/13/谈谈对前端框架的理解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.html-js.site/2021/09/09/Jenkins自动化构建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大洋">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大洋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/09/Jenkins自动化构建/" itemprop="url">Jenkins自动化构建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-09T16:46:46+08:00">
-                2021-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/09/09/Jenkins自动化构建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2021/09/09/Jenkins自动化构建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/5f671aca2b5a" target="_blank" rel="noopener">https://www.jianshu.com/p/5f671aca2b5a</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1737,7 +1779,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">110</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1750,7 +1792,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1867,7 +1909,7 @@
         <div class="copyright">
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
